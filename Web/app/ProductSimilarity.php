@@ -63,7 +63,7 @@ class ProductSimilarity
         arsort($similarities);
 
         foreach ($similarities as $productIdKey => $similarity) {
-            $id      = intval(str_replace('product_id_', '', $productIdKey));
+            $id       = intval(str_replace('product_id_', '', $productIdKey));
             $products = array_filter($this->products, function ($product) use ($id) { return $product->id === $id; });
             if (! count($products)) {
                 continue;
