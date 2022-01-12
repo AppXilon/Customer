@@ -20,7 +20,7 @@
                 <div class="row">
                     @foreach ($order->orderitems as $item)
                   <div class="col-md-3">
-                    <img src="asset/img/menu-chichop.png">
+                    <img src="{{asset('images/'. $item->products->P_Image)}}">
                   </div>
                   <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0">{{$item->products->P_Name}}</p>
@@ -29,8 +29,14 @@
                     <p class="text-muted mb-0 small">Quantity: {{$item->Order_Quantity}}</p>
                   </div>
                   <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">RM{{$item->Order_Price}}</p>
+                    <p class="text-muted mb-0 small">RM{{ number_format((float) $item->Order_Price, 2, '.', '') }}</p>
                   </div>
+                  @if($order->O_Status=='completed' && $item-> rtatus== false)
+                  <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small"><a href= "/write-review/{{$item->products->P_Id}}">Write Review</a></p>
+                  </div>
+                  @endif
+                  <!-- sampai sini -->
                     @endforeach
                 </div>
                 <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
@@ -39,7 +45,7 @@
 
             <div class="d-flex justify-content-between pt-2">
               <p class="fw-bold mb-0">Order Details</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> RM{{$order->O_Total_Price}}</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> RM{{ number_format((float) $order->O_Total_Price, 2, '.', '') }}</p>
             </div>
 
             <div class="d-flex justify-content-between">
@@ -61,7 +67,7 @@
             </div>
           </div>
           <div class="card-footer border-0 px-4 py-5" style="background-color: #fbaf32; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total paid: <span class="h2 mb-0 ms-2">RM{{$order->O_Total_Price}}</span></h5>
+            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total paid: <span class="h2 mb-0 ms-2">RM{{ number_format((float) $order->O_Total_Price, 2, '.', '') }}</span></h5>
           </div>
         </div>
       </div>

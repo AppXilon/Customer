@@ -48,7 +48,7 @@
                             <div class="item {{$item->P_Id==1?'active':''}}">
                                 <div class="menu-item">
                                     <div class="menu-img">
-                                        <img src="asset/img/menu-kampung.png" alt="Image">
+                                        <img src="{{asset('images/'. $item->P_Image)}}" alt="Image">
                                     </div>
                                     <div class="menu-text">
                                         <h3><span><a href="detail/{{$item->P_Id}}">{{$item->P_Name}}</a></span> <strong>RM{{ number_format((float) $item->P_Price, 2, '.', '') }}</strong></h3>

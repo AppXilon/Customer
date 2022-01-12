@@ -14,16 +14,15 @@ class CreateOrderProductTable extends Migration
     public function up()
     {
         Schema::create('order_product', function (Blueprint $table) {
-            $table->bigIncrements('Order_Product_Id');
             $table->bigInteger('Order_Id')->unsigned();
             $table->foreign('Order_Id')->references('id')->on('order')->onDelete('cascade');
-            $table->unsignedBigInteger('U_Id');
-            $table->foreign('U_Id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('P_Id')->unsigned();
             $table->foreign('P_Id')->references('P_Id')->on('product')->onDelete('cascade');
             $table->bigInteger('Order_Quantity');
             $table->double('Order_Price');
+            $table->boolean('rstatus')->default(false);
             $table->timestamps();
+            $table->primary(['Order_Id', 'P_Id']);
         });
     }
 

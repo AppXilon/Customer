@@ -7,9 +7,6 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
-use Session;
-use Razorpay\Api\Api;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,13 +42,13 @@ class CheckoutController extends Controller
     {
         $order=new Order;
         $order->User_Id =Auth::id();
-        $order->O_Name=$req->input('name');
-        $order->O_Email=$req->input('email');
-        $order->O_Street_1=$req->input('street');
-        $order->O_Postcode=$req->input('postcode');
-        $order->O_City=$req->input('city');
-        $order->O_State=$req->input('state');
-        $order->O_Phone=$req->input('phone');
+        $order->O_Name=$req->input('O_Name');
+        $order->O_Email=$req->input('O_Email');
+        $order->O_Street_1=$req->input('O_Street_1');
+        $order->O_Postcode=$req->input('O_Postcode');
+        $order->O_City=$req->input('O_City');
+        $order->O_State=$req->input('O_State');
+        $order->O_Phone=$req->input('O_Phone');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
 
@@ -70,7 +67,6 @@ class CheckoutController extends Controller
         {
             OrderProduct::create([
                 'Order_Id'=>$order->id,
-                'U_Id'=>$item->Cust_Id,
                 'P_Id'=>$item->Pro_Id,
                 'Order_Quantity'=>$item->Pro_Qty,
                 'Order_Price'=>$item->products->P_Price*$item->Pro_Qty,
@@ -78,12 +74,6 @@ class CheckoutController extends Controller
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         Cart::destroy($cartitems);
-
-        if($req->input('O_Payment') == "paypal")
-        {
-            return response()->json(['O_Status' => "Order Success"]);
-        }
-        return view('checkout_complete')->with('O_Status', "Order Success");
     }
 
     function razorpaycheck(Request $req)
@@ -95,23 +85,28 @@ class CheckoutController extends Controller
             $total_price += $prod->products->P_Price * $prod->Pro_Qty;
         }
 
-        $cname = $req->input('cname');
-        $cemail = $req->input('cemail'); 
-        $cphone = $req->input('cphone'); 
-        $cstreet = $req->input('cstreet');
-        $cpostcode = $req->input('cpostcode');
-        $ccity = $req->input('ccity');
-        $cstate = $req->input('cstate');        
+        $cname = $req->input('O_Name');
+        $cemail = $req->input('O_Email'); 
+        $cphone = $req->input('O_Phone'); 
+        $cstreet = $req->input('O_Street_1');
+        $cpostcode = $req->input('O_Postcode');
+        $ccity = $req->input('O_City');
+        $cstate = $req->input('O_State');        
 
         return response()->json([
-            'cname'=> $cname, 
-            'cemail'=> $cemail, 
-            'cphone'=> $cphone, 
-            'cstreet'=> $cstreet,
-            'cpostcode'=>$cpostcode,
-            'ccity'=>$ccity,
-            'cstate'=>$cstate,
-            'total_price'=> $total_price
+            'O_Name'=> $cname, 
+            'O_Email'=> $cemail, 
+            'O_Phone'=> $cphone, 
+            'O_Street_1'=> $cstreet,
+            'O_Postcode'=>$cpostcode,
+            'O_City'=>$ccity,
+            'O_State'=>$cstate,
+            'O_Total_Price'=> $total_price
         ]);
+    }
+    public function summary($id)
+    {
+        $summary = Order::where('User_Id', Auth::id())->get();
+        return view('orderplace',compact('summary'));
     }
 }

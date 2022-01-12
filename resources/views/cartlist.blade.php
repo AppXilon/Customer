@@ -29,7 +29,7 @@
                 <div class="basket-product">
                     <div class="item">
                         <div class="product-image">
-                            <img src="asset/img/menu-friedrice-big.png" alt="Placholder Image 2" class="product-frame">
+                            <img src="{{asset('images/'. $item->P_Image)}}" alt="Placholder Image 2" class="product-frame">
                         </div>
                         <div class="product-details">
                             <a href="detail/{{$item->id}}">
@@ -73,7 +73,7 @@
                     <div class="price">{{ number_format((float) $totalPrice, 2, '.', '') }}
                         </div>
                     <div class="checkout-button">
-                        <a href="/" class="btn btn-warning">Continue Shopping</a>
+                        <a href="/catalogue" class="btn btn-warning">Continue Shopping</a>
                         <a href="checkout_shipping" class="btn btn-warning">Proceed to Checkout</a>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 <div class="checkout-button">
-                    <a href="/" class="btn btn-warning">Continue Shopping</a>
+                    <a href="/catalogue" class="btn btn-warning">Continue Shopping</a>
                 </div>
             @endif
             </div>
@@ -129,6 +129,11 @@ $('.input-group').on('click', '.button-plus', function(e) {
 
 $('.input-group').on('click', '.button-minus', function(e) {
     decrementValue(e);
+});
+
+$('.changeQuantity').click(function (e) {
+    e.preventDefault();
+
 });
 
 

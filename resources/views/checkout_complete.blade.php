@@ -7,11 +7,20 @@
         <div class="section-header text-center">
             <h2>Checkout Item</h2>
         </div>
+        @if(\Session::has('error'))
+        <div class="alert alert-danger">{{ \Session::get('error') }}</div>
+        {{ \Session::forget('error') }}
+        @endif
+        @if(\Session::has('success'))
+            <div class="alert alert-success">{{ \Session::get('success') }}</div>
+            {{ \Session::forget('success') }}
+        @endif
         <div class="process-checkout">
             <ul class="progressbar">
-                <li class="active">Shipping Address </li>
-                <li class="active">Summary</li>
-                <li>Complete</li>
+                <li class="active">Login</li>
+                <li class="active">Shipping and Billing</li>
+                <li class="active">Checkout Complete</li>
+                <li class="active">Order Status</li>
             </ul>
         </div>
 

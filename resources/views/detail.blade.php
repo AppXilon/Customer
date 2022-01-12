@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="single-content">
-                    <img src="asset/img/menu-friedrice-big.png" />
+                    <img src="{{asset('images/'. $detail['P_Image'])}}" />
                     <h2>{{$detail['P_Name']}}</h2>
                     @if($detail['P_Status'] == 1)
                         <label class="badge bg-success">In Stock</label>

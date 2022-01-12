@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FaqController extends Controller
 {
@@ -17,8 +18,14 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
+
     public function faq_index()
     {
-        return view('faq');
+        $data = array(
+           'list' => DB::table ('faq') ->get()
+
+        );
+        return view('faq',  $data);
     }
 }

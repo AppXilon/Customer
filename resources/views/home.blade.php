@@ -1,49 +1,38 @@
 @extends('master')
 
 @section("content")
-        
-        <!-- Carousel Start -->
-        <div class="carousel">
-            <div class="container-fluid">
-                <div class="owl-carousel">
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="asset/img/carousel-1.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Best <span>Quality</span> Features</h1>
-                            <p>
-                                AppXilon provide with various and best quality features that will be useful to seller and customer
-                            </p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="asset/img/carousel-2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Malaysia’s <span>Best</span> App</h1>
-                            <p>
-                                AppXilon is guaranteed to be the best application in Malaysia
-                            </p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="asset/img/carousel-3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Fastest Order <span>Delivery</span></h1>
-                            <p>
-                                All kind of products is available to delivery
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel End -->
 
+<!-- Carousel Start -->
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="asset/img/carousel-1.jpg" style="width:100%">
+    <div class="text">Caption Text</div>
+    </div>
+
+    <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="asset/img/carousel-2.jpg" style="width:100%">
+    <div class="text">Caption Two</div>
+    </div>
+
+    <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="asset/img/carousel-3.jpg" style="width:100%">
+    <div class="text">Caption Three</div>
+    </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+<!-- Carousel End -->
+        
         <div class="welcome-header text-center">
             <h1>WELCOME TO AppXilon</h1>
         </div>
@@ -272,5 +261,29 @@
         </div>
         <!-- Contact End -->
 
+@endsection
+
+@section('scripts')
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" activer", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " activer";
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+</script>
 @endsection
 

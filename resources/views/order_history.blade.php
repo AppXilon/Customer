@@ -25,10 +25,17 @@
                 </div>
                 <div class="col-md-11">
                     <div class="row">
+                        @if($item->O_Status == '1')
                         <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">success</label></div>
+                            <div class="pull-right"><label class="label label-success">Competed</label></div>
                             Total Price: RM{{$item->O_Total_Price}} <br />
                         </div>
+                        @else
+                        <div class="col-md-12">
+                            <div class="pull-right"><label class="label label-danger">Canceled</label></div>
+                            Total Price: RM{{$item->O_Total_Price}} <br />
+                        </div>
+                        @endif
                         <div class="col-md-12">Order made on: {{$item->created_at}}</div>
                     </div>
                 </div>

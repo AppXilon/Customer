@@ -27,7 +27,7 @@ class CartController extends Controller
                 }
             else{
                 $cart->save();
-                return redirect('/');
+                return redirect('/catalogue');
             }
         }
         else

@@ -20,17 +20,10 @@ if (Auth::check()) {
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav ml-auto">
                 <a href="home" class="nav-item nav-link active">Home</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Shop</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Food and Beverage</a>
-                            <div class="dropdown-submenu">
-                                <a href="order_type" class="dropdown-item">Taf Bistro</a>
-                            </div>
-                        <a href="#" class="dropdown-item">Groceries</a>
-                    </div>
-                </div>
+
                 <a href="about" class="nav-item nav-link">About</a>
+                
+                <a href="shop_category" class="nav-item nav-link">Shop</a>
                
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
 
@@ -69,9 +62,10 @@ if (Auth::check()) {
                 <div class="search-widget">
                     <form action="/search">
                         <input class="form-control" type="text" name="query" placeholder="Search Keyword">
-                        <button class="btn"><i class="fa fa-search"></i></button>
+                </div>
+                        <button class="btn mt-3"><i class="fa fa-search"></i></button>
                     </form>
-                </div>  
+                
                 <div class="nav-item nav-link">
                     <a href="/cartlist">
                         <i class="fa fa-shopping-cart" style="font:size 30px"></i>

@@ -26,23 +26,6 @@ class ProductController extends Controller
         $data = Product::find($P_Id);
         return view('detail', ['detail'=>$data]);
     }
-    function viewcategory($P_Cat_Id)
-    {
-        if (request()->P_Cat_Name)
-        {
-            $products = Product::with('product_category')->whereHas('categories', function($query){
-                 $query->where('P_Cat_Name', request()->category);
-            })->get();
-            $category = Category::where('P_Cat_Slug', $slug)->first();
-        }
-        else
-        {
-            $category = Category::where('P_Cat_Slug', $slug)->first();
-            $products = Product::where('Cat_Id', $category->P_Cat_Id)->where('P_Status','1')->get();
-        }
-        
-        return view('catalogue',compact('category','products'));
-    }
     function search(Request $req)
     {
        $data=Product::where('P_Name', 'like', '%'.$req->input('query').'%')->get();

@@ -5,6 +5,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BusinessHourController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\Product_CategoryController;
+use App\Http\Controllers\PayPalController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +27,24 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [ProductController:: class, 'index']) ;
+Route::get('catalogue', [ProductController:: class, 'index']) ;
 
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('shop_category', [ShopController::class, 'shop']);
+
+Route::get('view-shop/{S_Cat_Slug}', [ShopController::class, 'viewshop']);
 
 Route::get('detail/{id}', [ProductController:: class, 'detail']) ;
 
 Route::get('view-category/{Cat_Slug}', [ProductController::class, 'viewcategory']);
+
+Route::get('view-shop/{Cat_Slug}/{S_Name}', [ShopController::class, 'inshop']);
 
 Route::get('search', [ProductController:: class, 'search']) ;
 
@@ -46,6 +57,8 @@ Route::get('removecart/{id}', [CartController:: class, 'removeCart']) ;
 Route::get('checkout_shipping', [CheckoutController:: class, 'orderDetails']) ;
 
 Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
+
+Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
 
 Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 
@@ -66,3 +79,50 @@ Route::get('edit/{id}', [UserController:: class, 'edit']) ;
 Route::post('update', [UserController:: class, 'update']) -> name ('update') ;
 
 Route::get('faq_index', [FaqController:: class, 'faq_index']) ;
+
+Route::get('write-review/{P_Id}', [ReviewController:: class, 'addReview']) ;
+
+Route::post('/submitReview', [ReviewController:: class, 'submitReview']) -> name ('submitReview') ;
+
+Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+
+/*******************************/
+/******* Manager route start *******/
+/*******************************/
+
+Route::get('/dashboard', function () {
+    return view('layouts.index');
+});
+
+Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
+
+Route::resource('/catalogues', CatalogueController::class);
+
+Route::resource('/product_category', Product_CategoryController::class);
+
+Route::resource('/shopInfo', ShopController::class);
+
+Route::resource('/businesshour', BusinessHourController::class);
+
+Route::resource('/order', OrderController::class);
+
+
+Route::get('/bookinglist', function () {
+   return view('layouts.bookinglist');
+});
+
+Route::get('/seatmap', function () {
+   return view('layouts.seatmap');
+});
+
+Route::get('/cust_analytics', function () {
+   return view('layouts.cust_analytics');
+});
+
+
+Route::get('/feedback', function () {
+   return view('layouts.feedback');
+});

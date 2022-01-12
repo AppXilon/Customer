@@ -95,13 +95,13 @@ $(document).ready(function (){
        else
        {
             var data = {
-                'cname' : cname, 
-                'cemail' : cemail, 
-                'cphone' : cphone,
-                'cstreet' : cstreet, 
-                'cpostcode' : cpostcode,
-                'ccity' : ccity,
-                'cstate' : cstate
+                'O_Name' : cname, 
+                'O_Email' : cemail, 
+                'O_Phone' : cphone,
+                'O_Street_1' : cstreet, 
+                'O_Postcode' : cpostcode,
+                'O_City' : ccity,
+                'O_State' : cstate
             }
 
             $.ajax({
@@ -109,7 +109,7 @@ $(document).ready(function (){
                 url:"proceed-to-pay",
                 data: data,
                 success: function (response) {
-
+                    alert(response.total_price) 
                 }
             })
        }
