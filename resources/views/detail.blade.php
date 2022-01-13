@@ -27,16 +27,16 @@
                     <img src="{{asset('images/'. $detail['P_Image'])}}" />
                     <h2>{{$detail['P_Name']}}</h2>
                     @if($detail['P_Status'] == 1)
-                        <label class="badge bg-success">In Stock</label>
+                    <label class="badge bg-success">In Stock</label>
                     @else
-                        <label class="badge bg-danger">Out of Stock</label>
+                    <label class="badge bg-danger">Out of Stock</label>
                     @endif
                     <p>
-                    {{$detail['L_Description']}}
+                        {{$detail['L_Description']}}
                     </p>
 
                     @if($detail['P_Status'] == 1)
-                        <div class="menu-cart">
+                    <div class="menu-cart">
                         <form action="/add_to_cart" method="POST">
                             @csrf
                             <input type="hidden" name="Pro_Id" value="{{$detail['P_Id']}}">
@@ -44,12 +44,12 @@
                         </form>
                     </div>
                     @else
-                        <div class="menu-cart">
-                            <input type="hidden" name="Pro_Id" value="{{$detail['P_Id']}}">
-                            <button disabled class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
-                        </div>
+                    <div class="menu-cart">
+                        <input type="hidden" name="Pro_Id" value="{{$detail['P_Id']}}">
+                        <button disabled class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
+                    </div>
                     @endif
-                    
+
                 </div>
                 <div class="single-tags">
                     <a href="">Taf Bistro</a>
@@ -60,7 +60,7 @@
                     <a href="">Take Away</a>
                     <a href="">Booking</a>
                 </div>
-                <div class="single-related">
+                {{-- <div class="single-related">
                     <h2>Related Products</h2>
                     <div class="owl-carousel related-slider">
                         <div class="post-item">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="single-comment">
                     <h2>Reviews</h2>
@@ -100,7 +100,7 @@
                                     <h3><a href="">Nurul Adila</a></h3>
                                     <span>16 Mei 2023 at 12:00pm</span>
                                     <p>
-                                        You guys should try this kampung fried rice! I almost buy it everyday. 
+                                        You guys should try this kampung fried rice! I almost buy it everyday.
                                     </p>
                                     <a class="btn" href="">Reply</a>
                                 </div>
@@ -179,48 +179,61 @@
                     </div>
 
                     <div class="sidebar-widget">
-                        <h2 class="widget-title">Product Recommendations</h2>
+                        {{-- MODULE 5 --}}
+                        <h2 class="widget-title">Similar Product</h2>
+                        {{-- cut --}}
                         <div class="recent-post">
-                            <div class="post-item">
+
+
+                            {{-- <div class="post-item">
                                 <div class="post-img">
-                                    <img src="asset/img/post-1.jpg" />
+                                    <img class="large-product-image" src="{{ $selectedProduct->image }}"
+                                        alt="Product Image">
                                 </div>
                                 <div class="post-text">
-                                    <a href="">Wagyu Beef burger</a>
+                                    <p class="card-text text-muted">{{ $selectedProduct->name }} (RM{{
+                                        $selectedProduct->price }})</p>
                                 </div>
+                            </div> --}}
+
+                            
+                            {{-- LOOP --}}
+                            {{-- @foreach ($products as $product)
+                            <a href="/?id={{ $product->id }}" style="text-decoration: none;">
+                                <img class="p-3" style="height: 80px; width: auto;" src="{{ $product->image }}"
+                                    alt="Product Image">
+                            </a>
+                            @endforeach --}}
+
+
+
+                            @foreach ($products as $product)
+                            <div class="row mb-5">
+
+                                    <div class="post-item">
+
+                                        <div class="text-center" style="background-color: #ccc">
+                                            <img class="post-img" src="{{ $product->image }}" alt="Product Image">
+                                        </div>
+                                        <div class="post-text">
+                                            <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
+                                                }}%</p>
+                                            <p class="card-text text-muted">{{ $product->name }} (RM{{ $product->price
+                                                }})</p>
+                                        </div>
+                                    </div>
                             </div>
-                            <div class="post-item">
-                                <div class="post-img">
-                                    <img src="asset/img/post-2.jpg" />
-                                </div>
-                                <div class="post-text">
-                                    <a href="">Fruit Salad</a>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-img">
-                                    <img src="asset/img/post-3.jpg" />
-                                </div>
-                                <div class="post-text">
-                                    <a href="">Orange Juice</a>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-img">
-                                    <img src="asset/img/post-4.jpg" />
-                                </div>
-                                <div class="post-text">
-                                    <a href="">Lemon Juice</a>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-img">
-                                    <img src="asset/img/post-5.jpg" />
-                                </div>
-                                <div class="post-text">
-                                    <a href="">Kaya Toast Bread</a>
-                                </div>
-                            </div>
+                            @endforeach
+
+
+
+
+
+
+
+
+                           
+                      
                         </div>
                     </div>
 
@@ -244,5 +257,15 @@
         </div>
     </div>
 </div>
-<!-- Single Post End-->   
+{{-- script module 5 --}}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+<!-- Single Post End-->
 @endsection
