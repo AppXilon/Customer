@@ -14,6 +14,7 @@ class CreateShopCategory extends Migration
         Schema::create('shop_category', function (Blueprint $table) {
             $table->string('S_Cat_Name')->primary();
             $table->string('S_Cat_Slug');
+            $table->string('S_Status')->default('1');
             $table->timestamps();
         });
     }

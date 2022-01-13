@@ -17,7 +17,7 @@ class ShopInfoSeeder extends Seeder
         //
         DB::table('shop')->insert([[
             'Shop_Id'=> '1',
-            'S_Category'=> 'Restaurant',
+            'S_Category'=> 'Food and Beverage',
             'S_Name'=> 'Taf Bistro',
             'S_Description'=> 'OFFER BEST DISH ANYTIME ANYWHERE',
             'Dine_In'=> '1',
