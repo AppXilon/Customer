@@ -73,9 +73,19 @@ class ShopController extends Controller
      */
     public function update(Request $request, Shop $shopInfo)
     {
-        //
+        // 
+        $newImageName = time() . '-' . $request->name . '.' . 
+        $request->S_Image->extension();
+        $request->S_Image->move(public_path('images'), $newImageName);
+
+        $Shop_Banner = $request->input('S_Banner') . '-' . $request->name . '.' . 
+        $request->S_Banner->extension();
+        $request->S_Banner->move(public_path('images'), $Shop_Banner);
+
         $shopInfo->update([
             'S_Name' => $request->input('S_Name'),
+            'S_Image' => $newImageName,
+            'S_Banner' => $Shop_Banner,
             'S_Description' => $request->input('S_Description'),
             'Dine_In' => $request->input('Dine_In'),
             'Delivery' => $request->input('Delivery'),
@@ -83,7 +93,7 @@ class ShopController extends Controller
     
     
         return redirect()->route('shopInfo.index');
-    } 
+    }  
 
     /**
      * Remove the specified resource from storage.

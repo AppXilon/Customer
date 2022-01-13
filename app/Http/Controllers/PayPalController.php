@@ -67,6 +67,13 @@ class PayPalController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
 
+        $total = 0;
+        $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
+        foreach($cartitems_total as $prod)
+        {
+            $total += $prod->products->P_Price * $prod->Pro_Qty;
+        }
+
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
@@ -77,7 +84,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "MYR",
-                        "value" => "10"
+                        "value" => "{{$total}}"
                     ]
                 ]
             ]

@@ -32,8 +32,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
-                                    class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i class="fa fa-angle-down"></i><br>Manager</h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
                                 <a class="dropdown-item" href="#">Settings</a>
@@ -54,9 +53,17 @@
                                     <div class="card-body">
                                         @foreach ($shop as $shopInfo)
                                             <form action="{{ route('shopInfo.update', $shopInfo->Shop_Id) }}"
-                                                method="POST">
+                                                method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
+                                                <div class="form-row">
+                                                <img src = "{{asset('images/'. $shopInfo->S_Image)}}" class="shop"><br>
+                                                <img src = "{{asset('images/'. $shopInfo->S_Banner)}}" class="banner"><br>
+                                                </div>
+                                                <label for="validationCustomUsername">Shop Image:</label><br>
+                                                <input type="file" name="S_Image"/><br><br>
+                                                <label for="validationCustomUsername">Shop Banner:</label><br>
+                                                <input type="file" name="S_Banner" /><br>
                                                 <div class="form-row">
                                                     <div class="col-md-4 mb-3">
                                                         <label class="col-form-label">Shop Industry Category</label>
@@ -91,41 +98,6 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <h4 class="header-title">Functionality</h4>
-                                                    {{-- <label for="example-text-input" class="col-form-label">Dine In
-                                                        Booking: </label><br>
-                                                    @if ($shopInfo->Dine_In == '1')
-                                                        <label class="switch">
-                                                            <input type="checkbox" checked name="Dine_In" value="1">
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    @else
-                                                        <label class="switch">
-                                                            <input type="checkbox" name="Dine_In" value="0">
-                                                            <span class="slider round"></span>
-                                                    @endif<br>
-                                                    <label for="example-text-input"
-                                                        class="col-form-label">Delivery:</label><br>
-                                                    @if ($shopInfo->Delivery == '1')
-                                                        <label class="switch">
-                                                            <input type="checkbox" checked>
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    @else
-                                                        <label class="switch">
-                                                            <input type="checkbox">
-                                                            <span class="slider round"></span>
-                                                    @endif<br>
-                                                    <label for="example-text-input" class="col-form-label">Pick Up:</label><br>
-                                                    @if ($shopInfo->Pick_Up == '1')
-                                                        <label class="switch">
-                                                            <input type="checkbox" checked>
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    @else
-                                                        <label class="switch">
-                                                            <input type="checkbox">
-                                                            <span class="slider round"></span>
-                                                    @endif<br> --}}
                                                     <div class="form-row">
                                                         <div class="col-md-2 mb-3">
                                                             <label for="example-text-input" class="col-form-label">Dine

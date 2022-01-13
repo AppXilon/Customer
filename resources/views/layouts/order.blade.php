@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 @include('include.header')
 
 <body>
@@ -38,7 +39,7 @@
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
-                                    class="fa fa-angle-down"></i></h4>
+                                    class="fa fa-angle-down"></i><br>Manager</h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
                                 <a class="dropdown-item" href="#">Settings</a>
@@ -75,66 +76,68 @@
                             <div class="card-body" style="background-color: #F7F7F7;">
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                                        aria-labelledby="pills-home-tab">
-                                        <div class="row">
-                                            @foreach($orders as $order)
-                                            <div class="col-lg-3 mt-2">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <h4 class="header-title">Order {{$order->O_Name}}</h4>
-                                                        <div class="single-table">
-                                                            <div class="table-responsive">
-                                                                <table class="table text-center">
-                                                                    <thead class="text-uppercase">
-                                                                        <tr class>
-                                                                            <th colspan="2" style="text-align:center">
-                                                                                {{$order->O_Type}}</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>Time</td>
-                                                                            <td>{{$order->created_at}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Total Item</td>
-                                                                            <td>1</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Amount</td>
-                                                                            <td>RM {{ number_format((float) $order->O_Total_Price, 2, '.', '') }}</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button" class="btn btn-success editbtn" data-toggle="modal"
-                                                        data-target="#editModal{{$order->id}}">
-                                                        View Order
-                                                    </button>
-                                                </div>
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table id="dataTable" class="table text-center">
+                                                    <thead class="text-uppercase bg-primary">
+                                                        <tr class="text-white">
+                                                            <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Total Item</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Time</th>
+                                                            <th scope="col">Amount</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @foreach ($orders as $order)
+                                                        <tbody>
+                                                            <td>{{ $order->Tracking_No }}</td>
+                                                            <td>@php
+                                                                $Total_Quantity = 0;
+                                                                $quantity = App\Models\OrderProduct::where('Order_Id', $order->id)->get();
+                                                                foreach ($quantity as $prod) {
+                                                                    $Total_Quantity += $prod->Order_Quantity;
+                                                                }
+                                                                echo $Total_Quantity;
+                                                            @endphp</td>
+                                                            <td>
+                                                                @php
+                                                                    $date = Carbon::parse($order->created_at)->format('d-m-Y');
+                                                                    echo $date;
+                                                                @endphp</td>
+                                                            <td>{{ $order->created_at = Carbon::parse($order->created_at)->format('H:i:s') }}
+                                                            </td>
+                                                            <td>RM
+                                                                {{ number_format((float) $order->O_Total_Price, 2, '.', '') }}
+                                                            </td>
+                                                            <td><button type="button" class="btn btn-success"
+                                                                    data-toggle="modal"
+                                                                    data-target="#editModal{{ $order->id }}">
+                                                                    View Order
+                                                                </button></td>
+                                                        </tbody>
+                                                    @endforeach
+                                                </table>
                                             </div>
-                                            @endforeach
                                         </div>
-
                                     </div>
                                     <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                         aria-labelledby="pills-profile-tab">
-                                       
+
                                     </div>
                                     <div class="tab-pane fade" id="pills-completed" role="tabpanel"
                                         aria-labelledby="pills-completed-tab">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- tab end -->
-              
-                    @foreach($orders as $Order)
-                    @include('layouts.editOrder')
+
+                    @foreach ($orders as $Order)
+                        @include('layouts.editOrder')
                     @endforeach
                     <!-- ********************* -->
                 </div>
@@ -143,7 +146,7 @@
     </div>
     <!-- main content area end -->
 
-    
+
 
 
 

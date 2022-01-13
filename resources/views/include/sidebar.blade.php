@@ -1,6 +1,5 @@
 <!-- sidebar menu area start -->
 <div class="sidebar-menu">
-    <a style="color:white">Manager View</a>
             <div class="sidebar-header">
                
                 <div class="logo">

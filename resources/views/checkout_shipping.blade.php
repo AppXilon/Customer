@@ -99,6 +99,37 @@
                     </div>
                 </div>
 
+                <!-- <div class="col-md-6 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Card Details</h4>
+                            <hr>
+                            
+                            <div class="form-group">
+                                <label for="">Card Number</label>
+                                <input type="text" class="form-control" value="Card Number" name="cc_Number" placeholder="Enter Email" required="required">
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Expiry Month</label>
+                                <input type="text" class="form-control" value="Expiry Month" name="cc_Month" placeholder="Enter Phone Number" required="required">
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Expiry Year</label>
+                                <input type="text" class="form-control" value="Expiry Year" name="cc_Year" placeholder="Enter Street" required="required">
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">CVC</label>
+                                <input type="password" class="form-control" value="CVC" name="cc_CVC" placeholder="Enter Postcode" required="required">
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> -->
+
                 <div class="col-md-6 mt-5">
                     <div class="card">
                         <div class="card-body">
@@ -107,6 +138,7 @@
                             <div class="payment-option">
                                 <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with Cash</button>
                                 <button type="submit" name="payment" value="Razor" class="btn btn-primary w-100 mt-3 razorpay_btn">Pay with Razorpay</button>
+                                <!-- <button type="submit" name="payment" value="Stripe" class="btn btn-success w-100 mt-3 razorpay_btn">Pay with Stripe</button> -->
                                 <a class="btn btn-primary w-100 mt-3" href="{{ route('processTransaction') }}">PayPal Payment</a>
                                 @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>

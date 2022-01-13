@@ -3123,3 +3123,23 @@ table.dataTable thead td {
     width: 20%;
   }
 
+  .banner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    width: 400px;
+    height: 200px;
+    border: 5px solid #555;
+  }
+
+  .shop {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #555;
+  }
+
