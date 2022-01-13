@@ -23,8 +23,8 @@ class ProductController extends Controller
     }
     function detail($P_Id)
     {
-        $data = Product::find($P_Id);
-        return view('detail', ['detail'=>$data]);
+        $detail = Product::find($P_Id);
+        return view('detail', compact('detail'));
     }
     function search(Request $req)
     {

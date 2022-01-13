@@ -74,6 +74,8 @@ class CheckoutController extends Controller
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         Cart::destroy($cartitems);
+
+        return view('checkout_complete');
     }
 
     function razorpaycheck(Request $req)
