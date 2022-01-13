@@ -9,4 +9,6 @@ class Review extends Model
 {
     use HasFactory;
     public $table = 'review';
+
+    
 }

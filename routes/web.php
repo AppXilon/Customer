@@ -10,6 +10,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
@@ -109,6 +110,8 @@ Route::resource('/businesshour', BusinessHourController::class);
 
 Route::resource('/order', OrderController::class);
 
+Route::resource('/feedback', FeedbackController::class);
+
 
 Route::get('/bookinglist', function () {
    return view('layouts.bookinglist');
@@ -123,6 +126,3 @@ Route::get('/cust_analytics', function () {
 });
 
 
-Route::get('/feedback', function () {
-   return view('layouts.feedback');
-});
