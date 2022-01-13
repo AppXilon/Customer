@@ -60,7 +60,7 @@
                     <a href="">Take Away</a>
                     <a href="">Booking</a>
                 </div>
-                <div class="single-related">
+                {{-- <div class="single-related">
                     <h2>Related Products</h2>
                     <div class="owl-carousel related-slider">
                         <div class="post-item">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="single-comment">
                     <h2>Reviews</h2>
@@ -180,19 +180,23 @@
 
                     <div class="sidebar-widget">
                         {{-- MODULE 5 --}}
-                        <h2 class="widget-title">Product Recommendations</h2>
+                        <h2 class="widget-title">Similar Product</h2>
                         {{-- cut --}}
                         <div class="recent-post">
-                            <div class="post-item">
+
+
+                            {{-- <div class="post-item">
                                 <div class="post-img">
                                     <img class="large-product-image" src="{{ $selectedProduct->image }}"
                                         alt="Product Image">
                                 </div>
                                 <div class="post-text">
-                                    <p class="card-text text-muted">{{ $selectedProduct->name }} (${{
+                                    <p class="card-text text-muted">{{ $selectedProduct->name }} (RM{{
                                         $selectedProduct->price }})</p>
                                 </div>
-                            </div>
+                            </div> --}}
+
+                            
                             {{-- LOOP --}}
                             {{-- @foreach ($products as $product)
                             <a href="/?id={{ $product->id }}" style="text-decoration: none;">
@@ -214,7 +218,7 @@
                                         <div class="post-text">
                                             <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
                                                 }}%</p>
-                                            <p class="card-text text-muted">{{ $product->name }} (${{ $product->price
+                                            <p class="card-text text-muted">{{ $product->name }} (RM{{ $product->price
                                                 }})</p>
                                         </div>
                                     </div>
