@@ -14,7 +14,8 @@
         "laravel/ui": "^3.3",
         "monkeylearn/monkeylearn-php": "^3.3",
         "razorpay/razorpay": "^2.8",
-        "srmklive/paypal": "~3.0"
+        "srmklive/paypal": "~3.0",
+        "cartalyst/stripe-laravel": "^13.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
