@@ -77,13 +77,13 @@
                                             </thead>
                                             @foreach ($Feedback as $feedback)
                                                 <tbody>
-                                                    <td>{{ $feedback->review_id }}</td>
-                                                    <td>{{ $feedback->p_id}}</td>
-                                                    <td>{{ $feedback->r_rating}}</td>
+                                                    <td>{{ $feedback->Review_Id }}</td>
+                                                    <td>{{ $feedback->P_Id}}</td>
+                                                    <td>{{ $feedback->R_Rating}}</td>
 
-                                                    <td>{{ $feedback->r_comment}}</td>
+                                                    <td>{{ $feedback->R_Comment}}</td>
 
-                                                    <td>{{ $feedback->r_sentiment}}</td>
+                                                    <td>{{ $feedback->R_Sentiment}}</td>
                                              
                                              
                                                 </tbody>
