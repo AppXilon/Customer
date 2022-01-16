@@ -25,7 +25,6 @@ class ProductController extends Controller
     function detail($P_Id)
     {
         $detail = Product::find($P_Id);
-        // return view('detail', ['detail'=>$data]);
 
         //Product Similarity Controller
         $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
