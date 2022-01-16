@@ -9,6 +9,7 @@ use App\Models\Order;
 use Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductSimilarity;
 
 class ProductController extends Controller
 {
@@ -23,8 +24,23 @@ class ProductController extends Controller
     }
     function detail($P_Id)
     {
-        $data = Product::find($P_Id);
-        return view('detail', ['detail'=>$data]);
+        $detail = Product::find($P_Id);
+
+        //Product Similarity Controller
+        $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
+        $selectedId      = intval(app('request')->input('id') ?? '8');
+        $selectedProduct = $products[0];
+    
+        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->id === $selectedId; });
+        if (count($selectedProducts)) {
+            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
+        }
+    
+        $productSimilarity = new ProductSimilarity($products);
+        $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
+        $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
+    
+        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
     }
     function search(Request $req)
     {

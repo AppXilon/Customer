@@ -16,7 +16,7 @@
                             <div class="col-md-3 mb-3"> 
                                 <a href = "{{ url('view-shop/'.$category->S_Cat_Slug.'/'.$shop->S_Name) }}">
                                     <div class="card">
-                                        <img src="asset/img/menu-friedrice-big.png" alt="Shop Image">
+                                        <img src="{{asset('images/'. $shop->S_Image)}}" alt="Shop Image">
                                         <div class="card-body">
                                             <h5>{{$shop->S_Name}}</h5>
                                             <span class="float-start">{{$shop->S_Description}}</span>

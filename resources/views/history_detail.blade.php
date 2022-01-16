@@ -31,7 +31,7 @@
                   <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">RM{{ number_format((float) $item->Order_Price, 2, '.', '') }}</p>
                   </div>
-                  @if($order->O_Status=='completed' && $item-> rtatus== false)
+                  @if($order->O_Status=='completed' && $item-> rstatus== false)
                   <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small"><a href= "/write-review/{{$item->products->P_Id}}">Write Review</a></p>
                   </div>

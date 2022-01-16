@@ -52,6 +52,7 @@
                                     </div>
                                     <div class="menu-text">
                                         <h3><span><a href="detail/{{$item->P_Id}}">{{$item->P_Name}}</a></span> <strong>RM{{ number_format((float) $item->P_Price, 2, '.', '') }}</strong></h3>
+                                        <br>
                                         <p>{{$item->S_Description}}</p>
                                         @if($item->P_Status == 1)
                                             <label class="badge bg-success">In Stock</label>
