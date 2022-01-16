@@ -45,7 +45,7 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                    <!-- seo fact area start -->
+                    <!-- custDetail start -->
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-md-6 mt-5 mb-3">
@@ -53,7 +53,9 @@
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon"><i class="ti-user"></i> Total Customer</div>
-                                            <h2>124</h2>
+                                            <h2>
+                                                <?php echo $totalCustomer?>
+                                            </h2>
                                         </div>
                                         <canvas id="seolinechart1" height="50"></canvas>
                                     </div>
@@ -64,7 +66,9 @@
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon"><i class="ti-user"></i> Today's Customer</div>
-                                            <h2>32</h2>
+                                            <h2>
+                                                <?php echo $todayCustomer?>
+                                            </h2>
                                         </div>
                                         <canvas id="seolinechart2" height="50"></canvas>
                                     </div>
@@ -75,7 +79,9 @@
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon">New Customer</div>
-                                            <h2>12</h2>
+                                            <h2>
+                                                12
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
@@ -85,14 +91,16 @@
                                     <div class="seo-fact sbg4">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon">Repeated Customer</div>
-                                            <h2>20</h2>
+                                            <h2>
+                                                4
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- seo fact area end -->
+                    <!-- custDetail area end -->
                     
                     <!-- sentiment analysis area start -->
                     <div class="col-lg-4 mt-5">
@@ -189,19 +197,15 @@
                     <!-- customer breakdown area start -->
                     <div class="sales-report-area sales-style-two">
                         <div class="row">
-                            <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
+                            <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
                                             <h4 class="header-title mb-0">Customer by Gender</h4>
-                                            <select class="custome-select border-0 pr-3">
-                                                <option selected="">Last 7 Days</option>
-                                                <option value="0">Last 2 Months</option>
-                                                <option value="0">Annual</option>
-                                            </select>
+                                            
                                         </div>
                                     </div>
-                                    <canvas id="cust_gender" height="150"></canvas>
+                                    <canvas id="cust_jantina" height="150"></canvas>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
@@ -216,7 +220,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_age" height="150"></canvas>
+                                    <canvas id="cust_umur" height="150"></canvas>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
@@ -249,6 +253,7 @@
                                     <canvas id="cust_status" height="150"></canvas>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <!-- customer breakdown area end -->
@@ -333,7 +338,7 @@
             labels: ["Negative", "Neutral", "Positive"],
             datasets: [{
                 label: '# of Votes',
-                data: [33, 12, 55],
+                data: <?php echo $sentimentAnalysis; ?>,
                 backgroundColor: [
                     'rgba(231, 76, 60, 1)',
                     'rgba(255, 164, 46, 1)',
@@ -363,15 +368,16 @@
     </script>
 
     <!-- customer by gender -->
+       
     <script>
         var xValues = ["Female", "Male"];
-        var yValues = [58, 40];
+        var yValues = <?php echo $custGender; ?>;
         var barColors = [
         "#004c6d",
         "#b6cee3",
         ];
         
-        new Chart("cust_gender", {
+        new Chart("cust_jantina", {
         type: "pie",
         data: {
             labels: xValues,
@@ -384,7 +390,7 @@
             
         }
         });
-        </script>
+    </script>
 
     <!-- customer by age -->
     <script>
@@ -395,7 +401,7 @@
         "#b6cee3",
         ];
         
-        new Chart("cust_age", {
+        new Chart("cust_umur", {
         type: "pie",
         data: {
             labels: xValues,
