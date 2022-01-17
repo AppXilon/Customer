@@ -10,9 +10,12 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\CustAnalyticsController;
+use App\Http\Controllers\CustDetailsController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -109,6 +112,12 @@ Route::resource('/businesshour', BusinessHourController::class);
 
 Route::resource('/order', OrderController::class);
 
+Route::resource('/feedback', FeedbackController::class);
+
+Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
+
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+
 
 Route::get('/bookinglist', function () {
    return view('layouts.bookinglist');
@@ -118,11 +127,15 @@ Route::get('/seatmap', function () {
    return view('layouts.seatmap');
 });
 
+Route::get('/report', function () {
+    return view('layouts.report');
+ });
+
+/*
 Route::get('/cust_analytics', function () {
    return view('layouts.cust_analytics');
 });
+*/
 
 
-Route::get('/feedback', function () {
-   return view('layouts.feedback');
-});
+

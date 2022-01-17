@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use MonkeyLearn\Client;
 
+require_once('../vendor/autoload.php');
+require_once('../config.php');
 
 class ReviewController extends Controller
 {
@@ -41,6 +44,23 @@ class ReviewController extends Controller
         // $request->R_Image->extension();
         // $request->R_Image->move(public_path('images'), $newImageName);
 
+        //******SENTIMENT ANALYSIS WORK******//
+
+        $req = $request->input('comment');
+        $ml = new Client(MONKEYLEARN);
+        $data = [" $req "];
+        $model_id = 'cl_PNXNX5sL';
+        $res = $ml->classifiers->classify($model_id, $data);
+        $json_en = json_encode($res->result)."\n";
+        $json_de = json_decode($json_en, true);
+
+        $comment = $json_de[0]['classifications'][0]['tag_name'];
+
+
+        //*****SENTIMENT ANALYSIS WORK DONEEEE */
+        
+        
+        
         $UserId=Auth::id();
         $query = DB::table('review') ->insert ([
 
@@ -48,6 +68,7 @@ class ReviewController extends Controller
                         'P_Id'=>$request->input('productID' ),
                         'R_Rating'=>$request->input('R_Rating' ),
                         'R_Comment'=>$request->input('comment' ),
+                        'R_Sentiment'=>$comment,
                         // 'R_Image' => $newImageName,
                         "created_at" =>  \Carbon\Carbon::now(), # new \Datetime()
                         "updated_at" => \Carbon\Carbon::now(), 

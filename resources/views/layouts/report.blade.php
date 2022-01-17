@@ -1,4 +1,4 @@
-<?php include('include/header.php'); ?>
+@include('include.header') 
 
 <body>
     
@@ -10,12 +10,12 @@
     <!-- page container area start -->
     <div class="page-container">
         <!-- sidebar menu area start -->
-        <?php include('include/sidebar.php'); ?>
+        @include('include.sidebar') 
         <!-- sidebar menu area end -->
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            <?php include('include/header_area.php'); ?>
+            @include('include.header_area') 
             <!-- header area end -->
             <!-- page title area start -->
             <div class="page-title-area">
@@ -166,12 +166,12 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <?php include('include/footer.php'); ?>
+        @include('include/footer')
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
     <!-- offset area start -->
-    <?php include('include/offset.php'); ?>
+    @include('include/offset')
     <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
