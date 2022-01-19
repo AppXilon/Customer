@@ -35,4 +35,3 @@ class CreateAdmin extends Migration
         Schema::dropIfExists('admin');
     }
 }
-

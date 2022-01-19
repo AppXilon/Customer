@@ -40,16 +40,17 @@ class CartController extends Controller
         $custId=Auth::id();
         return Cart::where('Cust_Id', $custId)->count();
     }
-    function cartList()
+    function cartList(Request $req)
     {
         $custId=Auth::id();
+        $order=$req->otype;
         $product=DB::table('cart')
         ->join('product', 'cart.pro_id', '=', 'product.P_Id')
         ->where('cart.cust_id', $custId)
         ->select('product.*','cart.*','cart.id as cart_id')
         ->get();
 
-        return view('cartlist', ['product'=>$product]);
+        return view('cartlist', compact('product','order'));
     }
     function removeCart($id)
     {

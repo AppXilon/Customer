@@ -27,6 +27,8 @@ class CreateUsers extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->timestamp('Email_Verified_At')->nullable();
+            $table->string('ban')->nullable();
+            $table->string('reason')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
@@ -41,10 +43,9 @@ class CreateUsers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('customer');
     }
 }
 
 //dekat model user tambah code bawah ni
 //protected�$primaryKey�=�'user_id';
-

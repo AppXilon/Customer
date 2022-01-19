@@ -4,22 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Cart;
-use App\Models\Order;
-use Session;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductSimilarity;
 
 class ProductController extends Controller
 {
-    function index()
+    function index(Request $req)
     {
         $products=DB::table('product')->get();
         $category=DB::table('product_category')->get();
         $cart=DB::table('cart')->get();
+        $order=$req->otype;
 
-        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart);
+        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order);
 
     }
     function detail($P_Id)
