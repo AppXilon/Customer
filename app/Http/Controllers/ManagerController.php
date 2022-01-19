@@ -12,6 +12,10 @@ class ManagerController extends Controller
         $data = Manager::where('M_Ban', 0)->get();
         return view('admin-layouts.man_manager',['manager'=>$data]);
     }
+    public function partner()
+    {
+        return view('partner');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,11 +30,16 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'M_Name' => 'required',
-            'M_Password' => 'required',
-            'M_Email' => 'required',
-            'M_Ban' => 'required',
-            'M_Reason' => 'required'
+            'Name' => 'required',
+            'Email' => 'required',
+            'Password' => 'required',
+            'Phone' => 'required',
+            'Street_1' => 'required',
+            'Postcode' => 'required',
+            'City' => 'required',
+            'State' => 'required',
+            'Ban' => 'required',
+            'Reason' => 'required'
         ]);
     
         Manager::create($request->all());
