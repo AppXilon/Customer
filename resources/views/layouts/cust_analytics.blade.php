@@ -107,7 +107,7 @@
                         <div class="card">
                             <div class="card-body pb-0">
                                 <h4 class="header-title">Sentiment Analysis</h4>
-                                <canvas id="sent_analysis" width="450" height="233"></canvas>
+                                <canvas id="sentiment_analysis" width="450" height="233"></canvas>
                                 <h4></h4>
                             </div>
                         </div>
@@ -331,7 +331,7 @@
 
     <!-- half doughnut sentiment analysis -->
     <script>
-        var ctx = document.getElementById("sent_analysis");
+        var ctx = document.getElementById("sentiment_analysis");
         var dashboardChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
