@@ -500,6 +500,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/be85b3f05b46c39bbc0d95f6c071ddff669510fa",
                 "reference": "be85b3f05b46c39bbc0d95f6c071ddff669510fa",
+
                 "shasum": ""
             },
             "require": {
@@ -540,6 +541,7 @@
             "support": {
                 "issues": "https://github.com/dragonmantank/cron-expression/issues",
                 "source": "https://github.com/dragonmantank/cron-expression/tree/v3.3.1"
+
             },
             "funding": [
                 {
@@ -548,6 +550,7 @@
                 }
             ],
             "time": "2022-01-18T15:43:28+00:00"
+
         },
         {
             "name": "egulias/email-validator",
