@@ -131,11 +131,11 @@ Route::get('/report', function () {
     return view('layouts.report');
  });
 
-/*
-Route::get('/cust_analytics', function () {
-   return view('layouts.cust_analytics');
+
+Route::get('/order_trends', function () {
+   return view('layouts.order_trends');
 });
-*/
+
 
 
 
