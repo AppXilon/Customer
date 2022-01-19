@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class SeatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,6 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $orders = Order::all();
-
-        return view('layouts.order')->with('orders', $orders);
     }
 
     /**
@@ -71,14 +66,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
         //
-        $order->update([
-            'O_Status' =>  $request->input('O_Status'),
-        ]);
-
-        return redirect()->route('order.index')->with('success', 'Order updated successfully');;
     }
 
     /**
@@ -87,20 +77,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
         //
-        $order->delete();
-
-        return redirect()->back();
-    }
-
-    public function bookingList()
-    {
-        //
-        $booking = Order::all();
-
-        return view('layouts.bookinglist')->with('booking', $booking);
     }
 }
-

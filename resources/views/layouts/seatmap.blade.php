@@ -76,17 +76,18 @@
                                             aria-selected="false">Seat Adjustment</a>
                                     </li>
                                 </ul>
-                                <div class="card-body" style="background-color: #F7F7F7;">
+                                <div class="card-body">
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                             aria-labelledby="nav-home-tab">
                                             @foreach ($seatmap as $map)
-                                                <img src="{{ asset('images/' . $map->S_Table) }}" class="seatmap">
+                                                <img src="{{ asset('images/' . $map->S_Table) }}"
+                                                    class="seatmap">
                                             @endforeach
                                         </div>
                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                             aria-labelledby="pills-profile-tab">
-                                            <table id="dataTable" class="table text-center" >
+                                            <table id="dataTable" class="table text-center">
                                                 <thead class="text-uppercase bg-primary">
                                                     <tr class="text-white">
                                                         <th scope="col">Table Number</th>
@@ -101,16 +102,16 @@
                                                         <td>
                                                             <form action="{{ route('seatmap.destroy', $seat->T_Id) }}"
                                                                 method="POST">
-                                                                <a class="btn btn-primary"
-                                                                    href="{{ route('seatmap.edit', $seat->T_Id) }}">Edit</a>
-    
+                                                                <button type="button" data-toggle="modal"
+                                                                    data-target="#editSeat{{$seat->T_Id}}" class="btn btn-primary">
+                                                                    Edit
+                                                                </button>
                                                                 @csrf
                                                                 @method('DELETE')
-    
-                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
                                                             </form>
                                                         </td>
-    
                                                     </tbody>
                                                 @endforeach
                                             </table>
@@ -125,12 +126,12 @@
                     </div>
                     <!-- table primary start -->
                     @foreach ($seatmap as $seat)
-                    @include('layouts.modal.editMap')
-                    @include('layouts.modal.createSeat')
+                        @include('layouts.modal.editMap')
+                        @include('layouts.modal.createSeat')
                     @endforeach
 
                     @foreach ($table as $tables)
-                    @include('layouts.modal.editSeat')
+                        @include('layouts.modal.editSeat')
                     @endforeach
 
                 </div>

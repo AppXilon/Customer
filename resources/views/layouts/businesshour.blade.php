@@ -50,7 +50,6 @@
                     <div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                
                                 <h4 class="header-title">Business Hours</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
