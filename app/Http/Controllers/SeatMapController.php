@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Models\OrderProduct;
+use App\Models\Shop;
+use App\Models\Table;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class SeatMapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $orders = Order::all();
-
-        return view('layouts.order')->with('orders', $orders);
+        $seatmap = Shop::all();
+        $table = Table::all();
+        return view('layouts.seatmap')->with('seatmap', $seatmap)->with('table', $table);
     }
 
     /**
@@ -40,6 +40,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        Table::create([
+            'T_Id' => $request->input('T_Id'),
+            'Shop_Id' => $request->input('Shop_Id'),
+            'T_Pax' => $request->input('T_Pax'),
+        ]);
+     
+        return redirect()->route('seatmap.index');
     }
 
     /**
@@ -71,15 +78,21 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Shop $seatmap)
     {
         //
-        $order->update([
-            'O_Status' =>  $request->input('O_Status'),
-        ]);
+        $newImageName = time() . '-' . $request->name . '.' . 
+        $request->S_Table->extension();
+        $request->S_Table->move(public_path('images'), $newImageName);
 
-        return redirect()->route('order.index')->with('success', 'Order updated successfully');;
+        $seatmap->update([
+            'S_Table' => $newImageName,
+        ]);
+    
+        return redirect()->route('seatmap.index');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -87,11 +100,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Table $seatmap)
     {
         //
-        $order->delete();
-
+        $seatmap->delete();
+    
         return redirect()->back();
     }
 }

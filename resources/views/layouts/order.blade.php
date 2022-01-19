@@ -83,6 +83,7 @@
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -96,6 +97,7 @@
                                                     @foreach ($New as $new)
                                                         <tbody>
                                                             <td>{{ $new->Tracking_No }}</td>
+                                                            <td>{{ $new->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $new->id)->get();
@@ -133,6 +135,7 @@
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -146,6 +149,7 @@
                                                     @foreach ($Preparing as $preparing)
                                                         <tbody>
                                                             <td>{{ $preparing->Tracking_No }}</td>
+                                                            <td>{{ $preparing->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $preparing->id)->get();
@@ -183,6 +187,7 @@
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -196,6 +201,7 @@
                                                     @foreach ($Completed as $completed)
                                                         <tbody>
                                                             <td>{{ $completed->Tracking_No }}</td>
+                                                            <td>{{ $completed->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $completed->id)->get();
@@ -233,7 +239,7 @@
                     <!-- tab end -->
 
                     @foreach ($orders as $Order)
-                        @include('layouts.editOrder')
+                        @include('layouts.modal.editOrder')
                     @endforeach
                     <!-- ********************* -->
                 </div>

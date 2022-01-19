@@ -3143,3 +3143,14 @@ table.dataTable thead td {
     border: 5px solid #555;
   }
 
+  .seatmap {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    width: 500;
+    height: 500px;
+    border: 5px solid #555;
+  }
+
+

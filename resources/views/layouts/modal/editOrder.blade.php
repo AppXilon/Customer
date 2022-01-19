@@ -60,6 +60,6 @@
     </div>
 </div>
 
-@include('layouts.rejectOrder')
+@include('layouts.modal.rejectOrder')
 
 <!--endModal-->

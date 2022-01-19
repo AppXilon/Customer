@@ -17,7 +17,7 @@ class CreateRestaurantTable extends Migration
             $table->foreign('Shop_Id')->references('Shop_Id')->on('shop')
             ->onDelete('cascade');
             $table->integer('T_Pax');
-            $table->string('T_Status');
+            $table->string('T_Status')->default('1');
             $table->timestamps();
         });
     }

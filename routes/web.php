@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
@@ -118,13 +120,11 @@ Route::get('/custDetails', [CustDetailsController::class, 'analytics']);
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
+Route::resource('/seatmap', SeatMapController::class);
+
 
 Route::get('/bookinglist', function () {
    return view('layouts.bookinglist');
-});
-
-Route::get('/seatmap', function () {
-   return view('layouts.seatmap');
 });
 
 Route::get('/report', function () {
