@@ -90,12 +90,15 @@
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
-                                                    @foreach ($orders as $order)
+                                                    @php
+                                                        $New = App\Models\Order::where('O_Status', 1)->get();
+                                                    @endphp
+                                                    @foreach ($New as $new)
                                                         <tbody>
-                                                            <td>{{ $order->Tracking_No }}</td>
+                                                            <td>{{ $new->Tracking_No }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
-                                                                $quantity = App\Models\OrderProduct::where('Order_Id', $order->id)->get();
+                                                                $quantity = App\Models\OrderProduct::where('Order_Id', $new->id)->get();
                                                                 foreach ($quantity as $prod) {
                                                                     $Total_Quantity += $prod->Order_Quantity;
                                                                 }
@@ -103,17 +106,17 @@
                                                             @endphp</td>
                                                             <td>
                                                                 @php
-                                                                    $date = Carbon::parse($order->created_at)->format('d-m-Y');
+                                                                    $date = Carbon::parse($new->created_at)->format('d-m-Y');
                                                                     echo $date;
                                                                 @endphp</td>
-                                                            <td>{{ $order->created_at = Carbon::parse($order->created_at)->format('H:i:s') }}
+                                                            <td>{{ $new->created_at = Carbon::parse($new->created_at)->format('H:i:s') }}
                                                             </td>
                                                             <td>RM
-                                                                {{ number_format((float) $order->O_Total_Price, 2, '.', '') }}
+                                                                {{ number_format((float) $new->O_Total_Price, 2, '.', '') }}
                                                             </td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
-                                                                    data-target="#editModal{{ $order->id }}">
+                                                                    data-target="#editModal{{ $new->id }}">
                                                                     View Order
                                                                 </button></td>
                                                         </tbody>
@@ -124,10 +127,103 @@
                                     </div>
                                     <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                         aria-labelledby="pills-profile-tab">
-
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table id="dataTable" class="table text-center">
+                                                    <thead class="text-uppercase bg-primary">
+                                                        <tr class="text-white">
+                                                            <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Total Item</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Time</th>
+                                                            <th scope="col">Amount</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @php
+                                                        $Preparing = App\Models\Order::where('O_Status', 2)->get();
+                                                    @endphp
+                                                    @foreach ($Preparing as $preparing)
+                                                        <tbody>
+                                                            <td>{{ $preparing->Tracking_No }}</td>
+                                                            <td>@php
+                                                                $Total_Quantity = 0;
+                                                                $quantity = App\Models\OrderProduct::where('Order_Id', $preparing->id)->get();
+                                                                foreach ($quantity as $prod) {
+                                                                    $Total_Quantity += $prod->Order_Quantity;
+                                                                }
+                                                                echo $Total_Quantity;
+                                                            @endphp</td>
+                                                            <td>
+                                                                @php
+                                                                    $date = Carbon::parse($preparing->created_at)->format('d-m-Y');
+                                                                    echo $date;
+                                                                @endphp</td>
+                                                            <td>{{ $preparing->created_at = Carbon::parse($preparing->created_at)->format('H:i:s') }}
+                                                            </td>
+                                                            <td>RM
+                                                                {{ number_format((float) $preparing->O_Total_Price, 2, '.', '') }}
+                                                            </td>
+                                                            <td><button type="button" class="btn btn-success"
+                                                                    data-toggle="modal"
+                                                                    data-target="#editModal{{ $preparing->id }}">
+                                                                    View Order
+                                                                </button></td>
+                                                        </tbody>
+                                                    @endforeach
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-completed" role="tabpanel"
                                         aria-labelledby="pills-completed-tab">
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table id="dataTable" class="table text-center">
+                                                    <thead class="text-uppercase bg-primary">
+                                                        <tr class="text-white">
+                                                            <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Total Item</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Time</th>
+                                                            <th scope="col">Amount</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @php
+                                                        $Completed = App\Models\Order::where('O_Status', 3)->get();
+                                                    @endphp
+                                                    @foreach ($Completed as $completed)
+                                                        <tbody>
+                                                            <td>{{ $completed->Tracking_No }}</td>
+                                                            <td>@php
+                                                                $Total_Quantity = 0;
+                                                                $quantity = App\Models\OrderProduct::where('Order_Id', $completed->id)->get();
+                                                                foreach ($quantity as $prod) {
+                                                                    $Total_Quantity += $prod->Order_Quantity;
+                                                                }
+                                                                echo $Total_Quantity;
+                                                            @endphp</td>
+                                                            <td>
+                                                                @php
+                                                                    $date = Carbon::parse($completed->created_at)->format('d-m-Y');
+                                                                    echo $date;
+                                                                @endphp</td>
+                                                            <td>{{ $completed->created_at = Carbon::parse($completed->created_at)->format('H:i:s') }}
+                                                            </td>
+                                                            <td>RM
+                                                                {{ number_format((float) $completed->O_Total_Price, 2, '.', '') }}
+                                                            </td>
+                                                            <td><button type="button" class="btn btn-success"
+                                                                    data-toggle="modal"
+                                                                    data-target="#editModal{{ $completed->id }}">
+                                                                    View Order
+                                                                </button></td>
+                                                        </tbody>
+                                                    @endforeach
+                                                </table>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>

@@ -18,7 +18,7 @@ class OrderController extends Controller
         //
         $orders = Order::all();
 
-        return view('layouts.order')->with('orders',$orders);
+        return view('layouts.order')->with('orders', $orders);
     }
 
     /**
@@ -74,11 +74,12 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         //
+
         $order->update([
-            '0_Status' => $request->input('Cat_Id'),
-            ]);
-        
-            return redirect()->route('order.index')->with('success','Order updated successfully');;
+            'O_Status' =>  $request->input('O_Status'),
+        ]);
+
+        return redirect()->route('order.index')->with('success', 'Order updated successfully');;
     }
 
     /**
@@ -87,10 +88,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
-    }
+        $order->delete();
 
-    
+        return redirect()->back();
+    }
 }
