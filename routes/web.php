@@ -14,6 +14,8 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\CustAnalyticsController;
+use App\Http\Controllers\CustDetailsController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\HourController;
@@ -128,6 +130,10 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
+
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+
 
 Route::get('/bookinglist', function () {
    return view('layouts.bookinglist');
@@ -137,14 +143,15 @@ Route::get('/seatmap', function () {
    return view('layouts.seatmap');
 });
 
-Route::get('/cust_analytics', function () {
-   return view('layouts.cust_analytics');
+Route::get('/report', function () {
+    return view('layouts.report');
+ });
+
+
+Route::get('/order_trends', function () {
+   return view('layouts.order_trends');
 });
 
-
-/*******************************/
-/******* Admin route start *******/
-/*******************************/
 
 
 Route::get('/admin', function () {
@@ -222,3 +229,5 @@ Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
 Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+
+
