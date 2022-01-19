@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
-class CreateOrderProductTable extends Migration
+class CreateOrderProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -25,7 +23,6 @@ class CreateOrderProductTable extends Migration
             $table->primary(['Order_Id', 'P_Id']);
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -36,3 +33,4 @@ class CreateOrderProductTable extends Migration
         Schema::dropIfExists('order_product');
     }
 }
+

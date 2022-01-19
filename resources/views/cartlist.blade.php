@@ -7,7 +7,7 @@
         <div class="section-header text-center">
             <p></p>
             <p></p>
-            <h2>Product Cart</h2>
+            <h2>Product Cart {{$order}}</h2>
         </div>
         <div class="basket">
             <div class="basket-module">
@@ -32,8 +32,7 @@
                             <img src="{{asset('images/'. $item->P_Image)}}" alt="Placholder Image 2" class="product-frame">
                         </div>
                         <div class="product-details">
-                            <a href="detail/{{$item->id}}">
-                            <h4><strong>{{$item->P_Name}}</strong></h4></a>
+                            <h4><strong>{{$item->P_Name}}</strong></h4>
                             <p><strong>{{$item->S_Description}}</strong></p>
                             <p>Notes: </p>
                         </div>

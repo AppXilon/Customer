@@ -84,7 +84,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "MYR",
-                        "value" => "{{$total}}"
+                        "value" => "10"
                     ]
                 ]
             ]

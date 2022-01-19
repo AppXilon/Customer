@@ -24,6 +24,8 @@ class CreateManager extends Migration
             $table->integer('Postcode');
             $table->string('City');
             $table->string('State');
+            $table->integer('Ban');
+            $table->string('Reason');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -38,4 +40,3 @@ class CreateManager extends Migration
         Schema::dropIfExists('manager');
     }
 }
-
