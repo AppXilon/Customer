@@ -43,12 +43,17 @@
                 @else
                     <form method = "GET" action="/catalogue">
                     @csrf
-                    <div class="service-btn">
-                        <button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button>
-                        <button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button>
-                        <button type="submit" name="otype" value="pickup" class="btn custom-btn">Pickup</button>
-                        <button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button>
-                    </div>
+                        <div class="service-btn">
+                            <button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button>
+                            <button type="submit" name="otype" value="pickup" class="btn custom-btn">Pickup</button>
+                            <button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button>
+                    </form>
+
+                    <form method = "GET" action="/booking">
+                    @csrf
+                            <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button></a>
+                        </div> 
+                    </form>
                 @endif
             </div>
         </div>

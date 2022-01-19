@@ -16,6 +16,7 @@ use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\CustAnalyticsController;
 use App\Http\Controllers\CustDetailsController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\HourController;
@@ -61,7 +62,7 @@ Route::get('view-category/{Cat_Slug}', [ProductController::class, 'viewcategory'
 
 Route::get('view-shop/{Cat_Slug}/{S_Name}', [ShopController::class, 'inshop']);
 
-Route::post('ordertype', [ShopController:: class, 'orderType']) ;
+Route::get('booking', [BookingController:: class, 'reserve']) ;
 
 Route::get('search', [ProductController:: class, 'search']) ;
 
