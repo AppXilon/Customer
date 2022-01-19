@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Table extends Model
+class Booking extends Model
 {
     use HasFactory;
     public $table = 'restaurant_table';
+
+
     protected $fillable = [
-        'T_Id', 'Shop_Id', 'T_Pax', 'T_Status'
+        'T_Id', 'Day_Of_Week', 'Start_Time', 'End_Time', 'Status'
     ];
     
-    protected $primaryKey = 'T_Id';
-
+    protected $primaryKey = 'Day_Id';
 }

@@ -11,7 +11,7 @@ class Shop extends Model
     public $table = 'shop';
 
     protected $fillable = [
-        'Shop_Id', 'S_Category', 'S_Image' , 'S_Banner' , 'S_Name', 'S_Description', 'Dine_In', 'Delivery', 'Pick_Up'
+        'Shop_Id', 'S_Category', 'S_Image', 'S_Table' , 'S_Banner' , 'S_Name', 'S_Description', 'Dine_In', 'Delivery', 'Pick_Up'
     ];
 
     protected $primaryKey = 'Shop_Id';
