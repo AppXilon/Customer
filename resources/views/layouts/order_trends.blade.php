@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
     <!-- amchart css -->
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
     <!-- others css -->
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
@@ -22,18 +23,18 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-        <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/libs/css/style.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-        <link rel="stylesheet" href="assets/vendor/vector-map/jqvmap.css">
-        <link rel="stylesheet" href="assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/vector-map/jqvmap.css">
+    <link rel="stylesheet" href="assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
 </head>
 
 <body>
-    
+
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
@@ -42,13 +43,13 @@
     <!-- page container area start -->
     <div class="page-container">
         <!-- sidebar menu area start -->
-        @include('include.sidebar') 
+        @include('include.sidebar')
 
         <!-- sidebar menu area end -->
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            @include('include.header_area') 
+            @include('include.header_area')
             <!-- header area end -->
             <!-- page title area start -->
             <div class="page-title-area">
@@ -62,13 +63,28 @@
                             </ul>
                         </div>
                     </div>
+<<<<<<< HEAD
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right">
+                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim <i
+                                    class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Message</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+=======
                     @include('include.managerBar')
+>>>>>>> baf70e3c126aaac643c5c0f00aabb80459a4c456
                 </div>
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-               
+
                     <!-- SALES Statistics area start -->
                     <div class="col-lg-8 mt-5">
                         <div class="card">
@@ -91,25 +107,55 @@
                             <h5 class="card-header"> Sales By Categories</h5>
                             <div class="card-body p-0">
                                 <ul class="traffic-sales list-group list-group-flush">
-                                    <li class="traffic-sales-content list-group-item "><span class="traffic-sales-name">Fried Rice</span><span class="traffic-sales-amount">300 sales <span class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1 text-success">5.86%</span></span>
+                                    <li class="traffic-sales-content list-group-item "><span
+                                            class="traffic-sales-name">Fried Rice</span><span
+                                            class="traffic-sales-amount">300 sales <span
+                                                class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                    class="fa fa-fw fa-arrow-up"></i></span><span
+                                                class="ml-1 text-success">5.86%</span></span>
                                     </li>
-                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Western<span class="traffic-sales-amount">250 sales <span class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1 text-success">5.86%</span></span>
+                                    <li class="traffic-sales-content list-group-item"><span
+                                            class="traffic-sales-name">Western<span class="traffic-sales-amount">250
+                                                sales <span
+                                                    class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                        class="fa fa-fw fa-arrow-up"></i></span><span
+                                                    class="ml-1 text-success">5.86%</span></span>
                                         </span>
                                     </li>
-                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Beverages<span class="traffic-sales-amount ">150 sales  <span class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1 text-success">5.86%</span></span>
+                                    <li class="traffic-sales-content list-group-item"><span
+                                            class="traffic-sales-name">Beverages<span class="traffic-sales-amount ">150
+                                                sales <span
+                                                    class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                        class="fa fa-fw fa-arrow-up"></i></span><span
+                                                    class="ml-1 text-success">5.86%</span></span>
                                         </span>
                                     </li>
-                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Mee/Kuey Teow/Bihun<span class="traffic-sales-amount ">100 sales  <span class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1 text-danger">4.02%</span></span>
+                                    <li class="traffic-sales-content list-group-item"><span
+                                            class="traffic-sales-name">Mee/Kuey Teow/Bihun<span
+                                                class="traffic-sales-amount ">100 sales <span
+                                                    class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
+                                                        class="fa fa-fw fa-arrow-down"></i></span><span
+                                                    class="ml-1 text-danger">4.02%</span></span>
                                         </span>
                                     </li>
-                                  
-                                <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Soup Dish<span class="traffic-sales-amount ">98 sales  <span class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1 text-danger">4.02%</span></span>
-                                </span>
-                            </li>
-                            <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Seafood Dish<span class="traffic-sales-amount ">80 sales  <span class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1 text-danger">4.02%</span></span>
-                            </span>
-                        </li>
-                      
+
+                                    <li class="traffic-sales-content list-group-item"><span
+                                            class="traffic-sales-name">Soup Dish<span class="traffic-sales-amount ">98
+                                                sales <span
+                                                    class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
+                                                        class="fa fa-fw fa-arrow-down"></i></span><span
+                                                    class="ml-1 text-danger">4.02%</span></span>
+                                        </span>
+                                    </li>
+                                    <li class="traffic-sales-content list-group-item"><span
+                                            class="traffic-sales-name">Seafood Dish<span
+                                                class="traffic-sales-amount ">80 sales <span
+                                                    class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
+                                                        class="fa fa-fw fa-arrow-down"></i></span><span
+                                                    class="ml-1 text-danger">4.02%</span></span>
+                                        </span>
+                                    </li>
+
                                 </ul>
                             </div>
                             <div class="card-footer text-center">
@@ -126,7 +172,7 @@
 
                     <!-- TOP SELLING PRODUCTS start -->
                     <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-                        
+
                         <div class="card">
                             <h5 class="card-header">Top Selling Products</h5>
                             <div class="card-body p-0">
@@ -140,7 +186,7 @@
                                                 <th class="border-0">Product Id</th>
                                                 <th class="border-0">Quantity Sold</th>
                                                 <th class="border-0">Price</th>
-                                                
+
                                                 <th class="border-0">Categories</th>
                                             </tr>
                                         </thead>
@@ -148,53 +194,57 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/paprik.webp" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/paprik.webp" alt="user"
+                                                            class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Nasi Goreng Paprik </td>
                                                 <td>P010 </td>
                                                 <td>178</td>
                                                 <td>RM6.00</td>
-                                                
+
                                                 <td>Fried Rice</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/thai.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/thai.jpeg" alt="user"
+                                                            class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Nasi Goreng Thai </td>
                                                 <td>P021</td>
                                                 <td>168</td>
                                                 <td>RM6.50</td>
-                                               
+
                                                 <td>Fried Rice</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/chicken chop.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/chicken chop.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Chicken Chop </td>
                                                 <td>P013</td>
                                                 <td>155</td>
                                                 <td>RM7.00</td>
-                                             
+
                                                 <td>Western</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/ayam goreng.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/ayam goreng.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Ayam Goreng Taf </td>
                                                 <td>P009</td>
                                                 <td>148</td>
                                                 <td>RM3.00</td>
-                                            
+
                                                 <td>Western </td>
                                             </tr>
-                                            
-                                            
+
+
                                         </tbody>
                                     </table>
                                     <div class="card-footer text-center">
@@ -209,7 +259,7 @@
 
                     <!-- LEAST SELLING PRODUCT start -->
                     <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-                        
+
                         <div class="card">
                             <h5 class="card-header">Least Selling Products</h5>
                             <div class="card-body p-0">
@@ -223,7 +273,7 @@
                                                 <th class="border-0">Product Id</th>
                                                 <th class="border-0">Quantity Sold</th>
                                                 <th class="border-0">Price</th>
-                                                
+
                                                 <th class="border-0">Categories</th>
                                             </tr>
                                         </thead>
@@ -231,52 +281,56 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/soup sayur.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/soup sayur.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Sup Sayur </td>
                                                 <td>P017 </td>
                                                 <td>20</td>
                                                 <td>RM4.50</td>
-                                                
+
                                                 <td>Soup Dish/td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/kankung masin.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/kankung masin.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Kankung Masin</td>
                                                 <td>P019 </td>
                                                 <td>18</td>
                                                 <td>RM4.50</td>
-                                               
+
                                                 <td>Kangkung Dish </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/telur bistik.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/telur bistik.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Telur Bistik </td>
                                                 <td>P020</td>
                                                 <td>16</td>
                                                 <td>RM5.00</td>
-                                             
+
                                                 <td>Egg Dish</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="assets/images/maggie goreng.jpeg" alt="user" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="assets/images/maggie goreng.jpeg"
+                                                            alt="user" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>Maggie Goreng </td>
                                                 <td>P034 </td>
                                                 <td>13</td>
                                                 <td>RM4.00</td>
-                                            
+
                                                 <td>Maggie </td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                     <div class="card-footer text-center">
@@ -288,8 +342,8 @@
                     </div>
                     <!-- LEAST SELLING PRODUCTS end -->
 
-                       <!-- order breakdown area start -->
-                       <div class="sales-report-area sales-style-two">
+                    <!-- order breakdown area start -->
+                    <div class="sales-report-area sales-style-two">
                         <div class="row">
                             <div class="col-xl-6 col-ml-6 col-lg-6 mt-5">
                                 <div class="single-report">
@@ -303,10 +357,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_gender" height="150"></canvas>
+                                    <canvas id="cust_payment" height="150"></canvas>
                                 </div>
                             </div>
-                           
+
                             <div class="col-xl-6 col-ml-6 col-lg-6 mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
@@ -323,10 +377,10 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
-                             
+
                             </div>
-                          
-                            
+
+
                         </div>
                     </div>
                     <!-- order breakdown area end -->
@@ -341,7 +395,7 @@
 
 
         <!-- footer area start-->
-        @include('include.footer') 
+        @include('include.footer')
         <!-- footer area end-->
 
 
@@ -352,12 +406,12 @@
 
 
 
-        
+
 
     </div>
     <!-- page container area end -->
     <!-- offset area start -->
-    @include('include.offset') 
+    @include('include.offset')
     <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -393,7 +447,7 @@
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
-       <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 js-->
     <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <!-- bootstrap bundle js-->
@@ -403,7 +457,7 @@
     <!-- chartjs js-->
     <script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
     <script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
-   
+
     <!-- main js-->
     <script src="assets/libs/js/main-js.js"></script>
     <!-- jvactormap js-->
@@ -412,10 +466,10 @@
     <!-- sparkline js-->
     <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
     <script src="assets/vendor/charts/sparkline/spark-js.js"></script>
-     <!-- dashboard sales js-->
+    <!-- dashboard sales js-->
     <script src="assets/libs/js/dashboard-sales.js"></script>
-      <!-- barchart customer segmentation -->
-      <script>
+    <!-- barchart customer segmentation -->
+    <script>
         var horizontalBarChart = new Chart("cust_segmentation", {
            type: 'horizontalBar',
            data: {
@@ -506,18 +560,17 @@
     });
     </script>
 
-   <!-- Payment Types-->
+    <!-- Payment Types-->
     <script>
-        var xValues = ["PayPal", "Credit & Debit Card", "Online Banking", "Touch N Go E-wallet"];
-            var yValues = [37, 49, 12, 21];
-            var barColors = [
-            "#004c6d",
-            "#436f8d",
-            "#7193af",
-            "#b6cee3",
-            ];
+        var xValues = ["Cash", "PayPal"];
+        var yValues = <?php echo $orderPayment; ?>;
+        var barColors = [
+        "#004c6d",
+        "#436f8d",
+
+        ];
         
-        new Chart("cust_gender", {
+        new Chart("cust_payment", {
         type: "pie",
         data: {
             labels: xValues,
@@ -530,7 +583,7 @@
             
         }
         });
-        </script>
+    </script>
 
     <!-- Order Types -->
     <script>
@@ -556,13 +609,11 @@
             
         }
         });
-        </script>
+    </script>
 
-      
 
-      
+
+
 </body>
 
 </html>
-
-

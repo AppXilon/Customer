@@ -17,6 +17,7 @@ use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\CustAnalyticsController;
 use App\Http\Controllers\CustDetailsController;
+use App\Http\Controllers\OrderTrendsController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\HourController;
@@ -143,6 +144,7 @@ Route::get('/custDetails', [CustDetailsController::class, 'analytics']);
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
+Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 Route::resource('/seatmap', SeatMapController::class);
 
 
@@ -154,14 +156,9 @@ Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
 
 
-Route::get('/report', function () {
-    return view('layouts.report');
- });
 
 
-Route::get('/order_trends', function () {
-   return view('layouts.order_trends');
-});
+
 
 
 
