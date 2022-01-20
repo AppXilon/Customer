@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
@@ -29,6 +30,8 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +64,7 @@ Route::get('view-category/{Cat_Slug}', [ProductController::class, 'viewcategory'
 
 Route::get('view-shop/{Cat_Slug}/{S_Name}', [ShopController::class, 'inshop']);
 
-Route::post('ordertype', [ShopController:: class, 'orderType']) ;
+Route::get('booking', [BookingController:: class, 'reserve']) ;
 
 Route::get('search', [ProductController:: class, 'search']) ;
 
@@ -140,14 +143,16 @@ Route::get('/custDetails', [CustDetailsController::class, 'analytics']);
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
+Route::resource('/seatmap', SeatMapController::class);
 
-Route::get('/bookinglist', function () {
-   return view('layouts.bookinglist');
-});
 
-Route::get('/seatmap', function () {
-   return view('layouts.seatmap');
-});
+Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
+
+Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
+
+
+
+
 
 Route::get('/report', function () {
     return view('layouts.report');
@@ -235,5 +240,15 @@ Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
 Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+
+Route::get('manager_login', function () {
+    return view('auth/manager/login');
+});
+Route::post('manager_login', [ManagerController:: class, 'manager_login']) ;
+
+Route::get('admin-login', function () {
+    return view('auth/admin/login');
+});
+Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 
 

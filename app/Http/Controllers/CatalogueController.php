@@ -140,7 +140,7 @@ class CatalogueController extends Controller
         'P_Quantity' => $request->input('P_Quantity'),
         'P_Status' => $request->input('P_Status'),]);
     
-        return redirect()->route('catalogues.index')->with('success','Product updated successfully');;
+        return redirect()->route('catalogues.index')->with('success','Product updated successfully');
     }
 
     /**
