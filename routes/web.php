@@ -12,6 +12,7 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
