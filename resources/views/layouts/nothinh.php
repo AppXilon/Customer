@@ -1,45 +1,170 @@
-<!-- Modal -->
-<div class="modal fade" id="viewDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h4 class="header-title">Product Details</h4>
-                <img src = "{{asset('images/1640229587-.jpg')}}" class="center">
-                <div class="single-table">
-                    <div class="table-responsive">
-                        <table class="table text-center">
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Name</th>
-                                    <td>Nasi Lemak</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Price</th>
-                                    <td>RM 2.50</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Discount Price</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Cooking Time</th>
-                                    <td>10 Minutes</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Short Description</th>
-                                    <td>This sauteed Asian rice lunch is relatively mealy with a crispy texture. </td>
-                                </tr>
-                                <tr>
-                                    <th class="text-uppercase bg-light" scope="col">Long Description</th>
-                                    <td>This sauteed Asian rice lunch is relatively mealy with a crispy texture. It is similar to mangosteen with pumpkin spice and has a touch of marjoram. It smells like fish with a touch of pumpkin leaves. It is universal and aesthetic. You can really feel how high in iron and how high in nutrients it is. </td>
-                                </tr>
-                        </table>
+@include('include.header')
+
+<body>
+
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        @include('include.sidebar')
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            @include('include.header_area')
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Seat Map</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="dashboard.html">Home</a></li>
+                                <li><span>Seat Map</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right">
+                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
+                                    class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Message</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- page title area end -->
+            <!-- *************************************************************************************************************************-->
+
+            <div class="main-content-inner">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                           
+                                <div class="section-header text-center">
+                                    <h2>Restaurant's Layout</h2>
+                                    <button type="button" data-toggle="modal" data-target="#createSeat"
+                                        class="button1">Add Seat
+                                    </button>
+                                    <button type="button" data-toggle="modal" data-target="#editSeatMap"
+                                        class="button1">
+                                        Update Seat Map
+                                    </button>
+                                </div>
+                            <div class="card-body">
+                                <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                            href="#pills-home" role="tab" aria-controls="pills-home"
+                                            aria-selected="true">Seat Map</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                                            href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                            aria-selected="false">Seat Adjustment</a>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="nav-home-tab">
+                                            @foreach ($seatmap as $map)
+                                                <img src="{{ asset('images/' . $map->S_Table) }}"
+                                                    class="seatmap">
+                                            @endforeach
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                            aria-labelledby="pills-profile-tab">
+                                            <table id="dataTable" class="table text-center">
+                                                <thead class="text-uppercase bg-primary">
+                                                    <tr class="text-white">
+                                                        <th scope="col">Table Number</th>
+                                                        <th scope="col">Table Pax</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                @foreach ($table as $seat)
+                                                    <tbody>
+                                                        <td>{{ $seat->T_Id }}</td>
+                                                        <td>{{ $seat->T_Pax }}</td>
+                                                        <td>
+                                                            <form action="{{ route('seatmap.destroy', $seat->T_Id) }}"
+                                                                method="POST">
+                                                                <button type="button" data-toggle="modal"
+                                                                    data-target="#editSeat{{$seat->T_Id}}" class="btn btn-primary">
+                                                                    Edit
+                                                                </button>
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </td>
+                                                    </tbody>
+                                                @endforeach
+                                            </table>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- table primary start -->
+                    </div>
+                    <!-- table primary start -->
+                    @foreach ($seatmap as $seat)
+                        @include('layouts.modal.editMap')
+                        @include('layouts.modal.createSeat')
+                    @endforeach
+
+                    @foreach ($table as $tables)
+                        @include('layouts.modal.editSeat')
+                    @endforeach
+
+                </div>
+            </div>
         </div>
+        <!-- main content area end -->
+        <!-- *************************************************************************************************************************-->
+        <!-- Modal -->
+
+
+
+
+        <!--endModal-->
+
+
+        <!-- footer area start-->
+        @include('include.footer')
+        <!-- footer area end-->
     </div>
-</div>
-<!--endModal-->
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/metisMenu.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+
+
+
+    <!-- others plugins -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

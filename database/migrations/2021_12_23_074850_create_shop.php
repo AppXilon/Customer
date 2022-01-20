@@ -21,6 +21,9 @@ class CreateShop extends Migration
             $table->integer('Delivery')->nullable();
             $table->integer('Pick_Up')->nullable();
             $table->string('S_Termcond')->nullable();
+            $table->string('S_Image')->nullable();
+            $table->string('S_Banner')->nullable();
+            $table->string('S_Table')->nullable();
             $table->timestamps();
         });
     }

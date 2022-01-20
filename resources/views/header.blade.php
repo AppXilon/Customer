@@ -49,7 +49,7 @@ if (Auth::check()) {
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
                     <div class="dropdown-menu">
                         <a href="/login" class="dropdown-item">Customer Login</a>
-                        <a href="/login" class="dropdown-item">Manager Login</a>
+                        <a href="manager_login" class="dropdown-item">Manager Login</a>
                         <a href="/register" class="dropdown-item">Register</a>
                             
                     </div>

@@ -19,6 +19,7 @@ class CreateManager extends Migration
             $table->string('Name');
             $table->string('Email');
             $table->string('Password');
+            $table->boolean('isBanned')  ->default(0);
             $table->string('Phone');
             $table->string('Street_1');
             $table->integer('Postcode');

@@ -63,6 +63,7 @@
                             </ul>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
@@ -75,6 +76,9 @@
                             </div>
                         </div>
                     </div>
+=======
+                    @include('include.managerBar')
+>>>>>>> baf70e3c126aaac643c5c0f00aabb80459a4c456
                 </div>
             </div>
             <!-- page title area end -->

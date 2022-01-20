@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BusinessHourSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(FaqSeeder::class);
+        $this->call(TableSeeder::class);
+        $this->call(PaymentTypeSeeder::class);
     }
 }
