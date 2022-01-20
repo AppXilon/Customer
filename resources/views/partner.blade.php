@@ -126,7 +126,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <input type="hidden" class="form-control" name="Ban" value="0">
+                            <input type="hidden" class="form-control" name="Ban" value="2">
                             <input type="hidden" class="form-control" name="Reason" value="null">
                         </div>
 

@@ -92,9 +92,9 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                                     <div class="form-row">
-                                                        <input data-id="{{$capt->Capt_Type}}" class="toggle-class" type="checkbox" 
+                                                        <input data-id="{{$capt->Type}}" class="toggle-class" type="checkbox" 
                                                         data-onstyle="success" data-offstyle="primary"
-                                                        data-toggle="toggle" data-on="Character" data-off="Number" {{ $capt->Capt_Type ? 'checked' : '' }} disabled>
+                                                        data-toggle="toggle" data-on="Character" data-off="Number" {{ $capt->Type ? 'checked' : '' }} disabled>
                                                     </div>
                                                 </div>
                                             </div><br>

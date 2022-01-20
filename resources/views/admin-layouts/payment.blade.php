@@ -61,11 +61,11 @@
                         @foreach($pay as $pay)
                         <div class="col-lg-4 col-md-6 mt-5">
                             <div class="card card-bordered">
-                                <img class="card-img-top img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode($pay->Pay_Image)) }}" alt="image">
-                                <a href="{{ route('payment.edit', $pay->Pay_Id) }}" class="fa fa-edit fa-2x"  style = "color:#4CAF50;  text-align:right;"></a>
+                                <img class="card-img-top img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode($pay->Image)) }}" alt="image">
+                                <a href="{{ route('payment.edit', $pay->PM_Id) }}" class="fa fa-edit fa-2x"  style = "color:#4CAF50;  text-align:right;"></a>
                                 <div class="card-body">
-                                    <h5 class="title">{{$pay->Pay_Name}}
-                                        @if ($pay->Pay_Status == '1')
+                                    <h5 class="title">{{$pay->Name}}
+                                        @if ($pay->Status == '1')
                                         <label class="switch">
                                             <input type="checkbox" checked onclick="return false;">
                                             <span class="slider round"></span>
@@ -76,7 +76,7 @@
                                             <span class="slider round"></span>
                                     @endif
                                     </h5>
-                                    @switch ($pay->Pay_Status) 
+                                    @switch ($pay->Status) 
                                         @case(0)
                                         <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with PayPal</button>
                                           @break;

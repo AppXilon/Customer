@@ -18,6 +18,11 @@ class CaptchaServiceController extends Controller
         $capt = Captcha::find($Capt_Id);
         return view('admin-layouts.editCaptcha', compact('capt'));
     }
+    public function update($Capt_Id)
+    {
+        $capt = Captcha::find($Capt_Id);
+        return view('admin-layouts.editCaptcha', compact('capt'));
+    }
     public function capthcaFormValidate(Request $request)
     {
         $request->validate([
