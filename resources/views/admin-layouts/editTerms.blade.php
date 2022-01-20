@@ -73,7 +73,7 @@
                                             <div class="col-md-4 mb-3">
                                                 <label>Term's Content:</label>
                                                 <input type="text" class="form-control" 
-                                                value="{{ $term->T_Terms }}" name="T_Terms" Required>
+                                                value="{{ $term->T_Contents }}" name="T_Contents" style="width: 800px;" Required>
                                             </div>
                                         </div>
                                         <button type="submit" style="float: right; margin-right: 10px"

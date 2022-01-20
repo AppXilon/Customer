@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $data = Customer::where('C_Ban', 0)->get();
+        $data = Customer::where('ban', 0)->get();
         return view('admin-layouts.man_cust',['customers'=>$data]);
     }
     /**
@@ -32,14 +32,18 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'C_Name' => 'required',
-            'C_Phone' => 'required',
-            'C_Password' => 'required',
-            'C_Gender' => 'required',
-            'C_BirthDate' => 'required',
-            'C_Email' => 'required',
-            'C_Ban' => 'required',
-            'C_Reason' => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'password' => 'required',
+            'gender' => 'required',
+            'birthDate' => 'required',
+            'email' => 'required',
+            'street_1' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'ban' => 'required',
+            'reason' => 'required'
         ]);
     
         Customer::create($request->all());

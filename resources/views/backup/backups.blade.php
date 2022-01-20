@@ -69,12 +69,35 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row"><div class="col"><h4 class="header-title">List Customer</h4></div>
-                                <div class="col col-lg-2">
-                                    <a href='/add_cust'>
-                                        <button type="button" class="btn btn-success mb-3" style="text-align: right;">Add User</button>
-                                    </a>
-                                </div>
+                                <div class="row"><div class="col"><h4 class="header-title">Databases</h4></div>
+                                    <div class="col-xs-12 clearfix">
+                                        <form action="{{ url('backup/create') }}" method="GET" class="add-new-backup" enctype="multipart/form-data" id="CreateBackupForm">
+                                            {{ csrf_field() }}
+                                            <input type="submit" name="submit" class="theme-button btn btn-primary pull-right" style="margin-bottom:2em;" value="Create Database Backup">
+                                        </form>
+                                    </div>
+                                <div class="col-xs-12">
+                                        @if ( Session::has('success') )
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                {{ Session::get('success') }}
+                                            </div>
+                                            @endif
+                            
+                                            @if ( Session::has('update') )
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                {{ Session::get('update') }}
+                                            </div>
+                                            @endif
+                            
+                                            @if ( Session::has('delete') )
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                {{ Session::get('delete') }}
+                                            </div>
+                                        @endif 
+                                    </div>
                                 </div>
                                 <div class="data-tables">
                                     <table id="dataTable" class="text-center">
@@ -133,39 +156,7 @@
         </footer>
         <!-- footer area end-->
     </div>
-<h3>Database Backups</h3>
-    <div class="row">
-        <div class="col-xs-12 clearfix">
-            <form action="{{ url('backup/create') }}" method="GET" class="add-new-backup" enctype="multipart/form-data" id="CreateBackupForm">
-                {{ csrf_field() }}
-                <input type="submit" name="submit" class="theme-button btn btn-primary pull-right" style="margin-bottom:2em;" value="Create Database Backup">
-            </form>
-        </div>
-	<div class="col-xs-12">
-            @if ( Session::has('success') )
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ Session::get('success') }}
-                </div>
-                @endif
 
-                @if ( Session::has('update') )
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ Session::get('update') }}
-                </div>
-                @endif
-
-                @if ( Session::has('delete') )
-                <div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ Session::get('delete') }}
-                </div>
-            @endif
-
-            
-        </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript">

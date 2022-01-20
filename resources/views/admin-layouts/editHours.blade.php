@@ -59,32 +59,32 @@
                         <div class="col-12 mt-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('biz_hour.update', $biz_hour->day_id) }}" method="POST">
+                                    <form action="{{ route('biz_hour.update', $biz_hour->Day_Id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <h4 class="header-title">Edit Business Hours</h4>
-                                        <label>Day:{{ $biz_hour->day_name }}</label>
+                                        <label>Day:{{ $biz_hour->Day_Of_Week }}</label>
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
                                                 <label>Start Time:</label>
                                                 <input type="time" class="form-control"
-                                                value="{{ $biz_hour->start_time }}" name="start_time" Required>
+                                                value="{{ $biz_hour->Start_Time }}" name="start_Time" Required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
                                                 <label>End Time:</label>
                                                 <input type="time" class="form-control" 
-                                                value="{{ $biz_hour->end_time }}" name="end_time" Required>
+                                                value="{{ $biz_hour->End_Time }}" name="End_Time" Required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                                 <label for="example-text-input"
                                                     class="col-form-label">Day Off:</label><br>
                                                 <label class="switch">
-                                                    <input type="hidden" value="0" name="day_off">
+                                                    <input type="hidden" value="0" name="Status">
                                                     <input
-                                                         value="1" type="checkbox" name="day_off" checked>
+                                                         value="1" type="checkbox" name="Status" checked>
                                                     <span class="slider round"></span>
                                                 </label>
                                         </div>

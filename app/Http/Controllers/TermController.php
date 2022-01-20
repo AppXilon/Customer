@@ -18,6 +18,12 @@ class TermController extends Controller
         $term = Term::all();
         return view('admin-layouts.tnc',['terms'=>$term]);
     }
+    public function view()
+    {
+        //
+        $term = Term::all();
+        return view('terms',['terms'=>$term]);
+    }
 
     /**
      * Show the form for creating a new resource.

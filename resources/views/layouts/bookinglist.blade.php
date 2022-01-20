@@ -18,15 +18,33 @@
             <!-- header area start -->
             @include('include.header_area')
             <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Seat Map</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="dashboard.html">Home</a></li>
+                                <li><span>Seat Map</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    @include('include.managerBar')
+                </div>
+            </div>
+            <!-- page title area end -->
                        
             <div class="main-content-inner">
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="card">
-                            <div class="search-box pull-left">
-                                <form action="#">
-                                    <input type="text" name="search" placeholder="Search..." style="margin: 25px;"
-                                        required>
+                            <div class="col-md-4">
+                                <form action="/search" method="get">
+                                    <div class="input-group">
+                                    <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                    <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
+                                    </div>
                                 </form>
                             </div>
                             <div class="card-body">
