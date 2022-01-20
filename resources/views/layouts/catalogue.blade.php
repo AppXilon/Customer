@@ -69,7 +69,8 @@
                                 <div class="tab-content mt-3" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="all" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
-                                        <table id="dataTable" class="table text-center" >
+                                        <div class="table-responsive">
+                                        <table class="table text-center" >
                                             <thead class="text-uppercase bg-primary">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
@@ -130,11 +131,13 @@
                                                 </tbody>
                                             @endforeach
                                         </table>
+                                        </div>
                                     </div>
                                     @foreach ($category as $P_Cat)
                                     <div class="tab-pane fade show" id="category{{$P_Cat->P_Cat_Id}}" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
-                                        <table id="dataTable" class="table text-center" >
+                                        <div class="table-responsive">
+                                        <table class="table text-center" >
                                             <thead class="text-uppercase bg-primary">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
@@ -197,6 +200,7 @@
                                                 </tbody>
                                             @endforeach
                                         </table>
+                                        </div>
                                     </div>
                                     @endforeach
                                 </div>
