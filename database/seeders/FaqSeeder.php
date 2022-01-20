@@ -31,6 +31,6 @@ class FaqSeeder extends Seeder
                 'Faq_Answer' => 'Once you have completed the payment for the order, you can not cancel the order.'
                 ],
     
-    );
+        );
     }
 }

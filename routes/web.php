@@ -17,7 +17,6 @@ use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\CustAnalyticsController;
 use App\Http\Controllers\CustDetailsController;
-use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\HourController;
@@ -31,6 +30,8 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -233,5 +234,15 @@ Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
 Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+
+Route::get('manager_login', function () {
+    return view('auth/manager/login');
+});
+Route::post('manager_login', [ManagerController:: class, 'manager_login']) ;
+
+Route::get('admin-login', function () {
+    return view('auth/admin/login');
+});
+Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 
 

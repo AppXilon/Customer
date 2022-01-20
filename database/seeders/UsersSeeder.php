@@ -20,6 +20,7 @@ class UsersSeeder extends Seeder
             'Name' => 'nurul lydia',
             'Email' => 'lydia@gmail.com',
             'Password' => Hash::make('lydia12345'),
+            'isBanned' => '0',
             'Street_1' => 'No 313, Blok Salak',
             'Postcode' => '31350',
             'City' => 'Serdang',

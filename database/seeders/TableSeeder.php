@@ -14,7 +14,7 @@ class TableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('restaurant_table')->insert(
+        DB::table('restaurant_table')->insert([
             [
             'T_Id' => '1',
             'Shop_Id' => '1',
@@ -25,6 +25,6 @@ class TableSeeder extends Seeder
             'Shop_Id' => '1',
             'T_Pax' => '5',
             ]
-        );
+        ]);
     }
 }
