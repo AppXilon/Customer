@@ -84,12 +84,12 @@
                                             <tr>
                                                 <td>Ahmad</td>
                                                 <td>{{$shop->S_Name}}</td>
-                                                <td>1.12.2021</td>
+                                                <td>{{$shop->created_at}}</td>
                                                 <td>
                                                     <i class="fa fa-check fa-2x"  style = "color:#4CAF50; padding: 3px 8px;"></i>
                                                     <i class="fa fa-times fa-2x"  style = "color:#f44336; padding: 3px 8px;"></i>
                                                 </td>
-                                                <td>Category</td>
+                                                <td>{{$shop->S_Category}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

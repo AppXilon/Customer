@@ -96,7 +96,7 @@
                                             @endforeach
                                             @foreach($manager as $manager)
                                             <tr>
-                                                <td>M{{$manager['Manager_Id']}}</td>
+                                                <td>M{{$manager['Manager_id']}}</td>
                                                 <td>{{$manager['Name']}}</td>
                                                 <td>Manager</td>
                                                 <td>

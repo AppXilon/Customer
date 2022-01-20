@@ -72,11 +72,11 @@
                             @foreach($biz_hour as $biz_hour)
                             <tbody>
                                 <tr>
-                                    <th scope="row"><br>{{$biz_hour->day_name}}</th>
-                                    <td><br>{{$biz_hour->start_time}}</td>
-                                    <td><br>{{$biz_hour->end_time}}</td>
+                                    <th scope="row"><br>{{$biz_hour->Day_Of_Week}}</th>
+                                    <td><br>{{$biz_hour->Start_Time}}</td>
+                                    <td><br>{{$biz_hour->End_Time}}</td>
                                     <td><br>
-                                        @if ($biz_hour->day_off == '1')
+                                        @if ($biz_hour->Status == '1')
                                         <label class="switch">
                                             <input type="checkbox" checked onclick="return false;">
                                             <span class="slider round"></span>
@@ -87,7 +87,7 @@
                                             <span class="slider round"></span>
                                     @endif
                                         </td>
-                                      <td><a class="btn btn-primary" href="{{ route('biz_hour.edit', $biz_hour->day_id) }}">Edit</a></td>
+                                      <td><a class="btn btn-primary" href="{{ route('biz_hour.edit', $biz_hour->Day_Id) }}">Edit</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

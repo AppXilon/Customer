@@ -69,27 +69,55 @@
                                             <div class="col-lg-6 col-md-4 col-sm-6">
                                                 <div class="form-group">
                                                 <label for="example-text-input" class="col-form-label">Name:</label>
-                                                <input class="form-control" type="text" name="M_Name">
+                                                <input class="form-control" type="text" name="Name">
                                             </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="example-email-input" class="col-form-label">Email:</label>
-                                                    <input class="form-control" type="email" placeholder="name@example.com" name="M_Email">
+                                                    <input class="form-control" type="email" placeholder="name@example.com" name="Email">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-4 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="inputPassword" class="">Password</label>
-                                                    <input type="password" class="form-control" placeholder="Password" id="pwd"  name="M_Password">
+                                                    <input type="password" class="form-control" placeholder="Password" id="pwd"  name="Password">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-4 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="inputPassword" class="">Confirm Password:</label>
-                                                    <input type="password" class="form-control" placeholder="Password" id="conpwd" name="conpwd" >
-                                                    <input type="hidden" class="form-control" name="M_Ban" value="0">
-                                                    <input type="hidden" class="form-control" name="M_Reason" value="null">
+                                                    <label for="example-text-input" class="">Phone</label>
+                                                    <input type="phone" class="form-control" placeholder="0123456789" id="pwd"  name="Phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="">Street 1</label>
+                                                    <input type="text" class="form-control" placeholder="Password" id="pwd"  name="Street_1">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="">Poscode</label>
+                                                    <input type="number" class="form-control" placeholder="00123" id="poscode"  name="Poscode">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="">City</label>
+                                                    <input type="text" class="form-control" placeholder="City" id="city"  name="City">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="">State</label>
+                                                    <input type="text" class="form-control" placeholder="Selangor,Kedah.." id="state"  name="State">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="hidden" class="form-control" name="Ban" value="0">
+                                                    <input type="hidden" class="form-control" name="Reason" value="null">
                                                 </div>
                                             </div>
                                         </div>

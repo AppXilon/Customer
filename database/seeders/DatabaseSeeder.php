@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(FaqSeeder::class);
         $this->call(TermSeeder::class);
+        $this->call(CaptchaSeeder::class);
+        $this->call(BizHourSeeder::class);
     }
 }

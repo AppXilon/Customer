@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Manage Restaurant</title>
+    <title>Manage Partners</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{ asset ('admin-assets/images/icon/favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset ('admin-assets/css/bootstrap.min.css')}}">
@@ -88,14 +88,14 @@
                                         <tbody>
                                             @foreach($shop as $shop)
                                             <tr>
-                                                <td>{{$shop['S_Id']}}</td>
+                                                <td>{{$shop['Shop_Id']}}</td>
                                                 <td>{{$shop['S_Name']}}</td>
-                                                <td>Category</td>
+                                                <td>{{$shop['S_Category']}}</td>
                                                 <td>
                                                     <i class="fa fa-edit fa-2x"  style = "color:#4CAF50; padding: 3px 8px;"></i></a>
                                                     <i class="fa fa-ban fa-2x"  style = "color:#f44336; padding: 3px 8px;"></i></a>
                                                 </td>
-                                                <td>Ashraf</td>
+                                                <td>Manager</td>
                                             @endforeach
                                         </tbody>
                                     </table>

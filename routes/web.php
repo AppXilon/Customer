@@ -101,6 +101,8 @@ Route::get('/tnc',[TermController::class,'view']);
 
 Route::get('/partner',[ManagerController::class,'partner']);
 
+Route::post('/partnerStore',[ManagerController::class,'partnerStore']);
+
 Route::get('write-review/{P_Id}', [ReviewController:: class, 'addReview']) ;
 
 Route::post('/submitReview', [ReviewController:: class, 'submitReview']) -> name ('submitReview') ;

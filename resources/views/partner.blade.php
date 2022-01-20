@@ -6,13 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Become Our Partner') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('manager.store') }}">
+                    <form method="POST" action="{{ url('/partnerStore') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="Name" value="{{ old('Name') }}" required autocomplete="Name" autofocus>
 
@@ -128,6 +126,8 @@
                                     </span>
                                 @enderror
                             </div>
+                            <input type="hidden" class="form-control" name="Ban" value="0">
+                            <input type="hidden" class="form-control" name="Reason" value="null">
                         </div>
 
                         <div class="form-group row mb-0">

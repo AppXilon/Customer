@@ -15,6 +15,7 @@
         "laravel/ui": "^3.3",
         "monkeylearn/monkeylearn-php": "^3.3",
         "razorpay/razorpay": "^2.8",
+        "spatie/laravel-backup": "^6.16",
         "srmklive/paypal": "~3.0",
         "stripe/stripe-php": "^7.110"
     },

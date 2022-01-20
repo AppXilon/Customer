@@ -28,7 +28,6 @@
                                     <div class="col"><h5><b>{{$term['T_Topics']}}</b><h5></div>
                                 </div>
                                 <p>{{$term['T_Contents']}}<p>
-
                                     @endforeach
                             </div>
                             <!--<div class="col-lg-12 mt-5" style="text-align: center;">

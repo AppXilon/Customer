@@ -85,8 +85,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                            <p>{{$term['T_Terms']}}<p><br>
-
+                                            <p>{{$term['T_Contents']}}<p><br>
                                                 @endforeach
                                         </div>
                                         <!--<div class="col-lg-12 mt-5" style="text-align: center;">
