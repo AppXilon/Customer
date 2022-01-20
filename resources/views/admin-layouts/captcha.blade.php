@@ -63,7 +63,7 @@
                                 <div class="col-lg-6 mt-5">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="header-title">Captcha ({{$capt->Capt_Name}})</h4>
+                                            <h4 class="header-title">Captcha ({{$capt->Name}})</h4>
                                             <p class="text-muted font-14 mb-4">Set options for the captcha used on the front-end</p>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -72,7 +72,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2 col-md-4 col-sm-6">
-                                                    @if ($capt->Capt_Status == '1')
+                                                    @if ($capt->Status == '1')
                                                     <label class="switch">
                                                         <input type="checkbox" checked onclick="return false;">
                                                         <span class="slider round"></span>
@@ -92,9 +92,9 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                                     <div class="form-row">
-                                                        <input data-id="{{$capt->Capt_Type}}" class="toggle-class" type="checkbox" 
+                                                        <input data-id="{{$capt->Type}}" class="toggle-class" type="checkbox" 
                                                         data-onstyle="success" data-offstyle="primary"
-                                                        data-toggle="toggle" data-on="Character" data-off="Number" {{ $capt->Capt_Type ? 'checked' : '' }} disabled>
+                                                        data-toggle="toggle" data-on="Character" data-off="Number" {{ $capt->Type ? 'checked' : '' }} disabled>
                                                     </div>
                                                 </div>
                                             </div><br>
@@ -106,7 +106,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-4 col-sm-6">
                                                     <div class="captcha">
-                                                        @switch($capt->Capt_Type)
+                                                        @switch($capt->Type)
                                                             @case(0)
                                                             <span>{!! captcha_img() !!}</span>
                                                                 @break

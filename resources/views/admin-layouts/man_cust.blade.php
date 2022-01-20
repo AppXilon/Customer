@@ -85,10 +85,10 @@
                                         <tbody>
                                             @foreach($customers as $data)
                                             <tr>
-                                                <td>C{{$data->C_Id}}</td>
-                                                <td>{{$data->C_Name}}</td>
+                                                <td>C{{$data->id}}</td>
+                                                <td>{{$data->name}}</td>
                                                 <td>
-                                                    <a class="fa fa-ban fa-2x" href="{{ route('customer.edit', $data->C_Id) }}"
+                                                    <a class="fa fa-ban fa-2x" href="{{ route('customer.edit', $data->id) }}"
                                                     style = "color:#f44336; padding: 3px 8px;"></a>
                                                 </td>
                                             @endforeach

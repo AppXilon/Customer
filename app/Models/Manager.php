@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Manager extends Model
 {
     public $table = 'manager';
-    protected $primaryKey = 'M_Id';
+    protected $primaryKey = 'Manager_id';
     protected $fillable = [
-        'M_Id', 'M_Name', 'M_Password', 'M_Email', 'M_Ban', 'M_Reason'
+        'Manager_id', 'Name', 'Email', 'Password', 'Street_1', 'Postcode', 'City', 'State', 'Ban', 'Reason'
     ];
     public $timestamps = false;
 }

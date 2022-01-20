@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-ml-12">
                         <div class="row">
-                            <form action="{{ route('payment.update', $payment->Pay_Id) }}" method="POST">
+                            <form action="{{ route('payment.update', $payment->PM_Id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <!-- Textual inputs start -->
@@ -57,16 +57,16 @@
                                     <div class="card-body">
                                         <h4 class="header-title">Edit Payment</h4>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
-                                            <img class="card-img-top img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode($payment->Pay_Image)) }}" alt="image">
+                                            <img class="card-img-top img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode($payment->Image)) }}" alt="image">
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="col-form-label">Name: {{ $payment->Pay_Name }}</label>
+                                                <label for="example-text-input" class="col-form-label">Name: {{ $payment->Name }}</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-row">
-                                                <select class="form-control" name="Pay_Status" id="status">
+                                                <select class="form-control" name="Status" id="status">
                                                     <option value="1">Enable</option>
                                                     <option value="0">Disable</option>
                                                 </select>

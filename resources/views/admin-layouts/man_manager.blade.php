@@ -86,11 +86,11 @@
                                         <tbody>
                                             @foreach($manager as $manager)
                                             <tr>
-                                                <td>M{{$manager['Manager_Id']}}</td>
+                                                <td>M{{$manager['Manager_id']}}</td>
                                                 <td>{{$manager['Name']}}</td>
                                                 <td>Restoran Taf Bistro</td>
                                                 <td>
-                                                    <a class="fa fa-ban fa-2x" href="{{ route('manager.edit', $manager->Manager_Id) }}"
+                                                    <a class="fa fa-ban fa-2x" href="{{ route('manager.edit', $manager->Manager_id) }}"
                                                         style = "color:#f44336; padding: 3px 8px;"></a>
                                                 </td>
                                                 <td>01.01.2020</td>

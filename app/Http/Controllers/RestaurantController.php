@@ -13,6 +13,11 @@ class RestaurantController extends Controller
         $data = Shop::where('S_Status', 0)->get();
         return view('admin-layouts.man_rest',['shop'=>$data]);
     }
+    public function partner()
+    {
+        $data = Shop::where('S_Status', 0)->get();
+        return view('admin-layouts.man_rest',['shop'=>$data]);
+    }
     public function indexPend()
     {
         $data = Shop::where('S_Status', 2)->get();
@@ -24,7 +29,7 @@ class RestaurantController extends Controller
         return view('admin-layouts.ban_rest',['shop'=>$data]);
     }
 
-     public function edit(Shop $rest)
+    public function edit(Shop $rest)
     {
         return view('admin-layouts.action_ban', compact('rest'));
     }

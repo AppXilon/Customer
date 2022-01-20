@@ -22,7 +22,7 @@
                             <div class="col-md-6">
                                 <div class="footer-link">
                                     <h2>Quick Links</h2>
-                                    <a href="">Terms of use</a>
+                                    <a href="tnc">Terms of use</a>
                                     <a href="">Chatbot</a>
                                     <a href="/faq_index">FAQs</a>
                                     <a href="">About</a>
@@ -40,7 +40,7 @@
                                 All you have to do is to fill in the form and we will get back to you! For more details, click the Partner button!
                             </p>
                             <div class="form">
-                                <a href="partner.html">
+                                <a href="/partner">
                                 <button class="btn custom-btn">Partner</button></a>
                             </div>
                         </div>

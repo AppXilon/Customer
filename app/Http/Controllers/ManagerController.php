@@ -10,9 +10,34 @@ class ManagerController extends Controller
 {
     public function index()
     {
-        $data = Manager::where('M_Ban', 0)->get();
+        $data = Manager::where('Ban', 0)->get();
         return view('admin-layouts.man_manager',['manager'=>$data]);
     }
+    
+    public function partner()
+    {
+        return view('partner');
+    }
+
+    public function partnerStore(Request $request)
+    {
+        $request->validate([
+            'Name' => 'required',
+            'Email' => 'required',
+            'Password' => 'required',
+            'Phone' => 'required',
+            'Street_1' => 'required',
+            'Postcode' => 'required',
+            'City' => 'required',
+            'State' => 'required',
+            'Ban' => 'required',
+            'Reason' => 'required'
+        ]);
+    
+        Manager::create($request->all());
+     
+        return redirect()->route('index')
+                        ->with('success','Manager created successfully.');    }
 
 
     function manager_login(Request $req)
@@ -48,11 +73,16 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'M_Name' => 'required',
-            'M_Password' => 'required',
-            'M_Email' => 'required',
-            'M_Ban' => 'required',
-            'M_Reason' => 'required'
+            'Name' => 'required',
+            'Email' => 'required',
+            'Password' => 'required',
+            'Phone' => 'required',
+            'Street_1' => 'required',
+            'Postcode' => 'required',
+            'City' => 'required',
+            'State' => 'required',
+            'Ban' => 'required',
+            'Reason' => 'required'
         ]);
     
         Manager::create($request->all());

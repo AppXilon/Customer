@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     public $table = 'users';
-    protected $primaryKey = 'C_Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'C_Id', 'C_Name', 'C_Phone', 'C_Password', 'C_Gender', 'C_BirthDate', 'C_Email', 'C_Ban', 'C_Reason'
+        'id', 'name', 'phone', 'password', 'gender', 'birthDate', 'email', 'street_1', 'postcode', 'city', 'state', 'ban', 'reason'
     ];
     public $timestamps = false;
 }

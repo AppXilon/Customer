@@ -48,6 +48,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-ml-12">
                         <div class="row">
+                            <form action="{{ route('captcha.update', $payment->Pay_Id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <!-- Textual inputs start -->
@@ -57,12 +58,12 @@
                                         <h4 class="header-title">Edit Captcha</h4>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="col-form-label">Name: {{ $capt->Capt_Name }}</label>
+                                                <label for="example-text-input" class="col-form-label">Name: {{ $capt->Name }}</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-row">
-                                                <select class="form-control" name="Capt_Status" id="status">
+                                                <select class="form-control" name="Status" id="status">
                                                     <option value="1">Enable</option>
                                                     <option value="0">Disable</option>
                                                 </select>
@@ -76,7 +77,7 @@
                                             </div>
                                             <div class="col-lg-6 col-md-4 col-sm-6">
                                                 <div class="form-row">
-                                                    <select class="form-control" name="Capt_Type" id="status">
+                                                    <select class="form-control" name="Type" id="status">
                                                         <option value="1">Character</option>
                                                         <option value="0">Number</option>
                                                     </select>

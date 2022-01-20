@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-ml-12">
                         <div class="row">
-                            <form action="{{ route('manager.update', $manager->M_Id) }}" method="POST">
+                            <form action="{{ route('manager.update', $manager->Manager_id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <!-- Textual inputs start -->
@@ -58,12 +58,17 @@
                                         <h4 class="header-title">Banning Customer</h4>
                                         <div class="col-lg-12 col-md-4 col-sm-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="col-form-label">Name: {{ $manager->M_Name }}</label>
+                                                <label for="example-text-input" class="col-form-label">Name: {{ $manager->Name }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="col-form-label">Email: {{ $manager->Email }}</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-row">
-                                                <select class="form-control" name="M_Ban" id="ban">
+                                                <select class="form-control" name="Ban" id="ban">
                                                     <option value="1">Ban</option>
                                                     <option value="0">Unban</option>
                                                 </select>
@@ -74,7 +79,7 @@
                                         <div class="col-lg-8 col-md-4 col-sm-6">
                                             <div class="form-row">
                                                 <label class="col-form-label">Reason for Ban:</label>
-                                                <select class="form-control" name="M_Reason" id="reason">
+                                                <select class="form-control" name="Reason" id="reason">
                                                     <option value="Suspicious Activity">Suspicious Activity</option>
                                                     <option value="Illegal Transaction">Illegal Transaction</option>
                                                     <option value="Inappropriate Substances/Profanity">Inappropriate Substances/Profanity</option>
