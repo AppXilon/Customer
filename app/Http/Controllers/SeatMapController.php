@@ -92,7 +92,19 @@ class SeatMapController extends Controller
         return redirect()->route('seatmap.index');
     }
 
-    
+   
+    public function updateSeat(Request $request,  $table)
+    {
+        $Table = Table::find($table);
+
+        //Product Similarity Controller
+       $Table->T_Id = $request->T_Id;
+       $Table->Shop_Id = $request->Shop_Id;
+       $Table->T_Pax = $request->T_Pax;
+       $Table->update();
+
+        return redirect()->route('seatmap.index');
+    }
 
     /**
      * Remove the specified resource from storage.

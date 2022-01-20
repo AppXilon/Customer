@@ -30,57 +30,36 @@
                                 </form>
                             </div>
                             <div class="card-body">
-                                <div class="tab-content mt-3" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                        aria-labelledby="nav-home-tab">
-                                        <table class="table text-center">
-                                            <thead class="text-uppercase bg-info">
+                                <h4 class="header-title">Booking List</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                           <thead class="text-uppercase bg-primary">
                                                 <tr class="text-white">
-                                                    <th scope="col">DateTime</th>
-                                                    <th scope="col">Pax</th>
-                                                    <th scope="col">Table</th>
+                                                    <th scope="col">Date Time</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Contact No.</th>
+                                                    <th scope="col">Table No.</th>
+                                                    <th scope="col">Table Pax</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
+                                            @foreach($booking as $booking)
                                             <tbody>
                                                 <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>4</td>
-                                                    <td>5</td>
-                                                    <td>Alfreda Parrish</td>
-                                                    <td>ube@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
+                                                    <th>{{$booking->Datetime}}</th>
+                                                    <td>{{ $booking->O_Name}}</td>
+                                                    <td>{{$booking->O_Phone}}</td>
+                                                    <td>{{$booking->T_Id}}</td>
+                                                    <td>{{$booking->T_Pax}}</td>
+                                                      <td> <a class="btn btn-primary"
+                                                        href="">Edit</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>3</td>
-                                                    <td>3</td>
-                                                    <td>Adele Bradshaw</td>
-                                                    <td>dudyxyhy@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>3</td>
-                                                    <td>6</td>
-                                                    <td>Ali</td>
-                                                    <td>ali@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>Seman</td>
-                                                    <td>semanxseman@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>    
                             </div>
                             <div id="myModal" class="modal">
                                 <!-- Modal content -->
