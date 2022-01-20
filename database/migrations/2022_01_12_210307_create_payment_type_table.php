@@ -16,8 +16,8 @@ class CreatePaymentTypeTable extends Migration
         Schema::create('payment_type', function (Blueprint $table) {
             $table->bigIncrements('PM_Id');
             $table->string('Name');
-            $table->integer('Status');
-            $table->binary('Image');
+            $table->integer('Status')->default('1');
+            $table->binary('Image')->nullable();
             $table->timestamps();
         });
     }

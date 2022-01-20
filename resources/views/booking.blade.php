@@ -28,14 +28,11 @@
                                 <p>Book A Table {{$order}}</p>
                                 <h2>Book Your Table For Private Dinners & Happy Hours</h2>
                             </div>
-                            <div class="about-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
-                                </p>
+                            @foreach ($img as $img)
+                            <div class="menu-img">
+                                <img src="{{asset('images/'. $img->S_Table)}}" alt="Image">
                             </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-5">

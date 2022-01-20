@@ -28,7 +28,7 @@
                                     <tbody>
                                         <tr>
                                             <td>{{ $OrderProduct->items->P_Name }}</td>
-                                            <td></td>
+                                            <td>{{ $OrderProduct->O_Notes }}</td>
                                             <td>{{ $OrderProduct->Order_Quantity }}</td>
                                         </tr>
                                     </tbody>

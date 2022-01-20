@@ -26,12 +26,13 @@ class CreateOrder extends Migration
             $table->string('O_State');
             $table->string('O_Email');
             $table->string('O_Phone');
+            $table->string('O_Notes')->nullable();
             $table->string('O_Payment');
             $table->string('O_Payment_No')->nullable();
             $table->dateTime('Dine_Datetime')->nullable();
             $table->double('O_Total_Price');
             $table->string('O_Type')->nullable();
-            $table->string('O_Status')->default('1');;
+            $table->string('O_Status')->default('1');
 		    $table->string('Tracking_No');
             $table->timestamps();
         });
