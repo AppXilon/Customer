@@ -35,18 +35,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
-                                    class="fa fa-angle-down"></i><br>Manager</h4>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Message</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('include.managerBar')
                 </div>
             </div>
             <!-- page title area end -->
@@ -79,7 +68,7 @@
                                         aria-labelledby="nav-home-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
@@ -131,7 +120,7 @@
                                         aria-labelledby="pills-profile-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
@@ -183,7 +172,7 @@
                                         aria-labelledby="pills-completed-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
