@@ -17,12 +17,15 @@ class CreateShop extends Migration
             $table->foreign('S_Category')->references('S_Cat_Name')->on('shop_category')->onDelete('cascade');
             $table->string('S_Name');
             $table->string('S_Description');
-            $table->string('S_Image')->nullable();
-            $table->string('S_Banner')->nullable();
             $table->integer('Dine_In')->nullable();
             $table->integer('Delivery')->nullable();
             $table->integer('Pick_Up')->nullable();
+            $table->string('S_Status')->nullable();
+            $table->string('S_Reason')->nullable();
             $table->string('S_Termcond')->nullable();
+            $table->string('S_Image')->nullable();
+            $table->string('S_Banner')->nullable();
+            $table->string('S_Table')->nullable();
             $table->timestamps();
         });
     }

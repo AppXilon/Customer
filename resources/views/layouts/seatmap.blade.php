@@ -1,13 +1,13 @@
 @include('include.header')
 
 <body>
-    
+
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
     <!-- preloader area end -->
-    
+
     <!-- page container area start -->
     <div class="page-container">
         <!-- sidebar menu area start -->
@@ -30,141 +30,111 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
-                                    class="fa fa-angle-down"></i></h4>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Message</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('include.managerBar')
                 </div>
             </div>
             <!-- page title area end -->
             <!-- *************************************************************************************************************************-->
-            
+
             <div class="main-content-inner">
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                
-                            <div class="section-header text-center">
-                                        <h2>Restaurant's Layout</h2>
-                                <input type="button" id="myBtn" value="Update" class="button1">
-                        </div>
-                            <div class="team">
-                                <div class="container">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 1.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 1</button>
-                                                </div>
-                                            </div>
+                                <div class="section-header text-center">
+                                    <h2>Restaurant's Layout</h2>
+                                    <button type="button" data-toggle="modal" data-target="#createSeat"
+                                        class="button1">Add Seat
+                                    </button>
+                                    <button type="button" data-toggle="modal" data-target="#editSeatMap"
+                                        class="button1">
+                                        Update Seat Map
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                            href="#pills-home" role="tab" aria-controls="pills-home"
+                                            aria-selected="true">Seat Map</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                                            href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                            aria-selected="false">Seat Adjustment</a>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="nav-home-tab">
+                                            @foreach ($seatmap as $map)
+                                                <img src="{{ asset('images/' . $map->S_Table) }}"
+                                                    class="seatmap">
+                                            @endforeach
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 1.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 2</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 1.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 3</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 1.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 4</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 2.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 5</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 2.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 6</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 3.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 7</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="team-item">
-                                                <div class="team-img">
-                                                    <img src="assets/images/table/table 3.png" alt="Image">
-                                                    <button class="btn" id="myBtn">Table 8</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                            aria-labelledby="pills-profile-tab">
+                                            <table id="dataTable" class="table text-center">
+                                                <thead class="text-uppercase bg-primary">
+                                                    <tr class="text-white">
+                                                        <th scope="col">Table Number</th>
+                                                        <th scope="col">Table Pax</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                @foreach ($table as $seat)
+                                                    <tbody>
+                                                        <td>{{ $seat->T_Id }}</td>
+                                                        <td>{{ $seat->T_Pax }}</td>
+                                                        <td>
+                                                            <form action="{{ route('seatmap.destroy', $seat->T_Id) }}"
+                                                                method="POST">
+                                                                <button type="button" data-toggle="modal"
+                                                                    data-target="#editSeat{{$seat->T_Id}}" class="btn btn-primary">
+                                                                    Edit
+                                                                </button>
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </td>
+                                                    </tbody>
+                                                @endforeach
+                                            </table>
 
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Team End -->
-                            <div id="myModal" class="modal">
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">Update Criteria</h4>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="validationCustomUsername"
-                                                        placeholder="Table Name" aria-describedby="inputGroupPrepend" required="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="validationCustomUsername"
-                                                        placeholder="Table Pax" aria-describedby="inputGroupPrepend" required="">
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn-success mb-3"
-                                                style="float: right;">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                     <!-- table primary start -->
+                    @foreach ($seatmap as $seat)
+                        @include('layouts.modal.editMap')
+                        @include('layouts.modal.createSeat')
+                    @endforeach
+
+                    @foreach ($table as $tables)
+                        @include('layouts.modal.editSeat')
+                    @endforeach
+
                 </div>
             </div>
         </div>
         <!-- main content area end -->
         <!-- *************************************************************************************************************************-->
-        
+        <!-- Modal -->
+
+
+
+
+        <!--endModal-->
+
 
         <!-- footer area start-->
         @include('include.footer')
@@ -181,7 +151,7 @@
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
 
-    
+
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>

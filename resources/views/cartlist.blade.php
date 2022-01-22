@@ -7,7 +7,7 @@
         <div class="section-header text-center">
             <p></p>
             <p></p>
-            <h2>Product Cart</h2>
+            <h2>Product Cart {{$order}}</h2>
         </div>
         <div class="basket">
             <div class="basket-module">
@@ -31,11 +31,10 @@
                         <div class="product-image">
                             <img src="{{asset('images/'. $item->P_Image)}}" alt="Placholder Image 2" class="product-frame">
                         </div>
+                <form method = "GET" action="checkout_shipping">
                         <div class="product-details">
-                            <a href="detail/{{$item->id}}">
-                            <h4><strong>{{$item->P_Name}}</strong></h4></a>
+                            <h4><strong>{{$item->P_Name}}</strong></h4>
                             <p><strong>{{$item->S_Description}}</strong></p>
-                            <p>Notes: </p>
                         </div>
                     </div>
                     <div class="price">{{ number_format((float) $item->P_Price, 2, '.', '') }}
@@ -57,6 +56,8 @@
                     </div>
                 </div>
                     @endforeach
+                    <label for="extra">Notes</label>
+                    <input id="promo-code" type="text" name="extranotes" value="extra" class="notes">
 
                 <div class="pricing">
                     <div class="basket-labels">
@@ -74,9 +75,10 @@
                         </div>
                     <div class="checkout-button">
                         <a href="/catalogue" class="btn btn-warning">Continue Shopping</a>
-                        <a href="checkout_shipping" class="btn btn-warning">Proceed to Checkout</a>
+                        <a href="checkout_shipping"><button type="submit" name="notes" value="notes" class="btn btn-warning">Proceed to checkout</button></a>
                     </div>
                 </div>
+            </form>
             @else
                 <div class="basket-product">
                     <div class="item">

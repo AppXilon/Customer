@@ -19,11 +19,14 @@ class CreateManager extends Migration
             $table->string('Name');
             $table->string('Email');
             $table->string('Password');
+            $table->boolean('isBanned')  ->default(0);
             $table->string('Phone');
             $table->string('Street_1');
             $table->integer('Postcode');
             $table->string('City');
             $table->string('State');
+            $table->integer('Ban');
+            $table->string('Reason');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -38,4 +41,3 @@ class CreateManager extends Migration
         Schema::dropIfExists('manager');
     }
 }
-

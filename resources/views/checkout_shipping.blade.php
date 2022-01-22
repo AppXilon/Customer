@@ -2,7 +2,13 @@
 @section('content')
 
 <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
+<script src="https://js.stripe.com/v3/"></script>
 
+<?php
+
+require_once __DIR__.'/../../../vendor/autoload.php';
+
+?>
 
 <!-- Shipping Address Start -->
 <div class="checkout">
@@ -21,7 +27,7 @@
         <form action="/orderplace" method="POST">
             @csrf
             <div class="shipping-address mt-5">
-                <div class="col-md-6">
+                <div id="delivery" class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <h4>Customer Details</h4>
@@ -94,41 +100,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
                             <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="col-md-6 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Card Details</h4>
-                            <hr>
-                            
-                            <div class="form-group">
-                                <label for="">Card Number</label>
-                                <input type="text" class="form-control" value="Card Number" name="cc_Number" placeholder="Enter Email" required="required">
-                                
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="">Expiry Month</label>
-                                <input type="text" class="form-control" value="Expiry Month" name="cc_Month" placeholder="Enter Phone Number" required="required">
-                                
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="">Expiry Year</label>
-                                <input type="text" class="form-control" value="Expiry Year" name="cc_Year" placeholder="Enter Street" required="required">
-                                
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="">CVC</label>
-                                <input type="password" class="form-control" value="CVC" name="cc_CVC" placeholder="Enter Postcode" required="required">
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="col-md-6 mt-5">
                     <div class="card">
@@ -137,7 +113,6 @@
                             <hr>
                             <div class="payment-option">
                                 <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with Cash</button>
-                                <button type="submit" name="payment" value="Razor" class="btn btn-primary w-100 mt-3 razorpay_btn">Pay with Razorpay</button>
                                 <!-- <button type="submit" name="payment" value="Stripe" class="btn btn-success w-100 mt-3 razorpay_btn">Pay with Stripe</button> -->
                                 <a class="btn btn-primary w-100 mt-3" href="{{ route('processTransaction') }}">PayPal Payment</a>
                                 @if(\Session::has('error'))
@@ -148,7 +123,9 @@
                                 <div class="alert alert-success">{{ \Session::get('success') }}</div>
                                 {{ \Session::forget('success') }}
                                 @endif
+                                <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -158,4 +135,39 @@
 </div>
 <!-- Shipping Address End -->
 
+<?php
+\Stripe\Stripe::setApiKey('sk_test_51KHHOyEL224hnqnlZYzGWFqurcYpg8dcajbhqSipQgB8XfwBVy7sv0ZwtoaHlj93yF6tZDpbXPb2X1eNMBkHejhV00o3yVsImu');
+
+$session = \Stripe\Checkout\Session::create([
+    'line_items' => [[
+      'price_data' => [
+        'currency' => 'myr',
+        'product_data' => [
+          'name' => 'T-shirt',
+        ],
+        'unit_amount' => 2000,
+      ],
+      'quantity' => 1,
+    ]],
+    'mode' => 'payment',
+    'success_url' => 'https://example.com/success',
+    'cancel_url' => 'https://example.com/cancel',
+  ]);
+
+?>
+
+@endsection
+
+
+@section('scripts')
+<script>
+const stripe = Stripe('pk_test_51KHHOyEL224hnqnlcij1l50AfvVQYkaLSDaheOu9qreC13JYqWeEL6u27qwBeaiVTMahXJ39lq3LSXbyrbibqLBf00t6wBOtpU')
+const btn = document.getElementById("stripe-checkout")
+btn.addEventListener('click', function(e){
+    e.preventDefault();
+    stripe.redirectToCheckout({
+        sessionId: "<?php echo $session->id ?>"
+    })
+})
+</script>
 @endsection

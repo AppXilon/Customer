@@ -24,7 +24,7 @@
             <!-- <p>Food Menu</p> -->
             <p></p>
             <p></p>
-            <h2>Delicious Food Menu</h2>
+            <h2>Delicious Food Menu {{$order}}</h2>
         </div>
         <div class="menu-tab product_data">
             
@@ -65,7 +65,9 @@
                                             <form action="/add_to_cart" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="Pro_Id" value="{{$item->P_Id}}">
+                                                <input type="hidden" name="otype" value="{{$order}}">
                                                 <button class="button-cart addToCartBtn"><i class="fa fa-shopping-cart"></i></button>
+                                                
                                             
                                         </div>
                                     @else
@@ -86,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                         </div>
                         <div class="col-lg-5 d-none d-lg-block">
                             <img src="asset/img/menu-friedrice-big.png" alt="Image">
@@ -113,7 +115,7 @@
             </div>
             <div class="detail-box">
             <h5>
-                Tasty Thursdays
+                Tasty Thursdays 
             </h5>
             <h6>
                 <span>20%</span> Off
