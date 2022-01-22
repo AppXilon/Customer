@@ -11,6 +11,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
@@ -114,6 +115,8 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+Route::resource('/report', ReportController::class);
+
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
@@ -127,9 +130,6 @@ Route::get('/seatmap', function () {
    return view('layouts.seatmap');
 });
 
-Route::get('/report', function () {
-    return view('layouts.report');
- });
 
 
 Route::get('/order_trends', function () {

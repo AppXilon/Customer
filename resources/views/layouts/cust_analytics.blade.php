@@ -228,11 +228,7 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
                                             <h4 class="header-title mb-0">Customer by Marital</h4>
-                                            <select class="custome-select border-0 pr-3">
-                                                <option selected="">Last 7 Days</option>
-                                                <option value="0">Last 2 Months</option>
-                                                <option value="0">Annual</option>
-                                            </select>
+                                            
                                         </div>
                                     </div>
                                     <canvas id="cust_marital" height="150"></canvas>
@@ -242,7 +238,7 @@
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
-                                            <h4 class="header-title mb-0">Customer by Status</h4>
+                                            <h4 class="header-title mb-0">Customer by Race</h4>
                                             <select class="custome-select border-0 pr-3">
                                                 <option selected="">Last 7 Days</option>
                                                 <option value="0">Last 2 Months</option>
@@ -250,7 +246,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_status" height="150"></canvas>
+                                    <canvas id="cust_race" height="150"></canvas>
                                 </div>
                             </div>
                             
@@ -373,8 +369,8 @@
         var xValues = ["Female", "Male"];
         var yValues = <?php echo $custGender; ?>;
         var barColors = [
-        "#004c6d",
-        "#b6cee3",
+        "#FF7043",
+        "#FFA726",
         ];
         
         new Chart("cust_jantina", {
@@ -392,13 +388,15 @@
         });
     </script>
 
-    <!-- customer by age -->
+    
+
+    // <!-- customer by age -->
     <script>
         var xValues = ["<30 y/o", ">30 y/o"];
-        var yValues = [43, 46];
+        var yValues = <?php echo $custAge; ?>;
         var barColors = [
-        "#004c6d",
-        "#b6cee3",
+        "#FFCA28",
+        "#FFEE58",
         ];
         
         new Chart("cust_umur", {
@@ -414,18 +412,19 @@
             
         }
         });
-        </script>
+    </script>
 
-        <!-- customer by status -->
+        <!-- customer by race -->
         <script>
-            var xValues = ["Registered", "Anonymous"];
-            var yValues = [67, 36];
+            var xValues = ["Malay", "Chinese", "Indian", "Other"];
+            var yValues = <?php echo $custRace; ?>;
             var barColors = [
-            "#004c6d",
-            "#b6cee3",
+            "#D4E157",
+            "#9CCC65",
+            "#66BB6A",
             ];
             
-            new Chart("cust_status", {
+            new Chart("cust_race", {
             type: "pie",
             data: {
                 labels: xValues,
@@ -443,11 +442,11 @@
         <!-- customer by marital -->
         <script>
             var xValues = ["Single", "Married", "Widowed", "Divorced"];
-            var yValues = [37, 49, 12, 21];
+            var yValues = <?php echo $custMarital; ?>;
             var barColors = [
-            "#004c6d",
-            "#436f8d",
-            "#7193af",
+            "#26C6DA",
+            "#29B6F6",
+            "#26A69A",
             "#b6cee3",
             ];
             

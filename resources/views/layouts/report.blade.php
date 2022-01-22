@@ -1,4 +1,4 @@
-@include('include.header') 
+@include('include.header')
 
 <body>
     
@@ -10,22 +10,22 @@
     <!-- page container area start -->
     <div class="page-container">
         <!-- sidebar menu area start -->
-        @include('include.sidebar') 
+        @include('include/sidebar')
         <!-- sidebar menu area end -->
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            @include('include.header_area') 
+            @include('include/header_area')
             <!-- header area end -->
             <!-- page title area start -->
             <div class="page-title-area">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left"> Sales Report</h4>
+                            <h4 class="page-title pull-left"> Order Report</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Home</a></li>
-                                <li><span>Sales Report</span></li>
+                                <li><span>Order Report</span></li>
                             </ul>
                         </div>
                     </div>
@@ -45,122 +45,124 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                    <!-- Dark table start -->
+
                     <div class="col-12 mt-5">
                         <div class="card">
+                            <div class="col-md-4">
+                                <form action="/search" method="get">
+                                    <div class="input-group">
+                                    <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                    <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
+                                    </div>
+                                </form>
+                            </div>
                             <div class="card-body">
-                                <h4 class="header-title">Order</h4>
-                                <div class="data-tables datatable-dark">
-                                    <table id="dataTable3" class="text-center">
-                                        <thead class="text-capitalize">
-                                            <tr>
-                                                <th>Order ID</th>
-                                                <th>Customer Name</th>
-                                                <th>Payment Method</th>
-                                                <th>Order Method</th>
-                                                <th>Order Date</th>
-                                                <th>Total Payments</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>001</td>
-                                                <td>Ali bin Hassan</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Dine-In</td>
-                                                <td>2020/11/28</td>
-                                                <td>RM40.90</td>
-                                            </tr>
-                                            <tr>
-                                                <td>002</td>
-                                                <td>Abu bin Hassan</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Booking</td>
-                                                <td>2020/11/29</td>
-                                                <td>RM80.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>003</td>
-                                                <td>Najiha bin Alif</td>
-                                                
-                                                <td>Online Banking</td>
-                                                <td>Booking</td>
-                                                <td>2020/11/29</td>
-                                                <td>RM50.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>004</td>
-                                                <td>Mashitah bin Hasiff</td>
-                                                
-                                                <td>Online Banking</td>
-                                                <td>Take Away</td>
-                                                <td>2020/11/29</td>
-                                                <td>RM48.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>005</td>
-                                                <td>Aiman bin Hanif</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/8</td>
-                                                <td>RM78.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>006</td>
-                                                <td>Aqilah binti Othman</td>
-                                                
-                                                <td>Touch N Go E-wallet</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/8</td>
-                                                <td>RM89.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>007</td>
-                                                <td>Dalilati Dayana binti Ahmad</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/9</td>
-                                                <td>RM82.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>008</td>
-                                                <td>Hanie Izzatie binti Salman</td>
-                                                
-                                                <td>Online Banking</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/10</td>
-                                                <td>RM29.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>009</td>
-                                                <td>Ain Izzati binti Alif</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/11</td>
-                                                <td>RM80.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>010</td>
-                                                <td>Siti Hajar binti Abu Dzar</td>
-                                                
-                                                <td>PayPal</td>
-                                                <td>Booking</td>
-                                                <td>2020/12/12</td>
-                                                <td>RM80.00</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
+                               
+
+                                
+                                    <div>
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Customer Name</th>
+                                                    <th scope="col">Payment Type</th>
+                                                    <th scope="col">Total Price</th>
+                                                    <th scope="col">Order Date</th>
+
+                                                   
+                                                  
+
+                                                </tr>
+                                            </thead>
+                                            @foreach ($Report as $report)
+                                                <tbody>
+                                                    <td>{{ $report->id }}</td>
+                                                    <td>{{ $report->O_Name}}</td>
+                                                    <td>{{ $report->O_Payment}}</td>
+
+                                                    <td>{{ $report->O_Total_Price}}</td>
+
+                                                    <td>{{ $report->Dine_Datetime}}</td>
+                                             
+                                             
+                                                </tbody>
+                                            @endforeach
+                                        </table>
+
+                                    </div>
+                                    {{-- <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                        aria-labelledby="nav-profile-tab">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                <th scope="col">ID</th>
+                                                    <th scope="col">Customer ID</th>
+                                                    <th scope="col">Total Price</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Teh Ais</td>
+                                                    <td>RM 2.00</td>
+                                                    <td></td>
+                                                    <td>2 Minutes</td>
+                                                    <td><img src="assets/images/tehais.jpg" alt="" border=3 height=50
+                                                            width=50></img></td>
+                                                    <td><label class="switch">
+                                                            <input type="checkbox" checked>
+                                                            <span class="slider round"></span>
+                                                        </label></td>
+                                                    <td><i class="fa fa-edit"
+                                                            style="color:#4CAF50; font-size: 25px;"></i><i
+                                                            class="fa fa-trash"
+                                                            style="color:#f44336; padding: 3px 8px; font-size: 25px;"></i></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                        aria-labelledby="nav-contact-tab">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Discount Price</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Pudding</td>
+                                                    <td>RM 4.00</td>
+                                                    <td></td>
+                                                    <td>5 Minutes</td>
+                                                    <td><img src="assets/images/pudding.jpg" alt="" border=3 height=50
+                                                            width=50></img></td>
+                                                    <td><label class="switch">
+                                                            <input type="checkbox" checked>
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td><i class="fa fa-edit"
+                                                            style="color:#4CAF50; font-size: 25px;"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> --}}
+                                
                             </div>
                         </div>
+                        <!-- table primary start -->
                     </div>
-                    <!-- Dark table end -->
                 </div>
             </div>
         </div>

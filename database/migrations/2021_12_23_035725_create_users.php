@@ -19,6 +19,8 @@ class CreateUsers extends Migration
             $table->string('phone')->nullable();
             $table->string('password');
             $table->string('occupation') ->nullable();
+            $table->string('race') ->nullable();
+            $table->string('marital') ->nullable();
             $table->string('gender') ->nullable();
             $table->date('birthdate')->nullable();
             $table->string('email');
