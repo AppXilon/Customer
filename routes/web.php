@@ -153,15 +153,9 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-
-
-
-
-
-
-
-
-
+/*******************************/
+/******* Admin route start *******/
+/*******************************/
 
 Route::get('/admin', function () {
     return view('admin-layouts.base');

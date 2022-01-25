@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Book A Table</h2>
+                        <h2>Book A Table{{$order}}</h2>
                     </div>
                     <div class="col-12">
                         <a href="index.html">Home</a>

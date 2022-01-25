@@ -65,10 +65,8 @@
                                             <form action="/add_to_cart" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="Pro_Id" value="{{$item->P_Id}}">
-                                                <input type="hidden" name="otype" value="{{$order}}">
+                                                <input type="hidden" id="otype" name="otype" value="{{$order}}">
                                                 <button class="button-cart addToCartBtn"><i class="fa fa-shopping-cart"></i></button>
-                                                
-                                            
                                         </div>
                                     @else
                                         <div class="menu-cart">
