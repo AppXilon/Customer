@@ -162,7 +162,6 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-<<<<<<< HEAD
 Route::get('/report', function () {
     return view('layouts.report');
  });
@@ -171,18 +170,10 @@ Route::get('/order_trends', function () {
    return view('layouts.order_trends');
 });
 
-=======
->>>>>>> 37487cea246a4a2fc8e2ff3650e5c6f71b7fc4df
 /*******************************/
 /******* Admin route start *******/
 /*******************************/
 
-<<<<<<< HEAD
-=======
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
->>>>>>> 37487cea246a4a2fc8e2ff3650e5c6f71b7fc4df
 Route::get('/admin', function () {
     return view('admin-layouts.base');
 });
