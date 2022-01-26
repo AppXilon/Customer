@@ -37,10 +37,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/default-css.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-<<<<<<< HEAD
     
-=======
->>>>>>> 5d252560cb433a36102fe932ee7080365e1f9cb0
 
 
     <!-- modernizr css -->
