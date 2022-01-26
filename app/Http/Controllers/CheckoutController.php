@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
         return view('checkout_shipping');
     }
-    function orderDetails()
+    function orderDetails(Request $req)
     {
         $old_cartitems = Cart::where('cust_id', Auth::id())->get();
         foreach($old_cartitems as $item)
@@ -37,7 +37,9 @@ class CheckoutController extends Controller
         }
         $cartitems = Cart::where('cust_id', Auth::id())->get();
 
-        return view('checkout_shipping', compact('cartitems'));
+        $notes=$req->extranotes;
+
+        return view('checkout_shipping', compact('cartitems', 'notes'));
     }
     
 
@@ -52,6 +54,7 @@ class CheckoutController extends Controller
         $order->O_City=$req->input('O_City');
         $order->O_State=$req->input('O_State');
         $order->O_Phone=$req->input('O_Phone');
+        $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
         

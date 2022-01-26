@@ -18,6 +18,7 @@ class CreateUsers extends Migration
             $table->string('name');
             $table->string('phone')->nullable();
             $table->string('password');
+            $table->boolean('isBanned')  ->default(0);
             $table->string('occupation') ->nullable();
             $table->string('gender') ->nullable();
             $table->date('birthdate')->nullable();

@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TermSeeder::class);
         $this->call(CaptchaSeeder::class);
         $this->call(BizHourSeeder::class);
+        $this->call(TableSeeder::class);
+        $this->call(PaymentTypeSeeder::class);
     }
 }

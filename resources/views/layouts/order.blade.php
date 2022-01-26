@@ -35,18 +35,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salim Kasim<i
-                                    class="fa fa-angle-down"></i><br>Manager</h4>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Message</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('include.managerBar')
                 </div>
             </div>
             <!-- page title area end -->
@@ -79,10 +68,11 @@
                                         aria-labelledby="nav-home-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -96,6 +86,7 @@
                                                     @foreach ($New as $new)
                                                         <tbody>
                                                             <td>{{ $new->Tracking_No }}</td>
+                                                            <td>{{ $new->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $new->id)->get();
@@ -129,10 +120,11 @@
                                         aria-labelledby="pills-profile-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -146,6 +138,7 @@
                                                     @foreach ($Preparing as $preparing)
                                                         <tbody>
                                                             <td>{{ $preparing->Tracking_No }}</td>
+                                                            <td>{{ $preparing->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $preparing->id)->get();
@@ -179,10 +172,11 @@
                                         aria-labelledby="pills-completed-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
-                                                <table id="dataTable" class="table text-center">
+                                                <table class="table text-center">
                                                     <thead class="text-uppercase bg-primary">
                                                         <tr class="text-white">
                                                             <th scope="col">Tracking Number</th>
+                                                            <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
@@ -196,6 +190,7 @@
                                                     @foreach ($Completed as $completed)
                                                         <tbody>
                                                             <td>{{ $completed->Tracking_No }}</td>
+                                                            <td>{{ $completed->O_Phone }}</td>
                                                             <td>@php
                                                                 $Total_Quantity = 0;
                                                                 $quantity = App\Models\OrderProduct::where('Order_Id', $completed->id)->get();
@@ -233,7 +228,7 @@
                     <!-- tab end -->
 
                     @foreach ($orders as $Order)
-                        @include('layouts.editOrder')
+                        @include('layouts.modal.editOrder')
                     @endforeach
                     <!-- ********************* -->
                 </div>

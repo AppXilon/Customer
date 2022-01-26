@@ -78,7 +78,6 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         //
-
         $order->update([
             'O_Status' =>  $request->input('O_Status'),
         ]);
@@ -107,4 +106,13 @@ class OrderController extends Controller
 
         return redirect()->back();
     }
+
+    public function bookingList()
+    {
+        //
+        $booking = Order::all();
+
+        return view('layouts.bookinglist')->with('booking', $booking);
+    }
 }
+

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Models\Manager;
@@ -37,6 +38,27 @@ class ManagerController extends Controller
      
         return redirect()->route('index')
                         ->with('success','Manager created successfully.');    }
+
+
+    function manager_login(Request $req)
+    {
+        $manager= Manager:: where (['Email' =>$req->email])->first();
+        if(!$manager || !Hash::check ($req ->password, $manager-> Password))
+        {
+            return "Username or password is not matched";
+        }
+        else if( $manager-> isBanned == 1)
+        {
+            return "You are currently banned from using AppXilon";
+        }
+        else {
+            $req->session() ->put ('manager', $manager);
+            // return redirect ('layouts/index');
+            //redirect betul
+            //guna ni bawah dulu for now
+            return view ('layouts/index');
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

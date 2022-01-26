@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                         </div>
                         <div class="col-lg-5 d-none d-lg-block">
                             <img src="asset/img/menu-friedrice-big.png" alt="Image">

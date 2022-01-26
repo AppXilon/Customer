@@ -103,6 +103,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                     @endforeach
                                 </tbody>
                             </table>
+                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
                             <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
                         </div>
                     </div>
@@ -127,6 +128,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 @endif
                                 <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

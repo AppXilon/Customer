@@ -23,6 +23,9 @@ class CreateShop extends Migration
             $table->string('S_Status')->nullable();
             $table->string('S_Reason')->nullable();
             $table->string('S_Termcond')->nullable();
+            $table->string('S_Image')->nullable();
+            $table->string('S_Banner')->nullable();
+            $table->string('S_Table')->nullable();
             $table->timestamps();
         });
     }

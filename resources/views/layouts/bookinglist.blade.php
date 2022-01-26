@@ -18,69 +18,66 @@
             <!-- header area start -->
             @include('include.header_area')
             <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Seat Map</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="dashboard.html">Home</a></li>
+                                <li><span>Seat Map</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    @include('include.managerBar')
+                </div>
+            </div>
+            <!-- page title area end -->
                        
             <div class="main-content-inner">
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="card">
-                            <div class="search-box pull-left">
-                                <form action="#">
-                                    <input type="text" name="search" placeholder="Search..." style="margin: 25px;"
-                                        required>
+                            <div class="col-md-4">
+                                <form action="/search" method="get">
+                                    <div class="input-group">
+                                    <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                    <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
+                                    </div>
                                 </form>
                             </div>
                             <div class="card-body">
-                                <div class="tab-content mt-3" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                        aria-labelledby="nav-home-tab">
-                                        <table class="table text-center">
-                                            <thead class="text-uppercase bg-info">
+                                <h4 class="header-title">Booking List</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                           <thead class="text-uppercase bg-primary">
                                                 <tr class="text-white">
-                                                    <th scope="col">DateTime</th>
-                                                    <th scope="col">Pax</th>
-                                                    <th scope="col">Table</th>
+                                                    <th scope="col">Date Time</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Contact No.</th>
+                                                    <th scope="col">Table No.</th>
+                                                    <th scope="col">Table Pax</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
+                                            @foreach($booking as $booking)
                                             <tbody>
                                                 <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>4</td>
-                                                    <td>5</td>
-                                                    <td>Alfreda Parrish</td>
-                                                    <td>ube@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
+                                                    <th>{{$booking->Datetime}}</th>
+                                                    <td>{{ $booking->O_Name}}</td>
+                                                    <td>{{$booking->O_Phone}}</td>
+                                                    <td>{{$booking->T_Id}}</td>
+                                                    <td>{{$booking->T_Pax}}</td>
+                                                      <td> <a class="btn btn-primary"
+                                                        href="">Edit</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>3</td>
-                                                    <td>3</td>
-                                                    <td>Adele Bradshaw</td>
-                                                    <td>dudyxyhy@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>3</td>
-                                                    <td>6</td>
-                                                    <td>Ali</td>
-                                                    <td>ali@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>24.09.2021, 15:00</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>Seman</td>
-                                                    <td>semanxseman@gmail.com</td>
-                                                    <td><a class="btn btn-primary mb-3" href="#" role="button">View</a></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>    
                             </div>
                             <div id="myModal" class="modal">
                                 <!-- Modal content -->
