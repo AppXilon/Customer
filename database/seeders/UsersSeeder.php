@@ -20,15 +20,11 @@ class UsersSeeder extends Seeder
             'Name' => 'Nurul Lydia',
             'Email' => 'lydia@gmail.com',
             'Password' => Hash::make('lydia12345'),
-<<<<<<< HEAD
             'occupation' => 'Student',
             'gender' => 'Female',
             'birthdate' => '1997-09-18',
             'race'=> 'Malay',
             'marital' => 'Single',
-=======
-            'isBanned' => '0',
->>>>>>> 56db1255870c1953716b4255c82c1b2a34b493ff
             'Street_1' => 'No 313, Blok Salak',
             'Postcode' => '31350',
             'City' => 'Serdang',

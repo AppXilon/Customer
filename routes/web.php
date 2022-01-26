@@ -12,11 +12,8 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
-<<<<<<< HEAD
 use App\Http\Controllers\ReportController;
-=======
 use App\Http\Controllers\BookingController;
->>>>>>> 56db1255870c1953716b4255c82c1b2a34b493ff
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
@@ -37,7 +34,6 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
-
 
 /*
 |--------------------------------------------------------------------------

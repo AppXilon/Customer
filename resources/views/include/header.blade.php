@@ -32,12 +32,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/default-css.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-<<<<<<< HEAD
     
 
-=======
- 
->>>>>>> 56db1255870c1953716b4255c82c1b2a34b493ff
 
     <!-- modernizr css -->
     <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
