@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    public $table = "order";
+    public $table = "customer_order";
     public $fillable = [
         'User_Id',
         'T_Id',
