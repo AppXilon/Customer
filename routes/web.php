@@ -35,6 +35,17 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SalesController;
+
+use App\Http\Controllers\ReportTableController;
+
+
+
+
+>>>>>>> 5d252560cb433a36102fe932ee7080365e1f9cb0
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +62,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -141,7 +158,11 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+<<<<<<< HEAD
 Route::resource('/report', ReportController::class);
+=======
+Route::resource('/report', ReportTableController::class);
+>>>>>>> 5d252560cb433a36102fe932ee7080365e1f9cb0
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
@@ -155,15 +176,9 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-
-
-
-
-
-
-
-
-
+/*******************************/
+/******* Admin route start *******/
+/*******************************/
 
 Route::get('/admin', function () {
     return view('admin-layouts.base');

@@ -38,11 +38,9 @@ class CheckoutController extends Controller
 
         return view('checkout_shipping', compact('cartitems', 'notes'));
     }
-    
-
     function orderPlace(Request $req)
     {
-        $order=new Order;
+        $order=new Order();
         $order->User_Id =Auth::id();
         $order->O_Name=$req->input('O_Name');
         $order->O_Email=$req->input('O_Email');
@@ -54,6 +52,7 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
+        $order->O_Type=$req->otype;
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
@@ -89,7 +88,7 @@ class CheckoutController extends Controller
     {
         if($req->type === 'charge.suceeded'){
             try{
-                $order=new Order;
+                $order=new Order();
                 $order->User_Id =Auth::id();
                 $order->O_Name=$req->input('O_Name');
                 $order->O_Email=$req->input('O_Email');
