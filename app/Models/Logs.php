@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Logs extends Model
 {
-    public $table = 'pay_logs';
-    protected $primaryKey = 'PL_Id';
+    public $table = 'log';
+    protected $primaryKey = 'Log_Id';
     protected $fillable = [
-        'PL_Id', 'Cust_Id', 'PL_type', 'PL_Total_Price', 'created_at', 'updated_at'
+        'Log_Id', 'Cust_Id', 'Manager_Id', 'Log_Module', 'Log_Pay_Type', 'Log_Total_Price', 'Log_Status', 'created_at', 'updated_at'
     ];
 }

@@ -74,6 +74,7 @@
                                
                             </div>
                         </div> -->
+                        <input type="hidden" class="form-control cstate" value="Login" name="Log_Module" required="required">
                     </form>
                 </div>
             </div>

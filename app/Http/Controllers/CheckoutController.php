@@ -58,8 +58,9 @@ class CheckoutController extends Controller
         
         $logs=new Logs;
         $logs->Cust_Id=Auth::id();
-        $logs->PL_Type=$req->input('PL_Type');
-        $logs->PL_Status=$req->input('PL_Status');
+        $logs->Log_Module=$req->input('Log_Module');
+        $logs->Log_Pay_Type=0;
+        $logs->Log_Status=$req->input('Log_Status');
         $logs->created_at=Carbon::now();
         $logs->updated_at=Carbon::now();
       
@@ -73,7 +74,7 @@ class CheckoutController extends Controller
         }
 
         $order->O_Total_Price = $total;
-        $logs->PL_Total_Price=$total;
+        $logs->Log_Total_Price=$total;
         $order->save();
         $logs->save();
 
@@ -115,7 +116,9 @@ class CheckoutController extends Controller
 
                 $logs=new Logs;
                 $logs->Cust_Id=Auth::id();
-                $logs->PL_Type=1;
+                $logs->Log_Module=$req->input('Log_Module');
+                $logs->Log_Pay_Type=1;
+                $logs->Log_Status=$req->input('Log_Status');
                 $logs->created_at=Carbon::now();
                 $logs->updated_at=Carbon::now();
 
@@ -127,7 +130,7 @@ class CheckoutController extends Controller
                 }
 
                 $order->O_Total_Price = $total;
-                $logs->PL_Total_Price=$total;
+                $logs->Log_Total_Price=$total;
                 $order->save();
                 $logs->save();
 
