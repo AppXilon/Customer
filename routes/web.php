@@ -52,6 +52,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
@@ -141,7 +147,7 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
-Route::resource('/report', ReportController::class);
+Route::resource('/report', ReportTableController::class);
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
@@ -155,15 +161,9 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-
-
-
-
-
-
-
-
-
+/*******************************/
+/******* Admin route start *******/
+/*******************************/
 
 Route::get('/admin', function () {
     return view('admin-layouts.base');
