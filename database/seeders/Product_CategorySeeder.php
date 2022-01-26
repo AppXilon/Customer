@@ -31,18 +31,6 @@ class Product_CategorySeeder extends Seeder
             'P_Cat_Id'=> '4',
             'P_Cat_Name'=> 'Minuman',
         ],
-        [
-            'P_Cat_Id'=> '5',
-            'P_Cat_Name'=> 'Maggie',
-        ],
-        [
-            'P_Cat_Id'=> '6',
-            'P_Cat_Name'=> 'Telur',
-        ],
-        [
-            'P_Cat_Id'=> '7',
-            'P_Cat_Name'=> 'Sup',
-        ],
     ]);
     }
 }
