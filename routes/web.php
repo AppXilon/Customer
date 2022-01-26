@@ -12,6 +12,7 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
@@ -33,14 +34,6 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
-
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\SalesController;
-
-use App\Http\Controllers\ReportTableController;
-
-
-
 
 /*
 |--------------------------------------------------------------------------
