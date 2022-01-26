@@ -34,6 +34,13 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SalesController;
+
+use App\Http\Controllers\ReportTableController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +58,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -140,6 +153,8 @@ Route::resource('/businesshour', BusinessHourController::class);
 Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
+
+Route::resource('/report', ReportTableController::class);
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
