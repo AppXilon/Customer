@@ -35,6 +35,7 @@ class CreateOrder extends Migration
             $table->string('O_Type')->nullable();
             $table->string('O_Status')->default('1');
 		    $table->string('Tracking_No');
+            $table->string('Remarks');
             $table->timestamps();
         });
     }

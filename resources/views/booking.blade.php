@@ -38,23 +38,23 @@
                     <div class="col-lg-5">
                         <div class="booking-form">
                         <form>
-                            <div class="control-group">
-                                <div class="input-group date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                            <div  class="control-group" >
+                                <div class="input-group date" data-target-input="nearest" >
+                                    <input type="date" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group-time">
                                 <div class="input-group time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
+                                    <input type="text" id="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-clock"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <!-- <div class="control-group">
                                 <div class="input-group">
                                     <select class="custom-select form-control">
                                         <option selected>Pax</option>
@@ -88,7 +88,7 @@
                                         <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div>
                                 <a class="btn custom-btn" href="catalogue">Choose menu</a>
                             </div>
@@ -99,5 +99,26 @@
             </div>
         </div>
         <!-- Booking End -->
+@endsection
+
+@section('scripts')
+<!-- <script>
+$('.control-group-time').hide();
+
+$(document).ready(function(){
+    $("#dropDown").on("input", function(){
+        // Print entered value in a div box
+        $("#time").text($(this).val());
+    });
+    $('#' + this.value).show();
+    });
+
+    $(document).ready(function(){
+    $("#myInput").on("input", function(){
+        // Print entered value in a div box
+        
+    });
+});
+</script> -->
 @endsection
 

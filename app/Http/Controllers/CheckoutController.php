@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Payment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,8 +36,9 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('cust_id', Auth::id())->get();
 
         $notes=$req->extranotes;
+        $payment=DB::table('payment_type')->get();
 
-        return view('checkout_shipping', compact('cartitems', 'notes'));
+        return view('checkout_shipping', compact('cartitems', 'notes', 'payment'));
     }
     function orderPlace(Request $req)
     {
@@ -52,15 +54,17 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
-        $order->O_Type=$req->otype;
-
+        $order->Remarks=$req->input('Remarks');
+    
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems_total as $prod)
         {
             $total += $prod->products->P_Price * $prod->Pro_Qty;
+            $otype = $prod->Order_Type;
         }
 
+        $order->O_Type = $otype;
         $order->O_Total_Price = $total;
         $order->save();
 
@@ -72,6 +76,7 @@ class CheckoutController extends Controller
                 'P_Id'=>$item->Pro_Id,
                 'Order_Quantity'=>$item->Pro_Qty,
                 'Order_Price'=>$item->products->P_Price*$item->Pro_Qty,
+                'Od_Type'=>$item->Order_Type,
             ]);
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
@@ -99,6 +104,7 @@ class CheckoutController extends Controller
                 $order->O_Phone=$req->input('O_Phone');
                 $order->O_Payment=$req->payment;
                 $order->Tracking_No=rand(1000,9999);
+                $order->Remarks->input('reject');
 
                 $total = 0;
                 $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
