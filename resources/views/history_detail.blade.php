@@ -19,20 +19,23 @@
               <div class="card-body">
                 <div class="row">
                     @foreach ($order->orderitems as $item)
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <img src="{{asset('images/'. $item->products->P_Image)}}">
                   </div>
-                  <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0">{{$item->products->P_Name}}</p>
                   </div>
-                  <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">Quantity: {{$item->Order_Quantity}}</p>
                   </div>
-                  <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">RM{{ number_format((float) $item->Order_Price, 2, '.', '') }}</p>
                   </div>
-                  @if($order->O_Status=='completed' && $item-> rstatus== false)
-                  <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">{{$order->O_Notes}}</p>
+                  </div>
+                  @if($order->O_Status=='1' && $item-> rstatus== false)
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small"><a href= "/write-review/{{$item->products->P_Id}}">Write Review</a></p>
                   </div>
                   @endif

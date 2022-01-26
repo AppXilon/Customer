@@ -41,11 +41,9 @@ class CheckoutController extends Controller
 
         return view('checkout_shipping', compact('cartitems', 'notes'));
     }
-    
-
     function orderPlace(Request $req)
     {
-        $order=new Order;
+        $order=new Order();
         $order->User_Id =Auth::id();
         $order->O_Name=$req->input('O_Name');
         $order->O_Email=$req->input('O_Email');
@@ -65,6 +63,8 @@ class CheckoutController extends Controller
         $logs->Log_Status=$req->input('Log_Status');
         $logs->created_at=Carbon::now();
         $logs->updated_at=Carbon::now();
+      
+        $order->O_Type=$req->otype;
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
@@ -102,7 +102,7 @@ class CheckoutController extends Controller
     {
         if($req->type === 'charge.suceeded'){
             try{
-                $order=new Order;
+                $order=new Order();
                 $order->User_Id =Auth::id();
                 $order->O_Name=$req->input('O_Name');
                 $order->O_Email=$req->input('O_Email');

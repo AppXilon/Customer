@@ -7,7 +7,7 @@
         <div class="section-header text-center">
             <p></p>
             <p></p>
-            <h2>Product Cart {{$order}}</h2>
+            <h2>Product Cart</h2>
         </div>
         <div class="basket">
             <div class="basket-module">
@@ -35,6 +35,7 @@
                         <div class="product-details">
                             <h4><strong>{{$item->P_Name}}</strong></h4>
                             <p><strong>{{$item->S_Description}}</strong></p>
+                            <p><strong>{{$item->Order_Type}}</strong></p>
                         </div>
                     </div>
                     <div class="price">{{ number_format((float) $item->P_Price, 2, '.', '') }}

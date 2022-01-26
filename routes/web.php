@@ -12,11 +12,14 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\CustAnalyticsController;
 use App\Http\Controllers\CustDetailsController;
+use App\Http\Controllers\OrderTrendsController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\HourController;
@@ -32,7 +35,6 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -140,10 +148,13 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+Route::resource('/report', ReportTableController::class);
+
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
+Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 Route::resource('/seatmap', SeatMapController::class);
 
 
@@ -151,6 +162,7 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
+<<<<<<< HEAD
 Route::get('/report', function () {
     return view('layouts.report');
  });
@@ -159,10 +171,18 @@ Route::get('/order_trends', function () {
    return view('layouts.order_trends');
 });
 
+=======
+>>>>>>> 37487cea246a4a2fc8e2ff3650e5c6f71b7fc4df
 /*******************************/
 /******* Admin route start *******/
 /*******************************/
 
+<<<<<<< HEAD
+=======
+Route::get('/admin', function () {
+    return view('admin-layouts.base');
+});
+>>>>>>> 37487cea246a4a2fc8e2ff3650e5c6f71b7fc4df
 Route::get('/admin', function () {
     return view('admin-layouts.base');
 });
