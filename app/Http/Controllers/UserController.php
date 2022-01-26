@@ -57,7 +57,9 @@ class UserController extends Controller
             'state'=> 'required',
             'birthdate'=> 'required',
             'gender'=> 'required',
-            'occupation'=> 'required'
+            'occupation'=> 'required',
+            'race'=> 'required',
+            'marital'=> 'required'
         
         ]);
 
@@ -73,7 +75,9 @@ class UserController extends Controller
                         'state'=>$request->input('state' ),
                         'birthdate'=>$request->input('birthdate' ),
                         'gender'=>$request->input('gender' ),
-                        'occupation'=>$request->input('occupation' )
+                        'occupation'=>$request->input('occupation' ),
+                        'race'=>$request->input('race' ),
+                        'marital'=>$request->input('marital' )
 
                     ]);
 

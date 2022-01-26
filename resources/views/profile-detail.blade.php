@@ -56,6 +56,16 @@
                     <td>{{$item->occupation }}</td>
                 </tr>
 
+                <tr>
+                    <th>Race</th>
+                    <td>{{$item->race }}</td>
+                </tr>
+
+                <tr>
+                    <th>Marital</th>
+                    <td>{{$item->marital }}</td>
+                </tr>
+
                 @endforeach
                 </table>
                 </div>

@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Book A Table</h2>
+                        <h2>Book A Table{{$order}}</h2>
                     </div>
                     <div class="col-12">
                         <a href="index.html">Home</a>
@@ -79,7 +79,9 @@
                                     <select class="custom-select form-control">
                                         <option selected>Select Table</option>
                                         @foreach ($table as $table)
+                                        @if($table->T_Status == '1')
                                         <option value="{{$table->T_Id}}">{{$table->T_Id}}</option>
+                                        @endif
                                         @endforeach
                                     </select>
                                     <div class="input-group-append">
@@ -88,7 +90,7 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn custom-btn" href="table.html">Choose available table</a>
+                                <a class="btn custom-btn" href="catalogue">Choose menu</a>
                             </div>
                         </form>
                         </div>
