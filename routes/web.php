@@ -238,8 +238,8 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
-Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
 Route::get('manager_login', function () {
     return view('auth/manager/login');

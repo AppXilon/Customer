@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Logs;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class CheckoutController extends Controller
 {
@@ -52,6 +55,14 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
+        
+        $logs=new Logs;
+        $logs->Cust_Id=Auth::id();
+        $logs->PL_Type=$req->input('PL_Type');
+        $logs->PL_Status=$req->input('PL_Status');
+        $logs->created_at=Carbon::now();
+        $logs->updated_at=Carbon::now();
+      
         $order->O_Type=$req->otype;
 
         $total = 0;
@@ -62,7 +73,9 @@ class CheckoutController extends Controller
         }
 
         $order->O_Total_Price = $total;
+        $logs->PL_Total_Price=$total;
         $order->save();
+        $logs->save();
 
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems as $item)
@@ -100,6 +113,12 @@ class CheckoutController extends Controller
                 $order->O_Payment=$req->payment;
                 $order->Tracking_No=rand(1000,9999);
 
+                $logs=new Logs;
+                $logs->Cust_Id=Auth::id();
+                $logs->PL_Type=1;
+                $logs->created_at=Carbon::now();
+                $logs->updated_at=Carbon::now();
+
                 $total = 0;
                 $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
                 foreach($cartitems_total as $prod)
@@ -108,7 +127,9 @@ class CheckoutController extends Controller
                 }
 
                 $order->O_Total_Price = $total;
+                $logs->PL_Total_Price=$total;
                 $order->save();
+                $logs->save();
 
                 $cartitems = Cart::where('Cust_Id', Auth::id())->get();
                 foreach($cartitems as $item)

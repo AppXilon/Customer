@@ -18,8 +18,9 @@ class CartController extends Controller
             $cart->Cust_Id=Auth::id();
             $cart->Pro_Id=$req->Pro_Id;
             $cart->Pro_qty=$req->Pro_qty;
+
             $cart->Order_Type=$req->otype;
-            
+          
             if(Cart::where('Cust_Id','=',Auth::id())
                 ->where('Pro_Id','=',$req->Pro_Id)->exists())
                 {

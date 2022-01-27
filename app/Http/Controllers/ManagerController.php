@@ -10,7 +10,7 @@ class ManagerController extends Controller
 {
     public function index()
     {
-        $data = Manager::where('Ban', 0)->get();
+        $data = Manager::where('isBanned', 0)->get();
         return view('admin-layouts.man_manager',['manager'=>$data]);
     }
     
@@ -30,7 +30,7 @@ class ManagerController extends Controller
             'Postcode' => 'required',
             'City' => 'required',
             'State' => 'required',
-            'Ban' => 'required',
+            'isBanned' => 'required',
             'Reason' => 'required'
         ]);
     
@@ -81,7 +81,7 @@ class ManagerController extends Controller
             'Postcode' => 'required',
             'City' => 'required',
             'State' => 'required',
-            'Ban' => 'required',
+            'isBanned' => 'required',
             'Reason' => 'required'
         ]);
     
