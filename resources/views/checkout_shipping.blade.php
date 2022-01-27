@@ -129,8 +129,8 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <input type="text" class="form-control cstate" value="{{Auth::user()->state}}" name="O_State" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
-                            <input type="hidden" class="form-control cstate" value="0" name="PL_Type" required="required">
-                            <input type="hidden" class="form-control cstate" value="COMPLETED" name="PL_Status" required="required">
+                            <input type="hidden" class="form-control cstate" value="Payment" name="Log_Module" required="required">
+                            <input type="hidden" class="form-control cstate" value="COMPLETED" name="Log_Status" required="required">
                             <input type="hidden" class="form-control cstate" value="{{Auth::user()->id}}" name="Cust_Id" required="required">
                             
                         </form>

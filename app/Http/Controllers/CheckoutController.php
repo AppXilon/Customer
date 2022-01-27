@@ -58,8 +58,22 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
+<<<<<<< HEAD
         $order->Remarks=$req->input('Remarks');
     
+=======
+        
+        $logs=new Logs;
+        $logs->Cust_Id=Auth::id();
+        $logs->Log_Module=$req->input('Log_Module');
+        $logs->Log_Pay_Type=0;
+        $logs->Log_Status=$req->input('Log_Status');
+        $logs->created_at=Carbon::now();
+        $logs->updated_at=Carbon::now();
+      
+        $order->O_Type=$req->otype;
+
+>>>>>>> 648a2b1fb83218c47ae858b245938f280c002a83
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems_total as $prod)
@@ -77,6 +91,7 @@ class CheckoutController extends Controller
         $order->T_Pax = $bookpax;
         $order->T_Id = $booktable;
         $order->O_Total_Price = $total;
+<<<<<<< HEAD
 
         $logs=new Logs;
         $logs->Cust_Id=Auth::id();
@@ -85,6 +100,11 @@ class CheckoutController extends Controller
         $logs->Log_Status=$req->input('Log_Status');
         $logs->created_at=Carbon::now();
         $logs->updated_at=Carbon::now();
+=======
+        $logs->Log_Total_Price=$total;
+        $order->save();
+        $logs->save();
+>>>>>>> 648a2b1fb83218c47ae858b245938f280c002a83
 
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems as $item)
@@ -126,7 +146,9 @@ class CheckoutController extends Controller
 
                 $logs=new Logs;
                 $logs->Cust_Id=Auth::id();
-                $logs->PL_Type=1;
+                $logs->Log_Module=$req->input('Log_Module');
+                $logs->Log_Pay_Type=1;
+                $logs->Log_Status=$req->input('Log_Status');
                 $logs->created_at=Carbon::now();
                 $logs->updated_at=Carbon::now();
 
@@ -138,7 +160,7 @@ class CheckoutController extends Controller
                 }
 
                 $order->O_Total_Price = $total;
-                $logs->PL_Total_Price=$total;
+                $logs->Log_Total_Price=$total;
                 $order->save();
                 $logs->save();
 

@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $data = Customer::where('ban', 0)->get();
+        $data = Customer::where('isBanned', 0)->get();
         return view('admin-layouts.man_cust',['customers'=>$data]);
     }
     /**
@@ -42,7 +42,7 @@ class CustomerController extends Controller
             'postcode' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'ban' => 'required',
+            'isBanned' => 'required',
             'reason' => 'required'
         ]);
     

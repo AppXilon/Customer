@@ -9,7 +9,7 @@ class OrderTrendsController extends Controller
 {
     public static function analytics() {
         
-        $payment = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM fyp.order;"));
+        $payment = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM customer_order;"));
         foreach($payment as $row){
             $orderPayment = "[".$row->Cash.", ".$row->Paypal."]";
         }
@@ -28,16 +28,31 @@ class OrderTrendsController extends Controller
         Sum(CASE WHEN MONTH(created_at) = 10 THEN O_Total_Price END) AS October,
         Sum(CASE WHEN MONTH(created_at) = 11 THEN O_Total_Price END) AS November,
         Sum(CASE WHEN MONTH(created_at) = 12 THEN O_Total_Price END) AS 'December'
-        from customer_db.order
+        from customer_order
         "));
         foreach($sales as $row){
             $salesChart = "[".$row->January.", ".$row->February.", ".$row->March.", ".$row->April.", ".$row->May.", ".$row->June.", ".$row->July.", ".$row->August.", ".$row->September.", ".$row->October.", ".$row->November.", ".$row->December."]";
 
         }
 
+        $popular = DB::select(DB::raw("SELECT product.P_Image, product.P_Name, product.P_Id, SUM(order_product.Order_Quantity) as P_Qty, product.P_Price
+        FROM order_product,product
+        WHERE order_product.P_Id=product.P_Id
+        GROUP BY product.P_Id, product.P_Name, product.P_Price, product.P_Image
+        ORDER BY SUM(order_product.Order_Quantity) DESC
+        LIMIT 5;"));
 
-        //dd($orderPayment);
+        $least = DB::select(DB::raw("SELECT product.P_Image, product.P_Name, product.P_Id, SUM(order_product.Order_Quantity) as P_Qty, product.P_Price
+        FROM order_product,product
+        WHERE order_product.P_Id=product.P_Id
+        GROUP BY product.P_Id, product.P_Name, product.P_Price, product.P_Image
+        ORDER BY SUM(order_product.Order_Quantity) ASC
+        LIMIT 5;"));
+        
 
-        return view('reports.order_trends', compact('orderPayment', 'salesChart'));
+    
+        // dd($popular);
+
+        return view('reports.order_trends', compact('orderPayment', 'salesChart','popular', 'least'));
     }
 }
