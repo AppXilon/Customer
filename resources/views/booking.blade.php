@@ -37,29 +37,16 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="booking-form">
-<<<<<<< HEAD
-                        <form>
-                            <div class="control-group">
-                                <div class="input-group date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="myInput" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
-=======
                         <form method="GET" action="/catalogue">
                             <div  class="control-group" >
                                 <div class="input-group date" data-target-input="nearest" >
                                     <input type="date" name="bookdate" value="bookdate" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                     <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                            @php
-                            @endphp
-                            <div class="control-group">
-=======
                             <div class="control-group-time">
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                 <div class="input-group time" id="time" data-target-input="nearest">
                                     <input type="text" name="booktime" value="booktime" id="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">

@@ -77,11 +77,7 @@
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
                                                             <th scope="col">Amount</th>
-<<<<<<< HEAD
-                                                            <th scope="col">Remark</th>
-=======
                                                             <th scope="col">Remarks</th>
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>

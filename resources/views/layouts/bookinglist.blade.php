@@ -44,16 +44,8 @@
                             <div class="col-md-4">
                                 <form action="/search" method="get">
                                     <div class="input-group">
-<<<<<<< HEAD
-                                        <input type="search" name="search" placeholder="Search..."
-                                            style="margin-left: 15px; margin-top: 25px;" class="form-control">
-                                        <span class="input-group-prepend"><button type="submit" class="btn btn-primary"
-                                                style=" margin-top: 25px;"><i
-                                                    class="ti-search"></i></button></span>
-=======
                                         <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                         <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                     </div>
                                 </form>
                             </div>
@@ -70,6 +62,7 @@
                                                     <th scope="col">Contact No.</th>
                                                     <th scope="col">Table No.</th>
                                                     <th scope="col">Table Pax</th>
+                                                    <th scope="col">Remarks</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
@@ -95,6 +88,7 @@
                                                         <td>{{ $bookings->O_Phone }}</td>
                                                         <td>{{ $bookings->T_Id }}</td>
                                                         <td>{{ $bookings->T_Pax }}</td>
+                                                        <td>{{ $bookings->Remarks }}</td>
                                                         <td> <button type="button" class="btn btn-success"
                                                                 data-toggle="modal"
                                                                 data-target="#viewBooking{{ $bookings->id }}">
