@@ -35,6 +35,7 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ReportTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,13 +166,13 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-Route::get('/report', function () {
-    return view('layouts.report');
- });
+// Route::get('/report', function () {
+//     return view('layouts.report');
+//  });
 
-Route::get('/order_trends', function () {
-   return view('layouts.order_trends');
-});
+// Route::get('/order_trends', function () {
+//    return view('layouts.order_trends');
+// });
 
 /*******************************/
 /******* Admin route start *******/
