@@ -12,6 +12,7 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
@@ -33,7 +34,8 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\ReportTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -141,11 +149,16 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+Route::resource('/report', ReportTableController::class);
+
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
+
+// Report wani dah ubah route 
+
 Route::resource('/seatmap', SeatMapController::class);
 
 
@@ -155,6 +168,14 @@ Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 
+// Route::get('/report', function () {
+//     return view('layouts.report');
+//  });
+
+// Route::get('/order_trends', function () {
+//    return view('layouts.order_trends');
+// });
+
 /*******************************/
 /******* Admin route start *******/
 /*******************************/
@@ -162,10 +183,6 @@ Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 Route::get('/admin', function () {
     return view('admin-layouts.base');
 });
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
-
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });
@@ -178,7 +195,6 @@ Route::get('/payment', function () {
 Route::get('/captcho', [CaptchaServiceController::class,'index']);
 Route::get('/reload-captcha', [CaptchaServiceController::class, 'reloadCaptcha']);
 Route::get('capt-edit/{Capt_Id}', [CaptchaServiceController::class, 'edit']);
-
 Route::get('/cleanup', function () {
     return view('admin-layouts.cleanup');
 });
@@ -194,28 +210,14 @@ Route::get('/add_rest', function () {
 Route::get('/man_rest', function () {
     return view('admin-layouts.man_rest');
 });
-Route::get('/ban_user', function () {
-    return view('admin-layouts.ban_user');
-});
 Route::get('/pending', function () {
     return view('admin-layouts.pending');
 });
-Route::get('/ban_rest', function () {
-    return view('admin-layouts.ban_rest');
-});
-Route::get('/logs_login', function () {
-    return view('admin-layouts.logs_login');
-});
-Route::get('/logs_pay', function () {
-    return view('admin-layouts.logs_pay');
-});
+Route::get('/logs_login',[LogController::class,'loginIndex']);
+Route::get('/logs_pay',[LogController::class,'paymentIndex']);
 /*Route::get('/backup', function () {
     return view('backup.backups');
 });*/
-
-Route::get('ban_user',[UserController::class,'showCustBan','showManBan']);
-//Route::get('ban_user',[UserController::class,'showManBan']);
-Route::get('man_manager',[UserController::class,'showManNotBan']);
 Route::get('/cust_edit',[CustomerController::class,'App\Http\Controllers\CustomerController@edit']);
 Route::get('/changeStatus',[TestController::class,'App\Http\Controllers\TestController@changeDayStatus']);
 Route::resource('biz_hour', HourController::class);
@@ -232,8 +234,8 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
-Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
 Route::get('manager_login', function () {
     return view('auth/manager/login');

@@ -33,6 +33,7 @@
                                 @endforeach
                                 
                                 <input type="hidden" value="{{ $Order->O_Status + 1 }}" name="O_Status">
+                                <input type="hidden" value="{{ $Order->O_Status + 1 }}" name="O_Status">
                             </table>
                             <div class="form-group">
                                 <label for="example-text-input" class="col-form-label">Notes:</label>
@@ -47,8 +48,11 @@
                     @if ($Order->O_Status == '1')
                         <button type="button" class="btn btn-danger" data-toggle="modal"
                         data-target="#rejectModal{{ $Order->id }}">Reject</button>
+                        <input type="hidden" value="0" name="ML_Type">
+                        <input type="hidden" value="PREPARING" name="ML_Status">
                         <button type="submit" class="btn btn-success">Accept</button>
                     @elseif ($Order->O_Status == '2')
+                        <input type="hidden" value="COMPLETED" name="ML_Status">
                         <button type="submit" class="btn btn-success">Order Complete</button>
                     @else
                         <form action="{{ route('order.destroy', $Order->id) }}" method="POST">

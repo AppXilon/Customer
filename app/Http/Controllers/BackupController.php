@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use League\Flysystem\Adapter\Local;
+use Exception;
 use Artisan;
 use Log;
 use Session;
+use Response;
 use Illuminate\Support\Facades\Storage;
 
 class BackupController extends Controller{
@@ -56,31 +60,31 @@ class BackupController extends Controller{
           }
      }
 
-     public function download() {
-          $disk = Storage::disk(Request::input('disk'));
-          $file = Request::input('file_name');
+     public function download($file_name) {
+          /*$disk = Storage::disk(Request::input('disk'));
+          $file = Request::input($file_name);
           $adapter = $disk->getDriver()->getAdapter();
 
           if ($adapter instanceof Local) {
                $storage_path = $disk->getDriver()->getAdapter()->getPathPrefix();
+               console.log($storage_path) ;
                if ($disk->exists($file_name)) {
                     return response()->download($storage_path.$file_name);
                } else {
+                    session()->flash('fail', 'Unable to download backup!');
                     error_log('Hotak ko.');
-                    abort(404, "Backup file doesn't exist.");
+                    Log::info("message2");
                }
           } else {
-               error_log('anjir.');
                abort(404, "Only Local Downloads supported.");
-          }
-          /*$disk_name = config('backup.backup.destination.disks');
-          $file = config('backup.backup.name').'/storage/app/backups'. $file_name;
-          $disk = Storage::disk($disk_name);
+          }*/
+           $file = config('backup.backup.name').'/'.'Laravel/'. $file_name;
+          $disk = Storage::disk(config('backup.backup.destination.disks'));
 
           if ($disk->exists($file)) {
                $fs = Storage::disk($disk)->getDriver();
                $stream = $fs->readStream($file);
-               return \Response::stream(function () use ($stream) {
+               return Response::stream(function () use ($stream) {
                     fpassthru($stream);
                }, 600, [
                     "Content-Type" => $fs->getMimetype($file),
@@ -89,12 +93,10 @@ class BackupController extends Controller{
                ]);
           } else {
                abort(404, "Backup file doesn't exist.");
-          }*/
-     
+          }  
      }
      public function delete($file_name){
-          $disk_name = config('backup.backup.destination.disks') ;
-          $disk = Storage::disk($disk_name);
+          $disk = Storage::disk(config('backup.backup.destination.disks'));
           if ($disk->exists($file_name)) {
               $disk->delete($file_name);
               session()->flash('delete', 'Successfully deleted backup!');

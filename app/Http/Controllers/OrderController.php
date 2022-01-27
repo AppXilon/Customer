@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\ManagerLogs;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -77,6 +81,14 @@ class OrderController extends Controller
         $order->update([
             'O_Status' =>  $request->input('O_Status'),
         ]);
+        $logs=new ManagerLogs;
+        $logs->Cust_Id=Auth::id();
+        $logs->ML_Type=$request->input('ML_Type');
+        $logs->ML_Status=$request->input('ML_Status');
+        $logs->created_at=Carbon::now();
+        $logs->updated_at=Carbon::now();
+
+        $logs->save();
 
         return redirect()->route('order.index')->with('success', 'Order updated successfully');;
     }

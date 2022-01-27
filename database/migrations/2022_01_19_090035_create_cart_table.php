@@ -21,6 +21,10 @@ class CreateCartTable extends Migration
             $table->foreign('Cust_Id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('Pro_Qty');
             $table->string('Order_Type');
+            $table->string('BookDate')->nullable();
+            $table->string('BookTime')->nullable();
+            $table->string('BookPax')->nullable();
+            $table->string('BookTable')->nullable();
             $table->timestamps();
         });
     }

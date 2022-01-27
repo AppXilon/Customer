@@ -13,13 +13,14 @@ class CreateOrderProduct extends Migration
     {
         Schema::create('order_product', function (Blueprint $table) {
             $table->bigInteger('Order_Id')->unsigned();
-            $table->foreign('Order_Id')->references('id')->on('order')->onDelete('cascade');
+            $table->foreign('Order_Id')->references('id')->on('customer_order')->onDelete('cascade');
             $table->bigInteger('P_Id')->unsigned();
             $table->foreign('P_Id')->references('P_Id')->on('product')->onDelete('cascade');
             $table->bigInteger('Order_Quantity');
             $table->double('Order_Price');
             $table->string('Od_Type');
             $table->boolean('rstatus')->default(false);
+            $table->string('Od_Type');
             $table->timestamps();
             $table->primary(['Order_Id', 'P_Id']);
         });

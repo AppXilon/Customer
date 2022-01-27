@@ -14,6 +14,11 @@ class Cart extends Model
         'Cust_id',
         'Pro_id',
         'Pro_qty',
+        'Order_Type',
+        'BookDate',
+        'BookTime',
+        'BookPax',
+        'BookTable'
     ];
 
     public function products()

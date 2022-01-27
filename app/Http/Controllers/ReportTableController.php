@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Report;
+ 
 use Illuminate\Http\Request;
 
-class GoController extends Controller
+class ReportTableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,8 @@ class GoController extends Controller
     public function index()
     {
         //
+        $data= Report::all();
+        return view('reports.report', ['Report'=>$data]);
     }
 
     /**

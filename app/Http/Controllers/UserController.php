@@ -57,7 +57,9 @@ class UserController extends Controller
             'state'=> 'required',
             'birthdate'=> 'required',
             'gender'=> 'required',
-            'occupation'=> 'required'
+            'occupation'=> 'required',
+            'race'=> 'required',
+            'marital'=> 'required'
         
         ]);
 
@@ -73,31 +75,18 @@ class UserController extends Controller
                         'state'=>$request->input('state' ),
                         'birthdate'=>$request->input('birthdate' ),
                         'gender'=>$request->input('gender' ),
-                        'occupation'=>$request->input('occupation' )
+                        'occupation'=>$request->input('occupation' ),
+                        'race'=>$request->input('race' ),
+                        'marital'=>$request->input('marital' )
 
                     ]);
 
              
         return redirect ('profileDetail');
-        
+    }
 
-    }
-    function showCustNotBan(){
-        $data = Customer::where('C_Ban', 0)->get();
-        return view('admin-layouts.man_cust',['customer'=>$data]);
-    }
-    function showCustBan(){
-        $data1 = Customer::where('C_Ban', 1)->get();
-        //$data2 = Manager::where('M_Ban', 1)->get();
-        //$data = $data1 -> unionAll($data2);+
-        return view('admin-layouts.ban_user',['customer'=>$data1]);
-    }
-    function showManNotBan(){
-        $data = Manager::where('M_Ban', 0)->get();
-        return view('admin-layouts.man_manager',['manager'=>$data]);
-    }
-    function showManBan(){
-        $data = Manager::where('M_Ban', 1)->get();
-        return view('admin-layouts.ban_user',['manager'=>$data]);
+    public function getName($id){
+        $data = Customer::where('id', $id)->value('name');
+        return $data;
     }
 }

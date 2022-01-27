@@ -48,7 +48,7 @@
                     @csrf
                     <div class="service-btn">
                         <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickup" class="btn custom-btn">Pickup</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn">Pickup</button></a>
                         <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button></a>
                     </div>
                     </form>
