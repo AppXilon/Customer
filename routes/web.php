@@ -165,6 +165,8 @@ Route::resource('/seatmap', SeatMapController::class);
 Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
+Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
+
 
 // Route::get('/report', function () {
 //     return view('layouts.report');

@@ -1,3 +1,5 @@
+@php use Carbon\Carbon; @endphp
+
 @include('include.header')
 
 <body>
@@ -42,8 +44,16 @@
                             <div class="col-md-4">
                                 <form action="/search" method="get">
                                     <div class="input-group">
+<<<<<<< HEAD
+                                        <input type="search" name="search" placeholder="Search..."
+                                            style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                        <span class="input-group-prepend"><button type="submit" class="btn btn-primary"
+                                                style=" margin-top: 25px;"><i
+                                                    class="ti-search"></i></button></span>
+=======
                                         <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                         <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
+>>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                     </div>
                                 </form>
                             </div>
@@ -54,7 +64,8 @@
                                         <table class="table">
                                             <thead class="text-uppercase bg-primary">
                                                 <tr class="text-white">
-                                                    <th scope="col">Date Time</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Time</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Contact No.</th>
                                                     <th scope="col">Table No.</th>
@@ -63,80 +74,42 @@
                                                 </tr>
                                             </thead>
                                             @php
-                                            $New = App\Models\Order::where('O_Type', 'booking')->get();
+                                                $list = App\Models\Order::where('O_Type', 'booking')
+                                                    ->where('O_Status', 1)
+                                                    ->get();
                                             @endphp
-                                            @foreach($booking as $booking)
-                                            <tbody>
-                                                <tr>
-                                                    <th>{{$booking->Datetime}}</th>
-                                                    <td>{{ $booking->O_Name}}</td>
-                                                    <td>{{$booking->O_Phone}}</td>
-                                                    <td>{{$booking->T_Id}}</td>
-                                                    <td>{{$booking->T_Pax}}</td>
-                                                    <td> <a class="btn btn-primary" href="">Edit</a></td>
-                                                </tr>
-                                                @endforeach
+                                            @foreach ($list as $bookings)
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            @php
+                                                                $date = Carbon::parse($bookings->Datetime)->format('d-m-Y');
+                                                                echo $date;
+                                                            @endphp</td>
+                                                         <td>
+                                                            @php
+                                                                $time = Carbon::parse($bookings->Datetime)->format('H:i:s');
+                                                                echo $time;
+                                                            @endphp</td>
+                                                        <td>{{ $bookings->O_Name }}</td>
+                                                        <td>{{ $bookings->O_Phone }}</td>
+                                                        <td>{{ $bookings->T_Id }}</td>
+                                                        <td>{{ $bookings->T_Pax }}</td>
+                                                        <td> <button type="button" class="btn btn-success"
+                                                                data-toggle="modal"
+                                                                data-target="#viewBooking{{ $bookings->id }}">
+                                                                View Order
+                                                            </button></td>
+                                                    </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                            <div id="myModal" class="modal">
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">Booking Details</h4>
-                                            <div class="form-group">
-                                                <input class="form-control" type="text" placeholder="Product Name" id="example-text-input">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="inputGroupPrepend">RM</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="0.00" aria-describedby="inputGroupPrepend" required="">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-3">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="00" aria-describedby="inputGroupPrepend" required="">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="inputGroupPrepend">Minutes</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
-                                                    <label class="custom-file-label" for="inputGroupFile02">Choose
-                                                        Image</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="col-form-label">Availability</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" checked>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                            </div>
-
-                                            <label for="example-text-input" class="col-form-label">Category</label>
-                                            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
-                                                Select One
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Breakfast</a>
-                                                <a class="dropdown-item" href="#">Lunch</a>
-                                                <a class="dropdown-item" href="#">Dinner</a>
-                                            </div>
-                                            <button type="button" class="btn btn-success mb-3" style="float: right;">Add</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @foreach ($booking as $Booking)
+                                @include('layouts.modal.viewBooking')
+                            @endforeach
                         </div>
                     </div>
                     <!-- table primary start -->
