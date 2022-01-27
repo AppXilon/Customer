@@ -77,6 +77,7 @@ class CheckoutController extends Controller
         $order->T_Pax = $bookpax;
         $order->T_Id = $booktable;
         $order->O_Total_Price = $total;
+        $order->save();
 
         $logs=new Logs;
         $logs->Cust_Id=Auth::id();
