@@ -120,7 +120,7 @@
                     <div class="card"></div>
 
                 </div>
-
+                
 
                 <!-- TOP SELLING PRODUCTS start -->
                 <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
@@ -132,72 +132,32 @@
                                 <table class="table">
                                     <thead class="bg-light">
                                         <tr class="border-0">
-                                            <th class="border-0">#</th>
-                                            <th class="border-0">Image</th>
+                                            <th class="border-0">Product Image</th>
                                             <th class="border-0">Product Name</th>
                                             <th class="border-0">Product Id</th>
                                             <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Price</th>
-
-                                            <th class="border-0">Categories</th>
+                                            <th class="border-0">Product Price</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/paprik.webp" alt="user"
-                                                        class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Nasi Goreng Paprik </td>
-                                            <td>P010 </td>
-                                            <td>178</td>
-                                            <td>RM6.00</td>
+                                    
+                                                <tbody>
+                                                    @foreach ($popular as $popular)
+                                                    <tr>
+                                                        <td><div class="m-r-10"><img src="{{asset('images/'. $popular->P_Image)}}" alt="user"
+                                                            class="rounded" width="45"></div></td>
+                                                        <td>{{ $popular->P_Name }}</td>
+                                                        <td>{{ $popular->P_Id}}</td>
+                                                        <td>{{ $popular->P_Qty}}</td>
+                                                        <td>RM{{ $popular->P_Price}}</td>
+                                                    </tr>
+                                                    @endforeach
 
-                                            <td>Fried Rice</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/thai.jpeg" alt="user"
-                                                        class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Nasi Goreng Thai </td>
-                                            <td>P021</td>
-                                            <td>168</td>
-                                            <td>RM6.50</td>
-
-                                            <td>Fried Rice</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/chicken chop.jpeg"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Chicken Chop </td>
-                                            <td>P013</td>
-                                            <td>155</td>
-                                            <td>RM7.00</td>
-
-                                            <td>Western</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/ayam goreng.jpeg" alt="user"
-                                                        class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Ayam Goreng Taf </td>
-                                            <td>P009</td>
-                                            <td>148</td>
-                                            <td>RM3.00</td>
-
-                                            <td>Western </td>
-                                        </tr>
-
-
-                                    </tbody>
+                                                    
+                                             
+                                             
+                                                </tbody>
+                                            
                                 </table>
                                 <div class="card-footer text-center">
                                     <a href="#" class="btn-primary-link">View Details</a>
@@ -207,6 +167,53 @@
                     </div>
                 </div>
                 <!-- TOP SELLING PRODUCT end -->
+
+
+                <!-- LEAST SELLING PRODUCTS start -->
+                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10"> 
+
+                    <div class="card">
+                        <h5 class="card-header">Least Selling Products</h5>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Product Image</th>
+                                            <th class="border-0">Product Name</th>
+                                            <th class="border-0">Product Id</th>
+                                            <th class="border-0">Quantity Sold</th>
+                                            <th class="border-0">Product Price</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    
+                                                <tbody>
+                                                    @foreach ($least as $least)
+                                                    <tr>
+                                                        <td><div class="m-r-10"><img src="{{asset('images/'. $least->P_Image)}}" alt="user"
+                                                            class="rounded" width="45"></div></td>
+                                                        <td>{{ $least->P_Name }}</td>
+                                                        <td>{{ $least->P_Id}}</td>
+                                                        <td>{{ $least->P_Qty}}</td>
+                                                        <td>RM{{ $least->P_Price}}</td>
+                                                    </tr>
+                                                    @endforeach
+
+                                                    
+                                             
+                                             
+                                                </tbody>
+                                            
+                                </table>
+                                <div class="card-footer text-center">
+                                    <a href="#" class="btn-primary-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- LEAST SELLING PRODUCTS end -->
 
 
                 <!-- LEAST SELLING PRODUCT start -->
@@ -386,7 +393,7 @@
         options: {
             legend: {display: false},
             scales: {
-            yAxes: [{ticks: {min: 12, max:200}}],
+            yAxes: [{ticks: {min: 12, max:120}}],
             }
         }
         });
@@ -445,6 +452,10 @@
         }
         });
     </script>
+
+
+
+
 </body>
 
 </html>
