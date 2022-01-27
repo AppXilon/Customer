@@ -165,13 +165,13 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
-Route::get('/report', function () {
-    return view('layouts.report');
- });
+// Route::get('/report', function () {
+//     return view('layouts.report');
+//  });
 
-Route::get('/order_trends', function () {
-   return view('layouts.order_trends');
-});
+// Route::get('/order_trends', function () {
+//    return view('layouts.order_trends');
+// });
 
 /*******************************/
 /******* Admin route start *******/

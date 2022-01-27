@@ -37,7 +37,7 @@
                 <div class="row">
 
                     {{-- ADD FROM ADMINKIT-DEV --}}
-                    
+                    <div class="col-lg-12 mt-5">
 						<div class="col-xl-6 col-xxl-5 d-flex">
 							<div class="w-100">
 								<div class="row">
@@ -128,6 +128,7 @@
 								</div>
 							</div>
 						</div>
+                    </div>
 
 						<div class="col-xl-6 col-xxl-7">
 							<div class="card flex-fill w-100">
