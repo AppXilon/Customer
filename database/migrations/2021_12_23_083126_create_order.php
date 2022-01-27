@@ -34,7 +34,8 @@ class CreateOrder extends Migration
             $table->double('O_Total_Price');
             $table->string('O_Type')->nullable();
             $table->string('O_Status')->default('1');
-		    $table->string('Tracking_No');
+            $table->string('Tracking_No');
+            $table->string('Remarks');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@
                             <li><a href="/order"><i class="fa fa-shopping-cart"></i><span>Order</span></a>
                             </li>
                             <li><a href="/catalogues"><i class="fa fa-file"></i><span>Catalogue</span></a></li>
-                            <li><a href="promotion.php"><i class="fa fa-file"></i><span>Promotion</span></a></li>
+                            <li><a href="/promotion"><i class="fa fa-file"></i><span>Promotion</span></a></li>
                             <li><a href="javascript:void(0)" aria-expanded="true"><i
                                         class="ti-layout-sidebar-left"></i><span>Booking
                                     </span></a>
@@ -29,7 +29,6 @@
                             <li><a href="/report"><i class="ti-printer"></i> <span>Report</span></a></li>
                             <li><a href="/shopInfo"><i class="ti-info-alt"></i> <span>Shop Information</span></a></li>
                             <li><a href="/businesshour"><i class="ti-time"></i> <span>Business Hour</span></a>
-                            <li><a href="/faq"><i class="ti-signal"></i> <span>FAQ</span></a></li>
                             </li>
                         </ul>
                     </nav>

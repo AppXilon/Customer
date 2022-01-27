@@ -21,6 +21,8 @@ class CreateUsers extends Migration
             $table->boolean('isBanned')  ->default(0);
             $table->string('occupation') ->nullable();
             $table->string('gender') ->nullable();
+            $table->string('race') ->nullable();
+            $table->string('marital') ->nullable();
             $table->date('birthdate')->nullable();
             $table->string('email');
             $table->string('street_1')->nullable();
@@ -48,5 +50,4 @@ class CreateUsers extends Migration
     }
 }
 
-//dekat model user tambah code bawah ni
-//protected�$primaryKey�=�'user_id';
+

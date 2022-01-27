@@ -44,12 +44,27 @@
 
     <!-- dialogflow -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-    intent="WELCOME"
-    chat-title="Sarah"
-    agent-id="0d231246-41c8-400f-b19f-c5eeec2fd56b"
-    language-code="en"
-    ></df-messenger>
+<df-messenger
+  intent="WELCOME"
+  chat-title="Sarah"
+  agent-id="fa6702c0-320a-4d7f-8333-1eb8252437e4"
+  language-code="en"
+></df-messenger>
+
+<!-- dialogflow cx -->
+    <!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+<df-messenger
+  df-cx="true"
+  location="us-central1"
+  chat-title="Sarah"
+  agent-id="a0f5ee66-35e9-4c6d-a0ac-3463b8f9d6e5"
+  language-code="en"
+></df-messenger> -->
+
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+<!-- <meta name="viewport" content="width-device-width, initial-scale=1">  -->
+<!-- kalau minimize full screen akan jadi cb -->
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

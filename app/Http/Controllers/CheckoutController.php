@@ -54,6 +54,7 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
+        $order->Remarks=$req->input('Remarks');
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();

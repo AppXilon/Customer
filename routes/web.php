@@ -33,7 +33,7 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\PromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,6 +153,8 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 
+Route::resource('/promotion', PromotionController::class);
+
 
 
 
@@ -213,6 +215,9 @@ Route::get('/logs_login', function () {
 Route::get('/logs_pay', function () {
     return view('admin-layouts.logs_pay');
 });
+Route::resource('faq', FaqController::class);
+Route::get('faq_customer', [FaqController:: class, 'faq_index']) ;
+
 /*Route::get('/backup', function () {
     return view('backup.backups');
 });*/
@@ -238,6 +243,10 @@ Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
 Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+
+
+
+
 
 Route::get('manager_login', function () {
     return view('auth/manager/login');

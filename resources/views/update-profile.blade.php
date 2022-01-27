@@ -45,7 +45,7 @@
               <div class="form-group">
                  <label for="">Phone Number</label>
                  <input type="text" class="form-control" name="phone"
-                 placeholder="Enter your phone number" value= "0{{$Info -> phone}}">
+                 placeholder="Enter your phone number" value= "{{$Info -> phone}}">
                  <span style="color:red"> @error ('phone') {{ message}} @enderror </span>
               </div>
               <div class="form-group">
@@ -92,6 +92,26 @@
                  placeholder="Enter your occupation" value= "{{$Info -> occupation}}">
                  <span style="color:red"> @error ('occupation') {{ message}} @enderror </span>
               </div>
+              <div class="form-group">
+                  <label for="">Race</label>
+                  <select class="form-control" name="race" value= "{{$Info -> race}}">
+                  <option>Malay</option>
+                  <option>Chinese</option>
+                  <option>Indian</option>
+                  <option>Other</option>
+                  </select>
+                  <span style="color:red"> @error ('race') {{ message}} @enderror </span>
+               </div>
+               <div class="form-group">
+                  <label for="">Marital</label>
+                  <select class="form-control" name="marital" value= "{{$Info -> marital}}">
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Divorced</option>
+                  </select>
+                  <span style="color:red"> @error ('race') {{ message}} @enderror </span>
+               </div>
               <div class="form-group" style="text-align: right;">
               <button type="submit" class="btn btn-primary ">Save Changes</button>
               </div>

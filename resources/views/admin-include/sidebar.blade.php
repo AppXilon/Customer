@@ -11,7 +11,7 @@
                             <li class="active"><a href="/admin"><i class="ti-dashboard"></i><span>Dashboard</span></a></li>
                             <li><a href="{{ route('biz_hour.index')}}"><i class="ti-time"></i><span>Business Hours</span></a></li>
                             <li><a href="/reminder"><i class="ti-announcement"></i><span>Reminder</span></a></li>
-                            <li><a href="faq-manager"><i class="ti-help"></i><span>FAQ</span></a></li>
+                            <li><a href="{{ route('faq.index')}}"><i class="ti-help"></i><span>FAQ</span></a></li>
                             <li>
                                 <a aria-expanded="true"><i class="ti-settings"></i><span>Settings</span></a>
                                 <ul class="collapse">

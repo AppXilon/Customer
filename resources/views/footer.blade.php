@@ -24,7 +24,7 @@
                                     <h2>Quick Links</h2>
                                     <a href="tnc">Terms of use</a>
                                     <a href="">Chatbot</a>
-                                    <a href="/faq_index">FAQs</a>
+                                    <a href="/faq_customer">FAQs</a>
                                     <a href="">About</a>
                                     <a href="">Features</a>
 

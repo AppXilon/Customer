@@ -51,13 +51,16 @@ class UserController extends Controller
             'name'=> 'required',
             'email'=> 'required|email',
             'phone'=> 'required',
-            'street_1'=> 'required',
+            'street'=> 'required',
             'postcode'=> 'required',
             'city'=> 'required',
+            'race'=> 'required',
+            'marital'=> 'required',
             'state'=> 'required',
             'birthdate'=> 'required',
             'gender'=> 'required',
             'occupation'=> 'required'
+            
         
         ]);
 
@@ -67,9 +70,11 @@ class UserController extends Controller
                         'name'=>$request->input('name'),
                         'email'=>$request->input('email' ),
                         'phone'=>$request->input('phone' ),
-                        'street_1'=>$request->input('street_1' ),
+                        'street_1'=>$request->input('street' ),
                         'postcode'=>$request->input('postcode' ),
                         'city'=>$request->input('city' ),
+                        'race'=>$request->input('race' ),
+                        'marital'=>$request->input('marital' ),
                         'state'=>$request->input('state' ),
                         'birthdate'=>$request->input('birthdate' ),
                         'gender'=>$request->input('gender' ),
@@ -78,10 +83,15 @@ class UserController extends Controller
                     ]);
 
              
-        return redirect ('profileDetail');
+        // return redirect ('profileDetail');
+        if ($updating) {
+            return back()-> with ('success' , 'Profile has been successfully updated');
+        }else{
+            return back() -> with ('fail' , 'Something went wrong');
+        }
         
 
-    }
+        }
     function showCustNotBan(){
         $data = Customer::where('C_Ban', 0)->get();
         return view('admin-layouts.man_cust',['customer'=>$data]);

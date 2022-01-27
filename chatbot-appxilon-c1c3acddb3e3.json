@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "chatbot-appxilon",
+  "private_key_id": "c1c3acddb3e394ea87d53b55404517e59c97c819",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDSabWeMOgJx/5b\nUf1o8RoWpV9We7q0mJYRDRcm0wEKNJUOCFFsVe5mvfNxY2YqiebXEcV+DkXk3OXs\nVy3qfLuGno8BB2H+/6kKf+e+ErEZF056yTZiaXMKnYwoHgEkS8QIBn3rPgrGtTvS\nXjOhF/7z4DBtmfhDuXjZxDQkc6MTTjV1Je4vAHyPZUeKprKrEJprrDxQOObuonUO\nyzR9R4UojU6ti64oIxEwowWnhOkel6/MtIbZHpz4jGvLnVQA9DGxazLSe2jGIprs\nDsSTmdStEjslCYViZ2frCOr7Ii8FeeTb+quQKw5hml1sHUaw+5cWGZOET2Wp0BGN\nPuAN3GUrAgMBAAECggEANker4Q+3xFIx9Ufs6gYMl1v5ALvxecZFLEfmuY7EXWgc\nLZ8KtjpiwmFtLEqaoA2sHb5JZs/yyuwLalFBGJUt4TgFJxxK9PfqGTnOxDNZOWJQ\nTg+bNn8CfPIQpoa6/6yF+RYHpMiACivVr1q60et5S1uB0rxeFcaCfRcG5oJoRsG1\n4Qvi6zU0t89y9TNU+UWXjFfCLxMOHmrLaDx8cvcRyXp64KYPsn+lOqbNSJ9uCSxc\n7vQBJN3vQA2gT96YRFueGoYjepJtFaeiK8WsNe5L2hKUmdoVCNzdJZn7Af6pSLGk\n2XVwIGs3KqVP34oPR9P8ke0MYtrVO1CdD22X4GqHQQKBgQDyLMp6vLF1IAxsbj9B\n1MRyno2B+Yxxg+XuEmTfj0DrAikFC2sZDcIF+jl/B67h1UrOzXiuw5hKrf6lhwuG\nO7SyOXql6aCWRj8xv/7NmHx7nWIC/ikYdTFm6l9/CmqCPZkITwx7jcAm3wxD/Erz\nNUBskwlqh0Xem7bqUs+dU6x3awKBgQDebL1cP1S3TXygBEFuc12URdAntHfC3oWY\nKgg2lANlUYUeLlv2643zq24P2c/bDA9BqM+m+u0oQ7YhVxEpdtgOIqIH753+eoRj\noaxn2y4JrFePR9K3TjKat9tMTw7MYnFHWKH/rZI6Io3wqU9CPuinjJnR4JrG4maG\nEfj7JoH5QQKBgHjHZ/BQnTxp0Ghfj4LYh2UWuEJjX+zZOFpEqDRq8JiESkrux+oF\n14c9pWE6RrjwtE9xYEfg2tob7s1FDbVTn6nnSsjmPKXVwPyh4YVOEH9iHZiag4pk\nIFBQgXINktMDv4fKTNJt/rAkO6zIbeTf4RKFPoP3lRwRkudIh6zSJ0ijAoGAfzda\npyRh4+Wh3jQQ6Id7go7bm5oQ1ZhIeNuxjuXhe1XA+Z4yY2we6LuoW9CMnhCruTZA\nbpUeh+USisctvbWHpa4RVtCqYR7aEdIqtcwa7NVxzzWZQ9aqAuwdteuR3zx+5fu/\nzGkONcoFvRxZhN5OW2aDpBL+87oSQaSN77f6pwECgYB0J/AuqMB3qzl98gOI2ywg\nUhx2whtruYnuceseejLCEtt10Ewx9Zmsc5+TIcqJINMToAb7WWx5jatWciynT3/J\n9rMSE4umaImXiM5anpFo+/W9lYBa3um09rSFGVBd/Fg1yElk4hoR8OHrFfyU0H9x\nJlOKePSrYc2dBUS3UDzWcA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "appxilon@chatbot-appxilon.iam.gserviceaccount.com",
+  "client_id": "101268673729939175444",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/appxilon%40chatbot-appxilon.iam.gserviceaccount.com"
+}

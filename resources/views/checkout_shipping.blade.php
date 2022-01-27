@@ -101,6 +101,11 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 </tbody>
                             </table>
                             Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
+                            <label for="reject">If product not available:</label>
+                            <select name="Remarks">
+                                <option value="Call me">Call me</option>
+                                <option value="Remove all product">Remove all product</option>
+                            </select>
                             <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
                         </div>
                     </div>
