@@ -5,12 +5,16 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Models\Manager;
+use App\Models\Logs;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class ManagerController extends Controller
 {
     public function index()
     {
-        $data = Manager::where('Ban', 0)->get();
+        $data = Manager::where('isBanned', 0)->get();
         return view('admin-layouts.man_manager',['manager'=>$data]);
     }
     
@@ -30,7 +34,7 @@ class ManagerController extends Controller
             'Postcode' => 'required',
             'City' => 'required',
             'State' => 'required',
-            'Ban' => 'required',
+            'isBanned' => '2',
             'Reason' => 'required'
         ]);
     
@@ -46,6 +50,15 @@ class ManagerController extends Controller
         if(!$manager || !Hash::check ($req ->password, $manager-> Password))
         {
             return "Username or password is not matched";
+            $logs=new Logs;
+            $logs->Manager_Id=Auth::id();
+            $logs->Log_Module=$req->input('Log_Module');
+            $logs->Log_Pay_Type=0;
+            $logs->Log_Status="Fail";
+            $logs->Log_Total_Price=0;
+            $logs->created_at=Carbon::now();
+            $logs->updated_at=Carbon::now();
+            $logs->save();
         }
         else if( $manager-> isBanned == 1)
         {
@@ -53,6 +66,15 @@ class ManagerController extends Controller
         }
         else {
             $req->session() ->put ('manager', $manager);
+            $logs=new Logs;
+            $logs->Manager_Id=Auth::id();
+            $logs->Log_Module=$req->input('Log_Module');
+            $logs->Log_Pay_Type=0;
+            $logs->Log_Status="Success";
+            $logs->Log_Total_Price=0;
+            $logs->created_at=Carbon::now();
+            $logs->updated_at=Carbon::now();
+            $logs->save();
             // return redirect ('layouts/index');
             //redirect betul
             //guna ni bawah dulu for now
@@ -81,7 +103,7 @@ class ManagerController extends Controller
             'Postcode' => 'required',
             'City' => 'required',
             'State' => 'required',
-            'Ban' => 'required',
+            'isBanned' => 'required',
             'Reason' => 'required'
         ]);
     

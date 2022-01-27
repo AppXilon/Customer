@@ -7,14 +7,9 @@
         <div class="section-header text-center">
             <p></p>
             <p></p>
-            <h2>Product Cart {{$order}}</h2>
+            <h2>Product Cart</h2>
         </div>
         <div class="basket">
-            <div class="basket-module">
-                <label for="promo-code">Enter a promotional code</label>
-                <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-                <button class="promo-code-cta">Apply</button>
-            </div>
             <div class="basket-labels">
                 <ul>
                 <li class="item item-heading">Item</li>
@@ -35,6 +30,10 @@
                         <div class="product-details">
                             <h4><strong>{{$item->P_Name}}</strong></h4>
                             <p><strong>{{$item->S_Description}}</strong></p>
+                            <p><strong>{{$item->Order_Type}}</strong></p>
+                            @if($item->Order_Type == 'booking')
+                                <p><strong>Table No: {{$item->BookTable}}</strong></p>
+                            @endif
                         </div>
                     </div>
                     <div class="price">{{ number_format((float) $item->P_Price, 2, '.', '') }}
@@ -57,19 +56,16 @@
                 </div>
                     @endforeach
                     <label for="extra">Notes</label>
-                    <input id="promo-code" type="text" name="extranotes" value="extra" class="notes">
+                    <input id="promo-code" type="text" name="extranotes" value="nothing" class="notes">
 
                 <div class="pricing">
                     <div class="basket-labels">
                         <ul>
                         <li class="quantity">Subtotal</li>
-                        <li class="quantity"> Promo Apply </li>
                         <li class="quantity">Total Price</li>
                         </ul>
                     </div>
                     <div class="price">{{ number_format((float) $totalPrice, 2, '.', '') }}
-                        </div>
-                    <div class="price">
                         </div>
                     <div class="price">{{ number_format((float) $totalPrice, 2, '.', '') }}
                         </div>

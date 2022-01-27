@@ -15,7 +15,8 @@ class OrderProduct extends Model
         'U_Id',
         'P_Id',
         'Order_Quantity',
-        'Order_Price'
+        'Order_Price',
+        'Od_Type'
     ];
 
     public function products()

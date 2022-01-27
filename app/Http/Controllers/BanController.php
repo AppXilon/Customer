@@ -17,9 +17,9 @@ class BanController extends Controller
     public function index()
     {
         //
-        $customer = Customer::where('ban', 1)->get();
+        $customer = Customer::where('isBanned', 1)->get();
         $manager=DB::table('manager')->get();
-        $data = Manager::where('Ban', 1)->get();
+        $data = Manager::where('isBanned', 1)->get();
      
         return view('admin-layouts.ban_user')->with('customer',$customer)->with('manager',$data);
     }

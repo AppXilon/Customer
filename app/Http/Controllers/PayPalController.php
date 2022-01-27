@@ -29,6 +29,8 @@ class PayPalController extends Controller
         $order->O_Phone='0133879380';
         $order->O_Payment='Paypal';
         $order->Tracking_No=rand(1000,9999);
+        $order->Remarks->input('reject');
+        
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
@@ -48,6 +50,7 @@ class PayPalController extends Controller
                 'P_Id'=>$item->Pro_Id,
                 'Order_Quantity'=>$item->Pro_Qty,
                 'Order_Price'=>$item->products->P_Price*$item->Pro_Qty,
+                'Od_Type'=>$item->Order_Type,
             ]);
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();

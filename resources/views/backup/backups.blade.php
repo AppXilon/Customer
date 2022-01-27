@@ -70,14 +70,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row"><div class="col"><h4 class="header-title">Databases</h4></div>
-                                    <div class="col-xs-12 clearfix">
-                                        <form action="{{ url('backup/create') }}" method="GET" class="add-new-backup" enctype="multipart/form-data" id="CreateBackupForm">
+                                <div class="col col-lg-2">
+                                    <form action="{{ url('backup/create') }}" method="GET" class="add-new-backup" enctype="multipart/form-data" id="CreateBackupForm">
                                             {{ csrf_field() }}
                                             <input type="submit" name="submit" class="theme-button btn btn-primary pull-right" style="margin-bottom:2em;" value="Create Database Backup">
                                         </form>
                                     </div>
-                                <div class="col-xs-12">
-                                        @if ( Session::has('success') )
+                                <div class="col col-lg-2">
+                                    @if ( Session::has('success') )
                                             <div class="alert alert-success alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                                                 {{ Session::get('success') }}
@@ -99,10 +99,11 @@
                                         @endif 
                                     </div>
                                 </div>
-                                <div class="data-tables">
-                                    <table id="dataTable" class="text-center">
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                    <table class="table">
                                         @if (count($backups))
-                                        <thead class="bg-light text-capitalize">
+                                        <thead class="text-uppercase">
                                             <tr>
                                                 <th>File Name</th>
                                                 <th>File Size</th>
@@ -123,11 +124,10 @@
                                                     {{ \Carbon\Carbon::parse($backup['last_modified'])->diffForHumans() }}
                                                 </td>
                                                 <td class="text-right">
-                                                    <a class="btn btn-success" href="{{ url('/backup/download/') }}?disk={{ $backup['disk'] }}&file_path={{ urlencode($backup['file_path']) }}&file_name={{ urlencode($backup['file_name']) }}">Try</a>
-                                                    <a class="btn btn-success" href="{{ url('backup/download/'.$backup['file_name']) }}"><i
+                                                    <a class="btn btn-success" href="{{ url('/backup/download/'.$backup['file_path']) }}"><i
                                                         class="fa fa-cloud-download"></i> Download</a>
                                                         <a class="btn btn-danger" onclick="return confirm('Do you really want to delete this file')" data-button-type="delete"
-                                                        href="{{ url('backup/delete/'.$backup['file_name']) }}"><i class="fa fa-trash-o"></i>
+                                                        href="{{ url('/backup/delete/'.$backup['file_name']) }}"><i class="fa fa-trash-o"></i>
                                                         Delete</a>
                                                     </td>
                                                 </tr>
@@ -139,6 +139,7 @@
                                             <h4>No backups</h4>
                                         </div>
                                         @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
