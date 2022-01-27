@@ -18,7 +18,7 @@ class CustAnalyticsController extends Controller
         }
 
 
-        $todCust = DB::SELECT(DB::raw("SELECT COUNT(DISTINCT User_Id) as total FROM fyp.order Where created_at >= DATE(SYSDATE())"));
+        $todCust = DB::SELECT(DB::raw("SELECT COUNT(DISTINCT User_Id) as total FROM customer_order Where created_at >= DATE(SYSDATE())"));
         foreach ($todCust as $row) {
             $todayCustomer = "$row->total";
         }
@@ -28,7 +28,7 @@ class CustAnalyticsController extends Controller
             $newCustomer = "$row->new";
         }
 
-        $repeatCust = DB::SELECT(DB::raw("SELECT COUNT(DISTINCT(User_Id)) as 'repeat' FROM fyp.order;"));
+        $repeatCust = DB::SELECT(DB::raw("SELECT COUNT(DISTINCT(User_Id)) as 'repeat' FROM customer_order;"));
         foreach ($repeatCust as $row) {
             $repeatCustomer = "$row->repeat";
         }
