@@ -23,6 +23,8 @@ class CreateUsers extends Migration
             $table->string('race') ->nullable();
             $table->string('marital') ->nullable();
             $table->string('gender') ->nullable();
+            $table->string('race') ->nullable();
+            $table->string('marital') ->nullable();
             $table->date('birthdate')->nullable();
             $table->string('email');
             $table->string('street_1')->nullable();
@@ -50,5 +52,4 @@ class CreateUsers extends Migration
     }
 }
 
-//dekat model user tambah code bawah ni
-//protected�$primaryKey�=�'user_id';
+

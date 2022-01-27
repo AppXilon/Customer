@@ -1,5 +1,6 @@
 <!-- sidebar menu area start -->
 <div class="sidebar-menu">
+
     <div class="sidebar-header">
 
         <div class="logo">
@@ -14,13 +15,14 @@
                     <li><a href="/order"><i class="fa fa-shopping-cart"></i><span>Order</span></a>
                     </li>
                     <li><a href="/catalogues"><i class="fa fa-file"></i><span>Catalogue</span></a></li>
-                    <li><a href="promotion.php"><i class="fa fa-file"></i><span>Promotion</span></a></li>
+                    <li><a href="/promotion"><i class="fa fa-file"></i><span>Promotion</span></a></li>
                     <li><a href="javascript:void(0)" aria-expanded="true"><i
                                 class="ti-layout-sidebar-left"></i><span>Booking
                             </span></a>
                         <ul class="collapse">
                             <li><a href="/bookinglist">Booking List</a></li>
                             <li><a href="/seatmap">Seat Map</a></li>
+
                         </ul>
                     </li>
                     <li><a href="/cust_analytics"><i class="ti-bar-chart"></i> <span>Customer Analytics</span></a></li>
