@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Report;
+use App\Models\Order;
  
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class ReportTableController extends Controller
     public function index()
     {
         //
-        $data= Report::all();
+        $data= Order::all();
         return view('reports.report', ['Report'=>$data]);
     }
 
