@@ -70,7 +70,7 @@
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon">New Customer</div>
                                             <h2>
-                                                12
+                                                <?php echo $newCustomer?>
                                             </h2>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon">Repeated Customer</div>
                                             <h2>
-                                                4
+                                                <?php echo $repeatCustomer?>
                                             </h2>
                                         </div>
                                     </div>
@@ -94,13 +94,23 @@
                     
                     <!-- sentiment analysis area start -->
                     <div class="col-lg-4 mt-5">
-                        <div class="card">
-                            <div class="card-body pb-0">
-                                <h4 class="header-title">Sentiment Analysis</h4>
+                        
+                            <div class="single-report" style="padding: 10px 16px 10px 16px";>
+                                <div class="s-sale-inner pt--30 mb-3">
+                                    <div class="s-report-title d-flex justify-content-between" >
+                                        <h4 class="header-title mb-0">Sentiment Analysis</h4>
+                                        <select class="custome-select border-0 pr-3" onchange="filterDataSentiment()" id="dataSentiment">
+                                            <option value="0" selected="">All Time</option>
+                                            <option value="1">Last 7 Days</option>
+                                            <option value="2">Last 2 Months</option>
+                                            <option value="3">Annual</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <canvas id="sentiment_analysis" width="450" height="233"></canvas>
-                                <h4></h4>
                             </div>
-                        </div>
+                        
+                        
                     </div>
                     <!-- sentiment analysis area end -->
                     
@@ -192,7 +202,12 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
                                             <h4 class="header-title mb-0">Customer by Gender</h4>
-                                            
+                                            <select class="customer-select border-0 pr-3" onchange="filterDataGender()" id="dataGender">
+                                                <option value="0" selected="">All Time</option>
+                                                <option value="1">Last 7 Days</option>
+                                                <option value="2">Last 2 Months</option>
+                                                <option value="3">Annual</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <canvas id="cust_jantina" height="150"></canvas>
@@ -203,10 +218,11 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
                                             <h4 class="header-title mb-0">Customer by Age</h4>
-                                            <select class="custome-select border-0 pr-3">
-                                                <option selected="">Last 7 Days</option>
-                                                <option value="0">Last 2 Months</option>
-                                                <option value="0">Annual</option>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataAge()" id="dataAge">
+                                                <option value="0" selected="">All Time</option>
+                                                <option value="1">Last 7 Days</option>
+                                                <option value="2">Last 2 Months</option>
+                                                <option value="3">Annual</option>
                                             </select>
                                         </div>
                                     </div>
@@ -218,10 +234,11 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
                                             <h4 class="header-title mb-0">Customer by Marital</h4>
-                                            <select class="custome-select border-0 pr-3">
-                                                <option selected="">Last 7 Days</option>
-                                                <option value="0">Last 2 Months</option>
-                                                <option value="0">Annual</option>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataMarital()" id="dataMarital">
+                                                <option value="0" selected="">All Time</option>
+                                                <option value="1">Last 7 Days</option>
+                                                <option value="2">Last 2 Months</option>
+                                                <option value="3">Annual</option>
                                             </select>
                                         </div>
                                     </div>
@@ -232,15 +249,16 @@
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <div class="s-report-title d-flex justify-content-between">
-                                            <h4 class="header-title mb-0">Customer by Status</h4>
-                                            <select class="custome-select border-0 pr-3">
-                                                <option selected="">Last 7 Days</option>
-                                                <option value="0">Last 2 Months</option>
-                                                <option value="0">Annual</option>
+                                            <h4 class="header-title mb-0">Customer by Race</h4>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataRace()" id="dataRace">
+                                                <option value="0" selected="">All Time</option>
+                                                <option value="1">Last 7 Days</option>
+                                                <option value="2">Last 2 Months</option>
+                                                <option value="3">Annual</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_status" height="150"></canvas>
+                                    <canvas id="cust_race" height="150"></canvas>
                                 </div>
                             </div>
                             
@@ -322,7 +340,7 @@
     <!-- half doughnut sentiment analysis -->
     <script>
         var ctx = document.getElementById("sentiment_analysis");
-        var dashboardChart = new Chart(ctx, {
+        var sentimentChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ["Negative", "Neutral", "Positive"],
@@ -352,22 +370,51 @@
             tooltip: {
                 enabled: false
             },
-            cutoutPercentage: 60,
+            cutoutPercentage: 50,
         }
-    });
+        });
+        function filterDataSentiment() {
+            
+
+            if (document.getElementById("dataSentiment").value == 0) {
+                var sentimentAllTime = <?php echo $sentimentAnalysis; ?>;
+                sentimentChart.data.datasets[0].data = sentimentAllTime;
+            }
+            else if (document.getElementById("dataSentiment").value == 1) {
+                var sentimentWeekly = <?php echo $sentimentAnalysisWeek; ?>;
+                sentimentChart.data.datasets[0].data = sentimentWeekly;
+            }
+            else if (document.getElementById("dataSentiment").value == 2) {
+                var sentimentMonth = <?php echo $sentimentAnalysisMonth; ?>;
+                sentimentChart.data.datasets[0].data = sentimentMonth;
+            }
+            else if (document.getElementById("dataSentiment").value == 3) {
+                var sentimentAnnual = <?php echo $sentimentAnalysisYear; ?>;
+                sentimentChart.data.datasets[0].data = sentimentAnnual;
+            }
+
+            sentimentChart.update();
+            //console.log(yvalues2);
+        }
     </script>
 
-    <!-- customer by gender -->
+    //<!-- customer by gender -->
        
     <script>
+        //var labels = ["Female", "Male"];
+        //var dataAllTime = <?php echo $custGender; ?>;
+
+
         var xValues = ["Female", "Male"];
         var yValues = <?php echo $custGender; ?>;
+
         var barColors = [
-        "#004c6d",
-        "#b6cee3",
+        "#FF7043",
+        "#FFA726",
         ];
+
         
-        new Chart("cust_jantina", {
+        var genderChart = new Chart("cust_jantina", {
         type: "pie",
         data: {
             labels: xValues,
@@ -380,18 +427,44 @@
             
         }
         });
+
+        function filterDataGender() {
+            
+
+            if (document.getElementById("dataGender").value == 0) {
+                var genderAllTime = <?php echo $custGender; ?>;
+                genderChart.data.datasets[0].data = genderAllTime;
+            }
+            else if (document.getElementById("dataGender").value == 1) {
+                var genderWeekly = <?php echo $custGenderWeek; ?>;
+                genderChart.data.datasets[0].data = genderWeekly;
+            }
+            else if (document.getElementById("dataGender").value == 2) {
+                var genderMonth = <?php echo $custGenderMonth; ?>;
+                genderChart.data.datasets[0].data = genderMonth;
+            }
+            else if (document.getElementById("dataGender").value == 3) {
+                var genderAnnual = <?php echo $custGenderYear; ?>;
+                genderChart.data.datasets[0].data = genderAnnual;
+            }
+
+            genderChart.update();
+            //console.log(yvalues2);
+        }
     </script>
 
-    <!-- customer by age -->
+    
+
+    // <!-- customer by age -->
     <script>
         var xValues = ["<30 y/o", ">30 y/o"];
-        var yValues = [43, 46];
+        var yValues = <?php echo $custAge; ?>;
         var barColors = [
-        "#004c6d",
-        "#b6cee3",
+        "#FFCA28",
+        "#FFEE58",
         ];
         
-        new Chart("cust_umur", {
+        var ageChart = new Chart("cust_umur", {
         type: "pie",
         data: {
             labels: xValues,
@@ -404,18 +477,47 @@
             
         }
         });
-        </script>
 
-        <!-- customer by status -->
+        function filterDataAge() {
+            //var yValues2 = [...yValues];
+            //var type = document.getElementById('value');
+
+            if (document.getElementById("dataAge").value == 0) {
+                var ageAllTime = <?php echo $custAge; ?>;
+                ageChart.data.datasets[0].data = ageAllTime;
+            }
+            else if (document.getElementById("dataAge").value == 1) {
+                var ageWeekly = <?php echo $custAgeWeek; ?>;
+                ageChart.data.datasets[0].data = ageWeekly;
+            }
+            else if (document.getElementById("dataAge").value == 2) {
+                var ageMonth = <?php echo $custAgeMonth; ?>;
+                ageChart.data.datasets[0].data = ageMonth;
+            }
+            else if (document.getElementById("dataAge").value == 3) {
+                var ageAnnual = <?php echo $custAgeYear; ?>;
+                ageChart.data.datasets[0].data = ageAnnual;
+            }
+
+            ageChart.update();
+            //console.log(yvalues2);
+        }
+    </script>
+
+
+
+
+        //<!-- customer by race -->
         <script>
-            var xValues = ["Registered", "Anonymous"];
-            var yValues = [67, 36];
+            var xValues = ["Malay", "Chinese", "Indian", "Other"];
+            var yValues = <?php echo $custRace; ?>;
             var barColors = [
-            "#004c6d",
-            "#b6cee3",
+            "#D4E157",
+            "#9CCC65",
+            "#66BB6A",
             ];
             
-            new Chart("cust_status", {
+            var raceChart = new Chart("cust_race", {
             type: "pie",
             data: {
                 labels: xValues,
@@ -428,20 +530,45 @@
                 
             }
             });
+
+            function filterDataRace() {
+            //var yValues2 = [...yValues];
+            //var type = document.getElementById('value');
+
+            if (document.getElementById("dataRace").value == 0) {
+                var raceAllTime = <?php echo $custRace; ?>;
+                raceChart.data.datasets[0].data = raceAllTime;
+            }
+            else if (document.getElementById("dataRace").value == 1) {
+                var raceWeekly = <?php echo $custRaceWeek; ?>;
+                raceChart.data.datasets[0].data = raceWeekly;
+            }
+            else if (document.getElementById("dataRace").value == 2) {
+                var raceMonth = <?php echo $custRaceMonth; ?>;
+                raceChart.data.datasets[0].data = raceMonth;
+            }
+            else if (document.getElementById("dataRace").value == 3) {
+                var raceAnnual = <?php echo $custRaceYear; ?>;
+                raceChart.data.datasets[0].data = raceAnnual;
+            }
+
+            raceChart.update();
+            //console.log(yvalues2);
+        }
         </script>
 
-        <!-- customer by marital -->
+        //<!-- customer by marital -->
         <script>
             var xValues = ["Single", "Married", "Widowed", "Divorced"];
-            var yValues = [37, 49, 12, 21];
+            var yValues = <?php echo $custMarital; ?>;
             var barColors = [
-            "#004c6d",
-            "#436f8d",
-            "#7193af",
+            "#26C6DA",
+            "#29B6F6",
+            "#26A69A",
             "#b6cee3",
             ];
             
-            new Chart("cust_marital", {
+            var maritalChart = new Chart("cust_marital", {
             type: "pie",
             data: {
                 labels: xValues,
@@ -454,6 +581,31 @@
                 
             }
             });
+
+            function filterDataMarital() {
+            //var yValues2 = [...yValues];
+            //var type = document.getElementById('value');
+
+            if (document.getElementById("dataMarital").value == 0) {
+                var maritalAllTime = <?php echo $custMarital; ?>;
+                maritalChart.data.datasets[0].data = maritalAllTime;
+            }
+            else if (document.getElementById("dataMarital").value == 1) {
+                var maritalWeekly = <?php echo $custMaritalWeek; ?>;
+                maritalChart.data.datasets[0].data = maritalWeekly;
+            }
+            else if (document.getElementById("dataMarital").value == 2) {
+                var maritalMonth = <?php echo $custMaritalMonth; ?>;
+                maritalChart.data.datasets[0].data = maritalMonth;
+            }
+            else if (document.getElementById("dataMarital").value == 3) {
+                var maritalAnnual = <?php echo $custMaritalYear; ?>;
+                maritalChart.data.datasets[0].data = maritalAnnual;
+            }
+
+            maritalChart.update();
+            
+            }
         </script>
 
 </body>

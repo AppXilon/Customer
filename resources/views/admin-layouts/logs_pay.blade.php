@@ -80,83 +80,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($logs as $log)
                                             <tr>
-                                                <td>1-104</td>
-                                                <td>2020-03-25 12:30:00</td>
-                                                <td>Paypal</td>
-                                                <td>RM12.50</td>
-                                                <td>Khairi</td>
+                                                <td>{{$log->Log_Id}}</td>
+                                                <td>{{$log->created_at}}</td>
+                                                <td>
+                                                    @if ($log->Log_Pay_Type==0)
+                                                    Cash
+                                                @else
+                                                    Paypal
+                                                @endif</td>
+                                                <td>{{$log->Log_Total_Price}}</td>
+                                                <td>Rack</td>
                                             </tr>
-                                            <tr>
-                                                <td>1-112</td>
-                                                <td>2020-05-13 16:30:00</td>
-                                                <td>Paypal</td>
-                                                <td>RM32.50</td>
-                                                <td>Rashid</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-004</td>
-                                                <td>2020-02-21 10:40:00</td>
-                                                <td>Paypal</td>
-                                                <td>RM182.50</td>
-                                                <td>Shahrul</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-124</td>
-                                                <td>2020-04-16 13:10:00</td>
-                                                <td>FPX Online Banking</td>
-                                                <td>RM12.50</td>
-                                                <td>Simba</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-179</td>
-                                                <td>2020-05-26 15:25:00</td>
-                                                <td>FPX Online Banking</td>
-                                                <td>RM1352.50</td>
-                                                <td>Zul</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3-109</td>
-                                                <td>2020-06-19 13:10:00</td>
-                                                <td>FPX Online Banking</td>
-                                                <td>RM97.50</td>
-                                                <td>Maria</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1-204</td>
-                                                <td>2020-10-06 10:10:00</td>
-                                                <td>Visa Mastercard</td>
-                                                <td>RM77.90</td>
-                                                <td>Sufi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-106</td>
-                                                <td>2020-04-16 13:10:00</td>
-                                                <td>Visa Mastercard</td>
-                                                <td>RM1068.70</td>
-                                                <td>Razak</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3-217</td>
-                                                <td>2021-01-19 12:50:00</td>
-                                                <td>TnG E-wallet</td>
-                                                <td>RM168.70</td>
-                                                <td>Zizi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3-263</td>
-                                                <td>2021-02-29 12:50:00</td>
-                                                <td>TnG E-wallet</td>
-                                                <td>RM78.90</td>
-                                                <td>Ramli</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-196</td>
-                                                <td>2020-12-28 12:50:00</td>
-                                                <td>TnG E-wallet</td>
-                                                <td>RM1578.90</td>
-                                                <td>Aria</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

@@ -57,7 +57,7 @@
                                 <a href="{{ route('catalogues.create') }}"><input type="button" value="Add Product"
                                         class="button1"></a>
                                 <nav>
-                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <div class="nav nav-tabs " id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#all" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
                                         @foreach ($category as $Category)
                                         <a class="nav-item nav-link" id="{{$Category->P_Cat_Id}}" data-toggle="tab"
@@ -134,7 +134,7 @@
                                         </div>
                                     </div>
                                     @foreach ($category as $P_Cat)
-                                    <div class="tab-pane fade show" id="category{{$P_Cat->P_Cat_Id}}" role="tabpanel"
+                                    <div class="tab-pane fade show " id="category{{$P_Cat->P_Cat_Id}}" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
                                         <div class="table-responsive">
                                         <table class="table text-center" >
@@ -169,7 +169,7 @@
                                                     }
                                                     ?></td>
                                                     <td>{{ $product->P_Duration}} Minutes</td>
-                                                    <td><img src = "{{asset('images/'. $product->P_Image)}}" height=70 width=70></td>
+                                                    <td><img src = "{{asset('images/'. $product->P_Image)}}" height=50 width=70></td>
                                                     <td>{{ $product->P_Quantity}}</td>
                                                     <td>
                                                         @if ($product->P_Status == '1')
