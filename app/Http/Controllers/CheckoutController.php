@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Logs;
 use App\Models\OrderProduct;
 use App\Models\Payment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class CheckoutController extends Controller
 {
@@ -36,9 +39,10 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('cust_id', Auth::id())->get();
 
         $notes=$req->extranotes;
+        $table=DB::table('restaurant_table')->get();
         $payment=DB::table('payment_type')->get();
 
-        return view('checkout_shipping', compact('cartitems', 'notes', 'payment'));
+        return view('checkout_shipping', compact('cartitems', 'notes', 'payment', 'table'));
     }
     function orderPlace(Request $req)
     {
@@ -62,11 +66,25 @@ class CheckoutController extends Controller
         {
             $total += $prod->products->P_Price * $prod->Pro_Qty;
             $otype = $prod->Order_Type;
+            $bookdate = $prod->BookDate;
+            $booktime = $prod->BookTime;
+            $bookpax = $prod->BookPax;
+            $booktable = $prod->BookTable;
         }
 
         $order->O_Type = $otype;
+        $order->DateTime = $bookdate;
+        $order->T_Pax = $bookpax;
+        $order->T_Id = $booktable;
         $order->O_Total_Price = $total;
-        $order->save();
+
+        $logs=new Logs;
+        $logs->Cust_Id=Auth::id();
+        $logs->Log_Module=$req->input('Log_Module');
+        $logs->Log_Pay_Type=0;
+        $logs->Log_Status=$req->input('Log_Status');
+        $logs->created_at=Carbon::now();
+        $logs->updated_at=Carbon::now();
 
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems as $item)
@@ -106,6 +124,12 @@ class CheckoutController extends Controller
                 $order->Tracking_No=rand(1000,9999);
                 $order->Remarks->input('reject');
 
+                $logs=new Logs;
+                $logs->Cust_Id=Auth::id();
+                $logs->PL_Type=1;
+                $logs->created_at=Carbon::now();
+                $logs->updated_at=Carbon::now();
+
                 $total = 0;
                 $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
                 foreach($cartitems_total as $prod)
@@ -114,7 +138,9 @@ class CheckoutController extends Controller
                 }
 
                 $order->O_Total_Price = $total;
+                $logs->PL_Total_Price=$total;
                 $order->save();
+                $logs->save();
 
                 $cartitems = Cart::where('Cust_Id', Auth::id())->get();
                 foreach($cartitems as $item)

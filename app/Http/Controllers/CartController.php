@@ -19,7 +19,11 @@ class CartController extends Controller
             $cart->Pro_Id=$req->Pro_Id;
             $cart->Pro_qty=$req->Pro_qty;
             $cart->Order_Type=$req->otype;
-            
+            $cart->BookDate=$req->bookdate;
+            $cart->BookTime=$req->booktime;
+            $cart->BookPax=$req->bookpax;
+            $cart->BookTable=$req->booktable;
+          
             if(Cart::where('Cust_Id','=',Auth::id())
                 ->where('Pro_Id','=',$req->Pro_Id)->exists())
                 {

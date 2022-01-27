@@ -12,6 +12,7 @@ use App\Http\Controllers\SeatMapController;
 use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
@@ -34,7 +35,6 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +51,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Report Controller routes
+Route::get('try', [ReportController:: class, 'index']) ;
+Route::get('sales', [SalesController:: class, 'index']) ;
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -141,6 +147,8 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/feedback', FeedbackController::class);
 
+Route::resource('/report', ReportTableController::class);
+
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
@@ -230,8 +238,8 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_name}', [BackupController::class, 'download']);
-Route::get('/backup/delete/{file_name}', 'App\Http\Controllers\BackupController@delete');
+Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
 Route::get('manager_login', function () {
     return view('auth/manager/login');
