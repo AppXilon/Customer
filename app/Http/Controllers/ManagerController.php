@@ -34,7 +34,7 @@ class ManagerController extends Controller
             'Postcode' => 'required',
             'City' => 'required',
             'State' => 'required',
-            'isBanned' => 'required',
+            'isBanned' => '2',
             'Reason' => 'required'
         ]);
     
