@@ -13,8 +13,8 @@ class CreateLog extends Migration
     {
         Schema::create('log', function (Blueprint $table) {
             $table->bigIncrements('Log_Id');
-            $table->bigInteger('Cust_Id')->unsigned();
-            $table->bigInteger('Manager_Id')->unsigned();
+            $table->bigInteger('Cust_Id')->unsigned()->nullable();
+            $table->bigInteger('Manager_Id')->unsigned()->nullable();
             $table->string('Log_Module');
             $table->string('Log_Pay_Type');
             $table->string('Log_Total_Price');
