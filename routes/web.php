@@ -36,6 +36,8 @@ use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
+use App\Http\Controllers\PromotionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -167,6 +169,8 @@ Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
 Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
 Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
+Route::resource('/promotion', PromotionController::class);
+
 
 // Route::get('/report', function () {
 //     return view('layouts.report');
@@ -213,8 +217,14 @@ Route::get('/man_rest', function () {
 Route::get('/pending', function () {
     return view('admin-layouts.pending');
 });
+
+Route::resource('faq', FaqController::class);
+Route::get('faq_customer', [FaqController:: class, 'faq_index']) ;
+
+
 Route::get('/logs_login',[LogController::class,'loginIndex']);
 Route::get('/logs_pay',[LogController::class,'paymentIndex']);
+
 /*Route::get('/backup', function () {
     return view('backup.backups');
 });*/
@@ -236,6 +246,10 @@ Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
+
+
+
+
 
 Route::get('manager_login', function () {
     return view('auth/manager/login');

@@ -136,50 +136,9 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                         </form>
                     </div>
                 </div>
-<<<<<<< HEAD
-
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Order Details</h4>
-                            <hr>
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Quantity</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $totalPrice = 0; @endphp
-                                    @foreach($cartitems as $item)
-                                    <tr>
-                                        <td>{{$item->Pro_Qty}} </td>
-                                        <td><a href="detail/{{$item->id}}">{{$item->products->P_Name}}</a></td>
-                                        <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
-                                    </tr>
-                                    @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            <h5>Order Type: {{ $item->Order_Type }}</h5>
-                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
-                            <label for="reject">If product not available:</label>
-                           
-                            <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-=======
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                             <h4>Payment Options</h4>
                             <hr>
                             <div class="payment-option">
@@ -196,10 +155,6 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 @endif
                                 <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
                             </div>
-<<<<<<< HEAD
-                            
-=======
->>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                         </div>
                     </div>
                 </div>

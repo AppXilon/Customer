@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Faq;
+use App\Models\Promotion;
 
- 
-
-class FaqController extends Controller
+class PromotionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,21 +15,12 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
-        $data =  DB::table ('faq') ->get();
+        $data =  DB::table ('promotion') ->get();
  
 
-         return view('admin-layouts.faq-admin')->with('list', $data);
+         return view('layouts.promotion')->with('list', $data);
     }
 
-    public function faq_index()
-    {
-        $data = array(
-           'list' => DB::table ('faq') ->get()
-
-        );
-        return view('faq',  $data);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -39,8 +28,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        return view('admin-layouts.faq-add');
-    
+        //
     }
 
     /**
@@ -51,17 +39,7 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Faq_Category' => 'required',
-            'Faq_Question' => 'required',
-            'Faq_Answer' => 'required'
-            
-        ]);
-        
-        Faq::create($request->all());
-     
-        return redirect()->route('faq.index')
-                        ->with('success','Question created successfully.');
+        //
     }
 
     /**
@@ -81,10 +59,9 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit($id)
     {
         //
-        return view('admin-layouts.faq-edit', compact ('faq'));
     }
 
     /**
@@ -94,10 +71,9 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request, $id)
     {
-        $faq->update($request->all());
-        return redirect()->route('faq.index');
+        //
     }
 
     /**
