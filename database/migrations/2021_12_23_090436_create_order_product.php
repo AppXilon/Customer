@@ -18,6 +18,7 @@ class CreateOrderProduct extends Migration
             $table->foreign('P_Id')->references('P_Id')->on('product')->onDelete('cascade');
             $table->bigInteger('Order_Quantity');
             $table->double('Order_Price');
+            $table->string('Od_Type');
             $table->boolean('rstatus')->default(false);
             $table->timestamps();
             $table->primary(['Order_Id', 'P_Id']);

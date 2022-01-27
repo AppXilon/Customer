@@ -40,12 +40,14 @@
                         <form>
                             <div class="control-group">
                                 <div class="input-group date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                                    <input type="text" class="form-control datetimepicker-input" id="myInput" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
                                 </div>
                             </div>
+                            @php
+                            @endphp
                             <div class="control-group">
                                 <div class="input-group time" id="time" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
@@ -100,4 +102,3 @@
         </div>
         <!-- Booking End -->
 @endsection
-
