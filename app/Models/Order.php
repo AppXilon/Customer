@@ -21,11 +21,13 @@ class Order extends Model
         'O_State',
         'O_Email',
         'O_Phone',
+        'O_Notes',
         'O_Status',
         'Dine_Datetime',
         'O_Total_Price',
         'O_Type',
         'O_Payment',
+        'T_Pax',
         'Tracking_No',
     ];
 

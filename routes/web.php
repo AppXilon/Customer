@@ -35,6 +35,7 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ReportTableController;
 
 /*
 |--------------------------------------------------------------------------

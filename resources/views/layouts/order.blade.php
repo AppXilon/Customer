@@ -77,6 +77,7 @@
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
                                                             <th scope="col">Amount</th>
+                                                            <th scope="col">Remarks</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
@@ -104,6 +105,9 @@
                                                             </td>
                                                             <td>RM
                                                                 {{ number_format((float) $new->O_Total_Price, 2, '.', '') }}
+                                                            </td>
+                                                            <td>
+                                                                {{$new->Remarks}}
                                                             </td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"

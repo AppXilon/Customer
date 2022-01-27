@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Logs;
 use App\Models\OrderProduct;
+use App\Models\Payment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -38,8 +39,10 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('cust_id', Auth::id())->get();
 
         $notes=$req->extranotes;
+        $table=DB::table('restaurant_table')->get();
+        $payment=DB::table('payment_type')->get();
 
-        return view('checkout_shipping', compact('cartitems', 'notes'));
+        return view('checkout_shipping', compact('cartitems', 'notes', 'payment', 'table'));
     }
     function orderPlace(Request $req)
     {
@@ -55,7 +58,26 @@ class CheckoutController extends Controller
         $order->O_Notes=$req->input('O_Notes');
         $order->O_Payment=$req->payment;
         $order->Tracking_No=rand(1000,9999);
-        
+        $order->Remarks=$req->input('Remarks');
+    
+        $total = 0;
+        $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
+        foreach($cartitems_total as $prod)
+        {
+            $total += $prod->products->P_Price * $prod->Pro_Qty;
+            $otype = $prod->Order_Type;
+            $bookdate = $prod->BookDate;
+            $booktime = $prod->BookTime;
+            $bookpax = $prod->BookPax;
+            $booktable = $prod->BookTable;
+        }
+
+        $order->O_Type = $otype;
+        $order->DateTime = $bookdate;
+        $order->T_Pax = $bookpax;
+        $order->T_Id = $booktable;
+        $order->O_Total_Price = $total;
+
         $logs=new Logs;
         $logs->Cust_Id=Auth::id();
         $logs->Log_Module=$req->input('Log_Module');
@@ -63,20 +85,6 @@ class CheckoutController extends Controller
         $logs->Log_Status=$req->input('Log_Status');
         $logs->created_at=Carbon::now();
         $logs->updated_at=Carbon::now();
-      
-        $order->O_Type=$req->otype;
-
-        $total = 0;
-        $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
-        foreach($cartitems_total as $prod)
-        {
-            $total += $prod->products->P_Price * $prod->Pro_Qty;
-        }
-
-        $order->O_Total_Price = $total;
-        $logs->Log_Total_Price=$total;
-        $order->save();
-        $logs->save();
 
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         foreach($cartitems as $item)
@@ -86,6 +94,7 @@ class CheckoutController extends Controller
                 'P_Id'=>$item->Pro_Id,
                 'Order_Quantity'=>$item->Pro_Qty,
                 'Order_Price'=>$item->products->P_Price*$item->Pro_Qty,
+                'Od_Type'=>$item->Order_Type,
             ]);
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
@@ -113,6 +122,7 @@ class CheckoutController extends Controller
                 $order->O_Phone=$req->input('O_Phone');
                 $order->O_Payment=$req->payment;
                 $order->Tracking_No=rand(1000,9999);
+                $order->Remarks->input('reject');
 
                 $logs=new Logs;
                 $logs->Cust_Id=Auth::id();

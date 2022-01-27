@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Book A Table{{$order}}</h2>
+                        <h2>Book A Table</h2>
                     </div>
                     <div class="col-12">
                         <a href="index.html">Home</a>
@@ -37,18 +37,18 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="booking-form">
-                        <form>
-                            <div class="control-group">
-                                <div class="input-group date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                        <form method="GET" action="/catalogue">
+                            <div  class="control-group" >
+                                <div class="input-group date" data-target-input="nearest" >
+                                    <input type="date" name="bookdate" value="bookdate" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group-time">
                                 <div class="input-group time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
+                                    <input type="text" name="booktime" value="booktime" id="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-clock"></i></div>
                                     </div>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="input-group">
-                                    <select class="custom-select form-control">
+                                    <select name="bookpax" class="custom-select form-control">
                                         <option selected>Pax</option>
                                         <option value="1">1 Pax</option>
                                         <option value="2">2 Pax</option>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="input-group">
-                                    <select class="custom-select form-control">
+                                    <select name="booktable" class="custom-select form-control">
                                         <option selected>Select Table</option>
                                         @foreach ($table as $table)
                                         @if($table->T_Status == '1')
@@ -90,7 +90,8 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn custom-btn" href="catalogue">Choose menu</a>
+                                <input type="hidden" id="otype" name="otype" value="{{$order}}">
+                                <a href="catalogue"><button type="submit" class="btn custom-btn">Choose Menu</button></a>
                             </div>
                         </form>
                         </div>
@@ -99,5 +100,26 @@
             </div>
         </div>
         <!-- Booking End -->
+@endsection
+
+@section('scripts')
+<!-- <script>
+$('.control-group-time').hide();
+
+$(document).ready(function(){
+    $("#dropDown").on("input", function(){
+        // Print entered value in a div box
+        $("#time").text($(this).val());
+    });
+    $('#' + this.value).show();
+    });
+
+    $(document).ready(function(){
+    $("#myInput").on("input", function(){
+        // Print entered value in a div box
+        
+    });
+});
+</script> -->
 @endsection
 
