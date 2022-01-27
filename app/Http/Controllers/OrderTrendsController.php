@@ -9,7 +9,7 @@ class OrderTrendsController extends Controller
 {
     public static function analytics() {
         
-        $payment = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM fyp.order;"));
+        $payment = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM customer_order;"));
         foreach($payment as $row){
             $orderPayment = "[".$row->Cash.", ".$row->Paypal."]";
         }
@@ -28,7 +28,7 @@ class OrderTrendsController extends Controller
         Sum(CASE WHEN MONTH(created_at) = 10 THEN O_Total_Price END) AS October,
         Sum(CASE WHEN MONTH(created_at) = 11 THEN O_Total_Price END) AS November,
         Sum(CASE WHEN MONTH(created_at) = 12 THEN O_Total_Price END) AS 'December'
-        from customer_db.order
+        from customer_order
         "));
         foreach($sales as $row){
             $salesChart = "[".$row->January.", ".$row->February.", ".$row->March.", ".$row->April.", ".$row->May.", ".$row->June.", ".$row->July.", ".$row->August.", ".$row->September.", ".$row->October.", ".$row->November.", ".$row->December."]";
