@@ -114,5 +114,17 @@ class OrderController extends Controller
 
         return view('layouts.bookinglist')->with('booking', $booking);
     }
+
+    public function updateBooking(Request $request, $order)
+    {
+
+        //
+        $orders = Order::find($order);
+
+        $orders->update([
+            'O_Status' =>  $request->input('O_Status'),
+        ]);
+
+        return redirect()->back();    }
 }
 

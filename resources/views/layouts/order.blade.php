@@ -77,12 +77,17 @@
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
                                                             <th scope="col">Amount</th>
+<<<<<<< HEAD
+                                                            <th scope="col">Remark</th>
+=======
                                                             <th scope="col">Remarks</th>
+>>>>>>> c42d98e9a90b74c94f46917f03f0c9cb2472206d
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     @php
-                                                        $New = App\Models\Order::where('O_Status', 1)->get();
+                                                   
+                                                        $New = App\Models\Order::where('O_Status', 1)->where('O_Type', 'dineIn')->where('O_Type', 'pickUp')->get();
                                                     @endphp
                                                     @foreach ($New as $new)
                                                         <tbody>
@@ -133,6 +138,7 @@
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
                                                             <th scope="col">Amount</th>
+                                                            <th scope="col">Remark</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
@@ -161,6 +167,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $preparing->O_Total_Price, 2, '.', '') }}
                                                             </td>
+                                                            <td></td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $preparing->id }}">
@@ -185,6 +192,7 @@
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Time</th>
                                                             <th scope="col">Amount</th>
+                                                            <th scope="col">Remark</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
@@ -213,6 +221,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $completed->O_Total_Price, 2, '.', '') }}
                                                             </td>
+                                                            <td></td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $completed->id }}">
