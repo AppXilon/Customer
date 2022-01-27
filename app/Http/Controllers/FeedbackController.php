@@ -16,6 +16,7 @@ class FeedbackController extends Controller
     {
         //
         $data= Feedback::all();
+        //dd($data);
         return view('layouts.feedback', ['Feedback'=>$data]);
     }
 

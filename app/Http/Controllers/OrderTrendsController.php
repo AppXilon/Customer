@@ -35,9 +35,24 @@ class OrderTrendsController extends Controller
 
         }
 
+        $popular = DB::select(DB::raw("SELECT product.P_Image, product.P_Name, product.P_Id, SUM(order_product.Order_Quantity) as P_Qty, product.P_Price
+        FROM order_product,product
+        WHERE order_product.P_Id=product.P_Id
+        GROUP BY product.P_Id, product.P_Name, product.P_Price, product.P_Image
+        ORDER BY SUM(order_product.Order_Quantity) DESC
+        LIMIT 5;"));
 
-        //dd($orderPayment);
+        $least = DB::select(DB::raw("SELECT product.P_Image, product.P_Name, product.P_Id, SUM(order_product.Order_Quantity) as P_Qty, product.P_Price
+        FROM order_product,product
+        WHERE order_product.P_Id=product.P_Id
+        GROUP BY product.P_Id, product.P_Name, product.P_Price, product.P_Image
+        ORDER BY SUM(order_product.Order_Quantity) ASC
+        LIMIT 5;"));
+        
 
-        return view('reports.order_trends', compact('orderPayment', 'salesChart'));
+    
+        // dd($popular);
+
+        return view('reports.order_trends', compact('orderPayment', 'salesChart','popular', 'least'));
     }
 }
