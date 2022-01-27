@@ -40,18 +40,122 @@
 
                     <!-- SALES Statistics area start -->
                     <div class="col-lg-12 mt-5">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title">Sales</h4>
-                                    <canvas id="myChart"></canvas>
-                                </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Sales</h4>
+                                <canvas id="myChart"></canvas>
                             </div>
-                  
+                        </div>
+
                     </div>
                 </div>
                 <!-- SALES Statistics area end -->
 
 
+
+
+                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
+                    <div class="card"></div>
+
+                </div>
+
+
+                <!-- TOP SELLING PRODUCTS start -->
+                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
+
+                    <div class="card">
+                        <h5 class="card-header">Top Selling Products</h5>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Product Image</th>
+                                            <th class="border-0">Product Name</th>
+                                            <th class="border-0">Product Id</th>
+                                            <th class="border-0">Quantity Sold</th>
+                                            <th class="border-0">Product Price</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($popular as $popular)
+                                        <tr>
+                                            <td>
+                                                <div class="m-r-10"><img src="{{asset('images/'. $popular->P_Image)}}"
+                                                        alt="user" class="rounded" width="45"></div>
+                                            </td>
+                                            <td>{{ $popular->P_Name }}</td>
+                                            <td>{{ $popular->P_Id}}</td>
+                                            <td>{{ $popular->P_Qty}}</td>
+                                            <td>RM{{ $popular->P_Price}}</td>
+                                        </tr>
+                                        @endforeach
+
+
+
+
+                                    </tbody>
+
+                                </table>
+                                <div class="card-footer text-center">
+                                    <a href="#" class="btn-primary-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOP SELLING PRODUCT end -->
+
+
+                <!-- LEAST SELLING PRODUCTS start -->
+                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
+
+                    <div class="card">
+                        <h5 class="card-header">Least Selling Products</h5>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Product Image</th>
+                                            <th class="border-0">Product Name</th>
+                                            <th class="border-0">Product Id</th>
+                                            <th class="border-0">Quantity Sold</th>
+                                            <th class="border-0">Product Price</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($least as $least)
+                                        <tr>
+                                            <td>
+                                                <div class="m-r-10"><img src="{{asset('images/'. $least->P_Image)}}"
+                                                        alt="user" class="rounded" width="45"></div>
+                                            </td>
+                                            <td>{{ $least->P_Name }}</td>
+                                            <td>{{ $least->P_Id}}</td>
+                                            <td>{{ $least->P_Qty}}</td>
+                                            <td>RM{{ $least->P_Price}}</td>
+                                        </tr>
+                                        @endforeach
+
+
+
+
+                                    </tbody>
+
+                                </table>
+                                <div class="card-footer text-center">
+                                    <a href="#" class="btn-primary-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- LEAST SELLING PRODUCTS end -->
 
                 <!-- SALES BY CATEGORIES start -->
                 <div class="col-lg-12 mt-5">
@@ -116,190 +220,7 @@
                     </div>
                 </div>
                 <!-- SALES BY CATEGORIES end -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-                    <div class="card"></div>
 
-                </div>
-                
-
-                <!-- TOP SELLING PRODUCTS start -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-
-                    <div class="card">
-                        <h5 class="card-header">Top Selling Products</h5>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-light">
-                                        <tr class="border-0">
-                                            <th class="border-0">Product Image</th>
-                                            <th class="border-0">Product Name</th>
-                                            <th class="border-0">Product Id</th>
-                                            <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Product Price</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    
-                                                <tbody>
-                                                    @foreach ($popular as $popular)
-                                                    <tr>
-                                                        <td><div class="m-r-10"><img src="{{asset('images/'. $popular->P_Image)}}" alt="user"
-                                                            class="rounded" width="45"></div></td>
-                                                        <td>{{ $popular->P_Name }}</td>
-                                                        <td>{{ $popular->P_Id}}</td>
-                                                        <td>{{ $popular->P_Qty}}</td>
-                                                        <td>RM{{ $popular->P_Price}}</td>
-                                                    </tr>
-                                                    @endforeach
-
-                                                    
-                                             
-                                             
-                                                </tbody>
-                                            
-                                </table>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn-primary-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- TOP SELLING PRODUCT end -->
-
-
-                <!-- LEAST SELLING PRODUCTS start -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10"> 
-
-                    <div class="card">
-                        <h5 class="card-header">Least Selling Products</h5>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-light">
-                                        <tr class="border-0">
-                                            <th class="border-0">Product Image</th>
-                                            <th class="border-0">Product Name</th>
-                                            <th class="border-0">Product Id</th>
-                                            <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Product Price</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    
-                                                <tbody>
-                                                    @foreach ($least as $least)
-                                                    <tr>
-                                                        <td><div class="m-r-10"><img src="{{asset('images/'. $least->P_Image)}}" alt="user"
-                                                            class="rounded" width="45"></div></td>
-                                                        <td>{{ $least->P_Name }}</td>
-                                                        <td>{{ $least->P_Id}}</td>
-                                                        <td>{{ $least->P_Qty}}</td>
-                                                        <td>RM{{ $least->P_Price}}</td>
-                                                    </tr>
-                                                    @endforeach
-
-                                                    
-                                             
-                                             
-                                                </tbody>
-                                            
-                                </table>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn-primary-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- LEAST SELLING PRODUCTS end -->
-
-
-                <!-- LEAST SELLING PRODUCT start -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-
-                    <div class="card">
-                        <h5 class="card-header">Least Selling Products</h5>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-light">
-                                        <tr class="border-0">
-                                            <th class="border-0">#</th>
-                                            <th class="border-0">Image</th>
-                                            <th class="border-0">Product Name</th>
-                                            <th class="border-0">Product Id</th>
-                                            <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Price</th>
-
-                                            <th class="border-0">Categories</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/soup sayur.jpeg" alt="user"
-                                                        class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Sup Sayur </td>
-                                            <td>P017 </td>
-                                            <td>20</td>
-                                            <td>RM4.50</td>
-
-                                            <td>Soup Dish/td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/kankung masin.jpeg"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Kankung Masin</td>
-                                            <td>P019 </td>
-                                            <td>18</td>
-                                            <td>RM4.50</td>
-
-                                            <td>Kangkung Dish </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/telur bistik.jpeg"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Telur Bistik </td>
-                                            <td>P020</td>
-                                            <td>16</td>
-                                            <td>RM5.00</td>
-
-                                            <td>Egg Dish</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="m-r-10"><img src="assets/images/maggie goreng.jpeg"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>Maggie Goreng </td>
-                                            <td>P034 </td>
-                                            <td>13</td>
-                                            <td>RM4.00</td>
-
-                                            <td>Maggie </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn-primary-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- LEAST SELLING PRODUCTS end -->
 
                 <!-- order breakdown area start -->
                 <div class="sales-report-area sales-style-two">

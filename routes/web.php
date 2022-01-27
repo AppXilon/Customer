@@ -155,6 +155,9 @@ Route::get('/custDetails', [CustDetailsController::class, 'analytics']);
 Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
+
+// Report wani dah ubah route 
+
 Route::resource('/seatmap', SeatMapController::class);
 
 
