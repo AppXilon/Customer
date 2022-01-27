@@ -55,7 +55,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="customer">
                                     {{ ('Login') }}
                                 </button>
 
@@ -76,6 +76,7 @@
                                     </a> -->
                             </div>
                         </div>
+                        <input type="hidden" class="form-control cstate" value="Login" name="Log_Module" required="required">
                     </form>
                 </div>
             </div>

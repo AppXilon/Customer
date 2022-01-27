@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>User Login Logs</title>
+    <title>Login Logs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{ asset ('admin-assets/images/icon/favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset ('admin-assets/css/bootstrap.min.css')}}">
@@ -79,48 +79,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($logs as $log)
                                             <tr>
-                                                <td>1-104</td>
-                                                <td>2020-03-25 12:30:00</td>
-                                                <td>Successful</td>
-                                                <td>khaikj@gmail.com</td>
+                                                <td>{{$log->Log_Id}}</td>
+                                                <td>{{$log->created_at}}</td>
+                                                <td>{{$log->Log_Status}} </td>
+                                                <td>{{ \App\Http\Controllers\UserController::getName($log->Cust_Id) }}</td>
                                                 <td>Customer</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1-112</td>
-                                                <td>2020-05-13 16:30:00</td>
-                                                <td>Successful</td>
-                                                <td>rashid1234@yahoo.com</td>
-                                                <td>Customer</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-004</td>
-                                                <td>2020-02-21 10:40:00</td>
-                                                <td>Failed</td>
-                                                <td>shah_rulez109@rocketmail.com</td>
-                                                <td>Customer</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-124</td>
-                                                <td>2020-04-16 13:10:00</td>
-                                                <td>Successful</td>
-                                                <td>azizsyazwan@gmail.com</td>
-                                                <td>Manager</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2-179</td>
-                                                <td>2020-05-26 15:25:00</td>
-                                                <td>Successful</td>
-                                                <td>zul_ult122@gmail.com</td>
-                                                <td>Customer</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3-109</td>
-                                                <td>2020-06-19 13:10:00</td>
-                                                <td>Failed</td>
-                                                <td>maria.zuzu@rocketmail.com</td>
-                                                <td>Manager</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
