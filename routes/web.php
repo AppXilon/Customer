@@ -215,6 +215,7 @@ Route::get('/pending', function () {
 });
 Route::get('/logs_login',[LogController::class,'loginIndex']);
 Route::get('/logs_pay',[LogController::class,'paymentIndex']);
+
 /*Route::get('/backup', function () {
     return view('backup.backups');
 });*/
