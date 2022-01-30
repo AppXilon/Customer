@@ -1,9 +1,8 @@
 @include('include.header') 
+
 <head>
-<link href="../css/app.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
 </head>
 
 <body>

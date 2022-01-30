@@ -1,27 +1,8 @@
 @include('include.header')
 
-
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
-
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
-
-	<link href="css/app.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-
 <head>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
- 
     <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    
 </head>
 
 <body>
@@ -60,20 +41,14 @@
             <div class="main-content-inner">
                 <div class="row">
 
-<<<<<<< HEAD
+
                     {{-- ADD FROM ADMINKIT-DEV --}}
                     <div class="row" style="padding: 30px 0px 0px 15px">
 
                         {{-- customer details start --}}
 						<div class="col-xl-6 col-xxl-5 d-flex"  >
 							<div class="w-100">                              
-=======
-                    <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
-
-					<div class="row">
-						<div class="col-xl-6 col-xxl-5 d-flex">
-							<div class="w-100">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
+                    
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="card">
@@ -151,7 +126,7 @@
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3"><?php echo $newCustomer?></h1>
+												<h1 class="mt-1 mb-3"><?php echo $repeatCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
 													<span class="text-muted">Since last week</span>
@@ -162,15 +137,12 @@
 								</div>
 							</div>
 						</div>
-<<<<<<< HEAD
+
                         {{-- end customer details --}}
                     
                         {{-- customer line chart --}}
 						<div class="col-xl-6 col-xxl-5 d-flex" >
-=======
 
-						<div class="col-xl-6 col-xxl-7">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 							<div class="card flex-fill w-100">
 								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
                                     <h4 class="header-title mb-0" style="padding:0px">Customer Analytics</h4>
@@ -178,451 +150,15 @@
                                 </div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
-										<canvas id="customerChart" height="140"></canvas>
+										<canvas id="customerChart" height="270"></canvas>
 									</div>
 								</div>
 							</div>
 						</div>
-<<<<<<< HEAD
-=======
-					</div>
-
-					<div class="row">
-						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Browser Usage</h5>
-								</div>
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="py-3">
-											<div class="chart chart-xs">
-												<canvas id="chartjs-dashboard-pie"></canvas>
-											</div>
-										</div>
-
-										<table class="table mb-0">
-											<tbody>
-												<tr>
-													<td>Chrome</td>
-													<td class="text-end">4306</td>
-												</tr>
-												<tr>
-													<td>Firefox</td>
-													<td class="text-end">3801</td>
-												</tr>
-												<tr>
-													<td>IE</td>
-													<td class="text-end">1689</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Real-Time</h5>
-								</div>
-								<div class="card-body px-4">
-									<div id="world_map" style="height:350px;"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Calendar</h5>
-								</div>
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="chart">
-											<div id="datetimepicker-dashboard"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Latest Projects</h5>
-								</div>
-								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th class="d-none d-xl-table-cell">Start Date</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Nitro</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Phoenix</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project X</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Romeo</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Christina Mason</td>
-										</tr>
-										<tr>
-											<td>Project Wombat</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Monthly Sales</h5>
-								</div>
-								<div class="card-body d-flex w-100">
-									<div class="align-self-center chart chart-lg">
-										<canvas id="chartjs-dashboard-bar"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</main>
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="row text-muted">
-						<div class="col-6 text-start">
-							<p class="mb-0">
-								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> &copy;
-							</p>
-						</div>
-						<div class="col-6 text-end">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
-
-	<script src="js/app.js"></script>
-
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-			// Line chart
-			new Chart(document.getElementById("chartjs-dashboard-line"), {
-				type: "line",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "Sales ($)",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
-						]
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-					scales: {
-						xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								stepSize: 1000
-							},
-							display: true,
-							borderDash: [3, 3],
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Pie chart
-			new Chart(document.getElementById("chartjs-dashboard-pie"), {
-				type: "pie",
-				data: {
-					labels: ["Chrome", "Firefox", "IE"],
-					datasets: [{
-						data: [4306, 3801, 1689],
-						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-							window.theme.danger
-						],
-						borderWidth: 5
-					}]
-				},
-				options: {
-					responsive: !window.MSInputMethodContext,
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					cutoutPercentage: 75
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Bar chart
-			new Chart(document.getElementById("chartjs-dashboard-bar"), {
-				type: "bar",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "This year",
-						backgroundColor: window.theme.primary,
-						borderColor: window.theme.primary,
-						hoverBackgroundColor: window.theme.primary,
-						hoverBorderColor: window.theme.primary,
-						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-						barPercentage: .75,
-						categoryPercentage: .5
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					scales: {
-						yAxes: [{
-							gridLines: {
-								display: false
-							},
-							stacked: false,
-							ticks: {
-								stepSize: 20
-							}
-						}],
-						xAxes: [{
-							stacked: false,
-							gridLines: {
-								color: "transparent"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var markers = [{
-					coords: [31.230391, 121.473701],
-					name: "Shanghai"
-				},
-				{
-					coords: [28.704060, 77.102493],
-					name: "Delhi"
-				},
-				{
-					coords: [6.524379, 3.379206],
-					name: "Lagos"
-				},
-				{
-					coords: [35.689487, 139.691711],
-					name: "Tokyo"
-				},
-				{
-					coords: [23.129110, 113.264381],
-					name: "Guangzhou"
-				},
-				{
-					coords: [40.7127837, -74.0059413],
-					name: "New York"
-				},
-				{
-					coords: [34.052235, -118.243683],
-					name: "Los Angeles"
-				},
-				{
-					coords: [41.878113, -87.629799],
-					name: "Chicago"
-				},
-				{
-					coords: [51.507351, -0.127758],
-					name: "London"
-				},
-				{
-					coords: [40.416775, -3.703790],
-					name: "Madrid "
-				}
-			];
-			var map = new jsVectorMap({
-				map: "world",
-				selector: "#world_map",
-				zoomButtons: true,
-				markers: markers,
-				markerStyle: {
-					initial: {
-						r: 9,
-						strokeWidth: 7,
-						stokeOpacity: .4,
-						fill: window.theme.primary
-					},
-					hover: {
-						fill: window.theme.primary,
-						stroke: window.theme.primary
-					}
-				},
-				zoomOnScroll: false
-			});
-			window.addEventListener("resize", () => {
-				map.updateSize();
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
-			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
-			document.getElementById("datetimepicker-dashboard").flatpickr({
-				inline: true,
-				prevArrow: "<span title=\"Previous month\">&laquo;</span>",
-				nextArrow: "<span title=\"Next month\">&raquo;</span>",
-				defaultDate: defaultDate
-			});
-		});
-	</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 
-
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
                         {{-- end customer line chart --}}
 					
-                    </div>
+                   
 
                     <div class="row" style="padding: 30px 10px 0px 15px">
 
@@ -688,7 +224,6 @@
                                     <h4 class="header-title mb-0">Review Word Cloud</h4>
                                     
                                 </div>
-<<<<<<< HEAD
 								<div class="card-body d-flex">
 									<div class="align-self-center w-100">
 										
@@ -712,29 +247,12 @@
 								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
                                     <h4 class="header-title mb-0">Sentiment Analysis</h4>
                                     <select class="custome-select border-0 pr-3" onchange="filterDataSentiment()" id="dataSentiment">
-=======
-                            </div>
-                        </div>
-                    </div>
-                    <!-- custDetail area end -->
-
-                    <!-- sentiment analysis area start -->
-                    <div class="col-lg-4 mt-5">
-
-                        <div class="single-report" style="padding: 10px 16px 10px 16px" ;>
-                            <div class="s-sale-inner pt--30 mb-3">
-                                <div class="s-report-title d-flex justify-content-between">
-                                    <h4 class="header-title mb-0">Sentiment Analysis</h4>
-                                    <select class="custome-select border-0 pr-3" onchange="filterDataSentiment()"
-                                        id="dataSentiment">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                         <option value="0" selected="">All Time</option>
                                         <option value="1">Last 7 Days</option>
                                         <option value="2">Last 2 Months</option>
                                         <option value="3">Annual</option>
                                     </select>
                                 </div>
-<<<<<<< HEAD
 								<div class="card-body d-flex">
 									<div class="align-self-center w-100">
 										<div class="py-3">
@@ -771,110 +289,6 @@
                     
                     {{-- END FROM ADMINKIT-DEV --}}
 
-=======
-                            </div>
-                            <canvas id="sentiment_analysis" width="450" height="233"></canvas>
-                        </div>
-
-
-                    </div>
-                    <!-- sentiment analysis area end -->
-
-                    <!-- customer segemntation area start -->
-                    <div class="col-lg-8 mt-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="header-title">Customer Segementation</h4>
-                                <canvas id="cust_segmentation"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- customer segmentation area end -->
-
-                    <!-- list customer start -->
-                    <div class="col-lg-4 mt-5">
-                        <div class="card h-full">
-                            <div class="card-body">
-                                <h4 class="header-title">Platinum Customer</h4>
-                                <div class="single-table">
-                                    <div class="table-responsive">
-                                        <table class="table text-center">
-
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Abdullah Hakim</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Siti Jamilah</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Nur Kasih</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Muhammad Fatih</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td>Ali Seman</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td>Layla Zinnirah</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">7</th>
-                                                    <td>Razin Qidran</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">8</th>
-                                                    <td>Hazeman Huzir</td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">Send
-                                                            Email</button></td>
-                                                    <td><button type="button" class="btn btn-rounded btn-xs btn-">View
-                                                            Profile</button></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- list customer end -->
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
 
                     <!-- customer breakdown area start -->
@@ -885,14 +299,8 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
-<<<<<<< HEAD
                                             <h4 class="header-title mb-0">Gender</h4>
                                             <select class="customer-select border-0 pr-3" onchange="filterDataGender()" id="dataGender">
-=======
-                                            <h4 class="header-title mb-0">Customer by Gender</h4>
-                                            <select class="customer-select border-0 pr-3" onchange="filterDataGender()"
-                                                id="dataGender">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -908,14 +316,8 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
-<<<<<<< HEAD
                                             <h4 class="header-title mb-0">Age</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataAge()" id="dataAge">
-=======
-                                            <h4 class="header-title mb-0">Customer by Age</h4>
-                                            <select class="custome-select border-0 pr-3" onchange="filterDataAge()"
-                                                id="dataAge">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -931,14 +333,8 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
-<<<<<<< HEAD
                                             <h4 class="header-title mb-0">Marital</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataMarital()" id="dataMarital">
-=======
-                                            <h4 class="header-title mb-0">Customer by Marital</h4>
-                                            <select class="custome-select border-0 pr-3" onchange="filterDataMarital()"
-                                                id="dataMarital">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -954,14 +350,8 @@
                                     <div class="s-sale-inner pt--30 mb-3">
                                         <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
-<<<<<<< HEAD
                                             <h4 class="header-title mb-0">Race</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataRace()" id="dataRace">
-=======
-                                            <h4 class="header-title mb-0">Customer by Race</h4>
-                                            <select class="custome-select border-0 pr-3" onchange="filterDataRace()"
-                                                id="dataRace">
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -1127,16 +517,7 @@
         }
     </script>
 
-<<<<<<< HEAD
     //{{-- end sentiment analysis pie chart --}}
-=======
-    //
-    <!-- customer by gender -->
-
-    <script>
-        //var labels = ["Female", "Male"];
-        //var dataAllTime = <?php echo $custGender; ?>;
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
     
 
@@ -1203,8 +584,8 @@
 
 
 
-    //
-    <!-- customer by age -->
+    
+    // <!-- customer by age -->
     <script>
         var xValues = ["<30 y/o", ">30 y/o"];
         var yValues = <?php echo $custAge; ?>;
@@ -1261,17 +642,9 @@
 
 
 
-<<<<<<< HEAD
     //<!-- customer by race -->
     <script>
             var xValues = ["Malay", "Chinese", "Indian", "Other"];
-=======
-
-    //
-    <!-- customer by race -->
-    <script>
-        var xValues = ["Malay", "Chinese", "Indian", "Other"];
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
             var yValues = <?php echo $custRace; ?>;
             var barColors = [
             "#D4E157",
@@ -1322,25 +695,77 @@
             }
 
             raceChart.update();
-<<<<<<< HEAD
             
             }
     </script>
+
+    // customer line chart 
+    
+    <script>
+        
+        var xValues = ["June '21", "Jul '21", "Aug '21", "Sept '21", "Oct '21", "Nov '21", "Dec '21", "Jan '22"];
+        var yValues = [2, 3, 5, 6, 4, 7, 8, 10];
+        var ctx = document.getElementById("customerChart").getContext("2d");   
+        var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+		gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+		gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+            
+            new Chart(document.getElementById("customerChart"), {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: "Customer",
+                    fill: true,
+                    lineTension: 0.4,
+                    backgroundColor: gradient,
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                maintainAspectRatio: false,
+                tooltips: {
+						intersect: false
+					},
+					hover: {
+						intersect: true
+					},
+					plugins: {
+						filler: {
+							propagate: false
+						}
+					},
+                scales: {
+                    xAxes: [{
+							reverse: true,
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}],
+                    yAxes: [{
+                        ticks: {
+                            min: 0, 
+                            max:10,
+                            stepSize: 2
+                        },   
+                        gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+                                    
+                        
+                            
+                    }]
+                }
+            }
+            });
+	</script>
         
 
     //<!-- customer by marital -->
     <script>
             var xValues = ["Single", "Married", "Widowed", "Divorced"];
-=======
-            //console.log(yvalues2);
-        }
-    </script>
-
-    //
-    <!-- customer by marital -->
-    <script>
-        var xValues = ["Single", "Married", "Widowed", "Divorced"];
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
             var yValues = <?php echo $custMarital; ?>;
             var barColors = [
             "#26C6DA",
@@ -1394,54 +819,9 @@
             
             }
     </script>
-<<<<<<< HEAD
-
-    
-        
-    // customer line chart
-    <script>
-		    var xValues = ["June '21", "Jul '21", "Aug '21", "Sept '21", "Oct '21", "Nov '21", "Dec '21", "Jan '22"];
-            var yValues = <?php echo $customerChart; ?>;
-            new Chart("customerChart", {
-            type: "line",
-            data: {
-                labels: xValues,
-                datasets: [{
-                fill: false,
-                lineTension: 0.2,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: yValues
-                }]
-            },
-            options: {
-                legend: {display: false},
-                scales: {
-                    xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-                        yAxes: [{
-                        ticks: {
-                            min: 10, 
-                            max:100,
-                            stepSize: 20
-                        },                   
-                        
-                            
-                        }],
-                }
-            }
-            });
-	</script>
-
     
 
 </body>
-=======
->>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
    
 </body>
