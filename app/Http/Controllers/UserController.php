@@ -11,6 +11,12 @@ use App\Models\Manager;
 
 class UserController extends Controller
 {
+    public function invoice($id)
+    {
+        $order = Order::where('id', $id)->where('user_id', Auth::id())->first();
+        return view('reports.invoice', compact('order'));
+    }
+    
     public function orderHistory()
     {
         $order = Order::where('User_Id', Auth::id())->get();
