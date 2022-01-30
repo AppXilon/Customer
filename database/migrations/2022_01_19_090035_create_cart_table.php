@@ -20,7 +20,7 @@ class CreateCartTable extends Migration
             $table->unsignedBigInteger('Cust_Id');
             $table->foreign('Cust_Id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('Pro_Qty');
-            $table->string('Order_Type');
+            $table->string('Order_Type')->nullable();;
             $table->string('BookDate')->nullable();
             $table->string('BookTime')->nullable();
             $table->string('BookPax')->nullable();

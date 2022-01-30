@@ -98,6 +98,8 @@ Route::get('user/{id}', 'UserController@showProfile');
 
 Route::get('order_history', [UserController::class,'orderHistory']);
 
+Route::get('invoice-order/{id}', [UserController::class, 'invoice']);
+
 Route::get('history_detail/{id}', [UserController::class,'viewHistory']);
 
 Route::get('order_type', function () {
@@ -157,7 +159,11 @@ Route::resource('/report', ReportTableController::class);
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
-Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']);
+
+Route::get('/customerChart', function () {
+    return view('layouts.customerChart');
+});
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 

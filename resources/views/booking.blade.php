@@ -39,14 +39,14 @@
                         <div class="booking-form">
                         <form method="GET" action="/catalogue">
                             <div  class="control-group" >
-                                <div class="input-group date" data-target-input="nearest" >
-                                    <input type="date" name="bookdate" value="bookdate" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                                <div class="input-group date" id="date" data-target-input="nearest" >
+                                    <input type="text" name="bookdate" value="bookdate" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="control-group-time">
+                            <div class="control-group">
                                 <div class="input-group time" id="time" data-target-input="nearest">
                                     <input type="text" name="booktime" value="booktime" id="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
                                     <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">

@@ -77,6 +77,7 @@
                                                 <th>Payment Method</th>
                                                 <th>Order Total</th>
                                                 <th>Made By: </th>
+                                                <th>Status:</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,6 +93,7 @@
                                                 @endif</td>
                                                 <td>{{$log->Log_Total_Price}}</td>
                                                 <td>Rack</td>
+                                                <td>{{$log->Log_Status}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

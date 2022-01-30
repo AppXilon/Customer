@@ -42,6 +42,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 </thead>
                                 <tbody>
                                     @php $totalPrice = 0; @endphp
+                                    @php $totalStripe = 0; @endphp
                                     @foreach($cartitems as $item)
                                     <tr>
                                         <td>{{$item->Pro_Qty}} </td>
@@ -49,6 +50,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                         <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
                                     </tr>
                                     @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
+                                    @php $totalStripe += $totalPrice * 100; @endphp
                                     @endforeach
                                 </tbody>
                             </table>
@@ -77,6 +79,23 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <p>Total Pax: {{$item->BookPax }}</p>
                                 <p>Order Table: {{$item->BookTable }}</p>
 
+                            @elseif($item->Order_Type == 'pickUp')
+                            <div class="form-group mt-3">
+                                <label for="">Pickup Time</label>
+                                <input type="time" class="form-control cptime" value="ptime" name="pickup" placeholder="Enter PickuTime" required="required">
+                                <span id="cpickup_error" class="text-danger"></span>
+                            </div>
+                            @elseif($item->Order_Type == 'delivery')
+                            <div class="form-group mt-3">
+                                <label for="">Delivery Time</label>
+                                <input type="time" class="form-control cstate" value="dtime" name="dtime" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Delivery Date</label>
+                                <input type="date" class="form-control cstate" value="ddate" name="ddate" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
                             @endif
 
                             <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
@@ -129,6 +148,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <input type="text" class="form-control cstate" value="{{Auth::user()->state}}" name="O_State" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
+                            
                             <input type="hidden" class="form-control cstate" value="Payment" name="Log_Module" required="required">
                             <input type="hidden" class="form-control cstate" value="COMPLETED" name="Log_Status" required="required">
                             <input type="hidden" class="form-control cstate" value="{{Auth::user()->id}}" name="Cust_Id" required="required">
@@ -172,11 +192,11 @@ $session = \Stripe\Checkout\Session::create([
       'price_data' => [
         'currency' => 'myr',
         'product_data' => [
-          'name' => 'T-shirt',
+          'name' => $item->products->P_Name,
         ],
-        'unit_amount' => 2000,
+        'unit_amount' => $totalStripe,
       ],
-      'quantity' => 1,
+      'quantity' => $item->Pro_Qty,
     ]],
     'mode' => 'payment',
     'success_url' => 'https://example.com/success',
