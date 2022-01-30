@@ -68,4 +68,8 @@
     <link rel="stylesheet" href="assets/vendor/vector-map/jqvmap.css">
     <link rel="stylesheet" href="assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
 </head>
