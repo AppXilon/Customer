@@ -69,8 +69,8 @@
                                         <div class="single-table">
                                             <div class="table-responsive">
                                                 <table class="table text-center">
-                                                    <thead class="text-uppercase bg-primary">
-                                                        <tr class="text-white">
+                                                    <thead class="text-uppercase bg-light">
+                                                        <tr>
                                                             <th scope="col">Tracking Number</th>
                                                             <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>

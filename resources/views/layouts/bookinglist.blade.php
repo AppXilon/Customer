@@ -54,8 +54,8 @@
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
+                                            <thead class="text-uppercase bg-light">
+                                                <tr>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Time</th>
                                                     <th scope="col">Name</th>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use App\Models\Shop_Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class ShopController extends Controller
 {
@@ -71,27 +73,41 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $shopInfo)
+    public function update(Request $request, $shopInfo)
     {
         // 
-        $newImageName = time() . '-' . $request->name . '.' . 
-        $request->S_Image->extension();
-        $request->S_Image->move(public_path('images'), $newImageName);
+        $shopInfo = Shop::find($shopInfo);
+        if ($request->hasFile('S_Image')) {
+            $path = 'images' . $shopInfo->S_Image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $file = $request->file('S_Image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('images', $filename);
+            $shopInfo->S_Image = $filename;
+        }
 
-        $Shop_Banner = $request->input('S_Banner') . '-' . $request->name . '.' . 
-        $request->S_Banner->extension();
-        $request->S_Banner->move(public_path('images'), $Shop_Banner);
+        if ($request->hasFile('S_Banner')) {
+            $path = 'images' . $shopInfo->S_Banner;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $file = $request->file('S_Banner');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('images', $filename);
+            $shopInfo->S_Banner = $filename;
+        }
 
-        $shopInfo->update([
-            'S_Name' => $request->input('S_Name'),
-            'S_Image' => $newImageName,
-            'S_Banner' => $Shop_Banner,
-            'S_Description' => $request->input('S_Description'),
-            'Dine_In' => $request->input('Dine_In'),
-            'Delivery' => $request->input('Delivery'),
-            'Pick_Up' => $request->input('Pick_Up'),]);
-    
-    
+        $shopInfo->S_Name = $request->input('S_Name');
+        $shopInfo->S_Description = $request->input('S_Description');
+        $shopInfo->Dine_In = $request->input('Dine_In');
+        $shopInfo->Delivery = $request->input('Delivery');
+        $shopInfo->Pick_Up = $request->input('Pick_Up');
+        $shopInfo->Booking = $request->input('Booking');
+        $shopInfo->update();    
         return redirect()->route('shopInfo.index');
     }  
 
