@@ -47,11 +47,19 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="form-row">
-                                                <img src = "{{asset('images/'. $shopInfo->S_Image)}}" class="shop"><br>
-                                                <img src = "{{asset('images/'. $shopInfo->S_Banner)}}" class="banner"><br>
+                                                    @if ($shopInfo->S_Image)
+                                                    <img src="{{ asset('images/' . $shopInfo->S_Image) }}"
+                                                    class="shop"><br>
+                                                    @endif
+                                                    @if ($shopInfo->S_Banner)
+                                                    <img src="{{ asset('images/' . $shopInfo->S_Banner) }}"
+                                                        class="banner"><br>
+                                                    @endif
+                                                    
+                                                    
                                                 </div>
                                                 <label for="validationCustomUsername">Shop Image:</label><br>
-                                                <input type="file" name="S_Image"/><br><br>
+                                                <input type="file" name="S_Image" /><br><br>
                                                 <label for="validationCustomUsername">Shop Banner:</label><br>
                                                 <input type="file" name="S_Banner" /><br>
                                                 <div class="form-row">
@@ -91,7 +99,7 @@
                                                     <div class="form-row">
                                                         <div class="col-md-2 mb-3">
                                                             <label for="example-text-input" class="col-form-label">Dine
-                                                                In Booking:</label><br>
+                                                                In:</label><br>
                                                             <label class="switch">
                                                                 <input type="hidden" value="0" name="Dine_In">
                                                                 <input value="1" type="checkbox" name="Dine_In"
@@ -99,6 +107,16 @@
                                                                 <span class="slider round"></span>
                                                             </label>
                                                             <br>
+                                                        </div>
+                                                        <div class="col-md-2 mb-3">
+                                                            <label for="example-text-input"
+                                                                class="col-form-label">Booking:</label><br>
+                                                            <label class="switch">
+                                                                <input type="hidden" value="0" name="Booking">
+                                                                <input value="1" type="checkbox" name="Booking"
+                                                                    {{ $shopInfo->Booking == 1 ? ' checked' : '' }}>
+                                                                <span class="slider round"></span>
+                                                            </label>
                                                         </div>
                                                         <div class="col-md-2 mb-3">
                                                             <label for="example-text-input"

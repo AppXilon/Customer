@@ -20,6 +20,7 @@ class CreateShop extends Migration
             $table->integer('Dine_In')->nullable();
             $table->integer('Delivery')->nullable();
             $table->integer('Pick_Up')->nullable();
+            $table->integer('Booking')->nullable();
             $table->string('S_Status')->nullable();
             $table->string('S_Reason')->nullable();
             $table->string('S_Termcond')->nullable();
