@@ -17,6 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+ 
+    <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    
+</head>
+
 <body>
 
     <!-- preloader area start -->
@@ -53,27 +60,36 @@
             <div class="main-content-inner">
                 <div class="row">
 
+<<<<<<< HEAD
+                    {{-- ADD FROM ADMINKIT-DEV --}}
+                    <div class="row" style="padding: 30px 0px 0px 15px">
+
+                        {{-- customer details start --}}
+						<div class="col-xl-6 col-xxl-5 d-flex"  >
+							<div class="w-100">                              
+=======
                     <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
 
 					<div class="row">
 						<div class="col-xl-6 col-xxl-5 d-flex">
 							<div class="w-100">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="card">
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Sales</h5>
+														<h5 class="card-title">Total Customer</h5>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="truck"></i>
+														<div class="seofct-icon" style="padding: 4px 5px 0px 5px; color: rgba(98, 97, 167, 0.562)">
+															<i class="fa fa-users"></i>
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">2.382</h1>
+												<h1 class="mt-1 mb-3"><?php echo $totalCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
 													<span class="text-muted">Since last week</span>
@@ -84,16 +100,16 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Visitors</h5>
+														<h5 class="card-title">Today's Customer</h5>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="users"></i>
+														<div class="seofct-icon" style="padding: 4px 5px 0px 5px; color: rgba(109, 167, 97, 0.562)">
+															<i class="fa fa-calendar-plus-o"></i>
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">14.212</h1>
+												<h1 class="mt-1 mb-3"><?php echo $todayCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
 													<span class="text-muted">Since last week</span>
@@ -106,16 +122,16 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Earnings</h5>
+														<h5 class="card-title">New Cuctomer</h5>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
+														<div class="seofct-icon" style="padding: 4px 5px 0px 5px; color: rgba(167, 119, 97, 0.562)">
+															<i class="fa fa-user-plus"></i>
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">$21.300</h1>
+												<h1 class="mt-1 mb-3"><?php echo $newCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
 													<span class="text-muted">Since last week</span>
@@ -126,16 +142,16 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Orders</h5>
+														<h5 class="card-title">Repeated Customer</h5>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="shopping-cart"></i>
+														<div class="seofct-icon" style="padding: 4px 5px 0px 5px; color: rgba(177, 174, 174, 0.562)">
+															<i class="fa fa-repeat"></i>
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">64</h1>
+												<h1 class="mt-1 mb-3"><?php echo $newCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
 													<span class="text-muted">Since last week</span>
@@ -146,20 +162,29 @@
 								</div>
 							</div>
 						</div>
+<<<<<<< HEAD
+                        {{-- end customer details --}}
+                    
+                        {{-- customer line chart --}}
+						<div class="col-xl-6 col-xxl-5 d-flex" >
+=======
 
 						<div class="col-xl-6 col-xxl-7">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Recent Movement</h5>
-								</div>
+								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0" style="padding:0px">Customer Analytics</h4>
+                                    
+                                </div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
-										<canvas id="chartjs-dashboard-line"></canvas>
+										<canvas id="customerChart" height="140"></canvas>
 									</div>
 								</div>
 							</div>
 						</div>
+<<<<<<< HEAD
+=======
 					</div>
 
 					<div class="row">
@@ -593,60 +618,101 @@
 
                  
 
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
+
+                        {{-- end customer line chart --}}
+					
+                    </div>
+
+                    <div class="row" style="padding: 30px 10px 0px 15px">
+
+                        {{-- top popular customer --}}
+						<div class="col-12 col-lg-6 col-xxl-6 d-flex">
+							<div class="card flex-fill">
+								<div class="card-body">
+                                    <h4 class="header-title">Striped Rows</h4>
+                                    <div class="single-table">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped text-center">
+                                                <thead class="text-uppercase">
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">date</th>
+                                                        <th scope="col">price</th>
+                                                        <th scope="col">action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>09 / 07 / 2018</td>
+                                                        <td>$120</td>
+                                                        <td><i class="ti-trash"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>jone</td>
+                                                        <td>09 / 07 / 2018</td>
+                                                        <td>$150</td>
+                                                        <td><i class="ti-trash"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>09 / 07 / 2018</td>
+                                                        <td>$120</td>
+                                                        <td><i class="ti-trash"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>jone</td>
+                                                        <td>09 / 07 / 2018</td>
+                                                        <td>$150</td>
+                                                        <td><i class="ti-trash"></i></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+                        {{-- end top popular customer --}}
+
+                        {{-- Review Word Cloud chart start --}}
+						<div class="col-12 col-lg-3 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0">Review Word Cloud</h4>
+                                    
+                                </div>
+<<<<<<< HEAD
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										
+											
+                                        <div id="wordCloud"></div>
+											
+										
+
+										
+									</div>
+								</div>
 
 
-                    <!-- custDetail start -->
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col-md-6 mt-5 mb-3">
-                                <div class="card">
-                                    <div class="seo-fact sbg1">
-                                        <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-user"></i> Total Customer</div>
-                                            <h2>
-                                                <?php echo $totalCustomer?>
-                                            </h2>
-                                        </div>
-                                        {{-- <canvas id="seolinechart1" height="50"></canvas> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-md-5 mb-3">
-                                <div class="card">
-                                    <div class="seo-fact sbg2">
-                                        <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-user"></i> Today's Customer</div>
-                                            <h2>
-                                                <?php echo $todayCustomer?>
-                                            </h2>
-                                        </div>
-                                        {{-- <canvas id="seolinechart2" height="50"></canvas> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3 mb-lg-0">
-                                <div class="card">
-                                    <div class="seo-fact sbg3">
-                                        <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon">New Customer</div>
-                                            <h2>
-                                                <?php echo $newCustomer?>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="seo-fact sbg4">
-                                        <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon">Repeated Customer</div>
-                                            <h2>
-                                                <?php echo $repeatCustomer?>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </div>
+							</div>
+						</div>
+                        {{-- Review Word Cloud chart end --}}
+
+                        {{-- sentiment analysis chart start --}}
+						<div class="col-12 col-lg-3 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0">Sentiment Analysis</h4>
+                                    <select class="custome-select border-0 pr-3" onchange="filterDataSentiment()" id="dataSentiment">
+=======
                             </div>
                         </div>
                     </div>
@@ -661,12 +727,51 @@
                                     <h4 class="header-title mb-0">Sentiment Analysis</h4>
                                     <select class="custome-select border-0 pr-3" onchange="filterDataSentiment()"
                                         id="dataSentiment">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                         <option value="0" selected="">All Time</option>
                                         <option value="1">Last 7 Days</option>
                                         <option value="2">Last 2 Months</option>
                                         <option value="3">Annual</option>
                                     </select>
                                 </div>
+<<<<<<< HEAD
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<div class="chart chart-xs">
+												<canvas id="myChart"></canvas>
+											</div>
+										</div>
+
+										<table class="table mb-0">
+											<tbody>
+												<tr>
+													<td>Positive</td>
+													<td class="text-end"><?php echo $sentimentPositive?></td>
+												</tr>
+												<tr>
+													<td>Negative</td>
+													<td class="text-end"><?php echo $sentimentNegative?></td>
+												</tr>
+												<tr>
+													<td>Neutral</td>
+													<td class="text-end"><?php echo $sentimentNeutral?></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+                        {{-- sentiment analysis chart end --}}
+					</div>
+
+                    
+                    {{-- END FROM ADMINKIT-DEV --}}
+
+=======
                             </div>
                             <canvas id="sentiment_analysis" width="450" height="233"></canvas>
                         </div>
@@ -769,18 +874,25 @@
                         </div>
                     </div>
                     <!-- list customer end -->
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
 
                     <!-- customer breakdown area start -->
-                    <div class="sales-report-area sales-style-two">
+                    <div class="sales-report-area sales-style-two" style="padding: 0px 25px 25px 25px">
                         <div class="row">
                             <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
+                                        <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
+<<<<<<< HEAD
+                                            <h4 class="header-title mb-0">Gender</h4>
+                                            <select class="customer-select border-0 pr-3" onchange="filterDataGender()" id="dataGender">
+=======
                                             <h4 class="header-title mb-0">Customer by Gender</h4>
                                             <select class="customer-select border-0 pr-3" onchange="filterDataGender()"
                                                 id="dataGender">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -788,16 +900,22 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_jantina" height="150"></canvas>
+                                    <canvas id="cust_jantina" height="200"></canvas>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
+                                        <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
+<<<<<<< HEAD
+                                            <h4 class="header-title mb-0">Age</h4>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataAge()" id="dataAge">
+=======
                                             <h4 class="header-title mb-0">Customer by Age</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataAge()"
                                                 id="dataAge">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -805,16 +923,22 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_umur" height="150"></canvas>
+                                    <canvas id="cust_umur" height="200"></canvas>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
+                                        <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
+<<<<<<< HEAD
+                                            <h4 class="header-title mb-0">Marital</h4>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataMarital()" id="dataMarital">
+=======
                                             <h4 class="header-title mb-0">Customer by Marital</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataMarital()"
                                                 id="dataMarital">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -822,16 +946,22 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_marital" height="150"></canvas>
+                                    <canvas id="cust_marital" height="200"></canvas>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
                                 <div class="single-report">
                                     <div class="s-sale-inner pt--30 mb-3">
+                                        <h4 class="header-title mb-0">Customer by </h4>
                                         <div class="s-report-title d-flex justify-content-between">
+<<<<<<< HEAD
+                                            <h4 class="header-title mb-0">Race</h4>
+                                            <select class="custome-select border-0 pr-3" onchange="filterDataRace()" id="dataRace">
+=======
                                             <h4 class="header-title mb-0">Customer by Race</h4>
                                             <select class="custome-select border-0 pr-3" onchange="filterDataRace()"
                                                 id="dataRace">
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
                                                 <option value="0" selected="">All Time</option>
                                                 <option value="1">Last 7 Days</option>
                                                 <option value="2">Last 2 Months</option>
@@ -839,7 +969,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <canvas id="cust_race" height="150"></canvas>
+                                    <canvas id="cust_race" height="200"></canvas>
                                 </div>
                             </div>
 
@@ -917,31 +1047,61 @@
         });
     </script>
 
-
-    <!-- half doughnut sentiment analysis -->
+    {{-- word cloud start --}}
     <script>
-        var xValues = ["Negative", "Neutral", "Positive"];
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+        zingchart.MODULESDIR = 'https://cdn.zingchart.com/modules/';
+        var myConfig = {
+        type: 'wordcloud',
+        options: {
+            text: 'The food was exposed, so many fly. Very expensive and taste dull..owner and staff never smile and take so long to take order. Seriously regret! Various traditional Malay dishes and you can eat almost everything here. There is also kueh, satay and so much more. Food is nice. Price is slightly on the high side. It costs us RM1133.00 today for 30 people dine. There were 6 pcs Siakap 3 rasa, 6 pcs Pari Sambal Petai, Lala sambal manis 5 full plate, Limau Ais 5 jugs, Sotong Goreng Tepung 1.3kg, Tom Yam for 30 people, Kailan ikan masin 5 set and Ikan merah 3 rasa 1 pcs. Affordable and service fast than expected. However, disappointed as they dont accept table reservation before orders been made. They even discounted and need to pay only RM1100 without even kami minta to be discounted. Thanks! Accept MAYBANK QR Pay',
+            minLength: 4,
+            maxItems: 30,           
+    
+            
+        }
+        };
+        zingchart.render({
+        id: 'wordCloud',
+        data: myConfig,
+        height: 300,
+        width: '100%'
+        });
+  
+
+    </script>
+    {{-- word cloud end --}}
+
+
+
+    {{-- sentiment analysis pie chart --}}
+    <script>
+        var xValues = ["Negative", "Positive", "Neutral"];
         var yValues = <?php echo $sentimentAnalysis; ?>;
         var barColors = [
-        "#FA586D",
-        "#FEAC00",
-        "#11BA5D",
+            "#FA586D",
+            "#FEAC00",
+            "#11BA5D"
         ];
-        var sentimentChart =new Chart("sentiment_analysis", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-                }]
-            },
-            options: {
-                
-                }
-            }
+
+        var sentimentChart = new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+                },
+            
+            cutoutPercentage: 65
+        }
         });
-        
+
         function filterDataSentiment() {
             
 
@@ -963,18 +1123,27 @@
             }
 
             sentimentChart.update();
-            //console.log(yvalues2);
+            
         }
     </script>
 
+<<<<<<< HEAD
+    //{{-- end sentiment analysis pie chart --}}
+=======
     //
     <!-- customer by gender -->
 
     <script>
         //var labels = ["Female", "Male"];
         //var dataAllTime = <?php echo $custGender; ?>;
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
+    
 
+    // <!-- customer by gender -->
+       
+    <script>
+        
         var xValues = ["Female", "Male"];
         var yValues = <?php echo $custGender; ?>;
 
@@ -994,6 +1163,15 @@
             }]
         },
         options: {
+            legend: {
+                position: 'bottom',
+                align: 'start',
+                labels: {
+                    
+                    boxWidth: 25,
+                    padding: 20
+                }
+            },
             
         }
         });
@@ -1019,7 +1197,7 @@
             }
 
             genderChart.update();
-            //console.log(yvalues2);
+           
         }
     </script>
 
@@ -1045,13 +1223,19 @@
             }]
         },
         options: {
-            
+            legend: {
+                position: 'bottom',
+                labels: {
+                    
+                    boxWidth: 20,
+                    padding: 20
+                }
+            }
         }
         });
 
         function filterDataAge() {
-            //var yValues2 = [...yValues];
-            //var type = document.getElementById('value');
+            
 
             if (document.getElementById("dataAge").value == 0) {
                 var ageAllTime = <?php echo $custAge; ?>;
@@ -1071,17 +1255,23 @@
             }
 
             ageChart.update();
-            //console.log(yvalues2);
+            
         }
     </script>
 
 
 
+<<<<<<< HEAD
+    //<!-- customer by race -->
+    <script>
+            var xValues = ["Malay", "Chinese", "Indian", "Other"];
+=======
 
     //
     <!-- customer by race -->
     <script>
         var xValues = ["Malay", "Chinese", "Indian", "Other"];
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
             var yValues = <?php echo $custRace; ?>;
             var barColors = [
             "#D4E157",
@@ -1099,13 +1289,20 @@
                 }]
             },
             options: {
-                
+                legend: {
+                position: 'bottom',
+                align: 'start',
+                labels: {
+                    
+                    boxWidth: 20,
+                    padding: 20
+                }
+            }
             }
             });
 
             function filterDataRace() {
-            //var yValues2 = [...yValues];
-            //var type = document.getElementById('value');
+           
 
             if (document.getElementById("dataRace").value == 0) {
                 var raceAllTime = <?php echo $custRace; ?>;
@@ -1125,6 +1322,16 @@
             }
 
             raceChart.update();
+<<<<<<< HEAD
+            
+            }
+    </script>
+        
+
+    //<!-- customer by marital -->
+    <script>
+            var xValues = ["Single", "Married", "Widowed", "Divorced"];
+=======
             //console.log(yvalues2);
         }
     </script>
@@ -1133,6 +1340,7 @@
     <!-- customer by marital -->
     <script>
         var xValues = ["Single", "Married", "Widowed", "Divorced"];
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
             var yValues = <?php echo $custMarital; ?>;
             var barColors = [
             "#26C6DA",
@@ -1151,13 +1359,19 @@
                 }]
             },
             options: {
-                
+                legend: {
+                position: 'bottom',
+                labels: {
+                    
+                    boxWidth: 20,
+                    padding: 20
+                }
+            }
             }
             });
 
             function filterDataMarital() {
-            //var yValues2 = [...yValues];
-            //var type = document.getElementById('value');
+            
 
             if (document.getElementById("dataMarital").value == 0) {
                 var maritalAllTime = <?php echo $custMarital; ?>;
@@ -1180,6 +1394,54 @@
             
             }
     </script>
+<<<<<<< HEAD
+
+    
+        
+    // customer line chart
+    <script>
+		    var xValues = ["June '21", "Jul '21", "Aug '21", "Sept '21", "Oct '21", "Nov '21", "Dec '21", "Jan '22"];
+            var yValues = <?php echo $customerChart; ?>;
+            new Chart("customerChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                fill: false,
+                lineTension: 0.2,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    xAxes: [{
+							reverse: true,
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}],
+                        yAxes: [{
+                        ticks: {
+                            min: 10, 
+                            max:100,
+                            stepSize: 20
+                        },                   
+                        
+                            
+                        }],
+                }
+            }
+            });
+	</script>
+
+    
+
+</body>
+=======
+>>>>>>> ca18487dbac0e0e2e0c9c56d463f3fe02d1d0c11
 
    
 </body>

@@ -11,6 +11,22 @@ class CustAnalyticsController extends Controller
     public static function analytics()
     {
 
+        $customer = DB::select(DB::raw("SELECT 
+        COUNT(CASE WHEN MONTH(created_at) = 6 THEN User_Id END) AS June,
+        COUNT(CASE WHEN MONTH(created_at) = 7 THEN User_Id END) AS July,
+        COUNT(CASE WHEN MONTH(created_at) = 8 THEN User_Id END) AS August,
+        COUNT(CASE WHEN MONTH(created_at) = 9 THEN User_Id END) AS September,
+        COUNT(CASE WHEN MONTH(created_at) = 10 THEN User_Id END) AS October,
+        COUNT(CASE WHEN MONTH(created_at) = 11 THEN User_Id END) AS November,
+        COUNT(CASE WHEN MONTH(created_at) = 12 THEN User_Id END) AS 'December',
+        COUNT(CASE WHEN MONTH(created_at) = 1 THEN User_Id END) AS 'January'
+        from customer_order
+        "));
+        foreach($customer as $row){
+            $customerChart = "[".$row->June.", ".$row->July.", ".$row->August.", ".$row->September.", ".$row->October.", ".$row->November.", ".$row->December.", ".$row->January."]";
+
+        }
+
 
         $totCust = DB::select(DB::raw("SELECT COUNT(id) as total FROM users"));
         foreach ($totCust as $row) {
@@ -39,6 +55,21 @@ class CustAnalyticsController extends Controller
             $sentimentAnalysis = "[" . $row->Negative . ", " . $row->Neutral . ", " . $row->Positive . "]";
         }
 
+        $sentNeg = DB::select(DB::raw("SELECT count(CASE WHEN R_Sentiment = 'Negative' then 1 end) as Negative FROM review"));
+        foreach ($sentNeg as $row) {
+            $sentimentNegative = "" . $row->Negative . "";
+        }
+
+        $sentPo = DB::select(DB::raw("SELECT count(CASE WHEN R_Sentiment = 'Positive' then 1 end) as Positive FROM review"));
+        foreach ($sentPo as $row) {
+            $sentimentPositive = "" . $row->Positive . "";
+        }
+
+        $sentNeu = DB::select(DB::raw("SELECT count(CASE WHEN R_Sentiment = 'Neutral' then 1 end) as Neutral FROM review"));
+        foreach ($sentNeu as $row) {
+            $sentimentNeutral = "" . $row->Neutral . "";
+        }
+
         $sentWeek = DB::select(DB::raw("SELECT count(CASE WHEN R_Sentiment = 'Negative' then 1 end) as Negative, count(CASE WHEN R_Sentiment = 'Neutral' then 1 end) as Neutral, 
         count(CASE WHEN R_Sentiment = 'Positive' then 1 end) as Positive FROM review 
         where created_at between date_sub(now(),INTERVAL 1 WEEK) and now();"));
@@ -59,6 +90,17 @@ class CustAnalyticsController extends Controller
         foreach ($sentYear as $row) {
             $sentimentAnalysisYear = "[" . $row->Negative . ", " . $row->Neutral . ", " . $row->Positive . "]";
         }
+
+        $spendCust = DB::select(DB::raw("SELECT users.name as name, sum(customer_order.O_total_price) as total_spend 
+        from customer_order, users
+        where customer_order.User_Id = users.id
+        group by users.name, customer_order.O_Total_Price
+        order by sum(O_Total_Price) DESC limit 5;"));
+        foreach ($spendCust as $row) {
+            $topSpendCustomer = "[" . $row->name . ", " . $row->total_spend . "]";
+        }
+
+        //dd($spendCust);
 
         $gender = DB::select(DB::raw("SELECT count(CASE WHEN gender = 'Female' then 1 end) as Female, count(CASE WHEN gender = 'Male' then 1 end) as Male FROM USERS"));
         foreach ($gender as $row) {
@@ -169,10 +211,15 @@ class CustAnalyticsController extends Controller
             'todayCustomer',
             'newCustomer',
             'repeatCustomer',
+            'customerChart',
             'sentimentAnalysis',
+            'sentimentPositive',
+            'sentimentNegative',
+            'sentimentNeutral',
             'sentimentAnalysisWeek',
             'sentimentAnalysisMonth',
             'sentimentAnalysisYear',
+            'topSpendCustomer',
             'custGender',
             'custGenderWeek',
             'custGenderMonth',

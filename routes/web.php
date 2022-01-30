@@ -155,7 +155,11 @@ Route::resource('/report', ReportTableController::class);
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
-Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']);
+
+Route::get('/customerChart', function () {
+    return view('layouts.customerChart');
+});
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 
