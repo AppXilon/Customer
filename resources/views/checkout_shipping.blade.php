@@ -46,7 +46,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                     @foreach($cartitems as $item)
                                     <tr>
                                         <td>{{$item->Pro_Qty}} </td>
-                                        <td><a href="detail/{{$item->id}}">{{$item->products->P_Name}}</a></td>
+                                        <td>{{$item->products->P_Name}}</td>
                                         <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
                                     </tr>
                                     @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
@@ -163,8 +163,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                             <hr>
                             <div class="payment-option">
                                 <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with Cash</button>
-                                <!-- <button type="submit" name="payment" value="Stripe" class="btn btn-success w-100 mt-3 razorpay_btn">Pay with Stripe</button> -->
-                                <a class="btn btn-primary w-100 mt-3" href="{{ route('processTransaction') }}">PayPal Payment</a>
+                                <a class="btn w-100 mt-3" href="{{ route('processTransaction') }}" style="background-color:#fbaf32">PayPal Payment</a>
                                 @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 {{ \Session::forget('error') }}
@@ -173,7 +172,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <div class="alert alert-success">{{ \Session::get('success') }}</div>
                                 {{ \Session::forget('success') }}
                                 @endif
-                                <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
+                                <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3" style="background-color: black">Pay with Stripe</button>
                             </div>
                         </div>
                     </div>
