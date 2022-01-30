@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -25,6 +26,13 @@ class OrderController extends Controller
         return view('layouts.order')->with('orders', $orders);
     }
 
+    public function search(Request $request) 
+    {
+        $search = $request->get('search');
+        $list = DB::table('customer_order')->where('Tracking No', 'like', '%'.$search.'%')->get();
+        return view('layouts.catalogue',['book' => $list]);
+
+    }
     /**
      * Show the form for creating a new resource.
      *

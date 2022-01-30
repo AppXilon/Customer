@@ -83,9 +83,10 @@
                                                     </thead>
                                                     @php
                                                    
-                                                        $New = App\Models\Order::where('O_Status', 1)->where('O_Type', 'dineIn')->where('O_Type', 'pickUp')->get();
+                                                        $New = App\Models\Order::where('O_Status', 1)->get();
                                                     @endphp
                                                     @foreach ($New as $new)
+                                                    @if($new->O_Type != 'booking')
                                                         <tbody>
                                                             <td>{{ $new->Tracking_No }}</td>
                                                             <td>{{ $new->O_Phone }}</td>
@@ -116,6 +117,7 @@
                                                                     View Order
                                                                 </button></td>
                                                         </tbody>
+                                                        @endif
                                                     @endforeach
                                                 </table>
                                             </div>
