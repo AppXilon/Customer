@@ -67,7 +67,7 @@
           </div>
           <div class="card-footer border-0 px-4 py-5" style="background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
           @if($order->O_Type=='dineIn')
-            Dine In Table: {{$order->T_Id}
+            Dine In Table: {{$order->T_Id}}
           @elseif($order->O_Type=='pickUp')
             Pickup Time: {{$order->DateTime}}
           @elseif($order->O_Type=='booking')

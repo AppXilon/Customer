@@ -9,7 +9,7 @@
     <title>Invoice</title>
     <link rel="shortcut icon" type="image/png" href="https://image.flaticon.com/icons/png/512/64/64431.png" />
     <!-- Bootstrap -->
-    <link href="{{ asset('frontend/css/bootstrap3.css') }}" rel="stylesheet">
+    <link href="{{ asset('reports/css/bootstrap3.css') }}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,11 +21,13 @@
 
 <body>
 
+<div class="row" style="padding:80px">
 
-    <div class="row">
+
+    <div class="row" > 
         <div class="col-xs-6 text-center">
             <br>
-            
+            <img src="/reports/logo.png" width="30%">
         </div>
         <div class="col-xs-6 text-right">
             @php
@@ -88,7 +90,7 @@
             <th>No</th>
             <th>Product</th>
             <th class="text-right">Quantity</th>
-            {{-- <th class="text-right">Price(RM)/Unit</th> --}}
+            <th class="text-right">Price(RM)/Unit</th>
             <th class="text-right">Total(RM)</th>
         </tr>
 
@@ -97,8 +99,8 @@
                 <td>{{ $count = $count + 1 }}</td>
                 <td>{{$item->products->P_Name}}</td>
                 <td class="text-right">{{ $item->Order_Quantity }}</td>
-                <td class="text-right">RM {{ number_format($item->Order_Price, 2) }}</td>
-                {{-- <td class="text-right">RM {{ number_format($item->price * $item->qty, 2) }}</td> --}}
+                <td class="text-right">RM {{ number_format($item->products->P_Price, 2) }}</td>
+                <td class="text-right">RM {{ number_format($item->products->P_Price * $item->Order_Quantity, 2) }}</td>
 
             </tr>
         @endforeach
@@ -106,7 +108,7 @@
         <tr>
             <td colspan="4" class="text-right">Grand Total</td>
             <td class="text-right">RM
-                {{ number_format($order->Order_Price, 2) }}</td>
+                {{ number_format($order->O_Total_Price, 2) }}</td>
         </tr>
 
     </table>
@@ -124,6 +126,8 @@
             <p>Computer-generated invoice. No signature is required.</p>
         </center>
     </div>
+
+</div>
 
 
 </body>

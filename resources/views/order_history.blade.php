@@ -27,7 +27,9 @@
                     <div class="row">
                         @if($item->O_Status == '1')
                         <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">Completed</label></div>
+                            <a href="{{ url('invoice-order/' . $item->id) }}"><div class="pull-right"><label class="label label-warning">Print Invoice</label></div></a>
+                            
+                            <div class="pull-right"><label class="label label-success mr-2">Completed</label></div>
                             @if($item->O_Type == 'dineIn')
                             <div class="pull-right"><label class="label label-primary mr-2">Dine In</label></div>
                             @elseif($item->O_Type == 'booking')
@@ -42,6 +44,7 @@
                         </div>
                         @else
                         <div class="col-md-12">
+                            <a href="{{ url('invoice-order/' . $item->id) }}"><div class="pull-right"><label class="label label-warning">Print Invoice</label></div></a>
                             <div class="pull-right"><label class="label label-danger">Canceled</label></div>
                             @if($item->O_Type == 'dineIn')
                             <div class="pull-right"><label class="label label-warning mr-2">Dine In</label></div>
