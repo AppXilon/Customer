@@ -141,6 +141,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
 
+Route::get('/searchBooking', 'App\Http\Controllers\OrderController@search');
+
 Route::resource('/catalogues', CatalogueController::class);
 
 Route::resource('/product_category', Product_CategoryController::class);

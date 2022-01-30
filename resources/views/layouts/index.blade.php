@@ -55,9 +55,9 @@
                          <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
                              <div class="s-sale-inner pt--30 mb-3">
                                  <div class="card">
-                                     <div class="seo-fact sbg3">
+                                     <div class="seo-fact sbg4">
                                          <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Pending</div>
+                                             <div class="seofct-icon">Booking</div>
                                              <h2>3</h2>
                                          </div>
                                      </div>
@@ -67,9 +67,9 @@
                          <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
                              <div class="s-sale-inner pt--30 mb-3">
                                  <div class="card">
-                                     <div class="seo-fact sbg4">
+                                     <div class="seo-fact sbg3">
                                          <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Preparing</div>
+                                             <div class="seofct-icon">Pending</div>
                                              <h2>5</h2>
                                          </div>
                                      </div>
