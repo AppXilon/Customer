@@ -21,7 +21,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
             'Order_Price' => '4.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-01-01 05:20:55.000000',
             'updated_at' => '2021-01-01 05:20:55.000000'
         ],
@@ -32,7 +31,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
             'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-01-02 05:20:55.000000',
             'updated_at' => '2021-01-02 05:20:55.000000'
         ],
@@ -43,7 +41,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
             'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-01-03 05:20:55.000000',
             'updated_at' => '2021-01-03 05:20:55.000000'
         ],
@@ -54,7 +51,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
             'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-02-01 05:20:55.000000',
             'updated_at' => '2021-02-01 05:20:55.000000'
         ],
@@ -64,7 +60,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-02-02 05:20:55.000000',
             'updated_at' => '2021-02-02 05:20:55.000000'
         ],
@@ -74,7 +69,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-02-03 05:20:55.000000',
             'updated_at' => '2021-02-03 05:20:55.000000'
         ],
@@ -84,7 +78,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-03-01 05:20:55.000000',
             'updated_at' => '2021-03-01 05:20:55.000000'
         ],
@@ -94,7 +87,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-03-02 05:20:55.000000',
             'updated_at' => '2021-03-02 05:20:55.000000'
         ],
@@ -104,7 +96,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-03-03 05:20:55.000000',
             'updated_at' => '2021-03-03 05:20:55.000000'
         ],
@@ -114,7 +105,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-04-01 05:20:55.000000',
             'updated_at' => '2021-04-01 05:20:55.000000'
         ],
@@ -124,7 +114,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '3.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-04-02 05:20:55.000000',
             'updated_at' => '2021-04-02 05:20:55.000000'
         ],
@@ -134,7 +123,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-04-03 05:20:55.000000',
             'updated_at' => '2021-04-03 05:20:55.000000'
         ],
@@ -144,7 +132,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '7.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-05-01 05:20:55.000000',
             'updated_at' => '2021-05-01 05:20:55.000000'
         ],
@@ -154,7 +141,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-05-02 05:20:55.000000',
             'updated_at' => '2021-05-02 05:20:55.000000'
         ],
@@ -164,7 +150,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '6.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-05-03 05:20:55.000000',
             'updated_at' => '2021-05-03 05:20:55.000000'
         ],
@@ -174,7 +159,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '6.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-06-01 05:20:55.000000',
             'updated_at' => '2021-06-01 05:20:55.000000'
         ],
@@ -184,7 +168,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-06-02 05:20:55.000000',
             'updated_at' => '2021-06-02 05:20:55.000000'
         ],
@@ -194,7 +177,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-06-03 05:20:55.000000',
             'updated_at' => '2021-06-03 05:20:55.000000'
         ],
@@ -204,7 +186,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-07-01 05:20:55.000000',
             'updated_at' => '2021-07-01 05:20:55.000000'
         ],
@@ -214,7 +195,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-07-02 05:20:55.000000',
             'updated_at' => '2021-07-02 05:20:55.000000'
         ],
@@ -224,7 +204,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-07-03 05:20:55.000000',
             'updated_at' => '2021-07-03 05:20:55.000000'
         ],
@@ -234,7 +213,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-08-01 05:20:55.000000',
             'updated_at' => '2021-08-01 05:20:55.000000'
         ],
@@ -244,7 +222,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-08-02 05:20:55.000000',
             'updated_at' => '2021-08-02 05:20:55.000000'
         ],
@@ -254,7 +231,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-08-03 05:20:55.000000',
             'updated_at' => '2021-08-03 05:20:55.000000'
         ],
@@ -264,7 +240,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-09-01 05:20:55.000000',
             'updated_at' => '2021-09-01 05:20:55.000000'
         ],
@@ -274,7 +249,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '3.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-09-02 05:20:55.000000',
             'updated_at' => '2021-09-02 05:20:55.000000'
         ],
@@ -284,7 +258,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-09-03 05:20:55.000000',
             'updated_at' => '2021-09-03 05:20:55.000000'
         ],
@@ -294,7 +267,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-10-01 05:20:55.000000',
             'updated_at' => '2021-10-01 05:20:55.000000'
         ],
@@ -304,7 +276,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-10-02 05:20:55.000000',
             'updated_at' => '2021-10-02 05:20:55.000000'
         ],
@@ -314,7 +285,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-10-03 05:20:55.000000',
             'updated_at' => '2021-10-03 05:20:55.000000'
         ],
@@ -324,7 +294,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-11-01 05:20:55.000000',
             'updated_at' => '2021-11-01 05:20:55.000000'
         ],
@@ -334,7 +303,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-11-02 05:20:55.000000',
             'updated_at' => '2021-11-02 05:20:55.000000'
         ],
@@ -344,7 +312,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-11-03 05:20:55.000000',
             'updated_at' => '2021-11-03 05:20:55.000000'
         ],
@@ -354,7 +321,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-12-01 05:20:55.000000',
             'updated_at' => '2021-12-01 05:20:55.000000'
         ],
@@ -364,7 +330,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-12-02 05:20:55.000000',
             'updated_at' => '2021-12-02 05:20:55.000000'
         ],
@@ -374,7 +339,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '3.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-12-03 05:20:55.000000',
             'updated_at' => '2021-12-03 05:20:55.000000'
         ],
@@ -384,7 +348,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '4.50',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-12-04 05:20:55.000000',
             'updated_at' => '2021-12-04 05:20:55.000000'
         ],
@@ -394,7 +357,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
            'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-12-05 05:20:55.000000',
             'updated_at' => '2021-12-05 05:20:55.000000'
         ],
@@ -404,7 +366,6 @@ class OrderProductSeeder extends Seeder
             'Order_Quantity'=> '1',
             'Order_Price' => '5.00',
             'rStatus'=> '0',
-            'Od_Type' => 'dineIn',
             'created_at'=> '2021-02-06 05:20:55.000000',
             'updated_at' => '2021-02-06 05:20:55.000000'
         ]]);
