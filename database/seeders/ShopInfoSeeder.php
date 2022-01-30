@@ -23,6 +23,8 @@ class ShopInfoSeeder extends Seeder
             'Dine_In'=> '1',
             'Delivery'=> '1',
             'Pick_Up'=> '1',
+            'S_Image'=> '1642650758-.jpg',
+            'S_Banner'=> '-.png',
         ],
        ]); 
     }
