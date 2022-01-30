@@ -56,7 +56,7 @@
             </div>
 
             <div class="d-flex justify-content-between pt-2">
-              <p class="text-muted mb-0">Address: {{$order->O_Street_1}}</p>
+              <p class="text-muted mb-0">Address: {{$order->O_Street_1}} {{$order->O_Postcode}} {{$order->O_City}} {{$order->O_State}}</p>
               <p class="text-muted mb-0"><span class="fw-bold me-4">Discount:</span> RM0.00</p>
             </div>
 
@@ -64,10 +64,19 @@
               <p class="text-muted mb-0">Contact No: {{$order->O_Phone}}</p>
             </div>
 
-            <div class="d-flex justify-content-between mb-5">
-              <p class="text-muted mb-0">Payment Method: {{$order->O_Payment}}</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges:</span> Free</p>
-            </div>
+          </div>
+          <div class="card-footer border-0 px-4 py-5" style="background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+          @if($order->O_Type=='dineIn')
+            Dine In Table: {{$order->T_Id}
+          @elseif($order->O_Type=='pickUp')
+            Pickup Time: {{$order->DateTime}}
+          @elseif($order->O_Type=='booking')
+            Booking Table: {{$order->T_id}}
+            Booking Pax: {{$order->T_Pax}}
+            Booking Date and Time: {{$order->Datetime}}
+          @elseif($order->O_Type=='delivery')
+            Delivery Date and Time: {{$order->Datetime}}
+          @endif
           </div>
           <div class="card-footer border-0 px-4 py-5" style="background-color: #fbaf32; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
             <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total paid: <span class="h2 mb-0 ms-2">RM{{ number_format((float) $order->O_Total_Price, 2, '.', '') }}</span></h5>

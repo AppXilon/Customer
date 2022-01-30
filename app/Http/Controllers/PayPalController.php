@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Logs;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -18,39 +20,55 @@ class PayPalController extends Controller
      */
     public function createTransaction(Request $req)
     {
-        $order=new Order;
-        $order->User_Id =Auth::id();
-        $order->O_Name='lydia';
-        $order->O_Email='lydia@gmail.com';
-        $order->O_Street_1='klcc';
-        $order->O_Postcode='31350';
-        $order->O_City='kl';
-        $order->O_State='selangor';
-        $order->O_Phone='0133879380';
-        $order->O_Payment='Paypal';
-        $order->Tracking_No=rand(1000,9999);
-        $order->Remarks->input('reject');
-        
+        $order = new Order();
+        $order->User_Id = Auth::id();
+        $order->O_Name = 'lydia';
+        $order->O_Email = 'lydia@gmail,com';
+        $order->O_Street_1 = 'kl';
+        $order->O_Postcode = '31400';
+        $order->O_City = 'kl';
+        $order->O_State = 'kl';
+        $order->O_Phone = '0133879380';
+        $order->O_Notes = 'nothing';
+        $order->O_Payment = 'PayPal';
+        $order->Tracking_No = rand(1000, 9999);
+        $order->Remarks = 'call me';
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
-        foreach($cartitems_total as $prod)
-        {
+        foreach ($cartitems_total as $prod) {
             $total += $prod->products->P_Price * $prod->Pro_Qty;
+            $otype = $prod->Order_Type;
+            $bookdate = $prod->BookDate;
+            $booktime = $prod->BookTime;
+            $bookpax = $prod->BookPax;
+            $booktable = $prod->BookTable;
         }
 
+        $combinedDT = date('Y-m-d H:i:s', strtotime("$bookdate $booktime"));
+
+        $order->O_Type = $otype;
+        $order->DateTime = $combinedDT;
+        $order->T_Pax = $bookpax;
+        $order->T_Id = $booktable;
         $order->O_Total_Price = $total;
         $order->save();
 
+        $logs = new Logs;
+        $logs->Cust_Id = Auth::id();
+        $logs->Log_Module = $req->input('Log_Module');
+        $logs->Log_Pay_Type = 0;
+        $logs->Log_Status = $req->input('Log_Status');
+        $logs->created_at = Carbon::now();
+        $logs->updated_at = Carbon::now();
+
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
-        foreach($cartitems as $item)
-        {
+        foreach ($cartitems as $item) {
             OrderProduct::create([
-                'Order_Id'=>$order->id,
-                'P_Id'=>$item->Pro_Id,
-                'Order_Quantity'=>$item->Pro_Qty,
-                'Order_Price'=>$item->products->P_Price*$item->Pro_Qty,
-                'Od_Type'=>$item->Order_Type,
+                'Order_Id' => $order->id,
+                'P_Id' => $item->Pro_Id,
+                'Order_Quantity' => $item->Pro_Qty,
+                'Order_Price' => $item->products->P_Price * $item->Pro_Qty,
             ]);
         }
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
@@ -87,7 +105,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "MYR",
-                        "value" => "10"
+                        "value" => $total
                     ]
                 ]
             ]
