@@ -44,6 +44,7 @@ class CheckoutController extends Controller
     }
     function orderPlace(Request $req)
     {
+<<<<<<< HEAD
         if(Cart::where('Order_Type'== 'dineIn')){
             $order = new Order();
             $order->User_Id = Auth::id();
@@ -149,6 +150,32 @@ class CheckoutController extends Controller
             Cart::destroy($cartitems);
 
             return view('checkout_complete');
+=======
+        $order=new Order();
+        $order->User_Id =Auth::id();
+        $order->O_Name=$req->input('O_Name');
+        $order->O_Email=$req->input('O_Email');
+        $order->O_Street_1=$req->input('O_Street_1');
+        $order->O_Postcode=$req->input('O_Postcode');
+        $order->O_City=$req->input('O_City');
+        $order->O_State=$req->input('O_State');
+        $order->O_Phone=$req->input('O_Phone');
+        $order->O_Notes=$req->input('O_Notes');
+        $order->O_Payment=$req->payment;
+        $order->Tracking_No=rand(1000,9999);
+        $order->Remarks=$req->input('Remarks');
+
+        $total = 0;
+        $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
+        foreach($cartitems_total as $prod)
+        {
+            $total += $prod->products->P_Price * $prod->Pro_Qty;
+            $otype = $prod->Order_Type;
+            $bookdate = $prod->BookDate;
+            $booktime = $prod->BookTime;
+            $bookpax = $prod->BookPax;
+            $booktable = $prod->BookTable;
+>>>>>>> 07c65b5f210e79c78c03ecb65e41831db4332297
         }
         elseif(Cart::where('Order_Type'== 'pickUp')){
             $order = new Order();

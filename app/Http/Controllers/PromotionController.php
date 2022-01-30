@@ -3,27 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Shop;
+use Illuminate\Support\Facades\DB;
+use App\Models\Promotion;
 
-class ShopAdminController extends Controller
+class PromotionController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        //
-        $shop = Shop::where('S_Status', 0)->get();
-        return view('admin-layouts.man_rest')->with('shop',$shop);
-    }
+        $data =  DB::table ('promotion') ->get();
+ 
 
-    public function indexPend()
-    {
-        //
-    }
-
-    public function indexBan()
-    {
-        //
-        $shop = Shop::where('S_Status', 1)->get();
-        return view('admin-layouts.ban_rest')->with('shop',$shop);
+         return view('layouts.promotion')->with('list', $data);
     }
 
     /**
@@ -45,7 +40,6 @@ class ShopAdminController extends Controller
     public function store(Request $request)
     {
         //
-        
     }
 
     /**

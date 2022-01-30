@@ -20,6 +20,7 @@ class CreatePromotion extends Migration
             $table->dateTime('Promo_End');
             $table->bigInteger('Manager_id')->unsigned();
             $table->foreign('Manager_id')->references('Manager_id')->on('manager')->onDelete('cascade');
+            $table->String('Promo_Image') -> nullable ();
             $table->timestamps();
         });
     }

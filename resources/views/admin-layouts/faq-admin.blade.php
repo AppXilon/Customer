@@ -58,7 +58,7 @@
             <div class="card-body">
                 <h4 class="header-title">Frequently Asked Questions</h4>
                 <div class="col col-lg-2">
-                    <a href='#'>
+                    <a href="{{ route('faq.create') }}">
                         <button type="button" class="btn btn-success mb-3" style="text-align: right;">Add Question</button>
                     </a>
                 </div>
@@ -67,20 +67,20 @@
                         <table class="table">
                             <thead class="text-uppercase">
                                 <tr>
-                                    <th scope="col">Question</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Question</th>
                                     <th scope="col">Answer</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            @foreach($list as $item)
+                            @foreach($list as $faq)
                             <tbody>
                                 <tr>
-                                    <td><br>{{$item->Question}}</td>
-                                    <td><br>{{$item->Category}}</td>
-                                    <td><br>{{$item->Answer}}</td>
+                                    <td><br>{{$faq->Faq_Category}}</td>
+                                    <td><br>{{$faq->Faq_Question}}</td>
+                                    <td><br>{{$faq->Faq_Answer}}</td>
                                  
-                                      <td><a class="btn btn-primary" href="#">Edit</a></td>
+                                      <td><a class="btn btn-primary" href="{{ route('faq.edit', $faq->Faq_id) }}">Edit</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

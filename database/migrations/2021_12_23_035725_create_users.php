@@ -50,5 +50,4 @@ class CreateUsers extends Migration
     }
 }
 
-//dekat model user tambah code bawah ni
-//protected�$primaryKey�=�'user_id';
+

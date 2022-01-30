@@ -8,7 +8,8 @@
         <div class="col-md-8">
             <div class="card">
             @foreach ($list as $item)
-                <div class="card-header">Write a review for: <span style="color: #00224e; font-size: 18px;">  {{ $item->P_Name}}</span></div>
+                <div class="card-header">Write a review for <span style="color: #00224e;">{{$item->P_Name}}</span></div>
+                <input type="hidden" name="pid" value= "{{$item ->P_Id}}">
             @endforeach
                 <div class="card-body">
                 <div class="card-body">
@@ -25,32 +26,27 @@
                 </div>
                 @endif
                 
-                    <form  action="/submitReview" method="post">
+                    <form  action="/submitReview" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="productID" value= "{{$item ->P_Id}}">
+                    <input type="hidden" name="pid" value= "{{$item ->P_Id}}" >
                     
 
+               
+
                     <div class="form-group row" id= "R_Rating">
-                        <!-- <label for="comment" class="col-md-4 col-form-label text-md-right">{{ ('Your Rating') }}</label> -->
 
                             <div class="col-md-8 offset-md-2">
-                            <div class="rating-css">
-                                <div class="star-icon" >
-                                    <input type="radio" id= "rated-1" name= "R_Rating" value= "1">
-                                    <label for="star-1" class="fa fa-star"></label>
-                                    <input type="radio" id= "rated-2" name= "R_Rating" value= "2">
-                                    <label for="star-2" class="fa fa-star"></label>
-                                    <input type="radio" id= "rated-3" name= "R_Rating" value= "3" checked>
-                                    <label for="star-3" class="fa fa-star"></label>
-                                    <input type="radio" id= "rated-4" name= "R_Rating" value= "4">
-                                    <label for="star-4" class="fa fa-star"></label>
-                                    <input type="radio" id= "rated-5" name= "R_Rating" value= "5" >
-                                    <label for="star-5" class="fa fa-star"></label>
 
-                                </div>
+                            <div class="rating">
+                                <input type="radio" id="star1" name= "R_Rating" value= "5"><label for="star1"></label>
+                                <input type="radio" id="star2" name= "R_Rating" value= "4"><label for="star2"></label>
+                                <input type="radio" id="star3" name= "R_Rating" value= "3"><label for="star3"></label>
+                                <input type="radio" id="star4" name= "R_Rating" value= "2"><label for="star4"></label>
+                                <input type="radio" id="star5" name= "R_Rating" value= "1"><label for="star5"></label>
+                            </div>
 
-                            </div>
-                            </div>
+                            
+                        </div>
                     </div>
 
 
@@ -64,7 +60,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="R_Image" class="col-md-4 col-form-label text-md-right">{{ ('Upload a photo') }}</label>
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ ('Upload a photo') }}</label>
 
                             <div class="col-md-6">
                                 <input id="R_Image" type="file" class="form-control " name="R_Image"  > </input>

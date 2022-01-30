@@ -4,30 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Faq;
+
+ 
 
 class FaqController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    
-
-    public function faqindex()
+    public function index()
     {
-        $data = array(
-           'list' => DB::table ('faq') ->get()
+        //
+        $data =  DB::table ('faq') ->get();
+ 
 
-        );
-        return view('faq',  $data);
+         return view('admin-layouts.faq-admin')->with('list', $data);
     }
+
     public function faq_index()
     {
         $data = array(
@@ -36,41 +32,82 @@ class FaqController extends Controller
         );
         return view('faq',  $data);
     }
-
-    public function faq_manager_index()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $data = array(
-           'list' => DB::table ('faq') ->get()
-
-        );
-        return view('admin-layouts.faq-manager',  $data);
+        return view('admin-layouts.faq-add');
+    
     }
 
-    public function add_faq(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $request->validate([
-            'Faq_Category'=> 'required',
-            'Faq_Question'=> 'required',
-            'Faq_Answer'=> 'required',
+            'Faq_Category' => 'required',
+            'Faq_Question' => 'required',
+            'Faq_Answer' => 'required'
+            
         ]);
+        
+        Faq::create($request->all());
+     
+        return redirect()->route('faq.index')
+                        ->with('success','Question created successfully.');
+    }
 
-       
-        $query = DB::table('faq') ->insert ([
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Faq $faq)
+    {
+        //
+        return view('admin-layouts.faq-edit', compact ('faq'));
+    }
 
-                        'Faq_Category'=>$request->input('R_Rating' ),
-                        'Faq_Question'=>$request->input('comment' ),
-                        'R_Image'=>$request->input('R_Image' ),
-                        "created_at" =>  \Carbon\Carbon::now(), # new \Datetime()
-                        "updated_at" => \Carbon\Carbon::now(), 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Faq $faq)
+    {
+        $faq->update($request->all());
+        return redirect()->route('faq.index');
+    }
 
-
-                    ]);
-
-        if ($query) {
-            return back() -> with ('success' , 'Review has been successfully submitted');
-        }else{
-            return back() -> with ('fail' , 'Something went wrong');
-        }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
