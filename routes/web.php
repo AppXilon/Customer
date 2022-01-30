@@ -98,6 +98,8 @@ Route::get('user/{id}', 'UserController@showProfile');
 
 Route::get('order_history', [UserController::class,'orderHistory']);
 
+Route::get('invoice-order/{id}', [UserController::class, 'invoice']);
+
 Route::get('history_detail/{id}', [UserController::class,'viewHistory']);
 
 Route::get('order_type', function () {
