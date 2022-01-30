@@ -52,7 +52,7 @@ class UsersSeeder extends Seeder
             'id' => '3',
             'Name' => 'Avinesh A/L Veloo',
             'Email' => 'avi9@gmail.com',
-            'Password' => Hash::make('luthfi12345'),
+            'Password' => Hash::make('avi12345'),
             'occupation' => 'Student',
             'gender' => 'Male',
             'birthdate' => '1999-01-27',
