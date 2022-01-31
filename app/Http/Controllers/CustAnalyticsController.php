@@ -103,15 +103,16 @@ class CustAnalyticsController extends Controller
         $topSpendCustomer = $data;
 
 
-
+        $data2 = "";
         $frequentCust = DB::select(DB::raw("SELECT DISTINCT(users.name) as name, count(customer_order.User_Id) as total_order 
         from customer_order, users
         where customer_order.User_Id = users.id
         group by users.id, users.name
         order by count(customer_order.User_Id) DESC limit 5;"));
         foreach ($frequentCust as $row) {
-            $topFrequentCustomer = "[" . $row->name . ", " . $row->total_order . "],";
+            $data2.="['".$row->name."', ".$row->total_order."],";
         }
+        $topFrequentCustomer = $data2;
 
         //dd($topSpendCustomer);
 
