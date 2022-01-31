@@ -3,6 +3,42 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+  
+        function drawStuff() {
+          var data = new google.visualization.arrayToDataTable([
+            ['Customer', 'Total Spend (RM)'],
+            <?php echo $topSpendCustomer; ?>
+          ]);
+  
+          var options = {
+            title: 'Top 5 Most Total Spend by Customer ',
+            chartArea: {
+                width: '80%'
+            },
+            hAxis: {
+                title: 'Total Spend (RM)',
+                minValue: 0,
+                maxValue: 45        
+            },
+            vAxis: {
+                title: 'Customer Name'
+            },
+           
+            legend: { position: 'none' },
+            
+            bars: 'horizontal', // Required for Material Bar Charts.
+            
+            bar: { groupWidth: "90%" }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('spendCust'));
+          chart.draw(data, options);
+        };
+      </script>
 </head>
 
 <body>
@@ -165,54 +201,21 @@
                         {{-- top popular customer --}}
 						<div class="col-12 col-lg-6 col-xxl-6 d-flex">
 							<div class="card flex-fill">
-								<div class="card-body">
-                                    <h4 class="header-title">Striped Rows</h4>
-                                    <div class="single-table">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped text-center">
-                                                <thead class="text-uppercase">
-                                                    <tr>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Name</th>
-                                                        <th scope="col">date</th>
-                                                        <th scope="col">price</th>
-                                                        <th scope="col">action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>09 / 07 / 2018</td>
-                                                        <td>$120</td>
-                                                        <td><i class="ti-trash"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>jone</td>
-                                                        <td>09 / 07 / 2018</td>
-                                                        <td>$150</td>
-                                                        <td><i class="ti-trash"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>09 / 07 / 2018</td>
-                                                        <td>$120</td>
-                                                        <td><i class="ti-trash"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>jone</td>
-                                                        <td>09 / 07 / 2018</td>
-                                                        <td>$150</td>
-                                                        <td><i class="ti-trash"></i></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0">Top 5 Spender Customer</h4>
+                                    
                                 </div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100" style="padding:10px">
+										
+											
+                                        <div id="spendCust" style="height: 300px"></div>
+											
+										
+
+										
+									</div>
+								</div>
 							</div>
 						</div>
                         {{-- end top popular customer --}}
@@ -221,7 +224,7 @@
 						<div class="col-12 col-lg-3 col-xxl-3 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
-                                    <h4 class="header-title mb-0">Review Word Cloud</h4>
+                                    <h4 class="header-title mb-0">Most Popular Word</h4>
                                     
                                 </div>
 								<div class="card-body d-flex">
@@ -518,6 +521,10 @@
     </script>
 
     //{{-- end sentiment analysis pie chart --}}
+
+    
+
+    
 
     
 

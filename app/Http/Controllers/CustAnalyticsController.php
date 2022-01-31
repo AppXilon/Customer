@@ -91,16 +91,29 @@ class CustAnalyticsController extends Controller
             $sentimentAnalysisYear = "[" . $row->Negative . ", " . $row->Neutral . ", " . $row->Positive . "]";
         }
 
-        $spendCust = DB::select(DB::raw("SELECT users.name as name, sum(customer_order.O_total_price) as total_spend 
+        $data = "";
+        $spendCust = DB::select(DB::raw("SELECT DISTINCT(users.name) as name, sum(customer_order.O_total_price) as total_spend 
         from customer_order, users
         where customer_order.User_Id = users.id
-        group by users.name, customer_order.O_Total_Price
+        group by users.id, users.name
         order by sum(O_Total_Price) DESC limit 5;"));
         foreach ($spendCust as $row) {
-            $topSpendCustomer = "[" . $row->name . ", " . $row->total_spend . "]";
+            $data.="['".$row->name."', ".$row->total_spend."],";
+        }
+        $topSpendCustomer = $data;
+
+
+
+        $frequentCust = DB::select(DB::raw("SELECT DISTINCT(users.name) as name, count(customer_order.User_Id) as total_order 
+        from customer_order, users
+        where customer_order.User_Id = users.id
+        group by users.id, users.name
+        order by count(customer_order.User_Id) DESC limit 5;"));
+        foreach ($frequentCust as $row) {
+            $topFrequentCustomer = "[" . $row->name . ", " . $row->total_order . "],";
         }
 
-        //dd($spendCust);
+        //dd($topSpendCustomer);
 
         $gender = DB::select(DB::raw("SELECT count(CASE WHEN gender = 'Female' then 1 end) as Female, count(CASE WHEN gender = 'Male' then 1 end) as Male FROM USERS"));
         foreach ($gender as $row) {
@@ -220,6 +233,7 @@ class CustAnalyticsController extends Controller
             'sentimentAnalysisMonth',
             'sentimentAnalysisYear',
             'topSpendCustomer',
+            'topFrequentCustomer',
             'custGender',
             'custGenderWeek',
             'custGenderMonth',
