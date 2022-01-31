@@ -37,6 +37,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -135,9 +136,8 @@ Route::post('webhook', [CheckoutController::class, 'stripePay']);
 /******* Manager route start *******/
 /*******************************/
 
-Route::get('/dashboard', function () {
-    return view('layouts.index');
-});
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 Route::get('/searchProduct', 'App\Http\Controllers\CatalogueController@search');
 Route::get('/searchTracking', 'App\Http\Controllers\OrderController@search');
