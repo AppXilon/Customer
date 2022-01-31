@@ -61,6 +61,7 @@ class OrderTrendsController extends Controller
         // top category bar chart
 
 
+        $data = "";
         $category = DB::select(DB::raw("SELECT C.P_Cat_Name as Category, Sum(B.Order_Quantity) as Total 
         FROM product A
         INNER JOIN order_product B
@@ -71,13 +72,15 @@ class OrderTrendsController extends Controller
          ORDER BY 2 Desc;
         "));
         foreach($category as $row){
-            $categoryChart = "[".$row->Category.", ".$row->Total."]";
-
+            $data.= "[".$row->Category.", ".$row->Total."]";
         }
+        $categoryChart = $data;
+
 
     
         // dd($popular);
         // dd($chartProductCategory);
+        // dd($categoryChart);
 
         return view('reports.order_trends', compact('orderPayment', 'orderService', 'salesChart','popular', 'least','categoryChart'));
     }

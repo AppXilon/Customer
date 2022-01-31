@@ -3,7 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 
 <body>
@@ -252,7 +253,7 @@
         // sales performance line chart
 
         <script>
-        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var yValues = <?php echo $salesChart; ?>;
         var ctx = document.getElementById("myChart").getContext("2d");   
         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
@@ -387,59 +388,36 @@
             }
             });
         </script>
+
         <script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Bar chart
-			new Chart(document.getElementById("categoryBarChart"), {
-				type: "bar",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "Last year",
-						backgroundColor: window.theme.primary,
-						borderColor: window.theme.primary,
-						hoverBackgroundColor: window.theme.primary,
-						hoverBorderColor: window.theme.primary,
-						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-						barPercentage: .75,
-						categoryPercentage: .5
-					}, {
-						label: "This year",
-						backgroundColor: "#dee2e6",
-						borderColor: "#dee2e6",
-						hoverBackgroundColor: "#dee2e6",
-						hoverBorderColor: "#dee2e6",
-						data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
-						barPercentage: .75,
-						categoryPercentage: .5
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					scales: {
-						yAxes: [{
-							gridLines: {
-								display: false
-							},
-							stacked: false,
-							ticks: {
-								stepSize: 20
-							}
-						}],
-						xAxes: [{
-							stacked: false,
-							gridLines: {
-								color: "transparent"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
+            var ctx = document.getElementById('categoryBarChart');
+            var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Nasi Goreng', 'Western', 'Mee / Kuey Teow / Bihun', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                   
+                    ],
+                    borderColor: [
+                  
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        </script>
+
+
 
 
 </body>
