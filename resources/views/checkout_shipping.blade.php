@@ -75,7 +75,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
         
                             @elseif($item->Order_Type == 'booking')
                                 <p>Book Date: {{$item->BookDate}}</p>
-                                <p>Book Time: {{$item->BookTime}}</p>
+                                <p>Book Start: {{$item->BookTime}}</p>
                                 <p>Total Pax: {{$item->BookPax }}</p>
                                 <p>Order Table: {{$item->BookTable }}</p>
 

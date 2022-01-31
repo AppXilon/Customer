@@ -177,7 +177,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-info">
                             <div class="contact-icon">
-                                <i class="fa fa-map-marker-alt"></i>
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
                                 <h3>Address</h3>
@@ -188,7 +188,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-info">
                             <div class="contact-icon">
-                                <i class="fa fa-phone-alt"></i>
+                                <i class="fa fa-phone"></i>
                             </div>
                             <div class="contact-text">
                                 <h3>Call Us</h3>
