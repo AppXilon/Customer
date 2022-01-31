@@ -60,7 +60,9 @@ Auth::routes();
 Route::get('try', [ReportController:: class, 'index']) ;
 Route::get('sales', [SalesController:: class, 'index']) ;
 
-
+Route::get('about', function () {
+    return view('about');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
