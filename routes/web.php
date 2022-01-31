@@ -139,9 +139,11 @@ Route::get('/dashboard', function () {
     return view('layouts.index');
 });
 
-Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/searchProduct', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/searchTracking', 'App\Http\Controllers\OrderController@search');
 
-Route::get('/searchBooking', 'App\Http\Controllers\OrderController@search');
+
+Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
 // Route::get('catalogues/create', [CatalogueController::class, 'add']);

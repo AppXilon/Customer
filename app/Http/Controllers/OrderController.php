@@ -29,9 +29,20 @@ class OrderController extends Controller
     public function search(Request $request) 
     {
         $search = $request->get('search');
-        $list = DB::table('customer_order')->where('Tracking No', 'like', '%'.$search.'%')->get();
-        return view('layouts.catalogue',['book' => $list]);
+        $list = DB::table('customer_order')->where('Tracking_No', 'like', '%'.$search.'%')->get();
+        return view('layouts.order',['orders' => $list]);
 
+    }
+
+    public function searchBook(Request $request)
+    {
+        if($request->has('search')){
+            $book = \App\Models\Order::where('Tracking_No', 'LIKE', '%' .$request->search.'%')->get();
+         
+     }else {
+            $book = \App\Models\Order::all();
+     }
+     return view('layouts.bookinglist',['booking' => $book]);
     }
     /**
      * Show the form for creating a new resource.
