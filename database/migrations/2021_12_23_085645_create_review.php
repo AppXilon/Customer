@@ -17,7 +17,7 @@ class CreateReview extends Migration
             $table->foreign('User_Id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('P_Id')->unsigned();
             $table->foreign('P_Id')->references('P_Id')->on('product')->onDelete('cascade');
-            $table->string('R_Rating');
+            $table->integer('R_Rating');
             $table->string('R_Comment');
             $table->string('R_Image') ->nullable();;
             $table->string('R_Sentiment');
