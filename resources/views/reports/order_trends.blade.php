@@ -1,14 +1,10 @@
 @include('include.header')
-
 <head>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-
 <body>
-
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
@@ -42,31 +38,23 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-
-
-                    {{-- ADD FROM ADMINKIT-DEV --}}
                     <div class="row" style="padding: 30px 0px 0px 15px">
-
-                        {{-- ordering trends details start --}}
+                        {{-- Category Product BAR CHART  --}}
                         <div class="col-xl-6 col-xxl-5 d-flex">
-
                             <div class="card flex-fill w-100">
                                 <div class="s-report-title d-flex justify-content-between"
                                     style="padding:25px 25px 0px 25px">
                                     <h4 class="header-title mb-0" style="padding:0px">Top Category Products</h4>
-
                                 </div>
-                                <div class="card-body py-3">
-                                    <div class="chart chart-sm">
-                                        <canvas id="categoryBarChart" height="270"></canvas>
-                                    </div>
-                                </div>
+                                <div class="card-body d-flex">
+									<div class="align-self-center w-100" style="padding:10px">	
+                                        <div id="categoryBarChart" style="height: 270px"></div>
+									</div>
+								</div>
                             </div>
                         </div>
-
-                        {{-- end order trends details --}}
-
-                        {{-- sales performances line chart --}}
+                        {{-- END Category Product BAR CHART  --}}
+                        {{-- Sales Performance LINE CHART --}}
                         <div class="col-xl-6 col-xxl-5 d-flex">
 
                             <div class="card flex-fill w-100">
@@ -82,14 +70,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{-- end sales performances line chart --}}
-
-
-
+                        {{-- END Sales Performance LINE CHART --}}
                         <div class="row" style="padding: 30px 10px 0px 15px">
-
-                            {{-- top popular products --}}
+                            {{-- TOP POPULAR products --}}
                             <div class="col-12 col-lg-6 col-xxl-6 d-flex">
                                 <div class="card flex-fill">
                                     <div class="card-body">
@@ -127,9 +110,8 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- end top popular products --}}
-
-                            {{-- least popular products chart start --}}
+                            {{-- END TOP POPULAR products --}}
+                            {{-- LEAST POPULAR chart start --}}
                             <div class="col-12 col-lg-6 col-xxl-6 d-flex">
                                 <div class="card flex-fill">
                                     <div class="card-body">
@@ -167,17 +149,9 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- least popular products chart end --}}
-
-
+                            {{-- END LEAST POPULAR products chart end --}}
                         </div>
-
-
-                        {{-- END FROM ADMINKIT-DEV --}}
-
-
-
-                        <!-- order trends pie chart breakdown area start -->
+                        <!-- Payment Types & Order Types PIE CHART -->
                         <div class="sales-report-area sales-style-two" style="padding: 0px 25px 25px 25px">
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-xxl-6 d-flex">
@@ -187,7 +161,7 @@
                                             <div class="single-table">
                                                 <h4 class="header-title mb-0">Payment Type</h4>
                                                 <select class="custome-select border-0 pr-3"
-                                                    onchange="filterDataPayment()" id="dataMarital">
+                                                    onchange="filterDataPayment()" id="dataPayment">
                                                     <option value="0" selected="">All Time</option>
                                                     <option value="1">Last 7 Days</option>
                                                     <option value="2">Last 2 Months</option>
@@ -204,8 +178,8 @@
                                             <h4 class="header-title">Order by</h4>
                                             <div class="single-table">
                                                 <h4 class="header-title mb-0">Service Type</h4>
-                                                <select class="custome-select border-0 pr-3" onchange="filterDataType()"
-                                                    id="dataOrderType">
+                                                <select class="custome-select border-0 pr-3" onchange="filterDataService()"
+                                                    id="dataService">
                                                     <option value="0" selected="">All Time</option>
                                                     <option value="1">Last 7 Days</option>
                                                     <option value="2">Last 2 Months</option>
@@ -219,10 +193,7 @@
 
                             </div>
                         </div>
-                        <!-- order trends pie chart breakdown area end -->
-
-
-
+                        <!-- END Payment Types & Order Types PIE CHART -->
                     </div>
                 </div>
             </div>
@@ -235,146 +206,79 @@
         <!-- offset area start -->
         @include('include.offset')
         <!-- offset area end -->
-
         @include('include.script')
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // sales performance line chart
-
+        <!-- Sales Performance LINE CHART -->
         <script>
             var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var yValues = <?php echo $salesChart; ?>;
-        var ctx = document.getElementById("myChart").getContext("2d");   
-        var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-		gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-		gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-            
-            new Chart(document.getElementById("myChart"), {
-            type: "line",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    label: "Sales",
-                    fill: true,
-                    lineTension: 0.4,
-                    backgroundColor: gradient,
-                    borderColor: "rgba(0,0,255,0.1)",
-                    data: yValues
-                }]
-            },
-            options: {
-                legend: {display: false},
-                maintainAspectRatio: false,
-                tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-                scales: {
-                    xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-                    yAxes: [{
-                        ticks: {
-                            min: 0, 
-                            max:100,
-                            stepSize: 10
-                        },   
-                        gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-                                    
-                        
-                            
+            var yValues = <?php echo $salesChart; ?>;
+            var ctx = document.getElementById("myChart").getContext("2d");   
+            var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+            gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+            gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+                
+                new Chart(document.getElementById("myChart"), {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label: "Sales",
+                        fill: true,
+                        lineTension: 0.4,
+                        backgroundColor: gradient,
+                        borderColor: "rgba(0,0,255,0.1)",
+                        data: yValues
                     }]
+                },
+                options: {
+                    legend: {display: false},
+                    maintainAspectRatio: false,
+                    tooltips: {
+                            intersect: false
+                        },
+                        hover: {
+                            intersect: true
+                        },
+                        plugins: {
+                            filler: {
+                                propagate: false
+                            }
+                        },
+                    scales: {
+                        xAxes: [{
+                                reverse: true,
+                                gridLines: {
+                                    color: "rgba(0,0,0,0.0)"
+                                }
+                            }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0, 
+                                max:50,
+                                stepSize: 10
+                            },   
+                            gridLines: {
+                                    color: "rgba(0,0,0,0.0)"
+                                }
+                                        
+                            
+                                
+                        }]
+                    }
                 }
-            }
-            });
+                });
         </script>
-        <!-- Payment Types-->
+
+        <!-- Payment Types PIE CHART-->
         <script>
             var xValues = ["Cash", "PayPal"];
-        var yValues = <?php echo $orderPayment; ?>;
-        var barColors = [
-        "#004c6d",
-        "#436f8d",
-
-        ];
-        
-        new Chart("payment_type", {
-        type: "pie",
-        data: {
-            labels: xValues,
-            datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-            }]
-        },
-        options: {
-            
-        }
-        });
-        </script>
-
-        <!-- Order Types -->
-        // <script>
-            // var xValues = ["DineIn", "Delivery", "PickUp", "Booking"];
-        // var yValues = [ <?php echo $orderService; ?>;
-        // var barColors = [
-        // "#004c6d",
-        // "#436f8d",
-        // "#7193af",
-        // "#b6cee3",
-        // ];
-        
-        // new Chart("order_type", {
-        // type: "pie",
-        // data: {
-        //     labels: xValues,
-        //     datasets: [{
-        //     backgroundColor: barColors,
-        //     data: yValues
-        //     }]
-        // },
-        // options: {
-            
-        // }
-        // });
-        // 
-        </script>
-
-        <script>
-            var xValues = ["DineIn", "Delivery", "PickUp", "Booking"];
-            var yValues =  <?php echo $orderService; ?>;
+            var yValues = <?php echo $orderPayment; ?>;
             var barColors = [
             "#004c6d",
             "#436f8d",
-            "#7193af",
-            "#b6cee3",
+
             ];
             
-      
-            new Chart("service_type", {
+            var paymentChart = new Chart("payment_type", {
             type: "pie",
             data: {
                 labels: xValues,
@@ -387,40 +291,125 @@
                 
             }
             });
+            function filterDataPayment() {
+            
+
+            if (document.getElementById("dataPayment").value == 0) {
+                var paymentAllTime = <?php echo $orderPayment; ?>;
+                paymentChart.data.datasets[0].data = paymentAllTime;
+            }
+            else if (document.getElementById("dataPayment").value == 1) {
+                var paymentWeekly = <?php echo $filterpaymentWeek; ?>;
+                paymentChart.data.datasets[0].data = paymentWeekly;
+            }
+            else if (document.getElementById("dataPayment").value == 2) {
+                var paymentMonth = <?php echo $filterpaymentMonth; ?>;
+                paymentChart.data.datasets[0].data = paymentMonth;
+            }
+            else if (document.getElementById("dataPayment").value == 3) {
+                var paymentAnnual = <?php echo $filterpaymentYear; ?>;
+                paymentChart.data.datasets[0].data = paymentAnnual;
+            }
+
+            paymentChart.update();
+           
+        }
+
         </script>
 
+        <!-- Order Types PIE CHART -->
         <script>
-            var ctx = document.getElementById('categoryBarChart');
-            var myChart = new Chart(ctx, {
-            type: 'bar',
+            var xValues = ["DineIn", "Delivery", "PickUp", "Booking"];
+            var yValues =  <?php echo $orderService; ?>;
+            var barColors = [
+            "#004c6d",
+            "#436f8d",
+            "#7193af",
+            "#b6cee3",
+            ];
+            
+      
+            var serviceChart = new Chart("service_type", {
+            type: "pie",
             data: {
-                labels: ['Nasi Goreng', 'Western', 'Mee / Kuey Teow / Bihun', 'Green', 'Purple', 'Orange'],
+                labels: xValues,
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                   
-                    ],
-                    borderColor: [
-                  
-                    ],
-                    borderWidth: 1
+                backgroundColor: barColors,
+                data: yValues
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                
             }
-        });
+            });
+            function filterDataService() {
+            
+
+            if (document.getElementById("dataService").value == 0) {
+                var serviceAllTime = <?php echo $orderService; ?>;
+                serviceChart.data.datasets[0].data = serviceAllTime;
+            }
+            else if (document.getElementById("dataService").value == 1) {
+                var serviceWeekly = <?php echo $filterServiceWeek; ?>;
+                serviceChart.data.datasets[0].data = serviceWeekly;
+            }
+            else if (document.getElementById("dataService").value == 2) {
+                var serviceMonth = <?php echo $filterServiceMonth; ?>;
+                serviceChart.data.datasets[0].data = serviceMonth;
+            }
+            else if (document.getElementById("dataService").value == 3) {
+                var serviceAnnual = <?php echo $filterServiceYear; ?>;
+                serviceChart.data.datasets[0].data = serviceAnnual;
+            }
+
+            serviceChart.update();
+           
+        }
+
         </script>
 
+        <!-- Category Product BAR CHART -->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+    
+            function drawStuff() {
 
+                
+                    var data = new google.visualization.arrayToDataTable([
+                                                ['Category', 'Total '],
+                                                <?php echo $categoryChart; ?>
+                                            ]);
+                    
+            
+                
+    
+                    var options = {
+                        title: 'Top 5 Most Total Spend by Customer ',
+                        chartArea: {
+                            width: '70%'
+                        },
+                        colors: ['#D7E3F4'],
+                        hAxis: {
+                            title: 'Total Spend (RM)',
+                            minValue: 0,
+                                
+                        },
+                        vAxis: {
+                            title: 'Customer Name'
+                        },
+                    
+                        legend: { position: 'none' },
+                        
+                        bars: 'horizontal', // Required for Material Bar Charts.
+                        
+                        bar: { groupWidth: "80%" }
+                    };
+            
+                    var chart = new google.charts.Bar(document.getElementById('categoryBarChart'));
+                    chart.draw(data, options);
+            };
 
-
-</body>
-
-
+        
+        </script>
 </body>

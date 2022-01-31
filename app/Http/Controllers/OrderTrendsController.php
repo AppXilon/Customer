@@ -14,15 +14,52 @@ class OrderTrendsController extends Controller
             $orderPayment = "[".$row->Cash.", ".$row->Paypal."]";
         }
 
+        $paymentWeek = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM customer_order 
+        where created_at between date_sub(now(),INTERVAL 1 WEEK) and now();"));
+        foreach ($paymentWeek as $row) {
+            $filterpaymentWeek = "[" . $row->Cash . ", " .$row->Paypal. "]";
+        }
+
+        $paymentMonth = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM customer_order 
+        where created_at between date_sub(now(),INTERVAL 2 MONTH) and now();"));
+        foreach ($paymentMonth as $row) {
+            $filterpaymentMonth = "[" . $row->Cash . ", " .$row->Paypal."]";
+        }
+
+        $paymentYear = DB::select(DB::raw("Select count(CASE WHEN O_Payment = 'Cash' then 1 end) as Cash, count(CASE WHEN O_Payment = 'Paypal' then 1 end) as Paypal FROM customer_order 
+        where created_at between date_sub(now(),INTERVAL 1 Year) and now();"));
+        foreach ($paymentYear as $row) {
+            $filterpaymentYear = "[" . $row->Cash . ", " . $row->Paypal. "]";
+        }
+
         $service = DB::select(DB::raw("Select count(CASE WHEN O_Type = 'dineIn' then 1 end) as DineIn, count(CASE WHEN O_Type = 'delivery' then 1 end) as Delivery, count(CASE WHEN O_Type = 'pickUp' then 1 end) as PickUp, count(CASE WHEN O_Type = 'booking' then 1 end) as Booking
         FROM customer_order;"));
         foreach($service as $row){
             $orderService = "[".$row->DineIn.", ".$row->Delivery.", ".$row->PickUp.", ".$row->Booking."]";
         }
 
+        $serviceWeek = DB::select(DB::raw("Select count(CASE WHEN O_Type = 'dineIn' then 1 end) as DineIn, count(CASE WHEN O_Type = 'delivery' then 1 end) as Delivery, count(CASE WHEN O_Type = 'pickUp' then 1 end) as PickUp, count(CASE WHEN O_Type = 'booking' then 1 end) as Booking
+        FROM customer_order 
+        where created_at between date_sub(now(),INTERVAL 1 WEEK) and now();"));
+        foreach ($serviceWeek as $row) {
+            $filterServiceWeek = "[".$row->DineIn.", ".$row->Delivery.", ".$row->PickUp.", ".$row->Booking."]";
+        }
+
+        $serviceMonth = DB::select(DB::raw("Select count(CASE WHEN O_Type = 'dineIn' then 1 end) as DineIn, count(CASE WHEN O_Type = 'delivery' then 1 end) as Delivery, count(CASE WHEN O_Type = 'pickUp' then 1 end) as PickUp, count(CASE WHEN O_Type = 'booking' then 1 end) as Booking
+        FROM customer_order 
+        where created_at between date_sub(now(),INTERVAL 2 MONTH) and now();"));
+        foreach ($serviceMonth as $row) {
+            $filterServiceMonth = "[".$row->DineIn.", ".$row->Delivery.", ".$row->PickUp.", ".$row->Booking."]";
+        }
+
+        $serviceYear = DB::select(DB::raw("Select count(CASE WHEN O_Type = 'dineIn' then 1 end) as DineIn, count(CASE WHEN O_Type = 'delivery' then 1 end) as Delivery, count(CASE WHEN O_Type = 'pickUp' then 1 end) as PickUp, count(CASE WHEN O_Type = 'booking' then 1 end) as Booking
+        FROM customer_order
+        where created_at between date_sub(now(),INTERVAL 1 Year) and now();"));
+        foreach ($serviceYear as $row) {
+            $filterServiceYear = "[".$row->DineIn.", ".$row->Delivery.", ".$row->PickUp.", ".$row->Booking."]";
+        }
+
         // dd($orderService);
-
-
 
         $sales = DB::select(DB::raw("SELECT 
         Sum(CASE WHEN MONTH(created_at) = 1 THEN O_Total_Price END) AS January,
@@ -43,6 +80,7 @@ class OrderTrendsController extends Controller
             $salesChart = "[".$row->January.", ".$row->February.", ".$row->March.", ".$row->April.", ".$row->May.", ".$row->June.", ".$row->July.", ".$row->August.", ".$row->September.", ".$row->October.", ".$row->November.", ".$row->December."]";
 
         }
+
 
         $popular = DB::select(DB::raw("SELECT product.P_Image, product.P_Name, product.P_Id, SUM(order_product.Order_Quantity) as P_Qty, product.P_Price
         FROM order_product,product
@@ -72,7 +110,7 @@ class OrderTrendsController extends Controller
          ORDER BY 2 Desc;
         "));
         foreach($category as $row){
-            $data.= "[".$row->Category.", ".$row->Total."]";
+            $data.= "['".$row->Category."', ".$row->Total."],";
         }
         $categoryChart = $data;
 
@@ -82,6 +120,19 @@ class OrderTrendsController extends Controller
         // dd($chartProductCategory);
         // dd($categoryChart);
 
-        return view('reports.order_trends', compact('orderPayment', 'orderService', 'salesChart','popular', 'least','categoryChart'));
+        return view('reports.order_trends', compact(
+            'orderPayment',
+            'orderService', 
+            'salesChart',
+            'popular', 
+            'least',
+            'categoryChart',
+            'filterpaymentWeek',
+            'filterpaymentMonth',
+            'filterpaymentYear',
+            'filterServiceWeek',
+            'filterServiceMonth',
+            'filterServiceYear'
+        ));
     }
 }
