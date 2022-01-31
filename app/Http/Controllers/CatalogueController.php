@@ -29,10 +29,14 @@ class CatalogueController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->get('search');
         $category = DB::table('product_category')->get();
-        $posts = DB::table('product')->where('P_Name', 'like', '%' . $search . '%')->get();
-        return view('layouts.catalogue', ['products' => $posts])->with('category', $category);
+        if($request->has('search')){
+            $product = \App\Models\Product::where('P_Name', 'LIKE', '%' .$request->search.'%')->get();
+         
+     }else {
+            $product = \App\Models\Product::all();
+     }
+        return view('layouts.catalogue', ['products' => $product])->with('category', $category);
     }
     /**
      * Show the form for creating a new resource.

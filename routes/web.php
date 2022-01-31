@@ -139,9 +139,9 @@ Route::get('/dashboard', function () {
     return view('layouts.index');
 });
 
-Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
-
-Route::get('/searchBooking', 'App\Http\Controllers\OrderController@search');
+Route::get('/searchProduct', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/searchTracking', 'App\Http\Controllers\OrderController@search');
+Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
 // Route::get('catalogues/create', [CatalogueController::class, 'add']);
@@ -153,6 +153,8 @@ Route::resource('/shopInfo', ShopController::class);
 Route::resource('/businesshour', BusinessHourController::class);
 
 Route::resource('/order', OrderController::class);
+Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
+Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/feedback', FeedbackController::class);
 
@@ -171,12 +173,9 @@ Route::get('/order_trends', [OrderTrendsController::class, 'analytics']);
 // Report wani dah ubah route 
 
 Route::resource('/seatmap', SeatMapController::class);
+Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
-Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
-
-Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
-Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/promotion', PromotionController::class);
 

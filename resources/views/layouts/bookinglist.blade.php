@@ -56,6 +56,7 @@
                                         <table class="table">
                                             <thead class="text-uppercase bg-light">
                                                 <tr>
+                                                    <th scope="col">Tracking No</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Time</th>
                                                     <th scope="col">Name</th>
@@ -74,6 +75,7 @@
                                             @foreach ($list as $bookings)
                                                 <tbody>
                                                     <tr>
+                                                        <td>{{ $bookings->Tracking_No }}</td>
                                                         <td>
                                                             @php
                                                                 $date = Carbon::parse($bookings->Datetime)->format('d-m-Y');
