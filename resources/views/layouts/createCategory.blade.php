@@ -66,8 +66,8 @@
                                             </form>
                                             <div class="col-12 mt-5">
                                             <table class="table text-center">
-                                                <thead class="text-uppercase bg-primary">
-                                                    <tr class="text-white">
+                                                <thead class="text-uppercase bg-light">
+                                                    <tr>
                                                         <th scope="col">Category Name</th>
                                                         <th scope="col">Action</th>
                                                     </tr>

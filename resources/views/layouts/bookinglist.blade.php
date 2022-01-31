@@ -42,7 +42,7 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="col-md-4">
-                                <form action="/search" method="get">
+                                <form action="/searchBooking" method="get">
                                     <div class="input-group">
                                         <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                         <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
@@ -54,8 +54,8 @@
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
+                                            <thead class="text-uppercase bg-light">
+                                                <tr>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Time</th>
                                                     <th scope="col">Name</th>

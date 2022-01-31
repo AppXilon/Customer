@@ -28,12 +28,12 @@
                         @if($item->O_Status == '1')
                         <div class="col-md-12">
                             <a href="{{ url('invoice-order/' . $item->id) }}"><div class="pull-right"><label class="label label-warning">Print Invoice</label></div></a>
-                            
+                            <div class="pull-right"><label class="label label-success mr-2">Completed</label></div>
                             <div class="pull-right"><label class="label label-success mr-2">Completed</label></div>
                             @if($item->O_Type == 'dineIn')
                             <div class="pull-right"><label class="label label-primary mr-2">Dine In</label></div>
                             @elseif($item->O_Type == 'booking')
-                            <div class="pull-right"><label class="label label-warning mr-2">Booking</label></div>
+                            <div class="pull-right"><label class="label mr-2" style="background-color: pink;">Booking</label></div>
                             @elseif($item->O_Type == 'pickUp')
                             <div class="pull-right"><label class="label label-info mr-2">Pick Up</label></div>
                             @else
@@ -49,7 +49,7 @@
                             @if($item->O_Type == 'dineIn')
                             <div class="pull-right"><label class="label label-warning mr-2">Dine In</label></div>
                             @elseif($item->O_Type == 'booking')
-                            <div class="pull-right"><label class="label label-warning mr-2">Booking</label></div>
+                            <div class="pull-right"><label class="label mr-2" style="background-color: pink;">Booking</label></div>
                             @elseif($item->O_Type == 'pickUp')
                             <div class="pull-right"><label class="label label-warning mr-2">Pick Up</label></div>
                             @else
