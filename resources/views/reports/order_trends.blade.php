@@ -48,8 +48,18 @@
 
                         {{-- ordering trends details start --}}
                         <div class="col-xl-6 col-xxl-5 d-flex">
-                            <div class="w-100">
 
+                            <div class="card flex-fill w-100">
+                                <div class="s-report-title d-flex justify-content-between"
+                                    style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0" style="padding:0px">Top Category Products</h4>
+
+                                </div>
+                                <div class="card-body py-3">
+                                    <div class="chart chart-sm">
+                                        <canvas id="categoryBarChart" height="270"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -242,7 +252,7 @@
         // sales performance line chart
 
         <script>
-            var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var yValues = <?php echo $salesChart; ?>;
         var ctx = document.getElementById("myChart").getContext("2d");   
         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
@@ -376,8 +386,60 @@
                 
             }
             });
-            </script>
-
+        </script>
+        <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Bar chart
+			new Chart(document.getElementById("categoryBarChart"), {
+				type: "bar",
+				data: {
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "Last year",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor: window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}, {
+						label: "This year",
+						backgroundColor: "#dee2e6",
+						borderColor: "#dee2e6",
+						hoverBackgroundColor: "#dee2e6",
+						hoverBorderColor: "#dee2e6",
+						data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							gridLines: {
+								display: false
+							},
+							stacked: false,
+							ticks: {
+								stepSize: 20
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							gridLines: {
+								color: "transparent"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
 
 
 </body>

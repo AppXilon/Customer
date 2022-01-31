@@ -57,11 +57,28 @@ class OrderTrendsController extends Controller
         GROUP BY product.P_Id, product.P_Name, product.P_Price, product.P_Image
         ORDER BY SUM(order_product.Order_Quantity) ASC
         LIMIT 5;"));
-        
+
+        // top category bar chart
+
+
+        $category = DB::select(DB::raw("SELECT C.P_Cat_Name as Category, Sum(B.Order_Quantity) as Total 
+        FROM product A
+        INNER JOIN order_product B
+          ON (B.P_Id = A.P_Id)
+        INNER JOIN product_category C
+          ON (C.P_Cat_Id = A.Cat_Id)
+         GROUP BY P_Cat_Name
+         ORDER BY 2 Desc;
+        "));
+        foreach($category as $row){
+            $categoryChart = "[".$row->Category.", ".$row->Total."]";
+
+        }
 
     
         // dd($popular);
+        // dd($chartProductCategory);
 
-        return view('reports.order_trends', compact('orderPayment', 'orderService', 'salesChart','popular', 'least'));
+        return view('reports.order_trends', compact('orderPayment', 'orderService', 'salesChart','popular', 'least','categoryChart'));
     }
 }
