@@ -114,7 +114,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="example-text-input" class="col-form-label">Availability:</label><br>
+                                            <label for="example-text-input"
+                                                class="col-form-label">Availability:</label><br>
                                             <label class="switch">
                                                 <input type="hidden" value="0" name="P_Status">
                                                 <input value="1" type="checkbox" name="P_Status"
@@ -123,8 +124,13 @@
                                             </label>
                                         </div>
                                         <label for="validationCustomUsername">Image:</label><br>
-                                        <input type="file" name="P_Image" value="{{ $product->P_Image }}"
-                                            required><br>
+                                        <div class="mb-3"> 
+                                        @if ($product->P_Image)
+                                            <img src="{{ asset('images/' . $product->P_Image) }}"
+                                                width="200" height="200" alt="Product image">
+                                        @endif
+                                        </div>
+                                        <input type="file" name="P_Image"><br>
                                         <div class="form-group">
                                         </div>
                                         <label for="example-text-input" class="col-form-label">Category:</label><br>
@@ -132,7 +138,8 @@
                                             <div class="col-md-4 mb-3">
                                                 {{-- {{dd($product->category)}} --}}
                                                 <select class="form-control" name="Cat_Id" style="height:50px">
-                                                    <option value="{{ $product->category->P_Cat_Id }}">{{$product->category->P_Cat_Name}}</option>
+                                                    <option value="{{ $product->category->P_Cat_Id }}">
+                                                        {{ $product->category->P_Cat_Name }}</option>
                                                     @foreach ($categories as $product_category)
                                                         <option value="{{ $product_category->P_Cat_Id }}">
                                                             {{ $product_category->P_Cat_Name }}</option>

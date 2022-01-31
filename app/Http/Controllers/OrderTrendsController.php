@@ -14,6 +14,15 @@ class OrderTrendsController extends Controller
             $orderPayment = "[".$row->Cash.", ".$row->Paypal."]";
         }
 
+        $service = DB::select(DB::raw("Select count(CASE WHEN O_Type = 'dineIn' then 1 end) as DineIn, count(CASE WHEN O_Type = 'delivery' then 1 end) as Delivery, count(CASE WHEN O_Type = 'pickUp' then 1 end) as PickUp, count(CASE WHEN O_Type = 'booking' then 1 end) as Booking
+        FROM customer_order;"));
+        foreach($service as $row){
+            $orderService = "[".$row->DineIn.", ".$row->Delivery.", ".$row->PickUp.", ".$row->Booking."]";
+        }
+
+        // dd($orderService);
+
+
 
         $sales = DB::select(DB::raw("SELECT 
         Sum(CASE WHEN MONTH(created_at) = 1 THEN O_Total_Price END) AS January,
@@ -53,6 +62,6 @@ class OrderTrendsController extends Controller
     
         // dd($popular);
 
-        return view('reports.order_trends', compact('orderPayment', 'salesChart','popular', 'least'));
+        return view('reports.order_trends', compact('orderPayment', 'orderService', 'salesChart','popular', 'least'));
     }
 }
