@@ -7,8 +7,8 @@
                             <div class="col-md-6">
                                 <div class="footer-contact">
                                     <h2>Our Address</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, KL, Malaysia</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                    <p><i class="fas fa-map-marker-alt"></i>123 Street, KL, Malaysia</p>
+                                    <p><i class="fa fa-phone"></i>+012 345 67890</p>
                                     <p><i class="fa fa-envelope"></i>appxilon@example.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
@@ -25,8 +25,7 @@
                                     <a href="tnc">Terms of use</a>
                                     <a href="">Chatbot</a>
                                     <a href="/faq_customer">FAQs</a>
-                                    <a href="">About</a>
-                                    <a href="">Features</a>
+                                    <a href="about">About</a>
 
 
                                 </div>
@@ -50,7 +49,7 @@
             <div class="copyright">
                 <div class="container">
                     <p>Copyright &copy; <a href="#">AppXilon Online Dynamic Ordering</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">Apexs</a></p>
+                    <p>Designed By <a href="#">The Growing Developer</a></p>
                 </div>
             </div>
         </div>

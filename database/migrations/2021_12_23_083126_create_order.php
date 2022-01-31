@@ -30,6 +30,8 @@ class CreateOrder extends Migration
             $table->string('O_Payment');
             $table->string('O_Payment_No')->nullable();
             $table->dateTime('Datetime')->nullable();
+            $table->string('Book_Date')->nullable();
+            $table->string('Book_Time')->nullable();
             $table->integer('T_Pax')->nullable();
             $table->double('O_Total_Price');
             $table->string('O_Type')->nullable();

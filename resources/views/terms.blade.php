@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Page Header Start -->
-<div class="page-header mb-0">
+<div class="page-header-partner mb-0">
     <div class="container">
         <div class="row">
             <div class="col-12">

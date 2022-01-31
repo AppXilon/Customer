@@ -25,7 +25,7 @@
             <p></p>
             <p></p>
             <h2>Delicious Food Menu {{$order}}</h2>
-            <h2>Delicious Food Menu {{$booktable}}</h2>
+            <h2>Delicious Food Menu {{$booktime}}</h2>
         </div>
         <div class="menu-tab product_data">
             
