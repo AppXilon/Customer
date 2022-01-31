@@ -4,41 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawStuff);
-  
-        function drawStuff() {
-          var data = new google.visualization.arrayToDataTable([
-            ['Customer', 'Total Spend (RM)'],
-            <?php echo $topSpendCustomer; ?>
-          ]);
-  
-          var options = {
-            title: 'Top 5 Most Total Spend by Customer ',
-            chartArea: {
-                width: '80%'
-            },
-            hAxis: {
-                title: 'Total Spend (RM)',
-                minValue: 0,
-                maxValue: 45        
-            },
-            vAxis: {
-                title: 'Customer Name'
-            },
-           
-            legend: { position: 'none' },
-            
-            bars: 'horizontal', // Required for Material Bar Charts.
-            
-            bar: { groupWidth: "90%" }
-          };
-  
-          var chart = new google.charts.Bar(document.getElementById('spendCust'));
-          chart.draw(data, options);
-        };
-      </script>
+    
 </head>
 
 <body>
@@ -91,7 +57,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Total Customer</h5>
+														<h5 class="header-title mb-0">Total Customer</h5>
 													</div>
 
 													<div class="col-auto">
@@ -111,7 +77,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Today's Customer</h5>
+														<h5 class="header-title mb-0">Today's Customer</h5>
 													</div>
 
 													<div class="col-auto">
@@ -133,7 +99,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">New Cuctomer</h5>
+														<h5 class="header-title mb-0">New Cuctomer</h5>
 													</div>
 
 													<div class="col-auto">
@@ -153,7 +119,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Repeated Customer</h5>
+														<h5 class="header-title mb-0">Repeated Customer</h5>
 													</div>
 
 													<div class="col-auto">
@@ -202,18 +168,16 @@
 						<div class="col-12 col-lg-6 col-xxl-6 d-flex">
 							<div class="card flex-fill">
 								<div class="s-report-title d-flex justify-content-between" style="padding:25px 25px 0px 25px">
-                                    <h4 class="header-title mb-0">Top 5 Spender Customer</h4>
+                                    {{-- <h4 class="header-title mb-0">Top 5 Spender Customer</h4> --}}
+                                    <select class="header-title mb-0" style="padding:6px; border:0;" onchange="drawStuff()" id="dataCustomerRank">
+                                        <option value="0" selected="">Top Spender Customer</option>
+                                        <option value="1">Top Frequent Customer</option>
+                                    </select>
                                     
                                 </div>
 								<div class="card-body d-flex">
-									<div class="align-self-center w-100" style="padding:10px">
-										
-											
-                                        <div id="spendCust" style="height: 300px"></div>
-											
-										
-
-										
+									<div class="align-self-center w-100" style="padding:10px">	
+                                        <div id="spendCust" style="height: 270px"></div>
 									</div>
 								</div>
 							</div>
@@ -294,7 +258,7 @@
 
 
 
-                    <!-- customer breakdown area start -->
+                    {{-- customer breakdown area start --}}
                     <div class="sales-report-area sales-style-two" style="padding: 0px 25px 25px 25px">
                         <div class="row">
                             <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
@@ -368,26 +332,26 @@
 
                         </div>
                     </div>
-                    <!-- customer breakdown area end -->
+                    {{-- customer breakdown area end --}}
 
 
 
                 </div>
             </div>
         </div>
-        <!-- main content area end -->
-        <!-- footer area start-->
+        {{-- main content area end --}}
+        {{-- footer area start--}}
         @include('include.footer')
-        <!-- footer area end-->
+        {{-- footer area end--}}
     </div>
-    <!-- page container area end -->
-    <!-- offset area start -->
+    {{-- page container area end --}}
+    {{-- offset area start --}}
     @include('include.offset')
-    <!-- offset area end -->
+    {{-- offset area end --}}
 
     @include('include.script')
 
-    <!-- barchart customer segmentation -->
+    {{-- barchart customer segmentation --}}
     <script>
         var horizontalBarChart = new Chart("cust_segmentation", {
            type: 'horizontalBar',
@@ -520,13 +484,60 @@
         }
     </script>
 
-    //{{-- end sentiment analysis pie chart --}}
+    // <!-- end sentiment analysis pie chart -->
 
-    
+    // <!-- bar chart from google -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+  
+        function drawStuff() {
 
-    
+            if (document.getElementById("dataCustomerRank").value == 0) {
+                var data = new google.visualization.arrayToDataTable([
+                                            ['Customer', 'Total Spend (RM)'],
+                                            <?php echo $topSpendCustomer; ?>
+                                        ]);
+                
+            }
+            else if (document.getElementById("dataCustomerRank").value == 1) {
+                var data = new google.visualization.arrayToDataTable([
+                                            ['Customer', 'Total Order '],
+                                            <?php echo $topFrequentCustomer; ?>
+                                        ]);
+               
+            }
+  
+          var options = {
+            title: 'Top 5 Most Total Spend by Customer ',
+            chartArea: {
+                width: '70%'
+            },
+            colors: ['#D7E3F4'],
+            hAxis: {
+                title: 'Total Spend (RM)',
+                minValue: 0,
+                       
+            },
+            vAxis: {
+                title: 'Customer Name'
+            },
+           
+            legend: { position: 'none' },
+            
+            bars: 'horizontal', // Required for Material Bar Charts.
+            
+            bar: { groupWidth: "80%" }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('spendCust'));
+          chart.draw(data, options);
+        };
 
-    
+        
+    </script>
+    //<!-- end bar chart from google -->
+
 
     // <!-- customer by gender -->
        
@@ -589,9 +600,6 @@
         }
     </script>
 
-
-
-    
     // <!-- customer by age -->
     <script>
         var xValues = ["<30 y/o", ">30 y/o"];
@@ -706,12 +714,12 @@
             }
     </script>
 
-    // customer line chart 
+    //<!-- customer line chart -->
     
     <script>
         
         var xValues = ["June '21", "Jul '21", "Aug '21", "Sept '21", "Oct '21", "Nov '21", "Dec '21", "Jan '22"];
-        var yValues = [2, 3, 5, 6, 4, 7, 8, 10];
+        var yValues = <?php echo $customerChart; ?>;
         var ctx = document.getElementById("customerChart").getContext("2d");   
         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
 		gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
