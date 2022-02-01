@@ -65,6 +65,10 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('checkout_complete', function () {
+    return view('checkout_complete');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
@@ -94,6 +98,8 @@ Route::get('checkout_shipping', [CheckoutController:: class, 'orderDetails']) ;
 Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
 
 Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
+
+Route::get('checkout_complete', [CheckoutController:: class, 'checkoutstripe']) ;
 
 Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 
