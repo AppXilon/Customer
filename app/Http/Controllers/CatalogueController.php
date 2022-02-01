@@ -88,20 +88,14 @@ class CatalogueController extends Controller
         // Add features
         $product->features = $request->input('features');
 
-        $product->save();
-        // Product::create([
-        //     'Cat_Id' => $request->input('Cat_Id'),
-        //     'P_Name' => $request->input('P_Name'),
-        //     'P_Price' => $request->input('P_Price'),
-        //     'P_Disc_Price' => $request->input('P_Disc_Price'),
-        //     'S_Description' => $request->input('S_Description'),
-        //     'L_Description' => $request->input('L_Description'),
-        //     'P_Duration' => $request->input('P_Duration'),
-        //     'P_Image' => $newImageName,
-        //     'P_Quantity' => $request->input('P_Quantity'),
-        //     'P_Status' => $request->input('P_Status'),
 
-        // ]);
+ 
+
+  
+
+
+        $product->save();
+       
 
         return redirect()->route('catalogues.index');
     }

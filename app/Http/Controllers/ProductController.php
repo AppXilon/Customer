@@ -16,35 +16,39 @@ class ProductController extends Controller
         $cart=DB::table('cart')->get();
         $order=$req->otype;
         $bookdate=$req->bookdate;
-        $bookpax=$req->bookpax;
         $booktime=$req->booktime;
+        $bookpax=$req->bookpax;
         $booktable=$req->booktable;
 
-        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order)->with('bookdate', $bookdate)->with('bookpax', $bookpax)->with('booktable', $booktable)->with('booktime', $booktime);
+        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktime', $booktime)->with('bookpax', $bookpax)->with('booktable', $booktable);
+
     }
     function detail($P_Id)
     {
         $detail = Product::find($P_Id);
 
         //Product Similarity Controller
-        $products        = json_decode(file_get_contents(storage_path('data/product.json')));
+        $products        = json_decode(file_get_contents(storage_path('data/product-3.json')));
         // $products1 = json_encode($products);
         // dd($products1);
 
-        $selectedId      = intval(app('request')->input('P_Id') ?? '8');
-        $selectedProduct = $products[0];
+        $selectedId      = intval(app('request')->input('P_Id') ?? '1');
+        $selectedProduct = $products[$P_Id];
     
         $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->P_Id === $selectedId; });
         if (count($selectedProducts)) {
-            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
+            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[$P_Id]];
         }
     
         $productSimilarity = new ProductSimilarity($products);
         $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
     
-        // return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
-        dd($products);
+        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
+        // dd($products);
+        // dd($selectedId);
+        // dd($selectedProduct);
+        // dd($similarityMatrix);
     }
     function search(Request $req)
     {
