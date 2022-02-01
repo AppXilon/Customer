@@ -108,23 +108,23 @@
                                         </div>
 
                                         {{-- Add Features Attributes FORM --}}
-                                        @foreach ($i=0; $i <= 4; $i++)
-                                        <div class="form-row">
+                                        @for ($i=0; $i <= 4; $i++) <div class="form-row">
 
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustomUsername">Features</label>
                                                 <input type="text" class="form-control" id="validationCustomUsername"
                                                     placeholder="Key" aria-describedby="inputGroupPrepend"
-                                                    name="features[{{ $i }}][key]">
+                                                    name="features[{{ $i }}][0]">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustomUsername"> Products Attributes</label>
                                                 <input type="text" class="form-control" id="validationCustomUsername"
                                                     placeholder="Value" aria-describedby="inputGroupPrepend"
-                                                    name="features[{{ $i }}][value]">
+                                                    name="features[{{ $i }}][1]">
                                             </div>
-                                         </div>
-                                         @endfor
+
+                                        </div>
+                                        @endfor
 
 
 

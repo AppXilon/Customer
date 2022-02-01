@@ -55,7 +55,8 @@
                                             <thead class="text-uppercase bg-light">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">Customer ID</th>
+                                                    <th scope="col">Customer Name</th>
+                                                    <th scope="col">Product Name</th>
                                                     <th scope="col">Rating</th>
                                                     <th scope="col">Comment</th>
                                                     <th scope="col">Sentiment</th>
@@ -65,10 +66,11 @@
 
                                                 </tr>
                                             </thead>
-                                            @foreach ($Feedback as $feedback)
+                                            @foreach ($feedback as $feedback)
                                                 <tbody>
                                                     <td>{{ $feedback->Review_Id }}</td>
-                                                    <td>{{ $feedback->P_Id}}</td>
+                                                    <td>{{ $feedback->C_Name}}</td>
+                                                    <td>{{ $feedback->P_Name}}</td>
                                                     <td>{{ $feedback->R_Rating}}</td>
 
                                                     <td>{{ $feedback->R_Comment}}</td>
