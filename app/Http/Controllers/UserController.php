@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Models\Manager;
+use App\Models\Shop;
 
 class UserController extends Controller
 {
@@ -15,9 +16,18 @@ class UserController extends Controller
         $user = DB::table('users')->count();
         $manager = DB::table('manager')->count();
         $total = $user + $manager;
-        $order = Manager::where('Manager_Id' )->where('user_id', Auth::id())->first();
-
-        return view('admin-layouts.base')->with('total',$total);
+        $shop = Manager::where('isBanned', 2)->get();
+        $shopCount = $shop->count();
+        $bancust = Customer::where('isBanned', 1)->get();
+        $banman = Manager::where('isBanned', 1)->get();
+        $custCount = $bancust->count();
+        $manCount = $banman->count();
+        $banuser = $custCount + $manCount;
+        //$order = Manager::where('Manager_Id' )->where('user_id', Auth::id())->first();
+        //$wordlist = Wordlist::where('id', '<=', $correctedComparisons)->get();
+        //$wordCount = $wordlist->count();
+        return view('admin-layouts.base')->with('total',$total)->with('shop',$shopCount)->with('ban',$banuser)
+        ->with('pending',$shop);
     }
 
     public function invoice($id)

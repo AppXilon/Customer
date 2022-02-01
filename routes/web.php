@@ -38,6 +38,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailController;
 
 
 /*
@@ -258,7 +259,7 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
+Route::get('/send-email', [EmailController::class,'sendNotification']);
 
 
 

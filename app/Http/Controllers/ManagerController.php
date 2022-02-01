@@ -38,6 +38,8 @@ class ManagerController extends Controller
         $manager->State=$request->input('State');
         $manager->Ban='2';
         $manager->Reason='null';
+        $manager->created_at=Carbon::now();
+        $manager->updated_at=Carbon::now();;
         $manager->save();
 
         return redirect()->route('')
