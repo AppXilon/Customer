@@ -96,12 +96,13 @@ class CheckoutController extends Controller
         $order->T_Pax = $bookpax;
         $order->O_Total_Price = $total;
         $order->save();
-      
-        $user = $req->input('O_Email');
-      
-      $orderData =[
+
+        $name = $req->input('O_Name');
+        $user = User::where('name', $name)->get();
+        
+        $orderData =[
             'body' => 'You Have made an order in AppXilon',
-            'orderText' => 'Total:'.$total.' order in AppXilon',
+            'orderText' => 'Total: RM'.$total.' in AppXilon',
             'url' => url('/'),
             'thankyou' => 'Thank You For Ordering With AppXilon'
         ];

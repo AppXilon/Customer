@@ -40,7 +40,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\ShopCategoryController;
 
 
 /*
@@ -258,6 +258,7 @@ Route::resource('biz_hour', HourController::class);
 
 Route::resource('/ban_user', BanController::class);
 Route::resource('/shop', ShopAdminController::class);
+Route::resource('/shopcategory', ShopCategoryController::class);
 Route::resource('/term', TermController::class);
 Route::resource('/customer', CustomerController::class);
 Route::resource('/manager', ManagerController::class);
@@ -271,10 +272,6 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-Route::get('/send-email', [EmailController::class,'sendNotification']);
-
-
-//Auth
 Route::get('manager_login', function () {
     return view('auth/manager/login');
 });
