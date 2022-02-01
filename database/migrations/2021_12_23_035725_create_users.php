@@ -23,8 +23,6 @@ class CreateUsers extends Migration
             $table->string('race') ->nullable();
             $table->string('marital') ->nullable();
             $table->string('gender') ->nullable();
-            $table->string('race') ->nullable();
-            $table->string('marital') ->nullable();
             $table->date('birthdate')->nullable();
             $table->string('email');
             $table->string('street_1')->nullable();
@@ -32,7 +30,6 @@ class CreateUsers extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->timestamp('Email_Verified_At')->nullable();
-            $table->string('ban')->nullable();
             $table->string('reason')->nullable();
             $table->rememberToken();
             $table->timestamps();
