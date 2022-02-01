@@ -29,8 +29,7 @@
                 <form method = "GET" action="checkout_shipping">
                         <div class="product-details">
                             <h4><strong>{{$item->P_Name}}</strong></h4>
-                            <p><strong>{{$item->S_Description}}</strong></p>
-                            <p><strong>{{$item->Order_Type}}</strong></p>
+                            <p>{{$item->S_Description}}</p>
                             @if($item->Order_Type == 'booking')
                                 <p><strong>Table No: {{$item->BookTable}}</strong></p>
                             @endif
@@ -56,7 +55,7 @@
                 </div>
                     @endforeach
                     <label for="extra">Notes</label>
-                    <input id="promo-code" type="text" name="extranotes" value="nothing" class="notes">
+                    <input id="extranotes" type="text" name="extranotes" placeholder="extra request" class="notes">
 
                 <div class="pricing">
                     <div class="basket-labels">

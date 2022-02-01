@@ -70,13 +70,20 @@ class ProductController extends Controller
         $detail = Product::find($P_Id);
 
         //Product Similarity Controller
-        $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
-        $selectedId      = intval(app('request')->input('id') ?? '8');
+        $products        = json_decode(file_get_contents(storage_path('data/product.json')));
+        // $products1 = json_encode($products);
+        // dd($products1);
+
+        $selectedId      = intval(app('request')->input('P_Id') ?? '8');
         $selectedProduct = $products[0];
 
         $selectedProducts = array_filter($products, function ($product) use ($selectedId) {
             return $product->id === $selectedId;
         });
+
+    
+        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->P_Id === $selectedId; });
+
         if (count($selectedProducts)) {
             $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
         }
@@ -86,6 +93,10 @@ class ProductController extends Controller
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
 
         return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
+
+    
+        // return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
+//         dd($products);
     }
     function search(Request $req)
     {
