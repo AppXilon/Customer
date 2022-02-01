@@ -113,6 +113,31 @@
                                                     aria-describedby="inputGroupPrepend" name="P_Quantity">
                                             </div>
                                         </div>
+
+
+                                        {{-- Add Features Attributes FORM --}}
+                                        @for ($i=0; $i <= 4; $i++)
+
+                                        <div class="form-row">
+
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustomUsername">Features</label>
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    placeholder="Key" aria-describedby="inputGroupPrepend"
+                                                    name="features[{{ $i }}][key]">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustomUsername">                Products Attributes</label>
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    placeholder="Value" aria-describedby="inputGroupPrepend"
+                                                    name="features[{{ $i }}][value]">
+                                            </div>
+
+                                        </div>
+                                        @endfor
+                                        {{-- END --}}
+
+
                                         <div class="form-group">
                                             <label for="example-text-input"
                                                 class="col-form-label">Availability:</label><br>

@@ -10,6 +10,9 @@ class Order extends Model
 {
     use HasFactory;
     public $table = "customer_order";
+
+
+
     public $fillable = [
         'User_Id',
         'T_Id',
@@ -40,4 +43,6 @@ class Order extends Model
     {
         return $this->hasMany(OrderProduct::class,'Order_Id','id');
     }
+
+
 }
