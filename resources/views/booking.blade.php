@@ -46,10 +46,25 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="control-group">
-                                <div class="input-group time" id="time" data-target-input="nearest">
-                                    <input type="text" name="booktime" value="booktime" id="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
-                                    <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                                <div class="input-group">
+                                    <select name="booktime" class="custom-select form-control">
+                                        <option selected>Book Time</option>
+                                        <option value="0900">0900</option>
+                                        <option value="1000">1000</option>
+                                        <option value="1100">1100</option>
+                                        <option value="1200">1200</option>
+                                        <option value="1300">1300</option>
+                                        <option value="1400">1400</option>
+                                        <option value="1500">1500</option>
+                                        <option value="1600">1600</option>
+                                        <option value="1700">1700</option>
+                                        <option value="1800">1800</option>
+                                        <option value="1900">1900</option>
+                                        <option value="2000">2000</option>
+                                    </select>
+                                    <div class="input-group-append">
                                         <div class="input-group-text"><i class="far fa-clock"></i></div>
                                     </div>
                                 </div>
@@ -58,16 +73,14 @@
                                 <div class="input-group">
                                     <select name="bookpax" class="custom-select form-control">
                                         <option selected>Pax</option>
-                                        <option value="1">1 Pax</option>
-                                        <option value="2">2 Pax</option>
-                                        <option value="3">3 Pax</option>
-                                        <option value="4">4 Pax</option>
-                                        <option value="5">5 Pax</option>
-                                        <option value="6">6 Pax</option>
-                                        <option value="7">7 Pax</option>
-                                        <option value="8">8 Pax</option>
-                                        <option value="9">9 Pax</option>
-                                        <option value="10">10 Pax</option>
+                                        <option value="1">1 pax</option>
+                                        <option value="2">2 pax</option>
+                                        <option value="3">3 pax</option>
+                                        <option value="4">4 pax</option>
+                                        <option value="5">5 pax</option>
+                                        <option value="6">6 pax</option>
+                                        <option value="7">7 pax</option>
+                                        <option value="8">8 pax</option>
                                     </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
@@ -102,14 +115,3 @@
         <!-- Booking End -->
 @endsection
 
-@section('scripts')
-
-{{-- <script>
-    $("#hr option").each(function() {
-        if (hour > $(this).val())
-            $(this).prop("disabled", true);
-
-    });
-</script> --}}
-
-@endsection

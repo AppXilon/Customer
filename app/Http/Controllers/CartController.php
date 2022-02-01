@@ -53,7 +53,12 @@ class CartController extends Controller
         ->select('product.*','cart.*','cart.id as cart_id')
         ->get();
 
-        return view('cartlist', compact('product'));
+        $orType = DB::select(DB::raw("SELECT Order_Type FROM cart LIMIT 1;"));
+        foreach ($orType as $row) {
+            $orderType = "$row->Order_Type";
+        }
+
+        return view('cartlist', compact('product', 'orderType'));
     }
     function removeCart($id)
     {

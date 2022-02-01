@@ -16,12 +16,11 @@ class ProductController extends Controller
         $cart=DB::table('cart')->get();
         $order=$req->otype;
         $bookdate=$req->bookdate;
-        $booktime=$req->booktime;
         $bookpax=$req->bookpax;
+        $booktime=$req->booktime;
         $booktable=$req->booktable;
 
-        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktime', $booktime)->with('bookpax', $bookpax)->with('booktable', $booktable);
-
+        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order)->with('bookdate', $bookdate)->with('bookpax', $bookpax)->with('booktable', $booktable)->with('booktime', $booktime);
     }
     function detail($P_Id)
     {
