@@ -76,13 +76,6 @@ class Product extends Model
     {
     	return $this->hasOne(Product_Category::class, 'P_Cat_Id', 'Cat_Id');
     }
-    public function productReview()
-    {
-        return $this->hasMany(review::class);
-    }
-
-
-
 
 }
 

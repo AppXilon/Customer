@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductSimilarity;
@@ -15,6 +16,8 @@ class ProductController extends Controller
 {
     function index(Request $req)
     {
+
+
         $booking = DB::table('customer_order')->get();
         $products = DB::table('product')->get();
         $category = DB::table('product_category')->get();
@@ -23,10 +26,12 @@ class ProductController extends Controller
         $bookdate = $req->bookdate;
         $booktime = $req->booktime;
         $booktable = $req->booktable;
+        $promotion=Promotion::all();
 
 
 
-        return view('catalogue')->with('products', $products)->with('category', $category)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime);
+
+        return view('catalogue')->with('products', $products)->with('category', $category)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime)->with('promotionBanner',$promotion);
     }
 
     public function catalogueBooking(Request $req)
@@ -68,6 +73,8 @@ class ProductController extends Controller
     function detail($P_Id)
     {
         $detail = Product::find($P_Id);
+        $users=DB::table('users')->get();
+        $review=Review::where('P_Id',$P_Id )->get();
 
         //Product Similarity Controller
         $products        = json_decode(file_get_contents(storage_path('data/product.json')));
@@ -92,11 +99,9 @@ class ProductController extends Controller
         $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
 
-        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
-
     
-        // return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
-//         dd($products);
+        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products', 'review', 'users'));
+
     }
     function search(Request $req)
     {

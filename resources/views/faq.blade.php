@@ -16,12 +16,13 @@
 
             <table class="table table-hover">
 
-                @foreach ($list as $item)
-
+               
                 <tr>
                     <th>Question</th>
                     <th>Anwer</th>
                 </tr>
+                @foreach ($list as $item)
+
                 <tr>
                     <th>{{$item->Faq_Question }}</th>
                     <td>{{$item->Faq_Answer }}</td>

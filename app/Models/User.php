@@ -21,6 +21,22 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'isBanned', 
+        'occupation',
+        'race',
+        'marital',
+        'gender',
+        'birthdate',
+        'street_1',
+        'postcode',
+        'city',
+        'state',
+        'Email_Verified_At',
+        'ban',
+        'reason',
+        'profilepicture',
+        'created_at',
+        'updated_at'
     ];
 
     public static $laracombee = ['name' => 'string'];
@@ -44,8 +60,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     // protected $primaryKey = 'user_id';
-    public function userReview()
-    {
-        return $this->hasMany(review::class);
-    }
+    // public function userReview()
+    // {
+    //     return $this->hasMany(review::class);
+    // }
 }

@@ -21,10 +21,12 @@ class CatalogueController extends Controller
     public function index()
     {
         //
+
         $products = DB::table('product')->get();
         $category = Product_Category::all();
 
         return view('layouts.catalogue')->with('products', $products)->with('category', $category);
+
     }
 
     public function search(Request $request)
