@@ -71,15 +71,31 @@
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="control-group">
-                            <div class="input-group">
-                                <select name="booktable" class="custom-select form-control">
-                                    <option>Choose Table No</option>
-                                    @foreach ($table as $tables)
-                                    @if($tables->T_Status == '1')
-                                    <option value="{{$tables->T_Id}}">{{$tables->T_Id}}</option>
+                            <div class="control-group">
+                                <div class="input-group">
+                                    <select name="booktable" id="table" class="custom-select form-control">
+                                        <option selected>Select Table</option>
+                                        @foreach ($table as $table)
+                                            @if ($table->T_Status == '1')
+                                                <option value="{{ $table->T_Id }}">{{ $table->T_Id }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                    </div>
+                                </div>
+                            </div>                          
+                            <div>
+                                <input type="hidden" id="otype" name="otype" value="{{ $order }}">
+                                <a href="catalogue"><button type="submit" class="btn custom-btn">Choose Menu</button></a>
+                            </div>
+                            <div class="control-group">
+                                <div class="input-group mt-5">
+                                    @if (Session::get('fail'))
+                                        <div class="alert alert-danger" style="text-align:center;">
+                                            {{ Session::get('fail') }}
+                                        </div>
                                     @endif
                                     @endforeach
                                 </select>
