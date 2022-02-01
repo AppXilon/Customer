@@ -24,8 +24,6 @@ if (Auth::check()) {
                 <a href="about" class="nav-item nav-link">About</a>
                 
                 <a href="shop_category" class="nav-item nav-link">Shop</a>
-               
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
 
                 <div class="nav-item dropdown">
                 @if (Auth::check())
@@ -63,12 +61,12 @@ if (Auth::check()) {
                     <form action="/search">
                         <input class="form-control" type="text" name="query" placeholder="Search Keyword">
                 </div>
-                        <button class="btn mt-3"><i class="fa fa-search"></i></button>
+                        <button class="btn mb-3"><i class="fa fa-search"></i></button>
                     </form>
                 
                 <div class="nav-item nav-link">
                     <a href="/cartlist">
-                        <i class="fa fa-shopping-cart" style="font:size 30px"></i>
+                        <i class="fa fa-shopping-cart" style="font:size 30px;text-decoration: none;"></i>
                         <span>{{$total}}</span>
                     </a>
                 </div>
