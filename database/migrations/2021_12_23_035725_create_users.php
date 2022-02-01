@@ -30,7 +30,6 @@ class CreateUsers extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->timestamp('Email_Verified_At')->nullable();
-            $table->string('ban')->nullable();
             $table->string('reason')->nullable();
             $table->rememberToken();
             $table->timestamps();

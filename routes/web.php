@@ -121,6 +121,8 @@ Route::get('/tnc',[TermController::class,'view']);
 
 Route::get('/partner',[ManagerController::class,'partner']);
 
+Route::post('/shopStore',[ShopAdminController::class,'shopStore']);
+
 Route::post('/partnerStore',[ManagerController::class,'partnerStore']);
 
 Route::get('write-review/{P_Id}', [ReviewController:: class, 'addReview']) ;
@@ -254,7 +256,7 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
 
