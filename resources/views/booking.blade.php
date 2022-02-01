@@ -115,14 +115,3 @@
         <!-- Booking End -->
 @endsection
 
-@section('scripts')
-
-{{-- <script>
-    $("#hr option").each(function() {
-        if (hour > $(this).val())
-            $(this).prop("disabled", true);
-
-    });
-</script> --}}
-
-@endsection
