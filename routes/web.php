@@ -37,6 +37,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -60,7 +61,9 @@ Auth::routes();
 Route::get('try', [ReportController:: class, 'index']) ;
 Route::get('sales', [SalesController:: class, 'index']) ;
 
-
+Route::get('about', function () {
+    return view('about');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -97,6 +100,8 @@ Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 Route::get('user/{id}', 'UserController@showProfile'); 
 
 Route::get('order_history', [UserController::class,'orderHistory']);
+
+Route::get('invoice-order/{id}', [UserController::class, 'invoice']);
 
 Route::get('history_detail/{id}', [UserController::class,'viewHistory']);
 
@@ -135,13 +140,15 @@ Route::post('webhook', [CheckoutController::class, 'stripePay']);
 /******* Manager route start *******/
 /*******************************/
 
-Route::get('/dashboard', function () {
-    return view('layouts.index');
-});
 
-Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+
+Route::get('/searchProduct', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/searchTracking', 'App\Http\Controllers\OrderController@search');
+Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
+// Route::get('catalogues/create', [CatalogueController::class, 'add']);
 
 Route::resource('/product_category', Product_CategoryController::class);
 
@@ -150,6 +157,8 @@ Route::resource('/shopInfo', ShopController::class);
 Route::resource('/businesshour', BusinessHourController::class);
 
 Route::resource('/order', OrderController::class);
+Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
+Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/feedback', FeedbackController::class);
 
@@ -157,19 +166,20 @@ Route::resource('/report', ReportTableController::class);
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
-Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']);
+
+Route::get('/customerChart', function () {
+    return view('layouts.customerChart');
+});
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 
 // Report wani dah ubah route 
 
 Route::resource('/seatmap', SeatMapController::class);
+Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
-Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
-
-Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
-Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/promotion', PromotionController::class);
 

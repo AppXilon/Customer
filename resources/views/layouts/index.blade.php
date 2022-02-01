@@ -1,5 +1,51 @@
  @include('include.header')
 
+ <head>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .heading {
+          font-size: 25px;
+          margin-right: 25px;
+        }
+        
+        .checked {
+          color: orange;
+        }
+        
+        /* Three column layout */
+        .side {
+          float: left;
+          width: 15%;
+          margin-top:10px;
+        }
+        
+        .middle {
+          margin-top:10px;
+          float: left;
+          width: 70%;
+        }
+        
+        /* Place text to the right */
+        .right {
+          text-align: right;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        
+        
+        
+    </style>
+ </head>
+
  <body>
 
      <!-- preloader area start -->
@@ -46,19 +92,7 @@
                                      <div class="seo-fact sbg1">
                                          <div class="p-4 d-flex justify-content-between align-items-center">
                                              <div class="seofct-icon">Total Orders</div>
-                                             <h2>10</h2>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
-                             <div class="s-sale-inner pt--30 mb-3">
-                                 <div class="card">
-                                     <div class="seo-fact sbg3">
-                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Pending</div>
-                                             <h2>3</h2>
+                                             <h2><?php echo $totalOrder?></h2>
                                          </div>
                                      </div>
                                  </div>
@@ -69,8 +103,20 @@
                                  <div class="card">
                                      <div class="seo-fact sbg4">
                                          <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Preparing</div>
-                                             <h2>5</h2>
+                                             <div class="seofct-icon">Pending</div>
+                                             <h2><?php echo $pendingOrder?></h2>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
+                             <div class="s-sale-inner pt--30 mb-3">
+                                 <div class="card">
+                                     <div class="seo-fact sbg3">
+                                         <div class="p-4 d-flex justify-content-between align-items-center">
+                                             <div class="seofct-icon">Completed</div>
+                                             <h2><?php echo $completeOrder?></h2>
                                          </div>
                                      </div>
                                  </div>
@@ -81,8 +127,8 @@
                                  <div class="card">
                                      <div class="seo-fact sbg2">
                                          <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Completed</div>
-                                             <h2>2</h2>
+                                             <div class="seofct-icon">Total Sales (RM)</div>
+                                             <h2><?php echo $totalSales?></h2>
                                          </div>
                                      </div>
                                  </div>
@@ -94,34 +140,105 @@
                  <div class="row">
                      <!-- Statistics area start -->
                      <div class="col-lg-8 mt-5">
-                         <div class="card">
-                             <div class="card-body">
-                                 <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Sales</h4>
-                                     <a class="btn btn-primary mb-3" href="/order_trends" role="button">View Sales</a>
-                                 </div>
-                                 <div id="user-statistics"></div>
-                             </div>
-                         </div>
+                            <div class="card">
+                                <div class="card-body" >
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h4 class="header-title mb-0">Sales</h4>
+                                        
+                                    </div>
+                                    <div class="card-body py-3">
+                                        <div class="chart chart-sm">
+                                            <canvas id="myChart" height=220></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                      </div>
                      <!-- Statistics area end -->
-                     <!-- sentiment analysis area start -->
+                     <!-- rating customer area start -->
                      <div class="col-lg-4 mt-5">
                          <div class="card h-full">
-                             <div class="card-body">
-                                 <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Sentiment Analysis</h4>
-                                     <a class="btn btn-primary mb-3" href="/order" role="button">View Analytics</a>
-                                 </div>
-                                 <canvas id="sent_analysis" height="233"></canvas><br>
-                                 <span class="label success">Postive</span>
-                                 <span class="label warning">Neutral</span>
-                                 <span class="label danger">Negative</span>
+                             <div class="card-body" style="padding:25px, 25px, 25px, 25px">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h4 class="header-title mb-0">Rating</h4>
+                                    <h1><?php echo $avgRating?></h1>
+                                    
+                                    
+                                </div>
+                                <hr style="border:3px solid #f1f1f1">
+                                
+                                <div class="row" style="padding:5px">
+                                    <div class="side">
+                                        <div>5 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                    </div>
+                                    <div class="side right">
+                                        <div><?php echo $fiveRating?></div>
+                                    </div>
+                                    <div class="side">
+                                        <div>4 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                    </div>
+                                    <div class="side right">
+                                        <div><?php echo $fourRating?></div>
+                                    </div>
+                                    <div class="side">
+                                        <div>3 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                    </div>
+                                    <div class="side right">
+                                        <div><?php echo $threeRating?></div>
+                                    </div>
+                                    <div class="side">
+                                        <div>2 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                    </div>
+                                    <div class="side right">
+                                        <div><?php echo $twoRating?></div>
+                                    </div>
+                                    <div class="side">
+                                        <div>1 star</div>
+                                    </div>
+                                    <div class="middle">
+                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                    </div>
+                                    <div class="side right">
+                                        <div><?php echo $oneRating?></div>
+                                    </div>
+                                </div>
 
                              </div>
                          </div>
                      </div>
-                     <!-- sentiment analysis area end -->
+                     <!-- rating customer area end -->
                  </div>
 
                  <div class="row">
@@ -297,343 +414,64 @@
      @include('include.script')
 
      <script>
-         var horizontalBarChart = new Chart("cust_segmentation", {
-             type: 'horizontalBar',
-             data: {
-                 labels: ["Platinum Customer", "Loyal Customer", "Recent Customer", "Potential Customer",
-                     "Loosing Customer", "Evasive Customer", "Lost Customer"
-                 ],
-                 datasets: [{
-                     data: [300, 320, 1000, 1100, 800, 600, 400],
-                     backgroundColor: ["#004c6d", "#2d5f7e", "#4a7290", "#6486a2", "#7d9bb4", "#97b0c6",
-                         "#b1c6d9"
-                     ],
-                 }]
-             },
-             options: {
-                 tooltips: {
-                     enabled: false
-                 },
-                 responsive: true,
-                 legend: {
-                     display: false,
-                     position: 'bottom',
-                     fullWidth: true,
-                     labels: {
-                         boxWidth: 10,
-                         padding: 50
-                     }
-                 },
-                 scales: {
-                     yAxes: [{
-                         barPercentage: 0.95,
-                         gridLines: {
-                             display: true,
-                             drawTicks: true,
-                             drawOnChartArea: false
-                         },
-
-                     }],
-                     xAxes: [{
-                         gridLines: {
-                             display: true,
-                             drawTicks: false,
-                             tickMarkLength: 5,
-                             drawBorder: false
-                         },
-                         ticks: {
-                             padding: 5,
-                             beginAtZero: true,
-                         },
-
-                     }]
-                 }
-             }
-         });
-     </script>
-
-
-     <!-- half doughnut sentiment analysis -->
-     <script>
-         var ctx = document.getElementById("sent_analysis");
-         var dashboardChart = new Chart(ctx, {
-             type: 'doughnut',
-             data: {
-                 labels: ["Negative", "Neutral", "Positive"],
-                 datasets: [{
-                     label: '# of Votes',
-                     data: [33, 12, 55],
-                     backgroundColor: [
-                         'rgba(231, 76, 60, 1)',
-                         'rgba(255, 164, 46, 1)',
-                         'rgba(46, 204, 113, 1)'
-                     ],
-                     borderColor: [
-                         'rgba(255, 255, 255 ,1)',
-                         'rgba(255, 255, 255 ,1)',
-                         'rgba(255, 255, 255 ,1)'
-                     ],
-                     borderWidth: 10
-                 }]
-
-             },
-             options: {
-                 rotation: 1 * Math.PI,
-                 circumference: 1 * Math.PI,
-                 legend: {
-                     display: false
-                 },
-                 tooltip: {
-                     enabled: false
-                 },
-                 cutoutPercentage: 60,
-             }
-         });
-     </script>
-
-     <!-- customer by gender -->
-     <script>
-         var xValues = ["Female", "Male"];
-         var yValues = [58, 40];
-         var barColors = [
-             "#004c6d",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_gender", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
-
-     <!-- customer by age -->
-     <script>
-         var xValues = ["<30 y/o", ">30 y/o"];
-         var yValues = [43, 46];
-         var barColors = [
-             "#004c6d",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_age", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
-
-     <!-- customer by status -->
-     <script>
-         var xValues = ["Registered", "Anonymous"];
-         var yValues = [67, 36];
-         var barColors = [
-             "#004c6d",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_status", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
-
-     <!-- customer by marital -->
-     <script>
-         var xValues = ["Single", "Married", "Widowed", "Divorced"];
-         var yValues = [37, 49, 12, 21];
-         var barColors = [
-             "#004c6d",
-             "#436f8d",
-             "#7193af",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_marital", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
-     <script>
-         var horizontalBarChart = new Chart("cust_segmentation", {
-             type: 'horizontalBar',
-             data: {
-                 labels: ["Platinum Customer", "Loyal Customer", "Recent Customer", "Potential Customer",
-                     "Loosing Customer", "Evasive Customer", "Lost Customer"
-                 ],
-                 datasets: [{
-                     data: [300, 320, 1000, 1100, 800, 600, 400],
-                     backgroundColor: ["#004c6d", "#2d5f7e", "#4a7290", "#6486a2", "#7d9bb4", "#97b0c6",
-                         "#b1c6d9"
-                     ],
-                 }]
-             },
-             options: {
-                 tooltips: {
-                     enabled: false
-                 },
-                 responsive: true,
-                 legend: {
-                     display: false,
-                     position: 'bottom',
-                     fullWidth: true,
-                     labels: {
-                         boxWidth: 10,
-                         padding: 50
-                     }
-                 },
-                 scales: {
-                     yAxes: [{
-                         barPercentage: 0.95,
-                         gridLines: {
-                             display: true,
-                             drawTicks: true,
-                             drawOnChartArea: false
-                         },
-
-                     }],
-                     xAxes: [{
-                         gridLines: {
-                             display: true,
-                             drawTicks: false,
-                             tickMarkLength: 5,
-                             drawBorder: false
-                         },
-                         ticks: {
-                             padding: 5,
-                             beginAtZero: true,
-                         },
-
-                     }]
-                 }
-             }
-         });
-     </script>
-
-
-     <!-- half doughnut sentiment analysis -->
-     <script>
-         var ctx = document.getElementById("sent_analysis");
-         var dashboardChart = new Chart(ctx, {
-             type: 'doughnut',
-             data: {
-                 labels: ["Negative", "Neutral", "Positive"],
-                 datasets: [{
-                     label: '# of Votes',
-                     data: [33, 12, 55],
-                     backgroundColor: [
-                         'rgba(231, 76, 60, 1)',
-                         'rgba(255, 164, 46, 1)',
-                         'rgba(46, 204, 113, 1)'
-                     ],
-                     borderColor: [
-                         'rgba(255, 255, 255 ,1)',
-                         'rgba(255, 255, 255 ,1)',
-                         'rgba(255, 255, 255 ,1)'
-                     ],
-                     borderWidth: 10
-                 }]
-
-             },
-             options: {
-                 rotation: 1 * Math.PI,
-                 circumference: 1 * Math.PI,
-                 legend: {
-                     display: false
-                 },
-                 tooltip: {
-                     enabled: false
-                 },
-                 cutoutPercentage: 60,
-             }
-         });
-     </script>
-
-     <!-- Payment Types-->
-     <script>
-         var xValues = ["PayPal", "Credit & Debit Card", "Online Banking", "Touch N Go E-wallet"];
-         var yValues = [37, 49, 12, 21];
-         var barColors = [
-             "#004c6d",
-             "#436f8d",
-             "#7193af",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_gender", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
-
-     <!-- Order Types -->
-     <script>
-         var xValues = ["Dine-In", "Booking", "Take Away", "Delivery"];
-         var yValues = [37, 49, 12, 21];
-         var barColors = [
-             "#004c6d",
-             "#436f8d",
-             "#7193af",
-             "#b6cee3",
-         ];
-
-         new Chart("cust_age", {
-             type: "pie",
-             data: {
-                 labels: xValues,
-                 datasets: [{
-                     backgroundColor: barColors,
-                     data: yValues
-                 }]
-             },
-             options: {
-
-             }
-         });
-     </script>
+        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var yValues = <?php echo $salesChart; ?>;
+        var ctx = document.getElementById("myChart").getContext("2d");   
+        var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+        gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+        gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+            
+            new Chart(document.getElementById("myChart"), {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: "Sales",
+                    fill: true,
+                    lineTension: 0.4,
+                    backgroundColor: gradient,
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                maintainAspectRatio: false,
+                tooltips: {
+                        intersect: false
+                    },
+                    hover: {
+                        intersect: true
+                    },
+                    plugins: {
+                        filler: {
+                            propagate: false
+                        }
+                    },
+                scales: {
+                    xAxes: [{
+                            reverse: true,
+                            gridLines: {
+                                color: "rgba(0,0,0,0.0)"
+                            }
+                        }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0, 
+                            max:50,
+                            stepSize: 10
+                        },   
+                        gridLines: {
+                                color: "rgba(0,0,0,0.0)"
+                            }
+                                    
+                        
+                            
+                    }]
+                }
+            }
+            });
+    </script>
 
 
  </body>

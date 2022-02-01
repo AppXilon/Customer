@@ -20,7 +20,7 @@
                                         <div class="card-body">
                                             <h5>{{$shop->S_Name}}</h5>
                                             <span class="float-start">{{$shop->S_Description}}</span>
-                                            <span class="float-start">Shop Business Hour</span>
+                                            
                                         </div>
                                     </div>
                                 </a>

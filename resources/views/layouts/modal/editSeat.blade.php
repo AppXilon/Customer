@@ -8,12 +8,11 @@
                 <h5 class="modal-title" id="exampleModalLabel">Edit Seat</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="/editSeat/{{ $tables->T_Id }}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="modal-body">
-                    <form action="/editSeat" method="POST">
-                        @csrf
-                        @method('PUT')
+
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername">Seat Number:</label>

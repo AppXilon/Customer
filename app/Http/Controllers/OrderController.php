@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -25,6 +26,24 @@ class OrderController extends Controller
         return view('layouts.order')->with('orders', $orders);
     }
 
+    public function search(Request $request) 
+    {
+        $search = $request->get('search');
+        $list = DB::table('customer_order')->where('Tracking_No', 'like', '%'.$search.'%')->get();
+        return view('layouts.order',['orders' => $list]);
+
+    }
+
+    public function searchBook(Request $request)
+    {
+        if($request->has('search')){
+            $book = \App\Models\Order::where('Tracking_No', 'LIKE', '%' .$request->search.'%')->get();
+         
+     }else {
+            $book = \App\Models\Order::all();
+     }
+     return view('layouts.bookinglist',['booking' => $book]);
+    }
     /**
      * Show the form for creating a new resource.
      *

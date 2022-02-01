@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    public static $laracombee = ['name' => 'string'];
+
     /**
      * The attributes that should be hidden for serialization.
      *

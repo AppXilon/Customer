@@ -46,6 +46,15 @@
                     <!-- tab start -->
                     <div class="col-lg-12 mt-5">
                         <div class="card">
+                            <div class="col-md-4">
+                                <form action="/searchTracking" method="get">
+                                    <div class="input-group">
+                                    <input type="search" name="search" placeholder="Search Tracking Number" style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                    <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="card-body">
                             <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
@@ -62,15 +71,15 @@
                                         aria-selected="false">Completed</a>
                                 </li>
                             </ul>
-                            <div class="card-body" style="background-color: #F7F7F7;">
+                            <div class="card-body">
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
                                         <div class="single-table">
                                             <div class="table-responsive">
                                                 <table class="table text-center">
-                                                    <thead class="text-uppercase bg-primary">
-                                                        <tr class="text-white">
+                                                    <thead class="text-uppercase bg-light">
+                                                        <tr>
                                                             <th scope="col">Tracking Number</th>
                                                             <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
@@ -83,10 +92,12 @@
                                                     </thead>
                                                     @php
                                                    
-                                                        $New = App\Models\Order::where('O_Status', 1)->where('O_Type', 'dineIn')->where('O_Type', 'pickUp')->get();
+                                                        $New = App\Models\Order::where('O_Status', 1)->get();
                                                     @endphp
                                                     @foreach ($New as $new)
+                                                    @if($new->O_Type != 'booking')
                                                         <tbody>
+                                                            <tr>
                                                             <td>{{ $new->Tracking_No }}</td>
                                                             <td>{{ $new->O_Phone }}</td>
                                                             <td>@php
@@ -115,7 +126,9 @@
                                                                     data-target="#editModal{{ $new->id }}">
                                                                     View Order
                                                                 </button></td>
+                                                            </tr>
                                                         </tbody>
+                                                        @endif
                                                     @endforeach
                                                 </table>
                                             </div>
@@ -126,8 +139,8 @@
                                         <div class="single-table">
                                             <div class="table-responsive">
                                                 <table class="table text-center">
-                                                    <thead class="text-uppercase bg-primary">
-                                                        <tr class="text-white">
+                                                    <thead class="text-uppercase bg-light">
+                                                        <tr>
                                                             <th scope="col">Tracking Number</th>
                                                             <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
@@ -180,8 +193,8 @@
                                         <div class="single-table">
                                             <div class="table-responsive">
                                                 <table class="table text-center">
-                                                    <thead class="text-uppercase bg-primary">
-                                                        <tr class="text-white">
+                                                    <thead class="text-uppercase bg-light">
+                                                        <tr>
                                                             <th scope="col">Tracking Number</th>
                                                             <th scope="col">Contact No.</th>
                                                             <th scope="col">Total Item</th>
@@ -232,6 +245,8 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <!-- tab end -->

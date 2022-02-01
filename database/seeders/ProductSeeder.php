@@ -187,7 +187,7 @@ class ProductSeeder extends Seeder
         [
             'P_Id'=> '15',
             'Cat_id'=> '3',
-            'P_Name'=> 'Mee Sup',
+            'P_Name'=> 'Mee Sup Daging',
             'P_Price'=> '6.00',
             'P_Disc_Price'=> '0',
             'S_Description'=> 'Mee, Sup, Sayuran, Ayam',

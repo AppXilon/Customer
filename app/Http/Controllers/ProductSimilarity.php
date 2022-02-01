@@ -17,7 +17,7 @@ class ProductSimilarity extends Controller
     public function __construct(array $products)
     {
         $this->products       = $products;
-        $this->priceHighRange = max(array_column($products, 'price'));
+        $this->priceHighRange = max(array_column($products, 'P_Price'));
     }
 
     public function setFeatureWeight(float $weight): void
@@ -44,12 +44,12 @@ class ProductSimilarity extends Controller
             $similarityScores = [];
 
             foreach ($this->products as $_product) {
-                if ($product->id === $_product->id) {
+                if ($product->P_Id === $_product->P_Id) {
                     continue;
                 }
-                $similarityScores['product_id_' . $_product->id] = $this->calculateSimilarityScore($product, $_product);
+                $similarityScores['product_id_' . $_product->P_Id] = $this->calculateSimilarityScore($product, $_product);
             }
-            $matrix['product_id_' . $product->id] = $similarityScores;
+            $matrix['product_id_' . $product->P_Id] = $similarityScores;
         }
         return $matrix;
     }
@@ -66,7 +66,7 @@ class ProductSimilarity extends Controller
 
         foreach ($similarities as $productIdKey => $similarity) {
             $id       = intval(str_replace('product_id_', '', $productIdKey));
-            $products = array_filter($this->products, function ($product) use ($id) { return $product->id === $id; });
+            $products = array_filter($this->products, function ($product) use ($id) { return $product->P_Id === $id; });
             if (! count($products)) {
                 continue;
             }
@@ -79,16 +79,17 @@ class ProductSimilarity extends Controller
 
     protected function calculateSimilarityScore($productA, $productB)
     {
+        
         $productAFeatures = implode('', get_object_vars($productA->features));
         $productBFeatures = implode('', get_object_vars($productB->features));
 
         return array_sum([
             (Similarity::hamming($productAFeatures, $productBFeatures) * $this->featureWeight),
             (Similarity::euclidean(
-                Similarity::minMaxNorm([$productA->price], 0, $this->priceHighRange),
-                Similarity::minMaxNorm([$productB->price], 0, $this->priceHighRange)
+                Similarity::minMaxNorm([$productA->P_Price], 0, $this->priceHighRange),
+                Similarity::minMaxNorm([$productB->P_Price], 0, $this->priceHighRange)
             ) * $this->priceWeight),
-            (Similarity::jaccard($productA->categories, $productB->categories) * $this->categoryWeight)
+            (Similarity::jaccard($productA->Cat_Id, $productB->Cat_Id) * $this->categoryWeight)
         ]) / ($this->featureWeight + $this->priceWeight + $this->categoryWeight);
     }
 }

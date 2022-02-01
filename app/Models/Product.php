@@ -9,10 +9,56 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     public $table = 'product';
+    
+    // Cast the column as Json in product model
+    protected $casts = [
+        'features' => 'json'
+    ];
+
+    // public function setFeaturesAttribute($value)
+	// {
+	//     $features = [];
+
+	//     foreach ($value as $array_item) {
+	//         if (!is_null($array_item['key'])) {
+	//             $features[] = $array_item;
+	//         }
+	//     }
+
+	//     $this->attributes['features'] = json_encode($features);
+	// }
 
     protected $fillable = [
-        'P_Id', 'P_Name', 'Cat_Id', 'P_Price', 'P_Disc_Price', 'S_Description', 'L_Description', 'P_Duration', 'P_Image', 'P_Quantity', 'P_Status'
+        'P_Id',
+        'P_Name',
+        'Cat_Id',
+        'P_Price',
+        'P_Disc_Price',
+        'S_Description',
+        'L_Description',
+        'P_Duration',
+        'P_Image',
+        'P_Quantity',
+        'P_Status',
+        'features'
+        // 'features.fry',
+        // 'features.spicy',
+        // 'features.grill',
+        // 'features.healthy',
+        // 'features.soup',
+        // 'features.noodles',
+        // 'features.rice',
+        // 'features.chicken',
+        // 'features.chilli',
+        // 'features.seafood',
+        // 'features.meat',
+        // 'features.halal',
+        // 'features.carbs',
+        // 'features.fat',
+        // 'features.fruit',
+        // 'features.vegie'
     ];
+
 
     public function qty()
     {
@@ -34,6 +80,10 @@ class Product extends Model
     {
         return $this->hasMany(review::class);
     }
+
+
+
+
 }
 
 
