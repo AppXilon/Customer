@@ -226,16 +226,6 @@ class ReviewSeeder extends Seeder
                 'R_Sentiment'=> 'Positive',
                 'created_at'=> '2021-12-15 05:20:55.000000',
                 'updated_at'=> '2021-12-15 05:20:55.000000',
-            ],
-            [
-                'Review_Id'=> '21',
-                'User_Id'=> '18',
-                'P_Id'=> '7',
-                'R_Rating'=> '3',
-                'R_Comment'=> 'Price quite mahal and the food taste just ok',
-                'R_Sentiment'=> 'Neutral',
-                'created_at'=> '2022-02-02 05:20:55.000000',
-                'updated_at'=> '2022-02-02 05:20:55.000000',
             ]
 
             
