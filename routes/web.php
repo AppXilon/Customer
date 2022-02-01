@@ -68,6 +68,8 @@ Route::get('about', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
+Route::get('catalogueBooking', [ProductController:: class, 'catalogueBooking']) ;
+
 
 Route::get('shop_category', [ShopController::class, 'shop']);
 

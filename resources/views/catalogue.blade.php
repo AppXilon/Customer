@@ -69,7 +69,6 @@
                                                 <input type="hidden" id="otype" name="otype" value="{{$order}}">
                                                 <input type="hidden" id="bookdate" name="bookdate" value="{{$bookdate}}">
                                                 <input type="hidden" id="booktime" name="booktime" value="{{$booktime}}">
-                                                <input type="hidden" id="bookpax" name="bookpax" value="{{$bookpax}}">
                                                 <input type="hidden" id="booktable" name="booktable" value="{{$booktable}}"> 
                                                 <button class="button-cart addToCartBtn"><i class="fa fa-shopping-cart"></i></button>
                                         </div>

@@ -91,8 +91,7 @@
                                                         </tr>
                                                     </thead>
                                                     @php
-                                                   
-                                                        $New = App\Models\Order::where('O_Status', 1)->get();
+                                                        $New = App\Models\Order::where('O_Status', 1)->whereDate('created_at', Carbon::now())->get();
                                                     @endphp
                                                     @foreach ($New as $new)
                                                     @if($new->O_Type != 'booking')
