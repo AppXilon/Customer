@@ -27,7 +27,63 @@ require_once __DIR__.'/../../../vendor/autoload.php';
         <form action="/orderplace" method="POST">
             @csrf
             <div class="shipping-address mt-5">
-                <div id="delivery" class="col-md-6">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Order Details</h4>
+                            <hr>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Quantity</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $totalPrice = 0; @endphp
+                                    @foreach($cartitems as $item)
+                                    <tr>
+                                        <td>{{$item->Pro_Qty}} </td>
+                                        <td><a href="detail/{{$item->id}}">{{$item->products->P_Name}}</a></td>
+                                        <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
+                                    </tr>
+                                    @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <p>Order Type: {{ $item->Order_Type }}</p>
+                            
+                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
+                            <label for="reject">If product not available:</label>
+                            <select name="Remarks">
+                                <option value="Call me">Call me</option>
+                                <option value="Remove all product">Remove all product</option>
+                            </select><br>
+                            
+                            @if($item->Order_Type == 'dineIn')
+                                <label for="tableno">Current Table No:</label>
+                                <select name="TableNo">
+                                    @foreach ($table as $table)
+                                        @if($table->T_Status == '1')
+                                        <option value="{{$table->T_Id}}">{{$table->T_Id}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+        
+                            @elseif($item->Order_Type == 'booking')
+                                <p>Book Date: {{$item->BookDate}}</p>
+                                <p>Book Time: {{$item->BookTime}}</p>
+                                <p>Total Pax: {{$item->BookPax }}</p>
+                                <p>Order Table: {{$item->BookTable }}</p>
+
+                            @endif
+
+                            <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <h4>Customer Details</h4>
@@ -36,11 +92,13 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                     <div class="address-item">
                         <form>
                             @csrf
+                            
                             <div class="form-group">
                                 <label for="">Name:</label>
                                 <input type="text" class="form-control cname" value="{{Auth::user()->name}}" name="O_Name" placeholder="Enter Name" required="required">
                                 <span id="cname_error" class="text-danger"></span>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="">Email address</label>
                                 <input type="text" class="form-control cemail" value="{{Auth::user()->email}}" name="O_Email" placeholder="Enter Email" required="required">
@@ -71,47 +129,14 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <input type="text" class="form-control cstate" value="{{Auth::user()->state}}" name="O_State" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
+                            <input type="hidden" class="form-control cstate" value="Payment" name="Log_Module" required="required">
+                            <input type="hidden" class="form-control cstate" value="COMPLETED" name="Log_Status" required="required">
+                            <input type="hidden" class="form-control cstate" value="{{Auth::user()->id}}" name="Cust_Id" required="required">
+                            
                         </form>
                     </div>
                 </div>
-
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Order Details</h4>
-                            <hr>
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Quantity</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $totalPrice = 0; @endphp
-                                    @foreach($cartitems as $item)
-                                    <tr>
-                                        <td>{{$item->Pro_Qty}} </td>
-                                        <td><a href="detail/{{$item->id}}">{{$item->products->P_Name}}</a></td>
-                                        <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
-                                    </tr>
-                                    @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
-                            <label for="reject">If product not available:</label>
-                            <select name="Remarks">
-                                <option value="Call me">Call me</option>
-                                <option value="Remove all product">Remove all product</option>
-                            </select>
-                            <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mt-5">
                     <div class="card">
                         <div class="card-body">
                             <h4>Payment Options</h4>
@@ -130,7 +155,6 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 @endif
                                 <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

@@ -12,11 +12,17 @@ class CreateLog extends Migration
     public function up()
     {
         Schema::create('log', function (Blueprint $table) {
-            $table->bigIncrements('Faq_Id');
-            $table->string('Log_Event_Name');
+            $table->bigIncrements('Log_Id');
+            $table->bigInteger('Cust_Id')->unsigned()->nullable();
+            $table->bigInteger('Manager_Id')->unsigned()->nullable();
             $table->string('Log_Module');
-            $table->string('Log_Description');
-            $table->string('Log_Author');
+            $table->string('Log_Pay_Type');
+            $table->string('Log_Total_Price');
+            $table->string('Log_Status');
+            $table->foreign('Cust_Id')->references('id')->on('users')
+            ->onDelete('cascade');
+            $table->foreign('Manager_Id')->references('Manager_id')->on('manager')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

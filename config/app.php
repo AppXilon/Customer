@@ -162,8 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
-        Spatie\Backup\BackupServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
+        //Spatie\Backup\BackupServiceProvider::class,
+        //Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Package Service Providers...
          */

@@ -27,13 +27,15 @@
                     <div class="row">
                         @if($item->O_Status == '1')
                         <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">Competed</label></div>
-                            Total Price: RM{{$item->O_Total_Price}} <br />
+                            <div class="pull-right"><label class="label label-success">Completed</label></div>
+                            <div class="pull-right"><label class="label label-success mr-2">Completed</label></div>
+                            Total Price: RM{{ number_format((float) $item->O_Total_Price, 2, '.', '') }} <br />
+                            
                         </div>
                         @else
                         <div class="col-md-12">
                             <div class="pull-right"><label class="label label-danger">Canceled</label></div>
-                            Total Price: RM{{$item->O_Total_Price}} <br />
+                            Total Price: RM{{ number_format((float) $item->O_Total_Price, 2, '.', '') }} <br />
                         </div>
                         @endif
                         <div class="col-md-12">Order made on: {{$item->created_at}}</div>

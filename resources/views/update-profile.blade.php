@@ -93,7 +93,7 @@
                  <span style="color:red"> @error ('gender') {{ $message}} @enderror </span>
               </div>
               <div class="form-group">
-              <label for="">Occupation</label>
+                  <label for="">Occupation</label>
                  <input type="text" class="form-control" name="occupation"
                  placeholder="Enter your occupation" value= "{{$Info -> occupation}}">
                  <span style="color:red"> @error ('occupation') {{ $message}} @enderror </span>
