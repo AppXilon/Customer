@@ -51,7 +51,7 @@ class ManagerController extends Controller
         if(!$manager || !Hash::check ($req ->password, $manager-> Password))
         {
             return "Username or password is not matched";
-            $logs=new Logs;
+            /*$logs=new Logs;
             $logs->Manager_Id=Auth::id();
             $logs->Log_Module=$req->input('Log_Module');
             $logs->Log_Pay_Type=0;
@@ -59,7 +59,7 @@ class ManagerController extends Controller
             $logs->Log_Total_Price=0;
             $logs->created_at=Carbon::now();
             $logs->updated_at=Carbon::now();
-            $logs->save();
+            $logs->save();*/
         }
         else if( $manager-> isBanned == 1)
         {
@@ -67,7 +67,7 @@ class ManagerController extends Controller
         }
         else {
             $req->session() ->put ('manager', $manager);
-            $logs=new Logs;
+            /*$logs=new Logs;
             $logs->Manager_Id=Auth::id();
             $logs->Log_Module=$req->input('Log_Module');
             $logs->Log_Pay_Type=0;
@@ -75,7 +75,7 @@ class ManagerController extends Controller
             $logs->Log_Total_Price=0;
             $logs->created_at=Carbon::now();
             $logs->updated_at=Carbon::now();
-            $logs->save();
+            $logs->save();*/
             // return redirect ('layouts/index');
             //redirect betul
             //guna ni bawah dulu for now

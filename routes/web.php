@@ -196,9 +196,8 @@ Route::resource('/promotion', PromotionController::class);
 /******* Admin route start *******/
 /*******************************/
 
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
+Route::get('/admin',[UserController::class,'dash']);
+
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });

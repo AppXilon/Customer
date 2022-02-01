@@ -11,6 +11,15 @@ use App\Models\Manager;
 
 class UserController extends Controller
 {
+    public function dash(){
+        $user = DB::table('users')->count();
+        $manager = DB::table('manager')->count();
+        $total = $user + $manager;
+        $order = Manager::where('Manager_Id' )->where('user_id', Auth::id())->first();
+
+        return view('admin-layouts.base')->with('total',$total);
+    }
+
     public function invoice($id)
     {
         $order = Order::where('id', $id)->where('user_id', Auth::id())->first();
