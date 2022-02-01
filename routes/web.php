@@ -65,6 +65,10 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('checkout_complete', function () {
+    return view('checkout_complete');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
@@ -97,6 +101,8 @@ Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
 
 Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
 
+Route::get('checkout_complete', [CheckoutController:: class, 'checkoutstripe']) ;
+
 Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 
 Route::get('user/{id}', 'UserController@showProfile'); 
@@ -122,6 +128,8 @@ Route::get('faq_index', [FaqController:: class, 'faqindex']) ;
 Route::get('/tnc',[TermController::class,'view']);
 
 Route::get('/partner',[ManagerController::class,'partner']);
+
+Route::post('/shopStore',[ShopAdminController::class,'shopStore']);
 
 Route::post('/partnerStore',[ManagerController::class,'partnerStore']);
 
@@ -163,6 +171,8 @@ Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 Route::resource('/feedback', FeedbackController::class);
 
 Route::resource('/report', ReportTableController::class);
+Route::resource('/sales', SalesTableController::class);
+
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
@@ -256,7 +266,7 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
 

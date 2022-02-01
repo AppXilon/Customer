@@ -10,7 +10,7 @@ class Manager extends Model
     public $table = 'manager';
     protected $primaryKey = 'Manager_id';
     protected $fillable = [
-        'Manager_id', 'Name', 'Email', 'Password', 'Street_1', 'Postcode', 'City', 'State', 'isBanned', 'Reason'
+        'Manager_id','Shop_Id', 'Name', 'Email', 'Password', 'Street_1', 'Postcode', 'City', 'State', 'isBanned', 'Reason', 'Ban'
     ];
     public $timestamps = false;
 }

@@ -10,6 +10,7 @@ class OrderProduct extends Model
 {
     use HasFactory;
     public $table = "order_product";
+
     public $fillable = [
         'Order_Id',
         'U_Id',
@@ -17,6 +18,9 @@ class OrderProduct extends Model
         'Order_Quantity',
         'Order_Price'
     ];
+
+    // public static $laracombee = ['P_Id' => 'string'];
+
 
     public function products()
     {
@@ -32,4 +36,8 @@ class OrderProduct extends Model
     {
         return $this->belongsTo(Product::class,'P_Id','P_Id');
     }
+
+    // public function user(){
+    //     return $this->belongsTo(User::class);
+    // }
 }

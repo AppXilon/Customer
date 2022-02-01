@@ -10,6 +10,7 @@
     }],
     "require": {
         "php": "^7.3|^8.0",
+        "amranidev/laracombee": "^0.1.37",
         "cartalyst/stripe-laravel": "^13.0",
         "consoletvs/charts": "7.*",
         "fideloper/proxy": "^4.4",
@@ -26,9 +27,11 @@
         "mews/captcha": "^3.2",
         "monkeylearn/monkeylearn-php": "^3.3",
         "razorpay/razorpay": "^2.8",
+        "recombee/php-api-client": "~2.4.0",
         "spatie/laravel-backup": "^6.16",
         "srmklive/paypal": "~3.0",
-        "stripe/stripe-php": "^7.110"
+        "stripe/stripe-php": "^7.110",
+        "yuzuru-s/redis-recommend": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

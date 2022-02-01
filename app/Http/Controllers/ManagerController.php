@@ -20,28 +20,29 @@ class ManagerController extends Controller
     
     public function partner()
     {
-        return view('partner');
+        return view('partnerRest');
     }
 
-    public function partnerStore(Request $request)
-    {
-        $request->validate([
-            'Name' => 'required',
-            'Email' => 'required',
-            'Password' => 'required',
-            'Phone' => 'required',
-            'Street_1' => 'required',
-            'Postcode' => 'required',
-            'City' => 'required',
-            'State' => 'required',
-            'isBanned' => '2',
-            'Reason' => 'required'
-        ]);
-    
-        Manager::create($request->all());
-     
-        return redirect()->route('index')
-                        ->with('success','Manager created successfully.');    }
+    public function partnerStore(Request $request){
+        
+        $manager=new Manager;
+        $manager->Shop_Id=$request->input('Shop_Id');
+        $manager->Name=$request->input('Name');
+        $manager->Email=$request->input('Email');
+        $manager->Password=$request->input('password_confirmation');
+        $manager->isBanned=2;
+        $manager->Phone=$request->input('Phone');
+        $manager->Street_1=$request->input('Street_1');
+        $manager->Postcode=$request->input('Postcode');
+        $manager->City=$request->input('City');
+        $manager->State=$request->input('State');
+        $manager->Ban='2';
+        $manager->Reason='null';
+        $manager->save();
+
+        return redirect()->route('')
+                        ->with('success','Manager created successfully.');    
+    }
 
 
     function manager_login(Request $req)
