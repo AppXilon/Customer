@@ -68,8 +68,8 @@
 												</div>
 												<h1 class="mt-1 mb-3"><?php echo $totalCustomer?></h1>
 												<div class="mb-0">
-													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
-													<span class="text-muted">Since last week</span>
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i>  </span>
+													<span class="text-muted">Since February 2021</span>
 												</div>
 											</div>
 										</div>
@@ -89,7 +89,7 @@
 												<h1 class="mt-1 mb-3"><?php echo $todayCustomer?></h1>
 												<div class="mb-0">
 													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
-													<span class="text-muted">Since last week</span>
+													<span class="text-muted">Since yesterday</span>
 												</div>
 											</div>
 										</div>
@@ -433,7 +433,7 @@
 
     {{-- sentiment analysis pie chart --}}
     <script>
-        var xValues = ["Negative", "Positive", "Neutral"];
+        var xValues = ["Negative", "Neutral", "Positive"];
         var yValues = <?php echo $sentimentAnalysis; ?>;
         var barColors = [
             "#FA586D",
@@ -509,7 +509,7 @@
             }
   
           var options = {
-            title: 'Top 5 Most Total Spend by Customer ',
+            
             chartArea: {
                 width: '70%'
             },
@@ -526,7 +526,8 @@
             legend: { position: 'none' },
             
             bars: 'horizontal', // Required for Material Bar Charts.
-            
+            width:540,
+            height:250,
             bar: { groupWidth: "80%" }
           };
   
