@@ -52,7 +52,7 @@
                                 
                                     <div>
                                         <table class="table text-center">
-                                            <thead class="text-uppercase bg-primary">
+                                            <thead class="text-uppercase bg-light">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Customer ID</th>
