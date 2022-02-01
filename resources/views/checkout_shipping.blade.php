@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('AZuiCy2XaqC48YxFzFbrritDd3NfnXi4z5p9B1pOYJPn9ElJ13kBebO7El5aLU0He7Q17sb3GPs301YM') }}"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
 <?php
@@ -19,7 +19,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
         <div class="process-checkout">
             <ul class="progressbar">
                 <li class="active">Login</li>
-                <li>Shipping and Billing</li>
+                <li>Customer Details and Billing</li>
                 <li>Checkout Complete</li>
                 <li>Order Status</li>
             </ul>
@@ -54,16 +54,16 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                     @endforeach
                                 </tbody>
                             </table>
-                            <p>Order Type: {{ $item->Order_Type }}</p>
+                            <p>Order Type: <?php echo $oType?></p>
                             
-                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
+                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes">
                             <label for="reject">If product not available:</label>
                             <select name="Remarks">
                                 <option value="Call me">Call me</option>
                                 <option value="Remove all product">Remove all product</option>
                             </select><br>
                             
-                            @if($item->Order_Type == 'dineIn')
+                            @if($oType == 'dineIn')
                                 <label for="tableno">Current Table No:</label>
                                 <select name="TableNo">
                                     @foreach ($table as $table)
@@ -73,27 +73,32 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                     @endforeach
                                 </select>
         
-                            @elseif($item->Order_Type == 'booking')
+                            @elseif($oType == 'booking')
                                 <p>Book Date: {{$item->BookDate}}</p>
                                 <p>Book Start: {{$item->BookTime}}</p>
                                 <p>Total Pax: {{$item->BookPax }}</p>
                                 <p>Order Table: {{$item->BookTable }}</p>
 
-                            @elseif($item->Order_Type == 'pickUp')
+                            @elseif($oType == 'pickUp')
                             <div class="form-group mt-3">
-                                <label for="">Pickup Time</label>
-                                <input type="time" class="form-control cptime" value="ptime" name="pickup" placeholder="Enter PickuTime" required="required">
-                                <span id="cpickup_error" class="text-danger"></span>
-                            </div>
-                            @elseif($item->Order_Type == 'delivery')
-                            <div class="form-group mt-3">
-                                <label for="">Delivery Time</label>
-                                <input type="time" class="form-control cstate" value="dtime" name="dtime" placeholder="Enter State" required="required">
+                                <label for="">Pickup Date</label>
+                                <input type="date" class="form-control odate" value="odate" name="odate" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
                             <div class="form-group mt-3">
+                                <label for="">Pickup Time</label>
+                                <input type="time" class="form-control otime" value="otime" name="otime" placeholder="Enter PickuTime" required="required">
+                                <span id="cpickup_error" class="text-danger"></span>
+                            </div>
+                            @elseif($oType == 'delivery')
+                            <div class="form-group mt-3">
                                 <label for="">Delivery Date</label>
-                                <input type="date" class="form-control cstate" value="ddate" name="ddate" placeholder="Enter State" required="required">
+                                <input type="date" class="form-control odate" value="odate" name="odate" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Delivery Time</label>
+                                <input type="time" class="form-control otime" value="otime" name="otime" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
                             @endif
@@ -198,7 +203,7 @@ $session = \Stripe\Checkout\Session::create([
       'quantity' => $item->Pro_Qty,
     ]],
     'mode' => 'payment',
-    'success_url' => 'https://example.com/success',
+    'success_url' => 'http://127.0.0.1:8000/checkout_complete',
     'cancel_url' => 'https://example.com/cancel',
   ]);
 

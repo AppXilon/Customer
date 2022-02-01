@@ -43,53 +43,63 @@ class CheckoutController extends Controller
         $table = DB::table('restaurant_table')->get();
         $payment = DB::table('payment_type')->get();
 
-        return view('checkout_shipping', compact('cartitems', 'notes', 'payment', 'table'));
+        $orType = DB::select(DB::raw("SELECT Order_Type FROM cart LIMIT 1;"));
+        foreach ($orType as $row) {
+            $oType = "$row->Order_Type";
+        }
+
+        return view('checkout_shipping', compact('cartitems', 'notes', 'payment', 'table', 'oType'));
     }
     function orderPlace(Request $req)
     {
-            $order = new Order();
-            $order->User_Id = Auth::id();
-            $order->O_Name = $req->input('O_Name');
-            $order->O_Email = $req->input('O_Email');
-            $order->O_Street_1 = $req->input('O_Street_1');
-            $order->O_Postcode = $req->input('O_Postcode');
-            $order->O_City = $req->input('O_City');
-            $order->O_State = $req->input('O_State');
-            $order->O_Phone = $req->input('O_Phone');
-            $order->O_Notes = $req->input('O_Notes');
-            $order->O_Payment = $req->payment;
-            $order->Tracking_No = rand(1000, 9999);
-            $order->Remarks = $req->input('Remarks');
 
-            $total = 0;
-            $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
-            foreach ($cartitems_total as $prod) {
-                $total += $prod->products->P_Price * $prod->Pro_Qty;
-                $bookdate=$prod->BookDate;
-                $bookpax=$prod->BookPax;
-                $booktime=$prod->BookTime;
-                $booktable=$prod->BookTable;
-                $otype=$prod->Order_Type;
-            }
+        $order = new Order();
+        $order->User_Id = Auth::id();
+        $order->O_Name = $req->input('O_Name');
+        $order->O_Email = $req->input('O_Email');
+        $order->O_Street_1 = $req->input('O_Street_1');
+        $order->O_Postcode = $req->input('O_Postcode');
+        $order->O_City = $req->input('O_City');
+        $order->O_State = $req->input('O_State');
+        $order->O_Phone = $req->input('O_Phone');
+        $order->O_Notes = $req->input('O_Notes');
+        $order->O_Payment = $req->payment;
+        $order->Tracking_No = rand(1000, 9999);
+        $order->Remarks = $req->input('Remarks');
+        $order->O_Date = $req->input('odate');
+        $order->O_Time = $req->input('otime');
 
-            $order->Book_Time=$booktime;
-            $order->Book_Date=$bookdate;
-            $order->O_Type = $otype;
-            if($booktable == null){
-                $order->T_Id = $req->input('TableNo');
-                
-            }
-            else{
-                $order->T_Id = $booktable;
-            }
-            
-            $order->T_Pax = $bookpax;
-            $order->O_Total_Price = $total;
-            $order->save();
+        $total = 0;
+        $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
+        foreach ($cartitems_total as $prod) {
+            $total += $prod->products->P_Price * $prod->Pro_Qty;
+            $bookdate = $prod->BookDate;
+            $bookpax = $prod->BookPax;
+            $booktime = $prod->BookTime;
+            $booktable = $prod->BookTable;
+        }
 
-            $user = $req->input('O_Email');
-            
-            $orderData =[
+        $orType = DB::select(DB::raw("SELECT Order_Type FROM cart LIMIT 1;"));
+        foreach ($orType as $row) {
+            $orderType = "$row->Order_Type";
+        }
+
+        $order->Book_Time = $booktime;
+        $order->Book_Date = $bookdate;
+        $order->O_Type = $orderType;
+        if ($booktable == null) {
+            $order->T_Id = $req->input('TableNo');
+        } else {
+            $order->T_Id = $booktable;
+        }
+
+        $order->T_Pax = $bookpax;
+        $order->O_Total_Price = $total;
+        $order->save();
+      
+        $user = $req->input('O_Email');
+      
+      $orderData =[
             'body' => 'You Have made an order in AppXilon',
             'orderText' => 'Total:'.$total.' order in AppXilon',
             'url' => url('/'),
@@ -97,79 +107,27 @@ class CheckoutController extends Controller
         ];
         Notification::send($user, new SendEmailReminder($orderData));
 
-            $logs = new Logs;
-            $logs->Cust_Id = Auth::id();
-            $logs->Log_Module = $req->input('Log_Module');
-            $logs->Log_Pay_Type = 0;
-            $logs->Log_Status = $req->input('Log_Status');
-            $logs->created_at = Carbon::now();
-            $logs->updated_at = Carbon::now();
+        $logs = new Logs;
+        $logs->Cust_Id = Auth::id();
+        $logs->Log_Module = $req->input('Log_Module');
+        $logs->Log_Pay_Type = 0;
+        $logs->Log_Status = $req->input('Log_Status');
+        $logs->created_at = Carbon::now();
+        $logs->updated_at = Carbon::now();
 
-            $cartitems = Cart::where('Cust_Id', Auth::id())->get();
-            foreach ($cartitems as $item) {
-                OrderProduct::create([
-                    'Order_Id' => $order->id,
-                    'P_Id' => $item->Pro_Id,
-                    'Order_Quantity' => $item->Pro_Qty,
-                    'Order_Price' => $item->products->P_Price * $item->Pro_Qty,
-                ]);
-            }
-            $cartitems = Cart::where('Cust_Id', Auth::id())->get();
-            Cart::destroy($cartitems);
+        $cartitems = Cart::where('Cust_Id', Auth::id())->get();
+        foreach ($cartitems as $item) {
+            OrderProduct::create([
+                'Order_Id' => $order->id,
+                'P_Id' => $item->Pro_Id,
+                'Order_Quantity' => $item->Pro_Qty,
+                'Order_Price' => $item->products->P_Price * $item->Pro_Qty,
+            ]);
+        }
+        $cartitems = Cart::where('Cust_Id', Auth::id())->get();
+        Cart::destroy($cartitems);
 
-            return view('checkout_complete');
-        
-        // else{
-        //     return view('about');
-        // }
-        //     $order = new Order();
-        //     $order->User_Id = Auth::id();
-        //     $order->O_Name = $req->input('O_Name');
-        //     $order->O_Email = $req->input('O_Email');
-        //     $order->O_Street_1 = $req->input('O_Street_1');
-        //     $order->O_Postcode = $req->input('O_Postcode');
-        //     $order->O_City = $req->input('O_City');
-        //     $order->O_State = $req->input('O_State');
-        //     $order->O_Phone = $req->input('O_Phone');
-        //     $order->O_Notes = $req->input('O_Notes');
-        //     $order->O_Payment = $req->payment;
-        //     $order->Tracking_No = rand(1000, 9999);
-        //     $order->Remarks = $req->input('Remarks');
-        //     $order->T_Id = $req->input('TableNo');
-
-        //     $total = 0;
-        //     $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
-        //     foreach ($cartitems_total as $prod) {
-        //         $total += $prod->products->P_Price * $prod->Pro_Qty;
-        //         $otype=$prod->Order_Type;
-                
-        //     }
-        //     $order->O_Type = $otype;
-        //     $order->O_Total_Price = $total;
-        //     $order->save();
-
-        //     $logs = new Logs;
-        //     $logs->Cust_Id = Auth::id();
-        //     $logs->Log_Module = $req->input('Log_Module');
-        //     $logs->Log_Pay_Type = 0;
-        //     $logs->Log_Status = $req->input('Log_Status');
-        //     $logs->created_at = Carbon::now();
-        //     $logs->updated_at = Carbon::now();
-
-        //     $cartitems = Cart::where('Cust_Id', Auth::id())->get();
-        //     foreach ($cartitems as $item) {
-        //         OrderProduct::create([
-        //             'Order_Id' => $order->id,
-        //             'P_Id' => $item->Pro_Id,
-        //             'Order_Quantity' => $item->Pro_Qty,
-        //             'Order_Price' => $item->products->P_Price * $item->Pro_Qty,
-        //         ]);
-        //     }
-        //     $cartitems = Cart::where('Cust_Id', Auth::id())->get();
-        //     Cart::destroy($cartitems);
-
-        //     return view('home');
-        // }   
+        return view('checkout_complete');
     }
     public function summary($id)
     {
@@ -227,5 +185,12 @@ class CheckoutController extends Controller
                 return $e->getMessage();
             }
         }
+    }
+    public function checkoutstripe()
+    {
+        $cartitems = Cart::where('Cust_Id', Auth::id())->get();
+        Cart::destroy($cartitems);
+
+        return view('checkout_complete');
     }
 }

@@ -85,7 +85,26 @@ class DashboardController extends Controller
             $oneRating = "$row->rate";
         }
 
+        $data = "";
+        $category = DB::select(DB::raw("SELECT  product.P_Name, SUM(order_product.Order_Quantity) as P_Qty
+        FROM order_product,product
+        WHERE order_product.P_Id=product.P_Id
+        GROUP BY product.P_Name
+        ORDER BY SUM(order_product.Order_Quantity) DESC
+        LIMIT 7;
+        "));
+        foreach($category as $row){
+            $data.= "['".$row->P_Name."', ".$row->P_Qty."],";
+        }
+        $popularChart = $data;
+
+        $popularCustomer = DB::select(DB::raw("SELECT DISTINCT(users.name) as name, sum(customer_order.O_total_price) as total_spend 
+        from customer_order, users
+        where customer_order.User_Id = users.id
+        group by users.id, users.name
+        order by sum(O_Total_Price) DESC limit 5;"));
         
+
         
 
         return view('layouts.index', compact(
@@ -100,12 +119,11 @@ class DashboardController extends Controller
             'fourRating',
             'threeRating',
             'twoRating',
-            'oneRating'
+            'oneRating',
+            'popularChart',
+            'popularCustomer'
             
         ));
-
-
-
 
     }
 }

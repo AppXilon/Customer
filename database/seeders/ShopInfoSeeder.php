@@ -28,17 +28,7 @@ class ShopInfoSeeder extends Seeder
             'Pick_Up'=> '1',
             'S_Image'=> '1642650758-.jpg',
             'S_Banner'=> '-.png',
-        ],
-        [
-            'Shop_Id'=> '2',
-            'S_Category'=> 'Chain Mart',
-            'S_Name'=> 'Syaripah Grocery',
-            'S_Image'=> '1642650758-.jpg',
-            'S_Banner'=> '-.png',
-            'S_Description'=> 'OFFER BEST GROCER ANYTIME ANYWHERE',
-            'Dine_In'=> '1',
-            'Delivery'=> '1',
-            'Pick_Up'=> '1',
+            'S_Table'=>'1642650778-.png',
         ],
        ]); 
     }
