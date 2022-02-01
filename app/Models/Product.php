@@ -12,7 +12,7 @@ class Product extends Model
     
     // Cast the column as Json in product model
     protected $casts = [
-        'features' => 'array'
+        'features' => 'json'
     ];
 
     // public function setFeaturesAttribute($value)
