@@ -161,6 +161,8 @@ Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 Route::resource('/feedback', FeedbackController::class);
 
 Route::resource('/report', ReportTableController::class);
+Route::resource('/sales', SalesTableController::class);
+
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
