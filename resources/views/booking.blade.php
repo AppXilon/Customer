@@ -114,7 +114,7 @@
                             <div class="control-group">
                                 <div class="input-group mt-5">
                                     @if (Session::get('fail'))
-                                        <div class="alert alert-danger">
+                                        <div class="alert alert-danger" style="text-align:center;">
                                             {{ Session::get('fail') }}
                                         </div>
                                     @endif

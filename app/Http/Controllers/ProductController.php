@@ -57,7 +57,7 @@ class ProductController extends Controller
         }
 
         if(in_array($day, $daysOff)){
-            return redirect()->back()->with('faildate', "Please Select Another Date");    
+            return redirect()->back()->with('faildate', "Date not available. Please Select Another Date");    
         }
         elseif (in_array($bookdate, $date) && in_array($booktime, $time)  && in_array($booktable, $table)) {
             return redirect()->back()->with('fail', "Table not available. Please select another table or time");
