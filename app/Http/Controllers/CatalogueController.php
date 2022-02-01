@@ -85,6 +85,8 @@ class CatalogueController extends Controller
         $product->P_Duration = $request->input('P_Duration');
         $product->P_Quantity = $request->input('P_Quantity');
         $product->P_Status = $request->input('P_Status');
+        // Add features
+        $product->features = $request->input('features');
 
         $product->save();
         // Product::create([
@@ -169,6 +171,7 @@ class CatalogueController extends Controller
         $product->P_Duration = $request->input('P_Duration');
         $product->P_Quantity = $request->input('P_Quantity');
         $product->P_Status = $request->input('P_Status');
+        // Add features
         $product->features = $request->input('features');
 
         $product->update();

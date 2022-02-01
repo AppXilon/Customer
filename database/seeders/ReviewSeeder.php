@@ -22,10 +22,10 @@ class ReviewSeeder extends Seeder
             'User_Id'=> '21',
             'P_Id'=> '16',
             'R_Rating'=> '4',
-            'R_Comment'=> '43300',
-            'R_Sentiment'=> 'Selangor',
-            'created_at'=> 'lydia@gmail.com',
-            'updated_at'=> '0104031234',
+            'R_Comment'=> 'This is so delicious. I love it',
+            'R_Sentiment'=> 'Positive',
+            'created_at'=> '2021-01-01 05:20:55.000000',
+            'updated_at'=> '2021-01-01 05:20:55.000000',
             ]
             
         ]);
