@@ -2,6 +2,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 class CreateProduct extends Migration
 {
     /**
@@ -27,9 +29,32 @@ class CreateProduct extends Migration
             $table->integer('P_Status')->nullable();
             $table->integer('P_Quantity')->nullable();
             $table->string('P_Slug')->nullable();
+            // Defina a Json column in the migration
+            $table->json('features')->nullable();
+            // $table->tinyInteger('features.fry')->default(false);
+            // $table->tinyInteger('features.spicy')->default(false);
+            // $table->tinyInteger('features.grill')->default(false);
+            // $table->tinyInteger('features.healthy')->default(false);
+            // $table->tinyInteger('features.soup')->default(false);
+            // $table->tinyInteger('features.noodles')->default(false);
+            // $table->tinyInteger('features.rice')->default(false);
+            // $table->tinyInteger('features.chicken')->default(false);
+            // $table->tinyInteger('features.chilli')->default(false);
+            // $table->tinyInteger('features.seafood')->default(false);
+            // $table->tinyInteger('features.meat')->default(false);
+            // $table->tinyInteger('features.halal')->default(false);
+            // $table->tinyInteger('features.carbs')->default(false);
+            // $table->tinyInteger('features.fat')->default(false);
+            // $table->tinyInteger('features.fruit')->default(false);
+            // $table->tinyInteger('features.vegie')->default(false);
             $table->timestamps();
             
+            // $affected = DB::table('product')
+            //             -> where('P_Id')
+            //             -> update(['features' => 'spicy', 'halal']);
+
         });
+        
     }
     /**
      * Reverse the migrations.

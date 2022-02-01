@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@google-cloud/dialogflow-cx": "^2.15.0"
+        "@google-cloud/dialogflow-cx": "^2.15.0",
+        "chart.js": "^3.7.0",
+        "url-loader": "^4.1.1"
     }
 }

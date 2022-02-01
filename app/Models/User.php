@@ -39,6 +39,8 @@ class User extends Authenticatable
         'updated_at'
     ];
 
+    public static $laracombee = ['name' => 'string'];
+
     /**
      * The attributes that should be hidden for serialization.
      *

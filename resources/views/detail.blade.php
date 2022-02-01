@@ -1,7 +1,9 @@
 
 @extends('master')
 @section('content')
+
 @php use Carbon\Carbon; @endphp
+
 
 
 
@@ -21,8 +23,6 @@
     </div>
 </div>
 <!-- Page Header End -->
-
-
 <!-- Single Post Start-->
 <div class="single">
     <div class="container">
@@ -65,33 +65,7 @@
                     <a href="">Take Away</a>
                     <a href="">Booking</a>
                 </div>
-                {{-- <div class="single-related">
-                    <h2>Related Products</h2>
-                    <div class="owl-carousel related-slider">
-                        <div class="post-item">
-                            <div class="post-img">
-                                <img src="asset/img/post-1.jpg" />
-                            </div>
-                            <div class="post-text">
-                                <a href="">Chinese Fried Rice</a>
-                                <div class="post-meta">
-                                    <p><a href="">Best to try!!</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-item">
-                            <div class="post-img">
-                                <img src="asset/img/post-2.jpg" />
-                            </div>
-                            <div class="post-text">
-                                <a href="">Pineapple Fried Rice</a>
-                                <div class="post-meta">
-                                    <p><a href="">It will complete the taste</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+
 
                 <div class="single-comment">
                     <h2>Reviews</h2>
@@ -158,59 +132,22 @@
                     <div class="sidebar-widget">
                         {{-- MODULE 5 --}}
                         <h2 class="widget-title">Similar Product</h2>
-                        {{-- cut --}}
                         <div class="recent-post">
-
-
-                            {{-- <div class="post-item">
-                                <div class="post-img">
-                                    <img class="large-product-image" src="{{ $selectedProduct->image }}"
-                                        alt="Product Image">
-                                </div>
-                                <div class="post-text">
-                                    <p class="card-text text-muted">{{ $selectedProduct->name }} (RM{{
-                                        $selectedProduct->price }})</p>
-                                </div>
-                            </div> --}}
-
-                            
-                            {{-- LOOP --}}
-                            {{-- @foreach ($products as $product)
-                            <a href="/?id={{ $product->id }}" style="text-decoration: none;">
-                                <img class="p-3" style="height: 80px; width: auto;" src="{{ $product->image }}"
-                                    alt="Product Image">
-                            </a>
-                            @endforeach --}}
-
-
-
                             @foreach ($products as $product)
                             <div class="row mb-5">
-
-                                    <div class="post-item">
-
-                                        <div class="text-center" style="background-color: #ccc">
-                                            <img class="post-img" src="{{ $product->image }}" alt="Product Image">
-                                        </div>
-                                        <div class="post-text">
-                                            <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
-                                                }}%</p>
-                                            <p class="card-text text-muted">{{ $product->name }} (RM{{ $product->price
-                                                }})</p>
-                                        </div>
+                                <div class="post-item">
+                                    <div class="text-center" style="background-color: #ccc">
+                                        <img class="post-img" src="{{ $product->P_Image }}" alt="Product Image">
                                     </div>
+                                    <div class="post-text">
+                                        <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
+                                            }}%</p>
+                                        <p class="card-text text-muted">{{ $product->P_Name }} (RM{{ $product->P_Price
+                                            }})</p>
+                                    </div>
+                                </div>
                             </div>
                             @endforeach
-
-
-
-
-
-
-
-
-                           
-                      
                         </div>
                     </div>
 

@@ -20,28 +20,31 @@ class ManagerController extends Controller
     
     public function partner()
     {
-        return view('partner');
+        return view('partnerRest');
     }
 
-    public function partnerStore(Request $request)
-    {
-        $request->validate([
-            'Name' => 'required',
-            'Email' => 'required',
-            'Password' => 'required',
-            'Phone' => 'required',
-            'Street_1' => 'required',
-            'Postcode' => 'required',
-            'City' => 'required',
-            'State' => 'required',
-            'isBanned' => '2',
-            'Reason' => 'required'
-        ]);
-    
-        Manager::create($request->all());
-     
-        return redirect()->route('index')
-                        ->with('success','Manager created successfully.');    }
+    public function partnerStore(Request $request){
+        
+        $manager=new Manager;
+        $manager->Shop_Id=$request->input('Shop_Id');
+        $manager->Name=$request->input('Name');
+        $manager->Email=$request->input('Email');
+        $manager->Password=$request->input('password_confirmation');
+        $manager->isBanned=2;
+        $manager->Phone=$request->input('Phone');
+        $manager->Street_1=$request->input('Street_1');
+        $manager->Postcode=$request->input('Postcode');
+        $manager->City=$request->input('City');
+        $manager->State=$request->input('State');
+        $manager->Ban='2';
+        $manager->Reason='null';
+        $manager->created_at=Carbon::now();
+        $manager->updated_at=Carbon::now();;
+        $manager->save();
+
+        return redirect()->route('')
+                        ->with('success','Manager created successfully.');    
+    }
 
 
     function manager_login(Request $req)
@@ -50,7 +53,7 @@ class ManagerController extends Controller
         if(!$manager || !Hash::check ($req ->password, $manager-> Password))
         {
             return "Username or password is not matched";
-            $logs=new Logs;
+            /*$logs=new Logs;
             $logs->Manager_Id=Auth::id();
             $logs->Log_Module=$req->input('Log_Module');
             $logs->Log_Pay_Type=0;
@@ -58,7 +61,7 @@ class ManagerController extends Controller
             $logs->Log_Total_Price=0;
             $logs->created_at=Carbon::now();
             $logs->updated_at=Carbon::now();
-            $logs->save();
+            $logs->save();*/
         }
         else if( $manager-> isBanned == 1)
         {
@@ -66,7 +69,7 @@ class ManagerController extends Controller
         }
         else {
             $req->session() ->put ('manager', $manager);
-            $logs=new Logs;
+            /*$logs=new Logs;
             $logs->Manager_Id=Auth::id();
             $logs->Log_Module=$req->input('Log_Module');
             $logs->Log_Pay_Type=0;
@@ -74,7 +77,7 @@ class ManagerController extends Controller
             $logs->Log_Total_Price=0;
             $logs->created_at=Carbon::now();
             $logs->updated_at=Carbon::now();
-            $logs->save();
+            $logs->save();*/
             // return redirect ('layouts/index');
             //redirect betul
             //guna ni bawah dulu for now

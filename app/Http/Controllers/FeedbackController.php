@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Feedback;
- 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FeedbackController extends Controller
 {
@@ -15,9 +15,16 @@ class FeedbackController extends Controller
     public function index()
     {
         //
-        $data= Feedback::all();
-        //dd($data);
-        return view('layouts.feedback', ['Feedback'=>$data]);
+        $feedback = DB::select(DB::raw("SELECT R.Review_Id, U.name as C_Name, P.P_Name as P_Name, R.R_Rating, R.R_Comment, R_Sentiment
+        FROM review R
+        INNER JOIN users U
+          ON (R.User_Id = U.id)
+        INNER JOIN product P
+          ON (R.P_Id = P.P_Id)
+         GROUP BY Review_Id, U.name, P.P_Name, R_Rating, R.R_Comment, R_Sentiment
+         ORDER BY 1 ASC;"));
+        
+        return view('layouts.feedback', compact('feedback'));
     }
 
     /**

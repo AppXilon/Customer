@@ -15,7 +15,7 @@ class CreateShopBusinessHour extends Migration
             $table->bigInteger('Shop_Id')->unsigned();
             $table->foreign('Shop_Id')->references('Shop_Id')->on('shop')
             ->onDelete('cascade');
- $table->integer('Day_Id');
+            $table->integer('Day_Id');
             $table->string('Day_Of_Week');
             $table->time('Start_Time');
             $table->time('End_Time');

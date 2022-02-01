@@ -73,7 +73,7 @@
 
                                                     <td>{{ $report->O_Total_Price}}</td>
 
-                                                    <td>{{ $report->Dine_Datetime}}</td>
+                                                    <td>{{ $report->created_at}}</td>
                                              
                                              
                                                 </tbody>

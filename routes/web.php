@@ -38,6 +38,9 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailController;
+
 
 
 /*
@@ -61,11 +64,19 @@ Auth::routes();
 Route::get('try', [ReportController:: class, 'index']) ;
 Route::get('sales', [SalesController:: class, 'index']) ;
 
+Route::get('about', function () {
+    return view('about');
+});
 
+Route::get('checkout_complete', function () {
+    return view('checkout_complete');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
+Route::get('catalogueBooking', [ProductController:: class, 'catalogueBooking']) ;
+
 
 Route::get('shop_category', [ShopController::class, 'shop']);
 
@@ -93,11 +104,15 @@ Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
 
 Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
 
+Route::get('checkout_complete', [CheckoutController:: class, 'checkoutstripe']) ;
+
 Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 
 Route::get('user/{id}', 'UserController@showProfile'); 
 
 Route::get('order_history', [UserController::class,'orderHistory']);
+
+Route::get('invoice-order/{id}', [UserController::class, 'invoice']);
 
 Route::get('history_detail/{id}', [UserController::class,'viewHistory']);
 
@@ -117,6 +132,8 @@ Route::get('/tnc',[TermController::class,'view']);
 
 Route::get('/partner',[ManagerController::class,'partner']);
 
+Route::post('/shopStore',[ShopAdminController::class,'shopStore']);
+
 Route::post('/partnerStore',[ManagerController::class,'partnerStore']);
 
 Route::get('write-review/{P_Id}', [ReviewController:: class, 'addReview']) ;
@@ -134,13 +151,15 @@ Route::post('webhook', [CheckoutController::class, 'stripePay']);
 /******* Manager route start *******/
 /*******************************/
 
-Route::get('/dashboard', function () {
-    return view('layouts.index');
-});
 
-Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+
+Route::get('/searchProduct', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/searchTracking', 'App\Http\Controllers\OrderController@search');
+Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
+// Route::get('catalogues/create', [CatalogueController::class, 'add']);
 
 Route::resource('/product_category', Product_CategoryController::class);
 
@@ -149,26 +168,31 @@ Route::resource('/shopInfo', ShopController::class);
 Route::resource('/businesshour', BusinessHourController::class);
 
 Route::resource('/order', OrderController::class);
+Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
+Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/feedback', FeedbackController::class);
 
 Route::resource('/report', ReportTableController::class);
+Route::resource('/sales', SalesTableController::class);
+
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
 
-Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']); 
+Route::get('/cust_analytics', [CustAnalyticsController::class, 'analytics']);
+
+Route::get('/customerChart', function () {
+    return view('layouts.customerChart');
+});
 
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 
 // Report wani dah ubah route 
 
 Route::resource('/seatmap', SeatMapController::class);
+Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
-Route::get('/editSeat', 'App\Http\Controllers\SeatMapController@updateSeat') ;
-
-Route::get('/bookinglist', [OrderController::class, 'bookingList']) ;
-Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
 
 Route::resource('/promotion', PromotionController::class);
 
@@ -185,9 +209,8 @@ Route::resource('/promotion', PromotionController::class);
 /******* Admin route start *******/
 /*******************************/
 
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
+Route::get('/admin',[UserController::class,'dash']);
+
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });
@@ -245,10 +268,10 @@ Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');
 Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
-Route::get('/backup/download/{file_path}', [BackupController::class, 'download']);
+Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
+Route::get('/send-email', [EmailController::class,'sendNotification']);
 
 
 //Auth

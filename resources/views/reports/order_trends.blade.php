@@ -1,8 +1,10 @@
 @include('include.header')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
 <body>
-
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
@@ -12,7 +14,6 @@
     <div class="page-container">
         <!-- sidebar menu area start -->
         @include('include.sidebar')
-
         <!-- sidebar menu area end -->
         <!-- main content area start -->
         <div class="main-content">
@@ -37,346 +38,378 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-
-                    <!-- SALES Statistics area start -->
-                    <div class="col-lg-12 mt-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="header-title">Sales</h4>
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- SALES Statistics area end -->
-
-
-
-
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-                    <div class="card"></div>
-
-                </div>
-
-
-                <!-- TOP SELLING PRODUCTS start -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-
-                    <div class="card">
-                        <h5 class="card-header">Top Selling Products</h5>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-light">
-                                        <tr class="border-0">
-                                            <th class="border-0">Product Image</th>
-                                            <th class="border-0">Product Name</th>
-                                            <th class="border-0">Product Id</th>
-                                            <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Product Price</th>
-
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach ($popular as $popular)
-                                        <tr>
-                                            <td>
-                                                <div class="m-r-10"><img src="{{asset('images/'. $popular->P_Image)}}"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>{{ $popular->P_Name }}</td>
-                                            <td>{{ $popular->P_Id}}</td>
-                                            <td>{{ $popular->P_Qty}}</td>
-                                            <td>RM{{ $popular->P_Price}}</td>
-                                        </tr>
-                                        @endforeach
-
-
-
-
-                                    </tbody>
-
-                                </table>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn-primary-link">View Details</a>
+                    <div class="row" style="padding: 30px 0px 0px 15px">
+                        {{-- Category Product BAR CHART  --}}
+                        <div class="col-xl-6 col-xxl-5 d-flex">
+                            <div class="card flex-fill w-100">
+                                <div class="s-report-title d-flex justify-content-between"
+                                    style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0" style="padding:0px">Top Category Products</h4>
                                 </div>
+                                <div class="card-body d-flex">
+									<div class="align-self-center w-100" style="padding:10px">	
+                                        <div id="categoryBarChart" style="height: 270px"></div>
+									</div>
+								</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- TOP SELLING PRODUCT end -->
+                        {{-- END Category Product BAR CHART  --}}
+                        {{-- Sales Performance LINE CHART --}}
+                        <div class="col-xl-6 col-xxl-5 d-flex">
 
+                            <div class="card flex-fill w-100">
+                                <div class="s-report-title d-flex justify-content-between"
+                                    style="padding:25px 25px 0px 25px">
+                                    <h4 class="header-title mb-0" style="padding:0px">Sales Performance</h4>
 
-                <!-- LEAST SELLING PRODUCTS start -->
-                <div class="col-xl-12 col-ml-12 col-lg-12 mt-10">
-
-                    <div class="card">
-                        <h5 class="card-header">Least Selling Products</h5>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-light">
-                                        <tr class="border-0">
-                                            <th class="border-0">Product Image</th>
-                                            <th class="border-0">Product Name</th>
-                                            <th class="border-0">Product Id</th>
-                                            <th class="border-0">Quantity Sold</th>
-                                            <th class="border-0">Product Price</th>
-
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach ($least as $least)
-                                        <tr>
-                                            <td>
-                                                <div class="m-r-10"><img src="{{asset('images/'. $least->P_Image)}}"
-                                                        alt="user" class="rounded" width="45"></div>
-                                            </td>
-                                            <td>{{ $least->P_Name }}</td>
-                                            <td>{{ $least->P_Id}}</td>
-                                            <td>{{ $least->P_Qty}}</td>
-                                            <td>RM{{ $least->P_Price}}</td>
-                                        </tr>
-                                        @endforeach
-
-
-
-
-                                    </tbody>
-
-                                </table>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn-primary-link">View Details</a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- LEAST SELLING PRODUCTS end -->
-
-                <!-- SALES BY CATEGORIES start -->
-                <div class="col-lg-12 mt-5">
-                    <div class="card h-full">
-                        <h5 class="card-header"> Sales By Categories</h5>
-                        <div class="card-body p-0">
-                            <ul class="traffic-sales list-group list-group-flush">
-                                <li class="traffic-sales-content list-group-item "><span
-                                        class="traffic-sales-name">Fried Rice</span><span
-                                        class="traffic-sales-amount">300 sales <span
-                                            class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
-                                                class="fa fa-fw fa-arrow-up"></i></span><span
-                                            class="ml-1 text-success">5.86%</span></span>
-                                </li>
-                                <li class="traffic-sales-content list-group-item"><span
-                                        class="traffic-sales-name">Western<span class="traffic-sales-amount">250
-                                            sales <span
-                                                class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
-                                                    class="fa fa-fw fa-arrow-up"></i></span><span
-                                                class="ml-1 text-success">5.86%</span></span>
-                                    </span>
-                                </li>
-                                <li class="traffic-sales-content list-group-item"><span
-                                        class="traffic-sales-name">Beverages<span class="traffic-sales-amount ">150
-                                            sales <span
-                                                class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
-                                                    class="fa fa-fw fa-arrow-up"></i></span><span
-                                                class="ml-1 text-success">5.86%</span></span>
-                                    </span>
-                                </li>
-                                <li class="traffic-sales-content list-group-item"><span
-                                        class="traffic-sales-name">Mee/Kuey Teow/Bihun<span
-                                            class="traffic-sales-amount ">100 sales <span
-                                                class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
-                                                    class="fa fa-fw fa-arrow-down"></i></span><span
-                                                class="ml-1 text-danger">4.02%</span></span>
-                                    </span>
-                                </li>
-
-                                <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Soup
-                                        Dish<span class="traffic-sales-amount ">98
-                                            sales <span
-                                                class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
-                                                    class="fa fa-fw fa-arrow-down"></i></span><span
-                                                class="ml-1 text-danger">4.02%</span></span>
-                                    </span>
-                                </li>
-                                <li class="traffic-sales-content list-group-item"><span
-                                        class="traffic-sales-name">Seafood Dish<span class="traffic-sales-amount ">80
-                                            sales <span
-                                                class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
-                                                    class="fa fa-fw fa-arrow-down"></i></span><span
-                                                class="ml-1 text-danger">4.02%</span></span>
-                                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn-primary-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- SALES BY CATEGORIES end -->
-
-
-                <!-- order breakdown area start -->
-                <div class="sales-report-area sales-style-two">
-                    <div class="row">
-                        <div class="col-xl-6 col-ml-6 col-lg-6 mt-5">
-                            <div class="single-report">
-                                <div class="s-sale-inner pt--30 mb-3">
-                                    <div class="s-report-title d-flex justify-content-between">
-                                        <h4 class="header-title mb-0">Payment Method</h4>
-                                        <select class="custome-select border-0 pr-3">
-                                            <option selected="">Last 7 Days</option>
-                                            <option value="0">Last 2 Months</option>
-                                            <option value="0">Annual</option>
-                                        </select>
+                                <div class="card-body py-3">
+                                    <div class="chart chart-sm">
+                                        <canvas id="myChart" height="270"></canvas>
                                     </div>
                                 </div>
-                                <canvas id="cust_payment" height="150"></canvas>
                             </div>
                         </div>
-
-                        <div class="col-xl-6 col-ml-6 col-lg-6 mt-5">
-                            <div class="single-report">
-                                <div class="s-sale-inner pt--30 mb-3">
-                                    <div class="s-report-title d-flex justify-content-between">
-                                        <h4 class="header-title mb-0">Order Method</h4>
-                                        <select class="custome-select border-0 pr-3">
-                                            <option selected="">Last 7 Days</option>
-                                            <option value="0">Last 2 Months</option>
-                                            <option value="0">Annual</option>
-                                        </select>
+                        {{-- END Sales Performance LINE CHART --}}
+                        <div class="row" style="padding: 30px 10px 0px 15px">
+                            {{-- TOP POPULAR products --}}
+                            <div class="col-12 col-lg-6 col-xxl-6 d-flex">
+                                <div class="card flex-fill">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Top Selling Products</h4>
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped text-center">
+                                                    <thead class="text-uppercase">
+                                                        <tr>
+                                                            <th scope="col">Product Image</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Product Id</th>
+                                                            <th scope="col">Quantity Sold</th>
+                                                            <th scope="col">Price</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($popular as $popular)
+                                                        <tr height="60px">
+                                                            <td>
+                                                                <div class="m-r-10"><img
+                                                                        src="{{asset('images/'. $popular->P_Image)}}"
+                                                                        alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>{{ $popular->P_Name }}</td>
+                                                            <td>{{ $popular->P_Id}}</td>
+                                                            <td>{{ $popular->P_Qty}}</td>
+                                                            <td>RM{{ $popular->P_Price}}</td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <canvas id="cust_age" height="150"></canvas>
+                            </div>
+                            {{-- END TOP POPULAR products --}}
+                            {{-- LEAST POPULAR chart start --}}
+                            <div class="col-12 col-lg-6 col-xxl-6 d-flex">
+                                <div class="card flex-fill">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Least Selling Products</h4>
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped text-center">
+                                                    <thead class="text-uppercase">
+                                                        <tr>
+                                                            <th scope="col">Product Image</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Product Id</th>
+                                                            <th scope="col">Quantity Sold</th>
+                                                            <th scope="col">Price</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($least as $least)
+                                                        <tr height="60px">
+                                                            <td>
+                                                                <div class="m-r-10"><img
+                                                                        src="{{asset('images/'. $least->P_Image)}}"
+                                                                        alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>{{ $least->P_Name }}</td>
+                                                            <td>{{ $least->P_Id}}</td>
+                                                            <td>{{ $least->P_Qty}}</td>
+                                                            <td>RM{{ $least->P_Price}}</td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- END LEAST POPULAR products chart end --}}
+                        </div>
+                        <!-- Payment Types & Order Types PIE CHART -->
+                        <div class="sales-report-area sales-style-two" style="padding: 0px 25px 25px 25px">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-xxl-6 d-flex">
+                                    <div class="card flex-fill">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Order by</h4>
+                                            <div class="single-table">
+                                                <h4 class="header-title mb-0">Payment Type</h4>
+                                                <select class="custome-select border-0 pr-3"
+                                                    onchange="filterDataPayment()" id="dataPayment">
+                                                    <option value="0" selected="">All Time</option>
+                                                    <option value="1">Last 7 Days</option>
+                                                    <option value="2">Last 2 Months</option>
+                                                    <option value="3">Annual</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <canvas id="payment_type" height="200"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-xxl-6 d-flex">
+                                    <div class="card flex-fill">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Order by</h4>
+                                            <div class="single-table">
+                                                <h4 class="header-title mb-0">Service Type</h4>
+                                                <select class="custome-select border-0 pr-3" onchange="filterDataService()"
+                                                    id="dataService">
+                                                    <option value="0" selected="">All Time</option>
+                                                    <option value="1">Last 7 Days</option>
+                                                    <option value="2">Last 2 Months</option>
+                                                    <option value="3">Annual</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <canvas id="service_type" height="200"></canvas>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="col-xl-3 col-ml-3 col-md-6 mt-5">
-
-                        </div>
-
-
+                        <!-- END Payment Types & Order Types PIE CHART -->
                     </div>
                 </div>
-                <!-- order breakdown area end -->
-
-
             </div>
+            <!-- main content area end -->
+            <!-- footer area start-->
+            @include('include.footer')
+            <!-- footer area end-->
         </div>
-    </div>
-    <!-- main content area end -->
+        <!-- page container area end -->
+        <!-- offset area start -->
+        @include('include.offset')
+        <!-- offset area end -->
+        @include('include.script')
+        <!-- Sales Performance LINE CHART -->
+        <script>
+            var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var yValues = <?php echo $salesChart; ?>;
+            var ctx = document.getElementById("myChart").getContext("2d");   
+            var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+            gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+            gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+                
+                new Chart(document.getElementById("myChart"), {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label: "Sales",
+                        fill: true,
+                        lineTension: 0.4,
+                        backgroundColor: gradient,
+                        borderColor: "rgba(0,0,255,0.1)",
+                        data: yValues
+                    }]
+                },
+                options: {
+                    legend: {display: false},
+                    maintainAspectRatio: false,
+                    tooltips: {
+                            intersect: false
+                        },
+                        hover: {
+                            intersect: true
+                        },
+                        plugins: {
+                            filler: {
+                                propagate: false
+                            }
+                        },
+                    scales: {
+                        xAxes: [{
+                                reverse: true,
+                                gridLines: {
+                                    color: "rgba(0,0,0,0.0)"
+                                }
+                            }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0, 
+                                max:50,
+                                stepSize: 10
+                            },   
+                            gridLines: {
+                                    color: "rgba(0,0,0,0.0)"
+                                }
+                                        
+                            
+                                
+                        }]
+                    }
+                }
+                });
+        </script>
 
+        <!-- Payment Types PIE CHART-->
+        <script>
+            var xValues = ["Cash", "PayPal"];
+            var yValues = <?php echo $orderPayment; ?>;
+            var barColors = [
+            "#004c6d",
+            "#436f8d",
 
-
-
-    <!-- footer area start-->
-    @include('include.footer')
-    <!-- footer area end-->
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    <!-- page container area end -->
-    <!-- offset area start -->
-    @include('include.offset')
-    @include('include.script')
-
-
-    <script>
-        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var yValues = <?php echo $salesChart; ?>;
-
-        new Chart("myChart", {
-        type: "line",
-        data: {
-            labels: xValues,
-            datasets: [{
-            fill: false,
-            lineTension: 0,
-            backgroundColor: "rgba(0,0,255,1.0)",
-            borderColor: "rgba(0,0,255,0.1)",
-            data: yValues
-            }]
-        },
-        options: {
-            legend: {display: false},
-            scales: {
-            yAxes: [{ticks: {min: 12, max:120}}],
+            ];
+            
+            var paymentChart = new Chart("payment_type", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                
             }
-        }
-        });
-    </script>
-
-
-
-
-    <!-- Payment Types-->
-    <script>
-        var xValues = ["Cash", "PayPal"];
-        var yValues = <?php echo $orderPayment; ?>;
-        var barColors = [
-        "#004c6d",
-        "#436f8d",
-
-        ];
-        
-        new Chart("cust_payment", {
-        type: "pie",
-        data: {
-            labels: xValues,
-            datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-            }]
-        },
-        options: {
+            });
+            function filterDataPayment() {
             
-        }
-        });
-    </script>
 
-    <!-- Order Types -->
-    <script>
-        var xValues = ["Dine-In", "Booking", "Take Away", "Delivery"];
-        var yValues = [37, 49, 12, 21];
-        var barColors = [
-        "#004c6d",
-        "#436f8d",
-        "#7193af",
-        "#b6cee3",
-        ];
-        
-        new Chart("cust_age", {
-        type: "pie",
-        data: {
-            labels: xValues,
-            datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-            }]
-        },
-        options: {
+            if (document.getElementById("dataPayment").value == 0) {
+                var paymentAllTime = <?php echo $orderPayment; ?>;
+                paymentChart.data.datasets[0].data = paymentAllTime;
+            }
+            else if (document.getElementById("dataPayment").value == 1) {
+                var paymentWeekly = <?php echo $filterpaymentWeek; ?>;
+                paymentChart.data.datasets[0].data = paymentWeekly;
+            }
+            else if (document.getElementById("dataPayment").value == 2) {
+                var paymentMonth = <?php echo $filterpaymentMonth; ?>;
+                paymentChart.data.datasets[0].data = paymentMonth;
+            }
+            else if (document.getElementById("dataPayment").value == 3) {
+                var paymentAnnual = <?php echo $filterpaymentYear; ?>;
+                paymentChart.data.datasets[0].data = paymentAnnual;
+            }
+
+            paymentChart.update();
+           
+        }
+
+        </script>
+
+        <!-- Order Types PIE CHART -->
+        <script>
+            var xValues = ["DineIn", "Delivery", "PickUp", "Booking"];
+            var yValues =  <?php echo $orderService; ?>;
+            var barColors = [
+            "#004c6d",
+            "#436f8d",
+            "#7193af",
+            "#b6cee3",
+            ];
             
+      
+            var serviceChart = new Chart("service_type", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                
+            }
+            });
+            function filterDataService() {
+            
+
+            if (document.getElementById("dataService").value == 0) {
+                var serviceAllTime = <?php echo $orderService; ?>;
+                serviceChart.data.datasets[0].data = serviceAllTime;
+            }
+            else if (document.getElementById("dataService").value == 1) {
+                var serviceWeekly = <?php echo $filterServiceWeek; ?>;
+                serviceChart.data.datasets[0].data = serviceWeekly;
+            }
+            else if (document.getElementById("dataService").value == 2) {
+                var serviceMonth = <?php echo $filterServiceMonth; ?>;
+                serviceChart.data.datasets[0].data = serviceMonth;
+            }
+            else if (document.getElementById("dataService").value == 3) {
+                var serviceAnnual = <?php echo $filterServiceYear; ?>;
+                serviceChart.data.datasets[0].data = serviceAnnual;
+            }
+
+            serviceChart.update();
+           
         }
-        });
-    </script>
 
+        </script>
 
+        <!-- Category Product BAR CHART -->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+    
+            function drawStuff() {
 
+                
+                    var data = new google.visualization.arrayToDataTable([
+                                                ['Category', 'Total '],
+                                                <?php echo $categoryChart; ?>
+                                            ]);
+                    
+            
+                
+    
+                    var options = {
+                        title: 'Top 5 Most Total Spend by Customer ',
+                        chartArea: {
+                            width: '70%'
+                        },
+                        colors: ['#D7E3F4'],
+                        hAxis: {
+                            title: 'Total Spend (RM)',
+                            minValue: 0,
+                                
+                        },
+                        vAxis: {
+                            title: 'Customer Name'
+                        },
+                    
+                        legend: { position: 'none' },
+                        
+                        bars: 'horizontal', // Required for Material Bar Charts.
+                        
+                        bar: { groupWidth: "80%" }
+                    };
+            
+                    var chart = new google.charts.Bar(document.getElementById('categoryBarChart'));
+                    chart.draw(data, options);
+            };
 
+        
+        </script>
 </body>
-
-</html>

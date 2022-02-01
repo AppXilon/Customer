@@ -3,15 +3,15 @@
 
     <body>
         <!-- Page Header Start -->
-        <div class="page-header mb-0">
+        <div class="page-header-partner mb-0">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <h2>About Us</h2>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">About Us</a>
+                        <a href="/">Home</a>
+                        <a href="about">About Us</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="img/apexilon.png" alt="Image">
+                            <img src="asset/img/apexilon.png" alt="Image">
                         </div>
                     </div>
                     <div class="col-lg-6">

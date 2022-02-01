@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('AZuiCy2XaqC48YxFzFbrritDd3NfnXi4z5p9B1pOYJPn9ElJ13kBebO7El5aLU0He7Q17sb3GPs301YM') }}"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
 <?php
@@ -19,7 +19,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
         <div class="process-checkout">
             <ul class="progressbar">
                 <li class="active">Login</li>
-                <li>Shipping and Billing</li>
+                <li>Customer Details and Billing</li>
                 <li>Checkout Complete</li>
                 <li>Order Status</li>
             </ul>
@@ -42,26 +42,28 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 </thead>
                                 <tbody>
                                     @php $totalPrice = 0; @endphp
+                                    @php $totalStripe = 0; @endphp
                                     @foreach($cartitems as $item)
                                     <tr>
                                         <td>{{$item->Pro_Qty}} </td>
-                                        <td><a href="detail/{{$item->id}}">{{$item->products->P_Name}}</a></td>
+                                        <td>{{$item->products->P_Name}}</td>
                                         <td>RM{{ number_format((float) $item->products->P_Price*$item->Pro_Qty, 2, '.', '') }}</td>
                                     </tr>
                                     @php $totalPrice += $item->products->P_Price*$item->Pro_Qty; @endphp
+                                    @php $totalStripe += $totalPrice * 100; @endphp
                                     @endforeach
                                 </tbody>
                             </table>
-                            <p>Order Type: {{ $item->Order_Type }}</p>
+                            <p>Order Type: <?php echo $oType?></p>
                             
-                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes" required="required">
+                            Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes">
                             <label for="reject">If product not available:</label>
                             <select name="Remarks">
                                 <option value="Call me">Call me</option>
                                 <option value="Remove all product">Remove all product</option>
                             </select><br>
                             
-                            @if($item->Order_Type == 'dineIn')
+                            @if($oType == 'dineIn')
                                 <label for="tableno">Current Table No:</label>
                                 <select name="TableNo">
                                     @foreach ($table as $table)
@@ -71,12 +73,34 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                     @endforeach
                                 </select>
         
-                            @elseif($item->Order_Type == 'booking')
+                            @elseif($oType == 'booking')
                                 <p>Book Date: {{$item->BookDate}}</p>
-                                <p>Book Time: {{$item->BookTime}}</p>
+                                <p>Book Start: {{$item->BookTime}}</p>
                                 <p>Total Pax: {{$item->BookPax }}</p>
                                 <p>Order Table: {{$item->BookTable }}</p>
 
+                            @elseif($oType == 'pickUp')
+                            <div class="form-group mt-3">
+                                <label for="">Pickup Date</label>
+                                <input type="date" class="form-control odate" value="odate" name="odate" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Pickup Time</label>
+                                <input type="time" class="form-control otime" value="otime" name="otime" placeholder="Enter PickuTime" required="required">
+                                <span id="cpickup_error" class="text-danger"></span>
+                            </div>
+                            @elseif($oType == 'delivery')
+                            <div class="form-group mt-3">
+                                <label for="">Delivery Date</label>
+                                <input type="date" class="form-control odate" value="odate" name="odate" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Delivery Time</label>
+                                <input type="time" class="form-control otime" value="otime" name="otime" placeholder="Enter State" required="required">
+                                <span id="cstate_error" class="text-danger"></span>
+                            </div>
                             @endif
 
                             <h5>Total Price: RM{{ number_format((float) $totalPrice, 2, '.', '') }}</h5>
@@ -129,6 +153,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <input type="text" class="form-control cstate" value="{{Auth::user()->state}}" name="O_State" placeholder="Enter State" required="required">
                                 <span id="cstate_error" class="text-danger"></span>
                             </div>
+                            
                             <input type="hidden" class="form-control cstate" value="Payment" name="Log_Module" required="required">
                             <input type="hidden" class="form-control cstate" value="COMPLETED" name="Log_Status" required="required">
                             <input type="hidden" class="form-control cstate" value="{{Auth::user()->id}}" name="Cust_Id" required="required">
@@ -143,8 +168,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                             <hr>
                             <div class="payment-option">
                                 <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with Cash</button>
-                                <!-- <button type="submit" name="payment" value="Stripe" class="btn btn-success w-100 mt-3 razorpay_btn">Pay with Stripe</button> -->
-                                <a class="btn btn-primary w-100 mt-3" href="{{ route('processTransaction') }}">PayPal Payment</a>
+                                <a class="btn w-100 mt-3" href="{{ route('processTransaction') }}" style="background-color:#fbaf32">PayPal Payment</a>
                                 @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 {{ \Session::forget('error') }}
@@ -153,7 +177,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                                 <div class="alert alert-success">{{ \Session::get('success') }}</div>
                                 {{ \Session::forget('success') }}
                                 @endif
-                                <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3">Pay with Stripe</button>
+                                <button id="stripe-checkout" name="payment" value="Stripe" class="btn btn-success w-100 mt-3" style="background-color: black">Pay with Stripe</button>
                             </div>
                         </div>
                     </div>
@@ -172,14 +196,14 @@ $session = \Stripe\Checkout\Session::create([
       'price_data' => [
         'currency' => 'myr',
         'product_data' => [
-          'name' => 'T-shirt',
+          'name' => $item->products->P_Name,
         ],
-        'unit_amount' => 2000,
+        'unit_amount' => $totalStripe,
       ],
-      'quantity' => 1,
+      'quantity' => $item->Pro_Qty,
     ]],
     'mode' => 'payment',
-    'success_url' => 'https://example.com/success',
+    'success_url' => 'http://127.0.0.1:8000/checkout_complete',
     'cancel_url' => 'https://example.com/cancel',
   ]);
 

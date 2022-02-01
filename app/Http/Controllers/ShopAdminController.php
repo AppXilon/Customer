@@ -22,7 +22,7 @@ class ShopAdminController extends Controller
     public function indexBan()
     {
         //
-        $shop = Shop::where('S_Ban', 1)->get();
+        $shop = Shop::where('S_Status', 1)->get();
         return view('admin-layouts.ban_rest')->with('shop',$shop);
     }
 
@@ -45,6 +45,19 @@ class ShopAdminController extends Controller
     public function store(Request $request)
     {
         //
+        Shop::create($request->all());
+        return redirect()->route('shop.index')
+                        ->with('success','Shop created successfully.');
+    }
+    public function shopStore(Request $request)
+    {
+        //
+        Shop::create($request->all());
+        $name=$request->S_Name;
+        $shop = Shop::where('S_Name', $name)->value('Shop_Id');
+
+        return view('partner')->with('success','Shop created successfully.')->with('shop',$shop);
+
     }
 
     /**

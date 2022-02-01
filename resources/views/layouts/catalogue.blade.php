@@ -44,9 +44,9 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="col-md-4">
-                                <form action="/search" method="get">
+                                <form action="/searchProduct" method="get">
                                     <div class="input-group">
-                                    <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
+                                    <input type="search" name="search" placeholder="Search Product Name" style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                     <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
                                     </div>
                                 </form>
@@ -69,10 +69,10 @@
                                 <div class="tab-content mt-3" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="all" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
-                                        <div class="table-responsive">
+                                        <div class="single-table ">
                                         <table class="table text-center" >
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
+                                            <thead class="text-uppercase bg-light">
+                                                <tr>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Price</th>
@@ -86,6 +86,7 @@
                                             </thead>
                                             @foreach ($products as $product)
                                                 <tbody>
+                                                <tr>
                                                     <td>{{ $product->P_Id }}</td>
                                                     <td>{{ $product->P_Name }}</td>
                                                     <td>RM
@@ -127,6 +128,7 @@
                                                             <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>
                                                     </td>
+                                                </tr>
 
                                                 </tbody>
                                             @endforeach
@@ -138,8 +140,8 @@
                                         aria-labelledby="nav-home-tab">
                                         <div class="table-responsive">
                                         <table class="table text-center" >
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
+                                            <thead class="text-uppercase bg-light">
+                                                <tr>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Price</th>

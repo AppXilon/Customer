@@ -79,6 +79,10 @@
                                                         <th class="text-uppercase bg-light" scope="col">Long Description</th>
                                                         <td>{{ $product->L_Description }} </td>
                                                     </tr>
+                                                    {{-- <tr>
+                                                        <th class="text-uppercase bg-light" scope="col">Features</th>
+                                                        <td>{{ $product->features }} </td>
+                                                    </tr> --}}
                                             </table>
                                             <a class="btn btn-danger" style=" margin-right: 10px; margin-top: 10px"
                                             href="{{ route('catalogues.index') }}">Back</a>

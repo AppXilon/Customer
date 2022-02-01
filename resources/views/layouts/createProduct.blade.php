@@ -106,50 +106,71 @@
                                                     name="P_Quantity">
                                             </div>
                                         </div>
-                                        <label for="validationCustomUsername">Image:</label><br>
-                                        <input type="file" name="P_Image" /><br>
-                                        <div class="form-group">
-                                            <label for="example-text-input"
-                                                class="col-form-label">Availability:</label><br>
-                                            <label class="switch">
-                                                <input type="hidden" value="0" name="P_Status">
-                                                <input
-                                                     value="1" type="checkbox" name="P_Status" checked>
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
-                                        <label for="example-text-input" class="col-form-label">Category:</label><br>
-                                        <div class="form-row">
+
+                                        {{-- Add Features Attributes FORM --}}
+                                        @for ($i=0; $i <= 4; $i++) <div class="form-row">
+
                                             <div class="col-md-4 mb-3">
-                                                <select class="form-control" name="Cat_Id" style="height:50px">
-                                                    <option disabled selected>Select One</option>
-                                                    @foreach ($product_category as $product_category)
-                                                        <option value="{{ $product_category->P_Cat_Id }}">
-                                                            {{ $product_category->P_Cat_Name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label for="validationCustomUsername">Features</label>
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    placeholder="Key" aria-describedby="inputGroupPrepend"
+                                                    name="features[{{ $i }}][0]">
                                             </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustomUsername"> Products Attributes</label>
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    placeholder="Value" aria-describedby="inputGroupPrepend"
+                                                    name="features[{{ $i }}][1]">
+                                            </div>
+
                                         </div>
-                                        <button type="submit" style="float: right; margin-right: 10px"
-                                            class="btn btn-success mb-3" name="upload">Add</button>
-                                        <a class="btn btn-danger" style="float: right; margin-right: 10px"
-                                            href="{{ route('catalogues.index') }}">Back</a>
-                                    </form>
+                                        @endfor
+
+
+
+
+                                <label for="validationCustomUsername">Image:</label><br>
+                                <input type="file" name="P_Image" /><br>
+                                <div class="form-group">
+                                    <label for="example-text-input" class="col-form-label">Availability:</label><br>
+                                    <label class="switch">
+                                        <input type="hidden" value="0" name="P_Status">
+                                        <input value="1" type="checkbox" name="P_Status" checked>
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
+                                <label for="example-text-input" class="col-form-label">Category:</label><br>
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <select class="form-control" name="Cat_Id" style="height:50px">
+                                            <option disabled selected>Select One</option>
+                                            @foreach ($product_category as $product_category)
+                                            <option value="{{ $product_category->P_Cat_Id }}">
+                                                {{ $product_category->P_Cat_Name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" style="float: right; margin-right: 10px"
+                                    class="btn btn-success mb-3" name="upload">Add</button>
+                                <a class="btn btn-danger" style="float: right; margin-right: 10px"
+                                    href="{{ route('catalogues.index') }}">Back</a>
+                                </form>
                             </div>
                         </div>
-                        <!-- Textual inputs end -->
                     </div>
+                    <!-- Textual inputs end -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- main content area end -->
+</div>
+<!-- main content area end -->
 
-    <!-- footer area start-->
-    <footer>
-        @include('include.footer')
-    </footer>
-    <!-- footer area end-->
+<!-- footer area start-->
+<footer>
+    @include('include.footer')
+</footer>
+<!-- footer area end-->
 </div>
 <!-- page container area end -->

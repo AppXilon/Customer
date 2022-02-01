@@ -52,10 +52,11 @@
                                 
                                     <div>
                                         <table class="table text-center">
-                                            <thead class="text-uppercase bg-primary">
+                                            <thead class="text-uppercase bg-light">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">Customer ID</th>
+                                                    <th scope="col">Customer Name</th>
+                                                    <th scope="col">Product Name</th>
                                                     <th scope="col">Rating</th>
                                                     <th scope="col">Comment</th>
                                                     <th scope="col">Sentiment</th>
@@ -65,10 +66,11 @@
 
                                                 </tr>
                                             </thead>
-                                            @foreach ($Feedback as $feedback)
+                                            @foreach ($feedback as $feedback)
                                                 <tbody>
                                                     <td>{{ $feedback->Review_Id }}</td>
-                                                    <td>{{ $feedback->P_Id}}</td>
+                                                    <td>{{ $feedback->C_Name}}</td>
+                                                    <td>{{ $feedback->P_Name}}</td>
                                                     <td>{{ $feedback->R_Rating}}</td>
 
                                                     <td>{{ $feedback->R_Comment}}</td>
@@ -81,73 +83,7 @@
                                         </table>
 
                                     </div>
-                                    {{-- <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                        aria-labelledby="nav-profile-tab">
-                                        <table class="table text-center">
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
-                                                <th scope="col">ID</th>
-                                                    <th scope="col">Customer ID</th>
-                                                    <th scope="col">Total Price</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Teh Ais</td>
-                                                    <td>RM 2.00</td>
-                                                    <td></td>
-                                                    <td>2 Minutes</td>
-                                                    <td><img src="assets/images/tehais.jpg" alt="" border=3 height=50
-                                                            width=50></img></td>
-                                                    <td><label class="switch">
-                                                            <input type="checkbox" checked>
-                                                            <span class="slider round"></span>
-                                                        </label></td>
-                                                    <td><i class="fa fa-edit"
-                                                            style="color:#4CAF50; font-size: 25px;"></i><i
-                                                            class="fa fa-trash"
-                                                            style="color:#f44336; padding: 3px 8px; font-size: 25px;"></i></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                        aria-labelledby="nav-contact-tab">
-                                        <table class="table text-center">
-                                            <thead class="text-uppercase bg-primary">
-                                                <tr class="text-white">
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Discount Price</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Pudding</td>
-                                                    <td>RM 4.00</td>
-                                                    <td></td>
-                                                    <td>5 Minutes</td>
-                                                    <td><img src="assets/images/pudding.jpg" alt="" border=3 height=50
-                                                            width=50></img></td>
-                                                    <td><label class="switch">
-                                                            <input type="checkbox" checked>
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td><i class="fa fa-edit"
-                                                            style="color:#4CAF50; font-size: 25px;"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> --}}
+                                    
                                 
                             </div>
                         </div>

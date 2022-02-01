@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Service provider product recommendations for module 5
+        Amranidev\Laracombee\Providers\LaracombeeServiceProvider::class,
+
+
     ],
 
     /*
@@ -233,6 +237,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+
+        // Alias for product recommendation for module 5
+        'Laracombee' => Amranidev\Laracombee\Facades\LaracombeeFacade::class,
 
     ],
 

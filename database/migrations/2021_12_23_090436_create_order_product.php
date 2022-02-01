@@ -19,7 +19,6 @@ class CreateOrderProduct extends Migration
             $table->bigInteger('Order_Quantity');
             $table->double('Order_Price');
             $table->boolean('rstatus')->default(false);
-            $table->string('Od_Type');
             $table->timestamps();
             $table->primary(['Order_Id', 'P_Id']);
         });

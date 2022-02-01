@@ -78,10 +78,10 @@
                                     </h5>
                                     @switch ($pay->Status) 
                                         @case(0)
-                                        <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with PayPal</button>
+                                        <button type="submit" name="payment" value="Cash" class="btn btn-success w-100 mt-3">Pay with null</button>
                                           @break;
                                         @case (1)
-                                        <button type="submit" name="payment" value="Razor" class="btn btn-primary w-100 mt-3 razorpay_btn">Pay with Visa</button>                                          
+                                        <button type="submit" name="payment" value="{{$pay->Name}}" class="btn btn-primary w-100 mt-3 razorpay_btn">Pay with {{$pay->Name}}</button>                                          
                                         @break;
                                     @endswitch
                                 </div>
