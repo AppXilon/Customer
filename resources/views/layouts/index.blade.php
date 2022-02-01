@@ -44,6 +44,9 @@
         
         
     </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+    
  </head>
 
  <body>
@@ -246,68 +249,13 @@
                      <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
                          <div class="card">
                              <div class="card-body">
-                                 <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Recent Order List</h4>
-                                     <a class="btn btn-primary mb-3" href="/order" role="button">View Order</a>
-                                 </div>
-                                 <div class="table-responsive">
-                                     <table class="table text-center">
-                                         <thead class="text-uppercase bg-secondary">
-                                             <tr class="text-white">
-                                                 <th scope="col">Order ID</th>
-                                                 <th scope="col">Customer</th>
-                                                 <th scope="col">Order Time</th>
-                                                 <th scope="col">Price</th>
-                                                 <th scope="col">Status</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                             <tr>
-                                                 <td>01</td>
-                                                 <td>John</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 10</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>02</td>
-                                                 <td>Ali</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 11</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>03</td>
-                                                 <td>Mahmud</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 18</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>04</td>
-                                                 <td>Sulaiman</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 17</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>05</td>
-                                                 <td>Kamaruzzaman</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 13</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                         </tbody>
-                                     </table>
-                                     <div class="pagination_area pull-right mt-5">
-                                         <ul>
-                                             <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                             <li><a href="#">1</a></li>
-                                             <li><a href="#">2</a></li>
-                                             <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                         </ul><br>
-                                     </div>
-                                 </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                     <h4 class="header-title mb-0">Popular Product</h4>
+                                     <a class="btn btn-primary mb-3" href="/order_trends" role="button">View Details</a>
+                                </div>
+                                <div class="align-self-center w-100" style="padding:10px">	
+                                    <div id="popularChart"></div>
+                                </div>
                              </div>
                          </div>
                      </div>
@@ -317,75 +265,29 @@
                          <div class="card">
                              <div class="card-body">
                                  <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Popular Product</h4>
-                                     <a class="btn btn-primary mb-3" href="/order" role="button">View Trends</a>
+                                     <h4 class="header-title mb-0">Top Customer</h4>
+                                     <a class="btn btn-primary mb-3" href="/cust_analytics" role="button">View Details</a>
                                  </div>
-                                 <div class="member-box">
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Nasi Lemak</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Nasi Goreng</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Mee Goreng</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Iced Tea</p><span>Beverage</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="pagination_area pull-right mt-5">
-                                     <ul>
-                                         <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                         <li><a href="#">1</a></li>
-                                         <li><a href="#">2</a></li>
-                                         <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                     </ul><br>
-                                 </div>
+                                 <table class="table table-striped text-center">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Total Spend</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($popularCustomer as $popularCustomer)
+                                        <tr height="60px">
+                                            
+                                            <td>{{ $popularCustomer->name }}</td>
+                                            <td>{{ $popularCustomer->total_spend }}</td>
+                                            
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                 
                              </div>
                          </div>
                      </div>
@@ -472,6 +374,51 @@
             }
             });
     </script>
+
+    // <!-- bar chart from google -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+  
+        function drawStuff() {
+
+           
+                var data = new google.visualization.arrayToDataTable([
+                                            ['Product', 'Total Order'],
+                                            <?php echo $popularChart; ?>
+                                        ]);
+            
+  
+          var options = {
+            
+            chartArea: {
+                width: '70%'
+            },
+            colors: ['#D7E3F4'],
+            hAxis: {
+                title: 'Total Spend (RM)',
+                minValue: 0,
+                       
+            },
+            vAxis: {
+                title: 'Customer Name'
+            },
+           
+            legend: { position: 'none' },
+            
+            bars: 'vertical', // Required for Material Bar Charts.
+            width:750,
+            height:350,
+            bar: { groupWidth: "80%" }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('popularChart'));
+          chart.draw(data, options);
+        };
+
+        
+    </script>
+    //<!-- end bar chart from google -->
 
 
  </body>
