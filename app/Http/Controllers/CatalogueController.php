@@ -169,6 +169,8 @@ class CatalogueController extends Controller
         $product->P_Duration = $request->input('P_Duration');
         $product->P_Quantity = $request->input('P_Quantity');
         $product->P_Status = $request->input('P_Status');
+        $product->features = $request->input('features');
+
         $product->update();
 
         return redirect()->route('catalogues.index')->with('status', "Category Updated Successfully");
