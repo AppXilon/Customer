@@ -47,9 +47,13 @@ class UserController extends Controller
     }
 
     public function update(Request $request){
+        $id=Auth::id();
         $request->validate([
+            
             'name'=> 'required',
-            'email'=> 'required|email',
+            // 'email'=> ['required', 'string', 'email', 'max:255', 
+            // 'unique:users,email,$id'
+            //             ],
             'phone'=> 'required',
             'street'=> 'required',
             'postcode'=> 'required',
@@ -68,7 +72,7 @@ class UserController extends Controller
                     ->where('id', $request->input('cid'))
                     ->update ([
                         'name'=>$request->input('name'),
-                        'email'=>$request->input('email' ),
+                        // 'email'=>$request->input('email' ),
                         'phone'=>$request->input('phone' ),
                         'street_1'=>$request->input('street' ),
                         'postcode'=>$request->input('postcode' ),

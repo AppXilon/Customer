@@ -3570,3 +3570,22 @@ ol.progtrckr li.progtrckr-todo:before {
 }
 
     /* End of Star Rating */ 
+
+.imagereview{
+    height:100px;
+    width:150px;
+}
+
+.avatarprofile {
+    vertical-align: middle;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+  }
+
+  .promotionimage {
+    vertical-align: middle;
+    width: 150px;
+    height:180px;
+    border-radius: 40%;
+  }

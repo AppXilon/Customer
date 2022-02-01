@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductSimilarity;
 
@@ -15,13 +16,17 @@ class ProductController extends Controller
         $category=DB::table('product_category')->get();
         $cart=DB::table('cart')->get();
         $order=$req->otype;
+        $promotion=Promotion::all();
 
-        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order);
+
+        return view('catalogue')->with('products',$products)->with('category',$category)->with('cart',$cart)->with('order', $order)->with('promotionBanner',$promotion);
 
     }
     function detail($P_Id)
     {
         $detail = Product::find($P_Id);
+        $users=DB::table('users')->get();
+        $review=Review::where('P_Id',$P_Id )->get();
 
         //Product Similarity Controller
         $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
@@ -37,7 +42,7 @@ class ProductController extends Controller
         $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
     
-        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
+        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products', 'review', 'users'));
     }
     function search(Request $req)
     {

@@ -21,7 +21,7 @@ class CatalogueController extends Controller
         //
         $products=DB::table('product')->get();
         $category=Product_Category::all();
-
+        
         return view('layouts.catalogue')->with('products',$products)->with('category',$category);
     }
 
