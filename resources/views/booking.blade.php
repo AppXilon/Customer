@@ -1,6 +1,8 @@
 @extends('master')
 @section('content')
 
+
+
 <!-- Page Header Start -->
 <div class="page-header mb-0">
     <div class="container">
@@ -97,8 +99,11 @@
                     </form>
                 </div>
             </div>
+
         </div>
     </div>
+<!-- Booking End -->
+@endsection
 </div>
 <!-- Booking End -->
 @endsection
