@@ -12,6 +12,9 @@ use App\Models\Payment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Notifications\SendEmailReminder;
+use Illuminate\Support\Facades\Notification;
 
 
 class CheckoutController extends Controller
@@ -49,6 +52,7 @@ class CheckoutController extends Controller
     }
     function orderPlace(Request $req)
     {
+
         $order = new Order();
         $order->User_Id = Auth::id();
         $order->O_Name = $req->input('O_Name');
@@ -92,6 +96,16 @@ class CheckoutController extends Controller
         $order->T_Pax = $bookpax;
         $order->O_Total_Price = $total;
         $order->save();
+      
+        $user = $req->input('O_Email');
+      
+      $orderData =[
+            'body' => 'You Have made an order in AppXilon',
+            'orderText' => 'Total:'.$total.' order in AppXilon',
+            'url' => url('/'),
+            'thankyou' => 'Thank You For Ordering With AppXilon'
+        ];
+        Notification::send($user, new SendEmailReminder($orderData));
 
         $logs = new Logs;
         $logs->Cust_Id = Auth::id();

@@ -38,6 +38,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailController;
 
 
 /*
@@ -206,9 +207,8 @@ Route::resource('/promotion', PromotionController::class);
 /******* Admin route start *******/
 /*******************************/
 
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
+Route::get('/admin',[UserController::class,'dash']);
+
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });
@@ -269,7 +269,7 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
+Route::get('/send-email', [EmailController::class,'sendNotification']);
 
 
 
