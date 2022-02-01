@@ -15,7 +15,7 @@ class CreatePromotion extends Migration
             $table->bigIncrements('Promotion_Id');
             $table->string('Promo_Name');
             $table->string('Promo_Descr');
-            $table->int('Promo_Discount');
+            $table->integer('Promo_Discount');
             $table->string('Promo_Status');
             $table->date('Promo_Start');
             $table->date('Promo_End');
