@@ -17,6 +17,8 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +35,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     
+    
+<style>
+       
+
+        .fa {
+          font-size: 25px;
+        }
+
+        .checked {
+          color: orange;
+        }
+</style>
+
+
+
+
+
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -42,28 +61,41 @@
     
 
 
-    <!-- dialogflow -->
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+ 
+
+<!-- first chatbot -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger
   intent="WELCOME"
-  chat-title="Sarah"
+  chat-title="Amy"
   agent-id="fa6702c0-320a-4d7f-8333-1eb8252437e4"
   language-code="en"
 ></df-messenger>
 
-<!-- dialogflow cx -->
-    <!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+<!-- dialogflow cx  ally-->
+<!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
 <df-messenger
   df-cx="true"
   location="us-central1"
-  chat-title="Sarah"
+  chat-title="Ally"
   agent-id="a0f5ee66-35e9-4c6d-a0ac-3463b8f9d6e5"
   language-code="en"
 ></df-messenger> -->
 
+<!-- dialogflow cx diona -->
+<!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+<df-messenger
+  df-cx="true"
+  location="us-central1"
+  chat-title="Diona"
+  agent-id="e211c708-7710-4fef-b46c-5c6e3a49408e"
+  language-code="en"
+></df-messenger> -->
+
+
 
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
-<!-- <meta name="viewport" content="width-device-width, initial-scale=1">  -->
+<meta name="viewport" content="width-device-width, initial-scale=1"> 
 <!-- kalau minimize full screen akan jadi cb -->
 
     <!-- CSRF Token -->

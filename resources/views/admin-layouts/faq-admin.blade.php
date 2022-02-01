@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Business Hours</title>
+    <title>FAQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{ asset ('admin-assets/images/icon/favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset ('admin-assets/css/bootstrap.min.css')}}">
@@ -46,7 +46,7 @@
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index2.html">Home</a></li>
-                                <li><span>Business Hours</span></li>
+                                <li><span>Faq</span></li>
                             </ul>
                         </div>
                     </div>
@@ -79,9 +79,23 @@
                                     <td><br>{{$faq->Faq_Category}}</td>
                                     <td><br>{{$faq->Faq_Question}}</td>
                                     <td><br>{{$faq->Faq_Answer}}</td>
-                                 
-                                      <td><a class="btn btn-primary" href="{{ route('faq.edit', $faq->Faq_id) }}">Edit</a></td>
+                                      <td>
+                            
+                                        
+                                        <form action="{{ route('faq.destroy', $faq->Faq_id) }}"
+                                                            method="POST">
+                                                           
+                                                            <a class="btn btn-primary" href="{{ route('faq.edit', $faq->Faq_id) }}">Edit</a>
+                                                            @csrf
+                                                            @method('DELETE')
+
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                    </td>
                                 </tr>
+                                
+                                
+                                
                                 @endforeach
                             </tbody>
                         </table>

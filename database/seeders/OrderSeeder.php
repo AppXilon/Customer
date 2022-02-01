@@ -28,6 +28,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+            
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.50',
             'O_Type'=> 'booking',
@@ -49,6 +50,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+            
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'booking',
@@ -69,6 +71,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -90,6 +93,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'adli@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -111,6 +115,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -132,6 +137,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -153,6 +159,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -174,6 +181,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -195,6 +203,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -216,6 +225,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.00',
             'O_Type'=> 'dineIn',
@@ -237,6 +247,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '3.00',
             'O_Type'=> 'dineIn',
@@ -258,6 +269,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.50',
             'O_Type'=> 'dineIn',
@@ -279,6 +291,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '7.00',
             'O_Type'=> 'dineIn',
@@ -300,6 +313,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+           
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.50',
             'O_Type'=> 'dineIn',
@@ -321,6 +335,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '6.00',
             'O_Type'=> 'dineIn',
@@ -342,6 +357,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '6.00',
             'O_Type'=> 'dineIn',
@@ -363,6 +379,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.50',
             'O_Type'=> 'dineIn',
@@ -384,6 +401,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -405,6 +423,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -426,6 +445,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -447,6 +467,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -468,6 +489,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -489,6 +511,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -510,6 +533,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+        
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -531,6 +555,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.00',
             'O_Type'=> 'dineIn',
@@ -552,6 +577,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '3.00',
             'O_Type'=> 'dineIn',
@@ -573,6 +599,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.50',
             'O_Type'=> 'dineIn',
@@ -594,6 +621,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -615,6 +643,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -636,6 +665,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -657,6 +687,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -678,6 +709,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -699,6 +731,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -720,6 +753,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -741,6 +775,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.00',
             'O_Type'=> 'dineIn',
@@ -762,6 +797,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '3.00',
             'O_Type'=> 'dineIn',
@@ -783,6 +819,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'lydia@gmail.com',
             'O_Phone'=> '0104031234',
             'O_Payment'=> 'Cash',
+        
             'T_Pax'=> '3',
             'O_Total_Price'=> '4.50',
             'O_Type'=> 'booking',
@@ -804,6 +841,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'chonghg89@gmail.com',
             'O_Phone'=> '014-3456777',
             'O_Payment'=> 'Cash',
+        
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'pickUp',
@@ -825,6 +863,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'delivery',
@@ -845,7 +884,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -866,7 +905,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+          
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -887,7 +926,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -908,7 +947,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -929,7 +968,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -950,7 +989,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -971,7 +1010,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -992,7 +1031,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1013,7 +1052,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1034,7 +1073,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1055,7 +1094,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1076,7 +1115,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1097,7 +1136,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1118,7 +1157,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1139,7 +1178,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1160,7 +1199,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',
@@ -1181,7 +1220,7 @@ class OrderSeeder extends Seeder
             'O_Email'=> 'avi9@gmail.com',
             'O_Phone'=> '018-3346769',
             'O_Payment'=> 'Cash',
-            'Datetime'=> '2021-06-03 05:20:55.000000',
+         
             'T_Pax'=> '3',
             'O_Total_Price'=> '5.00',
             'O_Type'=> 'dineIn',

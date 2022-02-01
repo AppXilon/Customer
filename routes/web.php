@@ -37,9 +37,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ShopCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -270,7 +272,6 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
 Route::get('manager_login', function () {
     return view('auth/manager/login');
 });
@@ -281,4 +282,6 @@ Route::get('admin-login', function () {
 });
 Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 
-
+//password
+Route::get('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'showChangePasswordGet'])->name('changePasswordGet');
+Route::post('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'changePasswordPost'])->name('changePasswordPost');

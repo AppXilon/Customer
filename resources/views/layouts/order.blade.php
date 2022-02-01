@@ -175,7 +175,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $preparing->O_Total_Price, 2, '.', '') }}
                                                             </td>
-                                                            <td></td>
+                                                            <td>{{$preparing->Remarks}}</td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $preparing->id }}">
@@ -229,7 +229,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $completed->O_Total_Price, 2, '.', '') }}
                                                             </td>
-                                                            <td></td>
+                                                            <td>{{$completed->Remarks}}</td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $completed->id }}">

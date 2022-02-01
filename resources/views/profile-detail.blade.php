@@ -7,13 +7,17 @@
                 <div class="section-header text-center">
                     <h2>My Profile</h2>
                 </div>
-               
+                @foreach ($list as $item)
+                <centre><div>
+               <img src= "images/avatar.png" alt="Avatar" class="avatarprofile">
+                
+               </centre></div>
                 <div class="panel panel-primary">
 
 
                 <table class="table table-hover">
 
-                @foreach ($list as $item)
+                
 
                 <tr>
                     <th>Name</th>
@@ -25,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>Phone number</th>
-                    <td>0{{$item->phone }}</td>
+                    <td>{{$item->phone }}</td>
                 </tr>
                 <tr>
                     <th>Street</th>
@@ -70,7 +74,11 @@
                 </table>
                 </div>
                 <a href="edit/{{$item ->id}}" class= "btn btn-primary" > Edit Profile </a>
+                <a href="{{ route('changePasswordGet') }}" class= "btn btn-primary" > Change Password </a>
+
             </div>
+            
+           
         </div>
         <!-- Shipping Address End -->
 
