@@ -30,7 +30,7 @@
                         <div class="product-details">
                             <h4><strong>{{$item->P_Name}}</strong></h4>
                             <p><strong>{{$item->S_Description}}</strong></p>
-                            <p><strong>{{$item->Order_Type}}</strong></p>
+                            <p><strong><?php echo $orderType?></strong></p>
                             @if($item->Order_Type == 'booking')
                                 <p><strong>Table No: {{$item->BookTable}}</strong></p>
                             @endif
