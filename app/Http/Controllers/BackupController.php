@@ -60,7 +60,7 @@ class BackupController extends Controller{
           }
      }
 
-     public function download($file_name) {
+     public function download($file_path) {
           /*$disk = Storage::disk(Request::input('disk'));
           $file = Request::input($file_name);
           $adapter = $disk->getDriver()->getAdapter();
@@ -78,7 +78,7 @@ class BackupController extends Controller{
           } else {
                abort(404, "Only Local Downloads supported.");
           }*/
-           $file = config('backup.backup.name').'/'.'Laravel/'. $file_name;
+          /*$file = $file_path;
           $disk = Storage::disk(config('backup.backup.destination.disks'));
 
           if ($disk->exists($file)) {
@@ -93,7 +93,9 @@ class BackupController extends Controller{
                ]);
           } else {
                abort(404, "Backup file doesn't exist.");
-          }  
+          }*/
+          $myFile = storage_path("folder/dummy_pdf.pdf");
+          return response()->download($myFile);
      }
      public function delete($file_name){
           $disk = Storage::disk(config('backup.backup.destination.disks'));
