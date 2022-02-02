@@ -11,9 +11,10 @@ class Data extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'id',
+        'category',
         'name',
-        'phone',
-        'address',
+        'amount',
+        'date'
     ];
 
 }

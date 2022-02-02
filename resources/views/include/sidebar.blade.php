@@ -32,9 +32,9 @@
                                 class="ti-layout-sidebar-left"></i><span>Report
                             </span></a>
                         <ul class="collapse">
-                            <li><a href="/report">Sales Report</a></li>
-                            <li><a href="/customerreport">Customer Report</a></li>
-                            <li><a href="/data.index">Product Report</a></li>
+                            <li><a href="/report">Sales</a></li>
+                            <li><a href="/customerreport">Customer</a></li>
+                            <li><a href="/data">Expenses</a></li>
                         </ul>
                     </li>
                     {{-- <li><a href="/report"><i class="ti-printer"></i> <span>Report</span></a></li> --}}
