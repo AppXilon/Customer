@@ -71,6 +71,7 @@
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="control-group">
@@ -79,6 +80,27 @@
                                     <option>Choose Table No</option>
                                     @foreach($table as $table)
                                     <option value="{{$table->T_Id}}">{{$table->T_Id}}</option>
+                            
+                                         
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                    </div>
+                                </div>
+                            </div>                          
+                            <div>
+                                <input type="hidden" id="otype" name="otype" value="{{ $order }}">
+                                <a href="catalogue"><button type="submit" class="btn custom-btn">Choose Menu</button></a>
+                            </div>
+                            <div class="control-group">
+                                <div class="input-group mt-5">
+                                    @if (Session::get('fail'))
+                                        <div class="alert alert-danger" style="text-align:center;">
+                                            {{ Session::get('fail') }}
+                                        </div>
+                                    @endif
+
                                     @endforeach
 
                                 </select>

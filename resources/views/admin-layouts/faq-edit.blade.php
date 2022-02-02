@@ -77,18 +77,19 @@
                                                 
                                             </div>
                                         </div>
+                                       
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
                                                 <label>Question</label>
-                                                <textarea type="text" class="form-control" 
-                                                value="{{ $faq->Faq_Question }}" name="Faq_Question" Required> </textarea>
+                                                <input type="text" class="form-control" 
+                                                value="{{ $faq->Faq_Question}}" name="Faq_Question" Required> </input>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
                                                 <label>Answer</label>
                                                 <textarea type="text" class="form-control" 
-                                                value="{{ $faq->Faq_Answer }}" name="Faq_Answer" Required> </textarea>
+                                                 name="Faq_Answer" Required> {{ $faq->Faq_Answer}} </textarea>
                                             </div>
                                         </div>
                                         
@@ -100,6 +101,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <!-- Textual inputs end -->
                     </div>
                 </div>

@@ -66,7 +66,7 @@
                                 <div class="seo-fact sbg1">
                                     <div class="p-4 d-flex justify-content-between align-items-center">
                                         <div class="seofct-icon">Total User</div>
-                                        <h2>24</h2>
+                                        <h2>{{$total}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 <div class="seo-fact sbg2">
                                     <div class="p-4 d-flex justify-content-between align-items-center">
                                         <div class="seofct-icon">Pending Request</div>
-                                        <h2>5</h2>
+                                        <h2>{{$shop}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                 <div class="seo-fact sbg3">
                                     <div class="p-4 d-flex justify-content-between align-items-center">
                                         <div class="seofct-icon">Banned User</div>
-                                        <h2>7</h2>
+                                        <h2>{{$ban}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -116,30 +116,14 @@
                                         <td>Manager Name</td>
                                         <td>Date Registered</td>
                                     </tr>
+                                    @foreach ($pending as $partner)
                                     <tr>
-                                        <td>Rizal Corner</td>
+                                        <td>{{$partner->Shop_Id}}</td>
                                         <td>Food & Beverages</td>
-                                        <td>Rizal</td>
-                                        <td>2020-03-25 12:30:00</td>
+                                        <td>{{$partner->Name}}</td>
+                                        <td>{{$partner->created_at}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Santai Pagi</td>
-                                        <td>Food & Beverages</td>
-                                        <td>Ariff</td>
-                                        <td>2020-01-25 15:20:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Salt & Pepper</td>
-                                        <td>Food & Beverages</td>
-                                        <td>Zamarul</td>
-                                        <td>2020-11-18 15:20:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warung Pak Man</td>
-                                        <td>Food & Beverages</td>
-                                        <td>Lukman</td>
-                                        <td>2020-12-12 16:20:00</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

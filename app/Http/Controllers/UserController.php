@@ -8,9 +8,28 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Models\Manager;
+use App\Models\Shop;
 
 class UserController extends Controller
 {
+    public function dash(){
+        $user = DB::table('users')->count();
+        $manager = DB::table('manager')->count();
+        $total = $user + $manager;
+        $shop = Manager::where('isBanned', 2)->get();
+        $shopCount = $shop->count();
+        $bancust = Customer::where('isBanned', 1)->get();
+        $banman = Manager::where('isBanned', 1)->get();
+        $custCount = $bancust->count();
+        $manCount = $banman->count();
+        $banuser = $custCount + $manCount;
+        //$order = Manager::where('Manager_Id' )->where('user_id', Auth::id())->first();
+        //$wordlist = Wordlist::where('id', '<=', $correctedComparisons)->get();
+        //$wordCount = $wordlist->count();
+        return view('admin-layouts.base')->with('total',$total)->with('shop',$shopCount)->with('ban',$banuser)
+        ->with('pending',$shop);
+    }
+
     public function invoice($id)
     {
         $order = Order::where('id', $id)->where('user_id', Auth::id())->first();
@@ -53,9 +72,13 @@ class UserController extends Controller
     }
 
     public function update(Request $request){
+        $id=Auth::id();
         $request->validate([
+            
             'name'=> 'required',
-            'email'=> 'required|email',
+            // 'email'=> ['required', 'string', 'email', 'max:255', 
+            // 'unique:users,email,$id'
+            //             ],
             'phone'=> 'required',
             'street'=> 'required',
             'postcode'=> 'required',
@@ -75,7 +98,7 @@ class UserController extends Controller
                     ->where('id', $request->input('cid'))
                     ->update ([
                         'name'=>$request->input('name'),
-                        'email'=>$request->input('email' ),
+                        // 'email'=>$request->input('email' ),
                         'phone'=>$request->input('phone' ),
                         'street_1'=>$request->input('street' ),
                         'postcode'=>$request->input('postcode' ),

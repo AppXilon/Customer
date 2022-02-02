@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductSimilarity;
@@ -15,6 +16,9 @@ class ProductController extends Controller
 {
     function index(Request $req)
     {
+
+
+
         $booking = DB::table('customer_order')->get();
         $products = DB::table('product')->get();
         $category = DB::table('product_category')->get();
@@ -23,10 +27,12 @@ class ProductController extends Controller
         $bookdate = $req->bookdate;
         $booktime = $req->booktime;
         $booktable = $req->booktable;
+        $promotion=Promotion::all();
 
 
 
-        return view('catalogue')->with('products', $products)->with('category', $category)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime);
+
+        return view('catalogue')->with('products', $products)->with('category', $category)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime)->with('promotionBanner',$promotion);
     }
 
     public function catalogueBooking(Request $req)
@@ -57,7 +63,7 @@ class ProductController extends Controller
         }
 
         if(in_array($day, $daysOff)){
-            return redirect()->back()->with('faildate', "Please Select Another Date");    
+            return redirect()->back()->with('faildate', "Date not available. Please Select Another Date");    
         }
         elseif (in_array($bookdate, $date) && in_array($booktime, $time)  && in_array($booktable, $table)) {
             return redirect()->back()->with('fail', "Table not available. Please select another table or time");
@@ -68,21 +74,19 @@ class ProductController extends Controller
     function detail($P_Id)
     {
         $detail = Product::find($P_Id);
+        $users=DB::table('users')->get();
+        $review=Review::where('P_Id',$P_Id )->get();
 
         //Product Similarity Controller
-        $products        = json_decode(file_get_contents(storage_path('data/product.json')));
+        $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
         // $products1 = json_encode($products);
         // dd($products1);
 
-        $selectedId      = intval(app('request')->input('P_Id') ?? '8');
+        $selectedId      = intval(app('request')->input('id') ?? '8');
         $selectedProduct = $products[0];
 
-        $selectedProducts = array_filter($products, function ($product) use ($selectedId) {
-            return $product->id === $selectedId;
-        });
-
     
-        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->P_Id === $selectedId; });
+        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->id === $selectedId; });
 
         if (count($selectedProducts)) {
             $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
@@ -92,11 +96,11 @@ class ProductController extends Controller
         $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
 
-        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
-
     
-        // return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products'));
-//         dd($products);
+
+        return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products', 'review', 'users'));
+
+        // dd($similarityMatrix);
     }
     function search(Request $req)
     {

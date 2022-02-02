@@ -1,172 +1,181 @@
- @include('include.header')
+@include('include.header')
 
- <head>
+<head>
     <style>
         * {
-          box-sizing: border-box;
+            box-sizing: border-box;
         }
-        
+
         .heading {
-          font-size: 25px;
-          margin-right: 25px;
+            font-size: 25px;
+            margin-right: 25px;
         }
-        
+
         .checked {
-          color: orange;
+            color: orange;
         }
-        
+
         /* Three column layout */
         .side {
-          float: left;
-          width: 15%;
-          margin-top:10px;
+            float: left;
+            width: 15%;
+            margin-top: 10px;
         }
-        
+
         .middle {
-          margin-top:10px;
-          float: left;
-          width: 70%;
+            margin-top: 10px;
+            float: left;
+            width: 70%;
         }
-        
+
         /* Place text to the right */
         .right {
-          text-align: right;
+            text-align: right;
         }
-        
+
         /* Clear floats after the columns */
         .row:after {
-          content: "";
-          display: table;
-          clear: both;
+            content: "";
+            display: table;
+            clear: both;
         }
-        
-        
-        
-        
     </style>
- </head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
- <body>
+</head>
 
-     <!-- preloader area start -->
-     <div id="preloader">
-         <div class="loader"></div>
-     </div>
-     <!-- preloader area end -->
+<body>
 
-     <!-- page container area start -->
-     <div class="page-container">
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
 
-         <!-- sidebar menu area start -->
-         @include('include.sidebar')
-         <!-- sidebar menu area end -->
+    <!-- page container area start -->
+    <div class="page-container">
 
-         <!-- main content area start -->
-         <div class="main-content">
+        <!-- sidebar menu area start -->
+        @include('include.sidebar')
+        <!-- sidebar menu area end -->
 
-             <!-- header area start -->
-             @include('include.header_area')
-             <!-- header area end -->
+        <!-- main content area start -->
+        <div class="main-content">
 
-             <!-- page title area start -->
-             <div class="page-title-area">
-                 <div class="row align-items-center">
-                     <div class="col-sm-6">
-                         <div class="breadcrumbs-area clearfix">
-                             <h4 class="page-title pull-left">Dashboard</h4>
-                         </div>
-                     </div>
-                     @include('include.managerBar')
-                 </div>
-             </div>
-             <!-- page title area end -->
+            <!-- header area start -->
+            @include('include.header_area')
+            <!-- header area end -->
 
-             <!-- main content inner start -->
-             <div class="main-content-inner">
-                 <!-- dashboard content start -->
-                 <div class="sales-report-area sales-style-two">
-                     <div class="row">
-                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
-                             <div class="s-sale-inner pt--30 mb-3">
-                                 <div class="card">
-                                     <div class="seo-fact sbg1">
-                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Total Orders</div>
-                                             <h2><?php echo $totalOrder?></h2>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
-                             <div class="s-sale-inner pt--30 mb-3">
-                                 <div class="card">
-                                     <div class="seo-fact sbg4">
-                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Pending</div>
-                                             <h2><?php echo $pendingOrder?></h2>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
-                             <div class="s-sale-inner pt--30 mb-3">
-                                 <div class="card">
-                                     <div class="seo-fact sbg3">
-                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Completed</div>
-                                             <h2><?php echo $completeOrder?></h2>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
-                             <div class="s-sale-inner pt--30 mb-3">
-                                 <div class="card">
-                                     <div class="seo-fact sbg2">
-                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                             <div class="seofct-icon">Total Sales (RM)</div>
-                                             <h2><?php echo $totalSales?></h2>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                        </div>
+                    </div>
+                    @include('include.managerBar')
+                </div>
+            </div>
+            <!-- page title area end -->
 
-                 <div class="row">
-                     <!-- Statistics area start -->
-                     <div class="col-lg-8 mt-5">
-                            <div class="card">
-                                <div class="card-body" >
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <h4 class="header-title mb-0">Sales</h4>
-                                        
-                                    </div>
-                                    <div class="card-body py-3">
-                                        <div class="chart chart-sm">
-                                            <canvas id="myChart" height=220></canvas>
+            <!-- main content inner start -->
+            <div class="main-content-inner">
+                <!-- dashboard content start -->
+                <div class="sales-report-area sales-style-two">
+                    <div class="row">
+                        <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
+                            <div class="s-sale-inner pt--30 mb-3">
+                                <div class="card">
+                                    <div class="seo-fact sbg1">
+                                        <div class="p-4 d-flex justify-content-between align-items-center">
+                                            <div class="seofct-icon">Total Orders</div>
+                                            <h2>
+                                                <?php echo $totalOrder?>
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                     </div>
-                     <!-- Statistics area end -->
-                     <!-- rating customer area start -->
-                     <div class="col-lg-4 mt-5">
-                         <div class="card h-full">
-                             <div class="card-body" style="padding:25px, 25px, 25px, 25px">
+                        </div>
+                        <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
+                            <div class="s-sale-inner pt--30 mb-3">
+                                <div class="card">
+                                    <div class="seo-fact sbg4">
+                                        <div class="p-4 d-flex justify-content-between align-items-center">
+                                            <div class="seofct-icon">Pending</div>
+                                            <h2>
+                                                <?php echo $pendingOrder?>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
+                            <div class="s-sale-inner pt--30 mb-3">
+                                <div class="card">
+                                    <div class="seo-fact sbg3">
+                                        <div class="p-4 d-flex justify-content-between align-items-center">
+                                            <div class="seofct-icon">Completed</div>
+                                            <h2>
+                                                <?php echo $completeOrder?>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-ml-3 col-md-6  mt-5">
+                            <div class="s-sale-inner pt--30 mb-3">
+                                <div class="card">
+                                    <div class="seo-fact sbg2">
+                                        <div class="p-4 d-flex justify-content-between align-items-center">
+                                            <div class="seofct-icon">Total Sales (RM)</div>
+                                            <h2>
+                                                <?php echo $totalSales?>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Statistics area start -->
+                    <div class="col-lg-8 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h4 class="header-title mb-0">Sales</h4>
+
+                                </div>
+                                <div class="card-body py-3">
+                                    <div class="chart chart-sm">
+                                        <canvas id="myChart" height=250></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Statistics area end -->
+                    <!-- rating customer area start -->
+                    <div class="col-lg-4 mt-5">
+                        <div class="card h-full">
+                            <div class="card-body" style="padding:25px, 25px, 25px, 25px">
                                 <div class="d-flex justify-content-between mb-4">
                                     <h4 class="header-title mb-0">Rating</h4>
-                                    <h1><?php echo $avgRating?></h1>
-                                    
-                                    
+                                    <h1>
+                                        <?php echo $avgRating?>
+                                    </h1>
+
+
                                 </div>
                                 <hr style="border:3px solid #f1f1f1">
-                                
+
                                 <div class="row" style="padding:5px">
                                     <div class="side">
                                         <div>5 star</div>
@@ -179,7 +188,9 @@
                                         <span class="fa fa-star checked" style="font-size:27px"></span>
                                     </div>
                                     <div class="side right">
-                                        <div><?php echo $fiveRating?></div>
+                                        <div>
+                                            <?php echo $fiveRating?>
+                                        </div>
                                     </div>
                                     <div class="side">
                                         <div>4 star</div>
@@ -192,7 +203,9 @@
                                         <span class="fa fa-star" style="font-size:27px"></span>
                                     </div>
                                     <div class="side right">
-                                        <div><?php echo $fourRating?></div>
+                                        <div>
+                                            <?php echo $fourRating?>
+                                        </div>
                                     </div>
                                     <div class="side">
                                         <div>3 star</div>
@@ -205,7 +218,9 @@
                                         <span class="fa fa-star" style="font-size:27px"></span>
                                     </div>
                                     <div class="side right">
-                                        <div><?php echo $threeRating?></div>
+                                        <div>
+                                            <?php echo $threeRating?>
+                                        </div>
                                     </div>
                                     <div class="side">
                                         <div>2 star</div>
@@ -218,7 +233,9 @@
                                         <span class="fa fa-star" style="font-size:27px"></span>
                                     </div>
                                     <div class="side right">
-                                        <div><?php echo $twoRating?></div>
+                                        <div>
+                                            <?php echo $twoRating?>
+                                        </div>
                                     </div>
                                     <div class="side">
                                         <div>1 star</div>
@@ -231,189 +248,110 @@
                                         <span class="fa fa-star" style="font-size:27px"></span>
                                     </div>
                                     <div class="side right">
-                                        <div><?php echo $oneRating?></div>
+                                        <div>
+                                            <?php echo $oneRating?>
+                                        </div>
                                     </div>
                                 </div>
 
-                             </div>
-                         </div>
-                     </div>
-                     <!-- rating customer area end -->
-                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rating customer area end -->
+                </div>
 
-                 <div class="row">
-                     <!-- recent order start -->
-                     <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
-                         <div class="card">
-                             <div class="card-body">
-                                 <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Recent Order List</h4>
-                                     <a class="btn btn-primary mb-3" href="/order" role="button">View Order</a>
-                                 </div>
-                                 <div class="table-responsive">
-                                     <table class="table text-center">
-                                         <thead class="text-uppercase bg-secondary">
-                                             <tr class="text-white">
-                                                 <th scope="col">Order ID</th>
-                                                 <th scope="col">Customer</th>
-                                                 <th scope="col">Order Time</th>
-                                                 <th scope="col">Price</th>
-                                                 <th scope="col">Status</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                             <tr>
-                                                 <td>01</td>
-                                                 <td>John</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 10</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>02</td>
-                                                 <td>Ali</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 11</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>03</td>
-                                                 <td>Mahmud</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 18</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>04</td>
-                                                 <td>Sulaiman</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 17</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>05</td>
-                                                 <td>Kamaruzzaman</td>
-                                                 <td>27-08-2018 01:22:12</td>
-                                                 <td>RM 13</td>
-                                                 <td style="color:#00D905;">New</td>
-                                             </tr>
-                                         </tbody>
-                                     </table>
-                                     <div class="pagination_area pull-right mt-5">
-                                         <ul>
-                                             <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                             <li><a href="#">1</a></li>
-                                             <li><a href="#">2</a></li>
-                                             <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                         </ul><br>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- recent order end -->
-                     <!-- popular product start -->
-                     <div class="col-xl-4 col-lg-5 col-md-12 mt-5">
-                         <div class="card">
-                             <div class="card-body">
-                                 <div class="d-flex justify-content-between mb-4">
-                                     <h4 class="header-title mb-0">Popular Product</h4>
-                                     <a class="btn btn-primary mb-3" href="/order" role="button">View Trends</a>
-                                 </div>
-                                 <div class="member-box">
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Nasi Lemak</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Nasi Goreng</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Mee Goreng</p><span>Main Dish</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="s-member">
-                                         <div class="media align-items-center">
-                                             <div class="media-body ml-5">
-                                                 <p>Iced Tea</p><span>Beverage</span>
-                                             </div>
-                                             <div class="tm-social">
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star checked"></span>
-                                                 <span class="fa fa-star"></span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="pagination_area pull-right mt-5">
-                                     <ul>
-                                         <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                         <li><a href="#">1</a></li>
-                                         <li><a href="#">2</a></li>
-                                         <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                     </ul><br>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- popular product end -->
-                 </div>
+                <div class="row">
+                    <!-- recent order start -->
+                    <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h4 class="header-title mb-0">Most Popular Products</h4>
+                                    <a class="btn btn-primary mb-3" href="/order_trends" role="button">View Details</a>
+                                </div>
+                                <div class="align-self-center w-100" style="padding:10px">
+                                    <div id="popularChart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- recent order end -->
+                    <!-- popular product start -->
+                    <div class="col-xl-4 col-lg-5 col-md-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h4 class="header-title mb-0">Top Customer</h4>
+                                    <a class="btn btn-primary mb-3" href="/cust_analytics" role="button">View
+                                        Details</a>
+                                </div>
+                                <table class="table table-striped text-center">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Total Spend</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($popularCustomer as $popularCustomer)
+                                        <tr height="60px">
+
+                                            <td>{{ $popularCustomer->name }}</td>
+                                            <td>{{ $popularCustomer->total_spend }}</td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- popular product end -->
+                </div>
+
+                <div class="row">
+                    <!-- recent order start -->
+                    <div class="col-xl-12 col-lg-7 col-md-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h4 class="header-title mb-0">Sales vs Expenses Comparison</h4>
+                                    <a class="btn btn-primary mb-3" href="/report" role="button">View Details</a>
+                                </div>
+                                <div class="align-self-center w-100" style="padding:10px">
+                                    <canvas id="comparelinechart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- recent order end -->
+
+                </div>
 
 
-                 <!-- dashboard content end -->
+                <!-- dashboard content end -->
 
-             </div>
-         </div>
-         <!-- main content area end -->
-     </div>
-     <!-- container content area end -->
+            </div>
+        </div>
+        <!-- main content area end -->
+    </div>
+    <!-- container content area end -->
 
-     <!-- footer area start-->
-     @include('include.footer')
-     <!-- footer area end-->
-     </div>
-     <!-- page container area end -->
+    <!-- footer area start-->
+    @include('include.footer')
+    <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
 
-     <!-- offset area start -->
-     @include('include.offset')
-     <!-- offset area end -->
+    <!-- offset area start -->
+    @include('include.offset')
+    <!-- offset area end -->
 
-     @include('include.script')
+    @include('include.script')
 
-     <script>
+    <script>
         var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var yValues = <?php echo $salesChart; ?>;
         var ctx = document.getElementById("myChart").getContext("2d");   
@@ -473,5 +411,91 @@
             });
     </script>
 
+    //
+    <!-- bar chart from google -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+  
+        function drawStuff() {
 
- </body>
+           
+                var data = new google.visualization.arrayToDataTable([
+                                            ['Product', 'Total Order'],
+                                            <?php echo $popularChart; ?>
+                                        ]);
+            
+  
+          var options = {
+            
+            chartArea: {
+                width: '70%'
+            },
+            colors: ['#D7E3F4'],
+            hAxis: {
+                title: 'Total Spend (RM)',
+                minValue: 0,
+                maxValue: 40,
+                       
+            },
+            vAxis: {
+                title: 'Customer Name'
+       
+            
+            },
+           
+            legend: { position: 'none' },
+            
+            bars: 'vertical', // Required for Material Bar Charts.
+            width:600,
+            height:300,
+            bar: { groupWidth: "50%" }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('popularChart'));
+          chart.draw(data, options);
+        };
+
+        
+    </script>
+    //
+    <!-- end bar chart from google -->
+
+    // LINE CHART 2
+    <script>
+        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var yValues = <?php echo $salesChart; ?>;
+        
+        var yValues2 = <?php echo $expensesChart; ?>;
+
+        new Chart("comparelinechart", {
+        type: "line",
+        data: {
+            labels: xValues,
+            datasets: [{
+                fill: false,
+                lineTension: 0.4,
+                backgroundColor: "rgba(6, 109, 255, 0.9)",
+                borderColor: "rgba(6, 109, 255, 0.4)",
+                data: yValues
+            },
+            {
+                fill: false,
+                lineTension: 0.4,
+                backgroundColor: "rgba(255, 99, 71, 1)",
+                borderColor: "rgba(255, 99, 71, 0.8)",
+                data: yValues2
+            },
+            ]
+        },
+        options: {
+            legend: {display: false},
+            scales: {
+            yAxes: [{ticks: {min: 0, max:100}}],
+            }
+        }
+        });
+    </script>
+
+
+</body>

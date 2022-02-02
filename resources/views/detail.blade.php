@@ -1,5 +1,13 @@
+
 @extends('master')
 @section('content')
+
+@php use Carbon\Carbon; @endphp
+
+
+
+
+
 <!-- Page Header Start -->
 <div class="page-header mb-0">
     <div class="container">
@@ -61,81 +69,53 @@
 
                 <div class="single-comment">
                     <h2>Reviews</h2>
-                    <ul class="comment-list">
-                        <li class="comment-item">
-                            <div class="comment-body">
-                                <div class="comment-img">
-                                    <img src="asset/img/user.png" />
-                                </div>
-                                <div class="comment-text">
-                                    <h3><a href="">Nurul Adila</a></h3>
-                                    <span>16 Mei 2023 at 12:00pm</span>
-                                    <p>
-                                        You guys should try this kampung fried rice! I almost buy it everyday.
-                                    </p>
-                                    <a class="btn" href="">Reply</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment-item">
-                            <div class="comment-body">
-                                <div class="comment-img">
-                                    <img src="asset/img/user1.png" />
-                                </div>
-                                <div class="comment-text">
-                                    <h3><a href="">Ammar Hafizi</a></h3>
-                                    <p><span>01 Jan 2023 at 5:00pm</span></p>
-                                    <p>
-                                        The food still hot even I used delivery service! Good!
-                                    </p>
-                                    <a class="btn" href="">Reply</a>
-                                </div>
-                            </div>
-                            <ul class="comment-child">
-                                <li class="comment-item">
+
+                    
+                        
+                       @foreach ($review as $reviews)
+                            
                                     <div class="comment-body">
                                         <div class="comment-img">
                                             <img src="asset/img/user3.png" />
                                         </div>
                                         <div class="comment-text">
-                                            <h3><a href="">Ashraf Hakim</a></h3>
-                                            <p><span>7 April 2023 at 10:00am</span></p>
+                                      
+                                            <h3>{{ $reviews->userReview->name}}</h3>
+                                        <table >
+                                        
+                                        <tr style="padding:5px; font-size:12px;">
+                                            <td><span class="fa fa-star checked"></span></td>
+                                            <td><span class="fa fa-star checked"></span></td>
+                                            <td><span class="fa fa-star checked"></span></td>
+                                            <td><span class="fa fa-star"></span></td>
+                                            <td><span class="fa fa-star"></span></td>
+                                            </tr>
+                                     
+                                        </table>
+                                         
+                                            <p><span>
+                                            @php
+                                            $date = Carbon::parse($reviews->created_at)->format('d-m-Y');
+                                            echo $date;
+                                            @endphp
+                                            </span></p>
                                             <p>
-                                                Recommended to try! Very delicious!
+                                            {{ $reviews->R_Comment}}
                                             </p>
-                                            <a class="btn" href="">Reply</a>
+                                            
+                                            @if ($reviews->R_Image == null)
+                                           
+                                            @else
+                                            <p><img class=imagereview src = "{{asset('images/'. $reviews->R_Image)}}" ></p>
+                                            @endif
+                                           
+                                            <!-- <a class="btn" href="">Reply</a> -->
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                               
+                        @endforeach
                 </div>
-                <div class="comment-form">
-                    <h2>Leave a comment</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Website</label>
-                            <input type="url" class="form-control" id="website">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Post Comment" class="btn custom-btn">
-                        </div>
-                    </form>
-                </div>
+               
             </div>
 
             <div class="col-lg-4">
@@ -151,18 +131,18 @@
 
                     <div class="sidebar-widget">
                         {{-- MODULE 5 --}}
-                        <h2 class="widget-title">Similar Product</h2>
+                        <h2 class="widget-title">You might like this product</h2>
                         <div class="recent-post">
                             @foreach ($products as $product)
                             <div class="row mb-5">
                                 <div class="post-item">
                                     <div class="text-center" style="background-color: #ccc">
-                                        <img class="post-img" src="{{ $product->P_Image }}" alt="Product Image">
+                                        <img class="post-img" src="{{ $product->image}}" alt="Product Image">
                                     </div>
                                     <div class="post-text">
                                         <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
                                             }}%</p>
-                                        <p class="card-text text-muted">{{ $product->P_Name }} (RM{{ $product->P_Price
+                                        <p class="card-text text-muted">{{ $product->name }} (RM{{ $product->price
                                             }})</p>
                                     </div>
                                 </div>
@@ -171,11 +151,11 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-widget">
+                    {{-- <div class="sidebar-widget">
                         <div class="image-widget">
                             <a href="#"><img src="asset/img/blog-2.jpg" alt="Image"></a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="sidebar-widget">
                         <h2 class="widget-title">Categories</h2>

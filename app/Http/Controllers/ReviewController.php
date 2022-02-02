@@ -106,15 +106,14 @@ class ReviewController extends Controller
      }else{
          return back() -> with ('fail' , 'Something went wrong');
      }
+ 
+    }
 
- }
-
-    // public function viewReview(){
-    //     $data=array(
-    //         'list' => DB::table ('review')->where('P_Id', $id) -> get()
-    //         return view('profile-detail', $data);
-
-    //     );
-    // }
+//     if ($query) {
+//         return view('history_detail') -> with ('success' , 'Review has been successfully submitted');
+//         //  return back()-> with ('success' , 'Review has been successfully submitted');
+//      }else{
+//         return view('history_detail') -> with ('fail' , 'Something went wrong');
+//  }
 
 }

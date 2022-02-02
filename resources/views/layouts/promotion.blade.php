@@ -49,12 +49,25 @@
                                     <input type="search" name="search" placeholder="Search..." style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                     <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
                                     </div>
+                                   
                                 </form>
                             </div>
                             <div class="card-body">
-                                
+                            <hr>
+                                        @if(Session::get('success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('success')}}
+                                        </div>
+                                        @endif
+                                        @if(Session::get('fail'))
+                                        <div class="alert alert-danger">
+                                            {{ Session::get('fail')}}
+                                        </div>
+                                        @endif
                                 <a href="{{ route('promotion.create') }}"><input type="button" value="Add Promotion"
                                         class="button1"></a>
+
+                                        
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#all" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
@@ -71,6 +84,7 @@
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Discount</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Start</th>
                                                     <th scope="col">End</th>
@@ -84,6 +98,7 @@
                                                     <td>{{ $promotion->Promotion_Id }}</td>
                                                     <td>{{ $promotion->Promo_Name }}</td>
                                                     <td>{{ $promotion->Promo_Descr }}</td>
+                                                    <td>{{ $promotion->Promo_Discount }}%</td>
                                                     <td>{{ $promotion->Promo_Status }}</td>
                                                     <td>{{ $promotion->Promo_Start }}</td>
                                                     <td>{{ $promotion->Promo_End }}</td>

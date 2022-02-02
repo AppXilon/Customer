@@ -62,7 +62,6 @@
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Contact No.</th>
                                                     <th scope="col">Table No.</th>
-                                                    <th scope="col">Table Pax</th>
                                                     <th scope="col">Remarks</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
@@ -89,7 +88,6 @@
                                                         <td>{{ $bookings->O_Name }}</td>
                                                         <td>{{ $bookings->O_Phone }}</td>
                                                         <td>{{ $bookings->T_Id }}</td>
-                                                        <td>{{ $bookings->T_Pax }}</td>
                                                         <td>{{ $bookings->Remarks }}</td>
                                                         <td> <button type="button" class="btn btn-success"
                                                                 data-toggle="modal"

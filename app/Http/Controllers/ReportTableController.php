@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
- 
+use Redirect, Response;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+
 
 class ReportTableController extends Controller
 {
@@ -84,4 +86,5 @@ class ReportTableController extends Controller
     {
         //
     }
+
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CustomerTableController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
@@ -37,7 +38,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+
+use App\Http\Controllers\DataController;
+
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ShopCategoryController;
+
 
 
 /*
@@ -159,6 +167,8 @@ Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
 // Route::get('catalogues/create', [CatalogueController::class, 'add']);
+Route::get('/catalogues/showReview/{P_Id}', [CatalogueController::class,'showReview']) ;
+
 
 Route::resource('/product_category', Product_CategoryController::class);
 
@@ -174,6 +184,8 @@ Route::resource('/feedback', FeedbackController::class);
 
 Route::resource('/report', ReportTableController::class);
 Route::resource('/sales', SalesTableController::class);
+Route::resource('/customerreport', CustomerTableController::class);
+
 
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
@@ -188,12 +200,21 @@ Route::get('/order_trends', [OrderTrendsController::class, 'analytics']);
 
 // Report wani dah ubah route 
 
+
+
+
+
+
 Route::resource('/seatmap', SeatMapController::class);
 Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
 
 Route::resource('/promotion', PromotionController::class);
+Route::get('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
+
+Route::resource('/data', DataController::class);
+
 
 
 // Route::get('/report', function () {
@@ -208,9 +229,8 @@ Route::resource('/promotion', PromotionController::class);
 /******* Admin route start *******/
 /*******************************/
 
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
+Route::get('/admin',[UserController::class,'dash']);
+
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });
@@ -258,6 +278,7 @@ Route::resource('biz_hour', HourController::class);
 
 Route::resource('/ban_user', BanController::class);
 Route::resource('/shop', ShopAdminController::class);
+Route::resource('/shopcategory', ShopCategoryController::class);
 Route::resource('/term', TermController::class);
 Route::resource('/customer', CustomerController::class);
 Route::resource('/manager', ManagerController::class);
@@ -271,10 +292,6 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
-
-
-
 Route::get('manager_login', function () {
     return view('auth/manager/login');
 });
@@ -285,4 +302,8 @@ Route::get('admin-login', function () {
 });
 Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 
+//password
+Route::get('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'showChangePasswordGet'])->name('changePasswordGet');
+Route::post('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'changePasswordPost'])->name('changePasswordPost');
 
+Route::get(config('laravel-to-uml.route'), [LaravelToUMLController::class, 'index']);
