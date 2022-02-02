@@ -17,7 +17,7 @@ class ShopCategoryController extends Controller
         //
         $data= Shop_Category::all();
 
-        return view('layouts.createCategory', ['shop_category'=>$data]);
+        return view('layouts.createShopCategory', ['shop_category'=>$data]);
     }
 
     /**
@@ -28,7 +28,7 @@ class ShopCategoryController extends Controller
     public function create()
     {
         //
-        return view('layouts.createCategory');
+        return view('admin-layouts.createShopCategory');
     }
 
     /**

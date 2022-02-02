@@ -71,7 +71,7 @@
                             <div class="col-12 mt-5">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form action="{{ route('product_category.store') }}" method="POST">
+                                        <form action="{{ route('shopcategory.store') }}" method="POST">
                                             @csrf
                                             <h4 class="header-title">Edit Category</h4>
                                             <div class="form-row">
@@ -96,14 +96,14 @@
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach ($product_category as $product_category)
+                                                @foreach ($shop_category as $shopcategory)
                                                     <tbody>
-                                                        <td>{{ $product_category->P_Cat_Name }}</td>
+                                                        <td>{{ $shopcategory->P_Cat_Name }}</td>
                                                         <td>
-                                                        <form action="{{ route('product_category.destroy', $product_category->P_Cat_Id) }}"
+                                                        <form action="{{ route('shopcategory.destroy', $shopcategory->P_Cat_Id) }}"
                                                             method="POST">
                                                             <a class="btn btn-primary"
-                                                                href="{{ route('product_category.edit', $product_category->P_Cat_Id) }}">Edit</a>
+                                                                href="{{ route('shopcategory.edit', $shopcategory->P_Cat_Id) }}">Edit</a>
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>

@@ -77,19 +77,6 @@
                                         <div class="row">
                                             <div class="col-lg-2 col-md-4 col-sm-6">
                                                 <div class="form-row">
-                                                    <label class="col-form-label">Send Email Reminder</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6">
-                                                <input class="form-control" type="number" value="1" min="1" id="example-text-input">
-                                            </div>
-                                            <div class="col-lg-2 col-md-4 col-sm-6">
-                                                <label class="col-form-label">hours before</label>
-                                            </div>
-                                        </div><br>
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-4 col-sm-6">
-                                                <div class="form-row">
                                                     <label class="col-form-label">Email Reminder Subject</label>
                                                 </div>
                                             </div>
