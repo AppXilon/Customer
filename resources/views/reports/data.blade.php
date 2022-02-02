@@ -1,35 +1,31 @@
 @include('include.header')
 
 <body>
-
+    
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
     <!-- preloader area end -->
-
     <!-- page container area start -->
     <div class="page-container">
-
         <!-- sidebar menu area start -->
-        @include('include.sidebar')
+        @include('include/sidebar')
         <!-- sidebar menu area end -->
-
         <!-- main content area start -->
         <div class="main-content">
-
             <!-- header area start -->
-            @include('include.header_area')
+            @include('include/header_area')
             <!-- header area end -->
-
             <!-- page title area start -->
             <div class="page-title-area">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Expenses</h4>
+                            <h4 class="page-title pull-left"> Report</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="dashboard.html">Home</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Report / </span></li>
                                 <li><span>Expenses</span></li>
                             </ul>
                         </div>
@@ -79,7 +75,7 @@
                                         aria-labelledby="nav-home-tab">
                                         <div class="table-responsive">
                                         <table class="table text-center" >
-                                            <thead class="text-uppercase bg-primary">
+                                            <thead class="text-uppercase bg-light">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Expense Category</th>

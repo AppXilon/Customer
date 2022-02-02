@@ -22,10 +22,11 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left"> Order Report</h4>
+                            <h4 class="page-title pull-left"> Report</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Home</a></li>
-                                <li><span>Order Report</span></li>
+                                <li><span>Report / </span></li>
+                                <li><span>Customer</span></li>
                             </ul>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                                 
                                     <div>
                                         <table class="table text-center">
-                                            <thead class="text-uppercase bg-primary">
+                                            <thead class="text-uppercase bg-light">
                                                 <tr class="text-white">
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Customer Name</th>
