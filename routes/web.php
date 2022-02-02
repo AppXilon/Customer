@@ -160,6 +160,8 @@ Route::get('/searchBooking', 'App\Http\Controllers\OrderController@searchBook');
 
 Route::resource('/catalogues', CatalogueController::class);
 // Route::get('catalogues/create', [CatalogueController::class, 'add']);
+Route::get('/catalogues/showReview/{P_Id}', [CatalogueController::class,'showReview']) ;
+
 
 Route::resource('/product_category', Product_CategoryController::class);
 
@@ -195,6 +197,7 @@ Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
 Route::resource('/promotion', PromotionController::class);
+Route::get('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
 // Route::get('/report', function () {

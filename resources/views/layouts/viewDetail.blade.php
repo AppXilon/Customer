@@ -1,4 +1,49 @@
 @include('include.header')
+<head>
+<style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .heading {
+          font-size: 25px;
+          margin-right: 25px;
+        }
+        
+        .checked {
+          color: orange;
+        }
+        
+        /* Three column layout */
+        .side {
+          float: left;
+          width: 15%;
+          margin-top:10px;
+        }
+        
+        .middle {
+          margin-top:10px;
+          float: left;
+          width: 70%;
+        }
+        
+        /* Place text to the right */
+        .right {
+          text-align: right;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        
+        
+        
+    </style>
+    </head>
 
 <!-- preloader area start -->
 
@@ -79,11 +124,88 @@
                                                         <th class="text-uppercase bg-light" scope="col">Long Description</th>
                                                         <td>{{ $product->L_Description }} </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th class="text-uppercase bg-light" scope="col">Rating</th>
+                                                        <td><?php echo $avgRating?></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th class="text-uppercase bg-light" scope="col"></th>
+                                                        <td><div class="middle">
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div><?php echo $fiveRating?></div>
+                                                    </div></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th class="text-uppercase bg-light" scope="col"></th>
+                                                        <td><div class="middle">
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div><?php echo $fourRating?></div>
+                                                    </div></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th class="text-uppercase bg-light" scope="col"></th>
+                                                        <td><div class="middle">
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div><?php echo $threeRating?></div>
+                                                    </div></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th class="text-uppercase bg-light" scope="col"></th>
+                                                        <td><div class="middle">
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div><?php echo $twoRating?></div>
+                                                    </div></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th class="text-uppercase bg-light" scope="col"></th>
+                                                        <td><div class="middle">
+                                                        <span class="fa fa-star checked" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                        <span class="fa fa-star" style="font-size:27px"></span>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div><?php echo $oneRating?></div>
+                                                    </div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-uppercase bg-light" scope="col">Reviews</th>
+                                                        <td> <a class="btn btn-primary" style=" margin-right: 10px; margin-top: 10px"
+                                            href="/catalogues/showReview/{{$product ->P_Id}}">See reviews here</a></td>
+                                                    </tr>
+                                                    
                                                     {{-- <tr>
                                                         <th class="text-uppercase bg-light" scope="col">Features</th>
                                                         <td>{{ $product->features }} </td>
                                                     </tr> --}}
                                             </table>
+
+                                            
                                             <a class="btn btn-danger" style=" margin-right: 10px; margin-top: 10px"
                                             href="{{ route('catalogues.index') }}">Back</a>
                                         </div>
