@@ -19,7 +19,7 @@ class ManagerSeeder extends Seeder
                 'Manager_Id' => '1',
                 'Shop_Id' => '1',
                 'Name' => 'Abu',
-                'Email' => 'managerAbu@gmail.com',
+                'Email' => 'SalimKasim@gmail.com',
                 'Password' => Hash::make('12345678'),
                 'Phone' => '013-3879380',
                 'isBanned' => '0',
