@@ -73,6 +73,10 @@
                                         <button type="button" class="btn btn-success mb-3" style="text-align: right;">Add Partners</button>
                                     </a>
                                 </div>
+                                <div class="col col-lg-2">
+                                <a href="{{ route('shopcategory.create') }}"><input type="button" value="Add Product"
+                                    class="button1"></a>
+                                </div>
                                 </div>
                                 <div class="data-tables">
                                     <table id="dataTable" class="text-center">
