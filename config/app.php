@@ -180,6 +180,8 @@ return [
         // Service provider product recommendations for module 5
         Amranidev\Laracombee\Providers\LaracombeeServiceProvider::class,
 
+        Yajra\DataTables\DataTablesServiceProvider::class,
+
 
     ],
 
@@ -240,6 +242,8 @@ return [
 
         // Alias for product recommendation for module 5
         'Laracombee' => Amranidev\Laracombee\Facades\LaracombeeFacade::class,
+
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

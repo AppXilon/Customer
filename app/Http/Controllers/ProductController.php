@@ -18,6 +18,7 @@ class ProductController extends Controller
     {
 
 
+
         $booking = DB::table('customer_order')->get();
         $products = DB::table('product')->get();
         $category = DB::table('product_category')->get();
@@ -77,22 +78,18 @@ class ProductController extends Controller
         $review=Review::where('P_Id',$P_Id )->get();
 
         //Product Similarity Controller
-        $products        = json_decode(file_get_contents(storage_path('data/product.json')));
+        $products        = json_decode(file_get_contents(storage_path('data/product-3.json')));
         // $products1 = json_encode($products);
         // dd($products1);
 
-        $selectedId      = intval(app('request')->input('P_Id') ?? '8');
-        $selectedProduct = $products[0];
-
-        $selectedProducts = array_filter($products, function ($product) use ($selectedId) {
-            return $product->id === $selectedId;
-        });
+        $selectedId      = intval(app('request')->input('P_Id') ?? '1');
+        $selectedProduct = $products[$P_Id];
 
     
         $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->P_Id === $selectedId; });
 
         if (count($selectedProducts)) {
-            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
+            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[$P_Id]];
         }
 
         $productSimilarity = new ProductSimilarity($products);
@@ -100,6 +97,7 @@ class ProductController extends Controller
         $products          = $productSimilarity->getProductsSortedBySimularity($selectedId, $similarityMatrix);
 
     
+
         return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products', 'review', 'users'));
 
     }

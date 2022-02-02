@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Order;
-use Redirect, Response;
+
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
+use App\Models\Customer;
 
 
-class ReportTableController extends Controller
+class CustomerTableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class ReportTableController extends Controller
     public function index()
     {
         //
-        $data= Order::all();
-        return view('reports.report', ['Report'=>$data]);
+        $data= Customer::all();
+        return view('reports.customerreport', ['Customer'=>$data]);
     }
 
     /**

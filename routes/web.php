@@ -13,6 +13,7 @@ use App\Http\Controllers\BusinessHourController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CustomerTableController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Product_CategoryController;
@@ -39,8 +40,12 @@ use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+
+use App\Http\Controllers\DataController;
+
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ShopCategoryController;
+
 
 
 /*
@@ -175,6 +180,8 @@ Route::resource('/feedback', FeedbackController::class);
 
 Route::resource('/report', ReportTableController::class);
 Route::resource('/sales', SalesTableController::class);
+Route::resource('/customerreport', CustomerTableController::class);
+
 
 
 Route::get('/custDetails', [CustDetailsController::class, 'analytics']); 
@@ -188,6 +195,14 @@ Route::get('/customerChart', function () {
 Route::get('/order_trends', [OrderTrendsController::class, 'analytics']); 
 
 // Report wani dah ubah route 
+
+Route::get('/data.index', [DataController::class, 'index'])->name('data');
+Route::get('/data.store', [DataController::class, 'store'])->name('data.store');
+Route::get('/data.edit', [DataController::class, 'edit'])->name('data.edit');
+Route::get('/data.update', [DataController::class, 'update'])->name('data.update');
+Route::get('/data.delete', [DataController::class, 'destroy'])->name('data.delete');
+
+
 
 Route::resource('/seatmap', SeatMapController::class);
 Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;

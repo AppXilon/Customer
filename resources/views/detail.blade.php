@@ -137,7 +137,7 @@
                             <div class="row mb-5">
                                 <div class="post-item">
                                     <div class="text-center" style="background-color: #ccc">
-                                        <img class="post-img" src="{{ $product->P_Image }}" alt="Product Image">
+                                        <img class="post-img" src="{{ $product->P_Image}}" alt="Product Image">
                                     </div>
                                     <div class="post-text">
                                         <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)

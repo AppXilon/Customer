@@ -33,8 +33,8 @@
                             </span></a>
                         <ul class="collapse">
                             <li><a href="/report">Sales Report</a></li>
-                            <li><a href="/report">Product Report</a></li>
-                            <li><a href="/report">Payment Report</a></li>
+                            <li><a href="/customerreport">Customer Report</a></li>
+                            <li><a href="/data.index">Product Report</a></li>
                         </ul>
                     </li>
                     {{-- <li><a href="/report"><i class="ti-printer"></i> <span>Report</span></a></li> --}}
