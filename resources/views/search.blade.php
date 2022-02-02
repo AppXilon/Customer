@@ -7,11 +7,11 @@
 <div class="recent-post">
     <div class="post-item">
         @foreach($product as $item)
-        <div class="post-img">
-            <img src="{{$item['P_Image']}}" />
+        <div class="post-img" style="height:250px; width:250px;">
+            <img src="{{asset('images/'. $item->P_Image)}}">
         </div>
         <div class="post-text">
-            <a href="detail/{{$item['id']}}">{{$item['P_Name']}}</a>
+            <p> {{$item['P_Name']}}</p>
     </div>
         @endforeach
     </div>

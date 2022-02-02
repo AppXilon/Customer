@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initioal-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AppXilon</title>
+    <link rel="icon" href="asset/img/logo.png" type="image/icon type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">

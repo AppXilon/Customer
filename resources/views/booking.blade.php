@@ -40,7 +40,7 @@
             <div class="col-lg-5">
                 <div class="booking-form">
                     <form method="GET" action="/catalogue">
-                        
+
                         <div class="control-group">
                             <div class="input-group date" id="date" data-target-input="nearest">
                                 <input type="text" name="bookdate" value="bookdate" id="dropDown" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker" />
@@ -77,17 +77,23 @@
                             <div class="input-group">
                                 <select name="booktable" class="custom-select form-control">
                                     <option>Choose Table No</option>
-                                    @foreach ($table as $tables)
-                                    @if($tables->T_Status == '1')
-                                    <option value="{{$tables->T_Id}}">{{$tables->T_Id}}</option>
-                                    @endif
+                                    @foreach($table as $table)
+                                    <option value="{{$table->T_Id}}">{{$table->T_Id}}</option>
                                     @endforeach
+
                                 </select>
                                 <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
                                 </div>
                             </div>
-                            <div class="{{$tables->T_Id}} box">Max No of people is <strong>{{$tables->T_Pax}}</strong> people only</div>
+                            <div class="1 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="2 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="3 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="4 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="5 box">No of pax is <strong>6</strong> people only</div>
+                            <div class="6 box">No of pax is <strong>4</strong> people only</div>
+                            <div class="7 box">No of pax is <strong>4</strong> people only</div>
+                            <div class="8 box">No of pax is <strong>6</strong> people only</div>
 
                         </div>
 
@@ -102,8 +108,7 @@
 
         </div>
     </div>
-<!-- Booking End -->
-@endsection
+
 </div>
 <!-- Booking End -->
 @endsection

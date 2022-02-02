@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Logs;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
@@ -33,24 +34,34 @@ class PayPalController extends Controller
         $order->O_Payment = 'PayPal';
         $order->Tracking_No = rand(1000, 9999);
         $order->Remarks = 'call me';
+        $order->O_Date = $req->input('odate');
+        $order->O_Time = $req->input('otime');
 
         $total = 0;
         $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
         foreach ($cartitems_total as $prod) {
             $total += $prod->products->P_Price * $prod->Pro_Qty;
-            $otype = $prod->Order_Type;
             $bookdate = $prod->BookDate;
-            $booktime = $prod->BookTime;
             $bookpax = $prod->BookPax;
+            $booktime = $prod->BookTime;
             $booktable = $prod->BookTable;
         }
 
-        $combinedDT = date('Y-m-d H:i:s', strtotime("$bookdate $booktime"));
+        $orType = DB::select(DB::raw("SELECT Order_Type FROM cart LIMIT 1;"));
+        foreach ($orType as $row) {
+            $orderType = "$row->Order_Type";
+        }
 
-        $order->O_Type = $otype;
-        $order->DateTime = $combinedDT;
+        $order->Book_Time = $booktime;
+        $order->Book_Date = $bookdate;
+        $order->O_Type = $orderType;
+        if ($booktable == null) {
+            $order->T_Id = $req->input('TableNo');
+        } else {
+            $order->T_Id = $booktable;
+        }
+
         $order->T_Pax = $bookpax;
-        $order->T_Id = $booktable;
         $order->O_Total_Price = $total;
         $order->save();
 
@@ -74,7 +85,7 @@ class PayPalController extends Controller
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         Cart::destroy($cartitems);
 
-        return view('checkout_complete');
+        return view('checkout_summary');
     }
 
     /**

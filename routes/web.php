@@ -65,6 +65,10 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('checkout_summary', function () {
+    return view('checkout_summary');
+});
+
 Route::get('checkout_complete', function () {
     return view('checkout_complete');
 });
@@ -101,9 +105,7 @@ Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
 
 Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
 
-Route::get('checkout_complete', [CheckoutController:: class, 'checkoutstripe']) ;
-
-Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
+Route::get('checkout_summary', [CheckoutController:: class, 'checkoutstripe']) ;
 
 Route::get('user/{id}', 'UserController@showProfile'); 
 
