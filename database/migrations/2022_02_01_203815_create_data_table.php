@@ -14,10 +14,11 @@ class CreateDataTable extends Migration
     public function up()
     {
         Schema::create('data', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('category');
             $table->string('name');
-            $table->string('phone');
-            $table->text('address');
+            $table->string('amount');
+            $table->date('date');
             $table->timestamps();
         });
     }

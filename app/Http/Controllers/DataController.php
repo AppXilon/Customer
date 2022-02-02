@@ -2,83 +2,102 @@
 
 namespace App\Http\Controllers;
 
-use datatables;
-use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Data;
 
 class DataController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $data = Data::get();
-        if (request()->ajax()) {
-            return dataTables()->of($data)
-                ->addColumn('aksi', function ($data) {
-                    $button = "<button class='edit btn btn-warning btn-sm' id='".$data->id."'>Edit</button>&nbsp;";
-                    $button .= "<button class='delete btn btn-danger btn-sm' id='".$data->id."'>Delete</button>&nbsp;";
-                    return $button;
-                })
-                ->rawColumns(['aksi'])
-                ->make(true);
-        }
-        return view('reports.data');
+        //
+        $data =  DB::table ('data') ->get();
+ 
+
+        return view('reports.data')->with('list', $data);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+        return view('reports.data-add');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $data = Data::create($request->all());
-        // return redirect()->route('data.index')
-        //                 ->with('success','Shop created successfully.');
-        // $save = $data;
-        $data->save();
-       
+        //
+   
+        
+        Data::create($request->all());
+     
+        return redirect()->route('data.index')
+                        ->with('success','Question created successfully.');
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Data $data)
+    {
+        //
+        return view('reports.data-edit', compact ('data'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Data $data)
+    {
+        $data->update($request->all());
         return redirect()->route('data.index');
     }
 
-    public function edit(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Data $data)
     {
-        $id = $request->id;
-        $data = Data::find($id);
-        return response()->json(['data' => $data]);
+        //
+        $data->delete();
+    
+        return redirect()->route('data.index');
     }
-
-    public function update(Request $request)
-    {
-        $id = $request->id;
-        $datas = [
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'address' => $request->address
-        ];
-        $data =  Data::find($id);
-        $success = $data->update($datas);
-        if ($success) {
-            return response()->json([
-                'message' => 'Data Successfully Updated!'
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Data Failled Added'
-            ], 422);
-        }
-    }
-
-    public function destroy(Request $request)
-    {
-        $id = $request->id;
-        $data = Data::find($id);
-        $delete = $data->delete();
-        if ($delete) {
-            return response()->json([
-                'message' => 'Data Successfully Deleted!'
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Data Failled Deleted!'
-            ], 422);
-        }
-    }
-
 }

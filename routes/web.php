@@ -196,11 +196,8 @@ Route::get('/order_trends', [OrderTrendsController::class, 'analytics']);
 
 // Report wani dah ubah route 
 
-Route::get('/data.index', [DataController::class, 'index'])->name('data');
-Route::get('/data.store', [DataController::class, 'store'])->name('data.store');
-Route::get('/data.edit', [DataController::class, 'edit'])->name('data.edit');
-Route::get('/data.update', [DataController::class, 'update'])->name('data.update');
-Route::get('/data.delete', [DataController::class, 'destroy'])->name('data.delete');
+
+
 
 
 
@@ -210,6 +207,9 @@ Route::put('/editSeat/{id}', [SeatMapController::class, 'updateSeat']) ;
 
 
 Route::resource('/promotion', PromotionController::class);
+
+Route::resource('/data', DataController::class);
+
 
 
 // Route::get('/report', function () {
