@@ -236,6 +236,7 @@ class ReviewSeeder extends Seeder
                 'R_Sentiment'=> 'Neutral',
                 'created_at'=> '2022-02-02 05:20:55.000000',
                 'updated_at'=> '2022-02-02 05:20:55.000000',
+
             ]
 
             

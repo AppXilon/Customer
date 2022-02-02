@@ -38,8 +38,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ReportTableController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\DataController;
+
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ShopCategoryController;
 
 
 
@@ -68,9 +73,15 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('checkout_complete', function () {
+    return view('checkout_complete');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('catalogue', [ProductController:: class, 'index']) ;
+Route::get('catalogueBooking', [ProductController:: class, 'catalogueBooking']) ;
+
 
 Route::get('shop_category', [ShopController::class, 'shop']);
 
@@ -97,6 +108,8 @@ Route::get('checkout_shipping', [CheckoutController:: class, 'orderDetails']) ;
 Route::post('orderplace', [CheckoutController:: class, 'orderPlace']) ;
 
 Route::get('orderplace', [CheckoutController:: class, 'summary']) ;
+
+Route::get('checkout_complete', [CheckoutController:: class, 'checkoutstripe']) ;
 
 Route::post('proceed-to-pay', [CheckoutController:: class, 'razorpaycheck']) ;
 
@@ -211,9 +224,8 @@ Route::resource('/promotion', PromotionController::class);
 /******* Admin route start *******/
 /*******************************/
 
-Route::get('/admin', function () {
-    return view('admin-layouts.base');
-});
+Route::get('/admin',[UserController::class,'dash']);
+
 Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
 });
@@ -261,6 +273,7 @@ Route::resource('biz_hour', HourController::class);
 
 Route::resource('/ban_user', BanController::class);
 Route::resource('/shop', ShopAdminController::class);
+Route::resource('/shopcategory', ShopCategoryController::class);
 Route::resource('/term', TermController::class);
 Route::resource('/customer', CustomerController::class);
 Route::resource('/manager', ManagerController::class);
@@ -274,10 +287,6 @@ Route::get('/backup/create', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/download/{file_path}', 'App\Http\Controllers\BackupController@create');
 Route::get('/backup/delete/{file_name}', [BackupController::class,'delete']);
 
-
-
-
-
 Route::get('manager_login', function () {
     return view('auth/manager/login');
 });
@@ -288,4 +297,6 @@ Route::get('admin-login', function () {
 });
 Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 
-
+//password
+Route::get('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'showChangePasswordGet'])->name('changePasswordGet');
+Route::post('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'changePasswordPost'])->name('changePasswordPost');

@@ -31,6 +31,7 @@ class CreateUsers extends Migration
             $table->string('state')->nullable();
             $table->timestamp('Email_Verified_At')->nullable();
             $table->string('reason')->nullable();
+            $table->string('profilepicture')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

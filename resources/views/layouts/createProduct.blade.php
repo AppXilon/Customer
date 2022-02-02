@@ -127,11 +127,6 @@
                                         @endfor
 
 
-             
-
-
-
-
 
 
                                 <label for="validationCustomUsername">Image:</label><br>

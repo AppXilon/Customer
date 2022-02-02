@@ -91,8 +91,7 @@
                                                         </tr>
                                                     </thead>
                                                     @php
-                                                   
-                                                        $New = App\Models\Order::where('O_Status', 1)->get();
+                                                        $New = App\Models\Order::where('O_Status', 1)->whereDate('created_at', Carbon::now())->get();
                                                     @endphp
                                                     @foreach ($New as $new)
                                                     @if($new->O_Type != 'booking')
@@ -176,7 +175,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $preparing->O_Total_Price, 2, '.', '') }}
                                                             </td>
-                                                            <td></td>
+                                                            <td>{{$preparing->Remarks}}</td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $preparing->id }}">
@@ -230,7 +229,7 @@
                                                             <td>RM
                                                                 {{ number_format((float) $completed->O_Total_Price, 2, '.', '') }}
                                                             </td>
-                                                            <td></td>
+                                                            <td>{{$completed->Remarks}}</td>
                                                             <td><button type="button" class="btn btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#editModal{{ $completed->id }}">

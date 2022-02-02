@@ -29,9 +29,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- preloader area start -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
@@ -106,7 +103,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6">
-                                                <input class="form-control" type="text" id="example-text-input" style="height: 200px;">
+                                                <textarea name="w3review" rows="4" cols="50" style="height: 200px;">
+                                                </textarea>
                                             </div>
                                             <div class="col-lg-12 mt-5" style="text-align: center;">
                                                 <button type="button" class="btn btn-primary mb-3">Save</button>
