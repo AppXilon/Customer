@@ -131,18 +131,18 @@
 
                     <div class="sidebar-widget">
                         {{-- MODULE 5 --}}
-                        <h2 class="widget-title">Similar Product</h2>
+                        <h2 class="widget-title">You might like this product</h2>
                         <div class="recent-post">
                             @foreach ($products as $product)
                             <div class="row mb-5">
                                 <div class="post-item">
                                     <div class="text-center" style="background-color: #ccc">
-                                        <img class="post-img" src="{{ $product->P_Image}}" alt="Product Image">
+                                        <img class="post-img" src="{{ $product->image}}" alt="Product Image">
                                     </div>
                                     <div class="post-text">
                                         <p class="card-title">Similarity: {{ round($product->similarity * 100, 1)
                                             }}%</p>
-                                        <p class="card-text text-muted">{{ $product->P_Name }} (RM{{ $product->P_Price
+                                        <p class="card-text text-muted">{{ $product->name }} (RM{{ $product->price
                                             }})</p>
                                     </div>
                                 </div>
@@ -151,11 +151,11 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-widget">
+                    {{-- <div class="sidebar-widget">
                         <div class="image-widget">
                             <a href="#"><img src="asset/img/blog-2.jpg" alt="Image"></a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="sidebar-widget">
                         <h2 class="widget-title">Categories</h2>

@@ -78,18 +78,18 @@ class ProductController extends Controller
         $review=Review::where('P_Id',$P_Id )->get();
 
         //Product Similarity Controller
-        $products        = json_decode(file_get_contents(storage_path('data/product-3.json')));
+        $products        = json_decode(file_get_contents(storage_path('data/products-data.json')));
         // $products1 = json_encode($products);
         // dd($products1);
 
-        $selectedId      = intval(app('request')->input('P_Id') ?? '1');
-        $selectedProduct = $products[$P_Id];
+        $selectedId      = intval(app('request')->input('id') ?? '8');
+        $selectedProduct = $products[0];
 
     
-        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->P_Id === $selectedId; });
+        $selectedProducts = array_filter($products, function ($product) use ($selectedId) { return $product->id === $selectedId; });
 
         if (count($selectedProducts)) {
-            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[$P_Id]];
+            $selectedProduct = $selectedProducts[array_keys($selectedProducts)[0]];
         }
 
         $productSimilarity = new ProductSimilarity($products);
@@ -100,6 +100,7 @@ class ProductController extends Controller
 
         return view('detail', compact('detail', 'selectedId', 'selectedProduct', 'products', 'review', 'users'));
 
+        // dd($similarityMatrix);
     }
     function search(Request $req)
     {
