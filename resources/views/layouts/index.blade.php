@@ -266,7 +266,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h4 class="header-title mb-0">Sales vs Expenses Comparison</h4>
+                                    <h4 class="header-title mb-0">Most Popular Products</h4>
                                     <a class="btn btn-primary mb-3" href="/order_trends" role="button">View Details</a>
                                 </div>
                                 <div class="align-self-center w-100" style="padding:10px">
@@ -317,7 +317,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h4 class="header-title mb-0">Popular Product</h4>
+                                    <h4 class="header-title mb-0">Sales vs Expenses Comparison</h4>
                                     <a class="btn btn-primary mb-3" href="/report" role="button">View Details</a>
                                 </div>
                                 <div class="align-self-center w-100" style="padding:10px">
