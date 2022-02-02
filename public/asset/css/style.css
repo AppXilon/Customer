@@ -3558,7 +3558,7 @@ ol.progtrckr li.progtrckr-todo:before {
     top: 0;
     opacity: 0;
     display: block;
-    color: #1f9cff;
+    color: hsl(44, 89%, 55%);
     transition: 0.5s;
     text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }

@@ -540,7 +540,7 @@
     //<!-- end bar chart from google -->
 
 
-    // <!-- customer by gender -->
+    // <!-- customer by gender female male -->
        
     <script>
         

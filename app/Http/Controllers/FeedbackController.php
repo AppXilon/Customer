@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Review;
+
 
 class FeedbackController extends Controller
 {
@@ -88,8 +90,10 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Review $feedback)
     {
-        //
+        $feedback->delete();
+    
+        return view('layouts.product-review') ->with ('success','Review deleted successfully.');
     }
 }
