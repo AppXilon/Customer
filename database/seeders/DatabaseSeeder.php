@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Database\Seeders\ExpensesSeeder;
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // \App\Models\Data::factory(10)->create();
         $this->call(UsersSeeder::class);
         $this->call(Product_CategorySeeder::class);
         $this->call(ShopCategorySeeder::class);
@@ -28,5 +32,10 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderSeeder::class);
         $this->call(OrderProductSeeder::class);
         $this->call(ReviewSeeder::class);
+        $this->call(ExpensesSeeder::class);
+
+        $seed = new ExpensesSeeder();
+        $seed->run();
+
     }
 }

@@ -48,7 +48,7 @@
                                                 <select  id="category" name= "category" class="form-control" Required>
                                                     <option value="Food">Food</option>
                                                     <option value="Beverage">Beverage</option>
-                                                    <option value="Mechandise">Merchandise</option>
+                                                    <option value="Merchandise">Merchandise</option>
                                                     <option value="Marketing">Marketing</option>
                                                     <option value="Utilities">Utilities</option>
                                                     <option value="Repairs and Maintenance">Repairs & Maintenance</option> 

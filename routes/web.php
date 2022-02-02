@@ -300,3 +300,5 @@ Route::post('admin-login', [AdminController:: class, 'admin_login']) ;
 //password
 Route::get('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'showChangePasswordGet'])->name('changePasswordGet');
 Route::post('/changePassword', [App\Http\Controllers\ChangePasswordController::class, 'changePasswordPost'])->name('changePasswordPost');
+
+Route::get(config('laravel-to-uml.route'), [LaravelToUMLController::class, 'index']);
