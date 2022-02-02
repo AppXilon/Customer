@@ -70,7 +70,7 @@
                         </div>
                     <div class="checkout-button">
                         <a href="/catalogue" class="btn btn-warning">Continue Shopping</a>
-                        <a href="checkout_shipping"><button type="submit" name="notes" value="notes" class="btn btn-warning">Proceed to checkout</button></a>
+                        <a href="checkout_shipping"><button type="submit" name="notes" placeholder="extra requesst" class="btn btn-warning">Proceed to checkout</button></a>
                     </div>
                 </div>
             </form>

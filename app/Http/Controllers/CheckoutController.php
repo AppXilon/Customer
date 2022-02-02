@@ -128,9 +128,9 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         Cart::destroy($cartitems);
 
-        return view('checkout_complete');
+        return view('checkout_summary');
     }
-    public function summary($id)
+    public function summary()
     {
         $summary = Order::where('User_Id', Auth::id())->get();
         return view('orderplace', compact('summary'));
@@ -148,28 +148,46 @@ class CheckoutController extends Controller
                 $order->O_City = $req->input('O_City');
                 $order->O_State = $req->input('O_State');
                 $order->O_Phone = $req->input('O_Phone');
+                $order->O_Notes = $req->input('O_Notes');
                 $order->O_Payment = $req->payment;
                 $order->Tracking_No = rand(1000, 9999);
-                $order->Remarks->input('reject');
-
-                $logs = new Logs;
-                $logs->Cust_Id = Auth::id();
-                $logs->Log_Module = $req->input('Log_Module');
-                $logs->Log_Pay_Type = 1;
-                $logs->Log_Status = $req->input('Log_Status');
-                $logs->created_at = Carbon::now();
-                $logs->updated_at = Carbon::now();
+                $order->Remarks = $req->input('Remarks');
+                $order->O_Date = $req->input('odate');
+                $order->O_Time = $req->input('otime');
 
                 $total = 0;
                 $cartitems_total = Cart::where('Cust_Id', Auth::id())->get();
                 foreach ($cartitems_total as $prod) {
                     $total += $prod->products->P_Price * $prod->Pro_Qty;
+                    $bookdate = $prod->BookDate;
+                    $booktime = $prod->BookTime;
+                    $booktable = $prod->BookTable;
                 }
 
+                $orType = DB::select(DB::raw("SELECT Order_Type FROM cart LIMIT 1;"));
+                foreach ($orType as $row) {
+                    $orderType = "$row->Order_Type";
+                }
+
+                $order->Book_Time = $booktime;
+                $order->Book_Date = $bookdate;
+                $order->O_Type = $orderType;
+                if ($booktable == null) {
+                    $order->T_Id = $req->input('TableNo');
+                } else {
+                    $order->T_Id = $booktable;
+                }
+                
                 $order->O_Total_Price = $total;
-                $logs->Log_Total_Price = $total;
                 $order->save();
-                $logs->save();
+
+                $logs = new Logs;
+                $logs->Cust_Id = Auth::id();
+                $logs->Log_Module = $req->input('Log_Module');
+                $logs->Log_Pay_Type = 0;
+                $logs->Log_Status = $req->input('Log_Status');
+                $logs->created_at = Carbon::now();
+                $logs->updated_at = Carbon::now();
 
                 $cartitems = Cart::where('Cust_Id', Auth::id())->get();
                 foreach ($cartitems as $item) {
@@ -192,6 +210,6 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         Cart::destroy($cartitems);
 
-        return view('checkout_complete');
+        return view('checkout_summary');
     }
 }

@@ -59,7 +59,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
                             Notes: <input type="text" class="form-control notes" value="{{$notes}}" name="O_Notes" placeholder="Enter Notes">
                             <label for="reject">If product not available:</label>
                             <select name="Remarks">
-                                <option value="Call me">Call me</option>
+                                <option value="Call me if product is not available">Call me</option>
                                 <option value="Remove all product">Remove all product</option>
                             </select><br>
                             
@@ -200,10 +200,10 @@ $session = \Stripe\Checkout\Session::create([
         ],
         'unit_amount' => $totalStripe,
       ],
-      'quantity' => $item->Pro_Qty,
+      'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => 'http://127.0.0.1:8000/checkout_complete',
+    'success_url' => 'http://127.0.0.1:8000/checkout_summary',
     'cancel_url' => 'https://example.com/cancel',
   ]);
 
