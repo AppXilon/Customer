@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\Data::factory(10)->create();
         $this->call(UsersSeeder::class);
-        $this->call(AdminSeeder::class);
         $this->call(Product_CategorySeeder::class);
         $this->call(ShopCategorySeeder::class);
         $this->call(ShopInfoSeeder::class);
@@ -34,7 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderProductSeeder::class);
         $this->call(ReviewSeeder::class);
         $this->call(ExpensesSeeder::class);
-        $this->call(ReminderSeeder::class);
 
         $seed = new ExpensesSeeder();
         $seed->run();
