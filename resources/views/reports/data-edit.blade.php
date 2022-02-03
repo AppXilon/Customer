@@ -55,7 +55,7 @@
                                             <label for="example-text-input" class="col-form-label">Promotion
                                                 Description </label>
                                             <textarea class="form-control" name="Promo_Descr" rows="4"
-                                                cols="50" required  placeholder="Promotion Description" >{{ $data->address}}
+                                                cols="50" required  placeholder="Amount" >{{ $data->amount}}
                                             </textarea>
                                         </div>
 

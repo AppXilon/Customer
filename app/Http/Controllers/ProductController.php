@@ -47,6 +47,8 @@ class ProductController extends Controller
         $day =  Carbon::parse($bookdate)->format('l');
         $booktime = $req->booktime;
         $booktable = $req->booktable;
+        $promotion=Promotion::all();
+
 
         $date = array();
         $time = array();
@@ -68,7 +70,7 @@ class ProductController extends Controller
         elseif (in_array($bookdate, $date) && in_array($booktime, $time)  && in_array($booktable, $table)) {
             return redirect()->back()->with('fail', "Table not available. Please select another table or time");
         }
-        return view('catalogue')->with('products', $products)->with('category', $category)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime);
+        return view('catalogue')->with('products', $products)->with('category', $category)->with('promotionBanner', $promotion)->with('cart', $cart)->with('order', $order)->with('bookdate', $bookdate)->with('booktable', $booktable)->with('booktime', $booktime);
     }
 
     function detail($P_Id)
