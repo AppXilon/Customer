@@ -26,7 +26,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang digoreng dengan ikan bilis dan kangkung ',
             'P_Duration'=> '10',
             'P_Image'=> '1641308834-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '2',
@@ -39,6 +40,8 @@ class ProductSeeder extends Seeder
             'P_Duration'=> '10',
             'P_Image'=> '1643096292-.jpg',
             'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
+
         ],
         [
             'P_Id'=> '3',
@@ -50,7 +53,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang digoreng dengan petai dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643096305-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '4',
@@ -62,7 +66,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang digoreng dengan ikan masin dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643096316-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '5',
@@ -74,7 +79,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang dibaluti telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643096327-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '6',
@@ -86,7 +92,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang digoreng dengan cendawan dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643096335-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '7',
@@ -98,7 +105,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi yang digoreng dengan ayam dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643097797-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '8',
@@ -110,7 +118,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Nasi goreng bersama ayam paprik',
             'P_Duration'=> '10',
             'P_Image'=> '1643097818-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '9',
@@ -122,7 +131,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Kentang yang digoreng sempurna',
             'P_Duration'=> '10',
             'P_Image'=> '1641242970-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '10',
@@ -134,7 +144,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Ayam special TAF Bistro',
             'P_Duration'=> '20',
             'P_Image'=> '1643097831-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '11',
@@ -146,7 +157,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Spaghetti bersama sos special bolognese',
             'P_Duration'=> '10',
             'P_Image'=> '1643098024-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '12',
@@ -158,7 +170,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Ayam yang digoreng bersama tepung yang lazat',
             'P_Duration'=> '10',
             'P_Image'=> '1643097902-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '13',
@@ -170,7 +183,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Mee yang digoreng dengan sawi dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643098047-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '14',
@@ -182,7 +196,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Mee bersama kuah',
             'P_Duration'=> '10',
             'P_Image'=> '1643098063-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '15',
@@ -194,7 +209,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Mee bersama sup',
             'P_Duration'=> '10',
             'P_Image'=> '1643098080-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '16',
@@ -206,7 +222,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Bihun yang digoreng dengan sawi dan telur',
             'P_Duration'=> '10',
             'P_Image'=> '1643098155-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '17',
@@ -218,7 +235,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Bihun bersama kuah',
             'P_Duration'=> '10',
             'P_Image'=> '1643098099-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '18',
@@ -230,7 +248,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097547-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '19',
@@ -242,7 +261,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097560-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '20',
@@ -254,7 +274,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097579-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '21',
@@ -266,7 +287,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097593-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '22',
@@ -278,7 +300,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097606-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '23',
@@ -290,7 +313,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643099028-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '24',
@@ -302,7 +326,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097636-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '25',
@@ -314,7 +339,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097651-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '26',
@@ -326,7 +352,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643098808-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '27',
@@ -338,7 +365,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097767-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
         [
             'P_Id'=> '28',
@@ -350,7 +378,8 @@ class ProductSeeder extends Seeder
             'L_Description'=> 'Sedap sedap',
             'P_Duration'=> '10',
             'P_Image'=> '1643097778-.jpg',
-            'P_Status'=> '1',
+                    'P_Status'=> '1',
+            'features' => '[["spicy","1"],["hot","1"],["halal","1"],["vegan","0"],["meat","0"]]'
         ],
     ]);
     }
