@@ -15,7 +15,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Notifications\SendEmailReminder;
 use Illuminate\Support\Facades\Notification;
-
+use App\Models\Reminder;
 
 class CheckoutController extends Controller
 {
@@ -100,21 +100,30 @@ class CheckoutController extends Controller
         $name = $req->input('O_Name');
         $user = User::where('name', $name)->get();
         
-        $orderData =[
-            'body' => 'You Have made an order in AppXilon',
-            'orderText' => 'Total: RM'.$total.' in AppXilon',
-            'url' => url('/'),
-            'thankyou' => 'Thank You For Ordering With AppXilon'
-        ];
-        Notification::send($user, new SendEmailReminder($orderData));
+        $text = Reminder::where('id', 1)->pluck('data');
+        $footer = Reminder::where('id', 1)->pluck('footer');
+        $status = Reminder::where('id', 1)->pluck('status');
 
+        if ($status= 1) {
+
+            $orderData =[
+                'body' => $text,
+                'orderText' => 'Total: RM'.$total.' in AppXilon',
+                'url' => url('/'),
+                'thankyou' => $footer
+            ];
+            Notification::send($user, new SendEmailReminder($orderData));
+        }
+        
         $logs = new Logs;
         $logs->Cust_Id = Auth::id();
         $logs->Log_Module = $req->input('Log_Module');
         $logs->Log_Pay_Type = 0;
+        $logs->Log_Total_Price = $total;
         $logs->Log_Status = $req->input('Log_Status');
         $logs->created_at = Carbon::now();
         $logs->updated_at = Carbon::now();
+        $logs->save();
 
         $cartitems = Cart::where('Cust_Id', Auth::id())->get();
         foreach ($cartitems as $item) {
@@ -185,9 +194,11 @@ class CheckoutController extends Controller
                 $logs->Cust_Id = Auth::id();
                 $logs->Log_Module = $req->input('Log_Module');
                 $logs->Log_Pay_Type = 0;
+                $logs->Log_Total_Price = $total;
                 $logs->Log_Status = $req->input('Log_Status');
                 $logs->created_at = Carbon::now();
                 $logs->updated_at = Carbon::now();
+                $logs->save();
 
                 $cartitems = Cart::where('Cust_Id', Auth::id())->get();
                 foreach ($cartitems as $item) {
