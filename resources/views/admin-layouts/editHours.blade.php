@@ -68,7 +68,7 @@
                                             <div class="col-md-4 mb-3">
                                                 <label>Start Time:</label>
                                                 <input type="time" class="form-control"
-                                                value="{{ $biz_hour->Start_Time }}" name="start_Time" Required>
+                                                value="{{ $biz_hour->Start_Time }}" name="Start_Time" Required>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -80,11 +80,11 @@
                                         </div>
                                         <div class="form-row">
                                                 <label for="example-text-input"
-                                                    class="col-form-label">Day Off:</label><br>
+                                                    class="col-form-label">Status:</label><br>
                                                 <label class="switch">
-                                                    <input type="hidden" value="0" name="Status">
+                                                    <input type="hidden" value="0" name="status">
                                                     <input
-                                                         value="1" type="checkbox" name="Status" checked>
+                                                         value="1" type="checkbox" name="status" checked>
                                                     <span class="slider round"></span>
                                                 </label>
                                         </div>
