@@ -30,7 +30,7 @@ class CreateProduct extends Migration
             $table->integer('P_Quantity')->nullable();
             $table->string('P_Slug')->nullable();
             // Defina a Json column in the migration
-            $table->json('features')->nullable();
+            $table->json('features');
             // $table->tinyInteger('features.fry')->default(false);
             // $table->tinyInteger('features.spicy')->default(false);
             // $table->tinyInteger('features.grill')->default(false);
@@ -66,4 +66,3 @@ class CreateProduct extends Migration
         Schema::dropIfExists('product');
     }
 }
-
