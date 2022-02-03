@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="booking-form">
-                    <form method="GET" action="/catalogue">
+                    <form method="GET" action="/catalogueBooking">
 
                         <div class="control-group">
                             <div class="input-group date" id="date" data-target-input="nearest">
