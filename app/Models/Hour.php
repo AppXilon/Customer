@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Hour extends Model
 {
     public $table = 'business_hour';
-    protected $primaryKey = 'day_id';
+    protected $primaryKey = 'Day_Id';
     protected $fillable = [
-        'day_id', 'day_name', 'start_time', 'end_time', 'day_off'
+        'Day_Id', 'Day_Of_Week', 'Start_Time', 'End_Time', 'Status'
     ];
     public $timestamps = false;
 }
