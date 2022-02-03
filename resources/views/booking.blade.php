@@ -80,15 +80,21 @@
                                     <option>Choose Table No</option>
                                     @foreach($table as $table)
                                     <option value="{{$table->T_Id}}">{{$table->T_Id}}</option>
-                            
-                                         
-                                        @endforeach
+                                    @endforeach
                                     </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
                                     </div>
                                 </div>
-                            </div>                          
+                            </div>   
+                            <div class="1 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="2 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="3 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="4 box">No of pax is <strong>6-7</strong> people only</div>
+                            <div class="5 box">No of pax is <strong>6</strong> people only</div>
+                            <div class="6 box">No of pax is <strong>4</strong> people only</div>
+                            <div class="7 box">No of pax is <strong>4</strong> people only</div>
+                            <div class="8 box">No of pax is <strong>6</strong> people only</div>                       
                             <div>
                                 <input type="hidden" id="otype" name="otype" value="{{ $order }}">
                                 <a href="catalogue"><button type="submit" class="btn custom-btn">Choose Menu</button></a>
@@ -101,29 +107,15 @@
                                         </div>
                                     @endif
 
-                                    @endforeach
 
                                 </select>
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
-                                </div>
                             </div>
-                            <div class="1 box">No of pax is <strong>6-7</strong> people only</div>
-                            <div class="2 box">No of pax is <strong>6-7</strong> people only</div>
-                            <div class="3 box">No of pax is <strong>6-7</strong> people only</div>
-                            <div class="4 box">No of pax is <strong>6-7</strong> people only</div>
-                            <div class="5 box">No of pax is <strong>6</strong> people only</div>
-                            <div class="6 box">No of pax is <strong>4</strong> people only</div>
-                            <div class="7 box">No of pax is <strong>4</strong> people only</div>
-                            <div class="8 box">No of pax is <strong>6</strong> people only</div>
+                            
 
                         </div>
 
 
-                        <div>
-                            <input type="hidden" id="otype" name="otype" value="{{$order}}">
-                            <a href="catalogue"><button type="submit" class="btn custom-btn">Choose Menu</button></a>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

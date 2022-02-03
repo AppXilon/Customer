@@ -16,7 +16,7 @@
                             <div class="col-md-3 mb-3"> 
                                 <a href="view-shop/{{$shop->S_Cat_Slug}}">
                                     <div class="card">
-                                        <img src="asset/img/menu-friedrice-big.png" alt="Shop Image">
+                                        <img src="asset/img/logo.png" alt="Shop Image">
                                         <div class="card-body">
                                             <h5>{{$shop->S_Cat_Slug}}</h5>
                                         </div>
