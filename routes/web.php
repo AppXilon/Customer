@@ -45,7 +45,8 @@ use App\Http\Controllers\DataController;
 
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ShopCategoryController;
-use App\Http\Controllers\ReminderController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -230,11 +231,9 @@ Route::resource('/data', DataController::class);
 
 Route::get('/admin',[UserController::class,'dash']);
 
-/*Route::get('/reminder', function () {
+Route::get('/reminder', function () {
     return view('admin-layouts.reminder');
-});*/
-Route::resource('reminder', ReminderController::class);
-
+});
 Route::get('/res_form', function () {
     return view('admin-layouts.res_form');
 });

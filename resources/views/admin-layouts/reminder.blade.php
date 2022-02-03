@@ -58,7 +58,6 @@
                         <div class="row">
                             <!-- Textual inputs start -->
                             <div class="col-12 mt-5">
-                                @foreach($reminder as $reminder)
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title">Emails</h4>
@@ -69,17 +68,11 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-md-4 col-sm-6">
-                                                    @if ($reminder->status == '1')
-                                                    <label class="switch">
-                                                        <input type="checkbox" checked onclick="return false;">
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                    @else
-                                                    <label class="switch">
-                                                        <input type="checkbox" onclick="return false;">
-                                                        <span class="slider round"></span>
-                                                        @endif
-                                                </div>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                  </label>
+                                            </div>
                                         </div><br>
                                         <div class="row">
                                             <div class="col-lg-2 col-md-4 col-sm-6">
@@ -88,9 +81,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6">
-                                                <textarea name="w3review" rows="4" cols="50" style="height: 200px;" readonly>{{$reminder->subject}}
-                                                </textarea>                                       
-                                            </div>
+                                                <input class="form-control" type="name" value="" id="example-text-input">                                       </div>
                                         </div><br>
                                         <div class="row">
                                             <div class="col-lg-2 col-md-4 col-sm-6">
@@ -99,27 +90,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6">
-                                                <textarea name="w3review" rows="4" cols="50" style="height: 200px;" readonly>{{$reminder->data}}
+                                                <textarea name="w3review" rows="4" cols="50" style="height: 200px;">
                                                 </textarea>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-4 col-sm-6">
-                                                <div class="form-row">
-                                                    <label class="col-form-label">Email Reminder Footer</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                                <textarea name="w3review" rows="4" cols="50" style="height: 200px;" readonly>{{$reminder->footer}}
-                                                </textarea>                                       
-                                            </div><br>
-                                            <div class="col-lg-6 mt-5" style="text-align: center;">
-                                                <a class="btn btn-primary" href="{{ route('reminder.edit', $reminder->id) }}">Edit</a>
+                                            <div class="col-lg-12 mt-5" style="text-align: center;">
+                                                <button type="button" class="btn btn-primary mb-3">Save</button>
                                             </div>
                                         </div><br>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
                         </div>
                     </div>                       
