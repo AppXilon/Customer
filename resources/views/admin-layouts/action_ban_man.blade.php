@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-row">
-                                                <select class="form-control" name="Ban" id="ban">
+                                                <select class="form-control" name="isBanned" id="ban">
                                                     <option value="1">Ban</option>
                                                     <option value="0">Unban</option>
                                                 </select>

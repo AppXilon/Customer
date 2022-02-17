@@ -31,21 +31,6 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'password' => 'required',
-            'gender' => 'required',
-            'birthDate' => 'required',
-            'email' => 'required',
-            'street_1' => 'required',
-            'postcode' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'isBanned' => 'required',
-            'reason' => 'required'
-        ]);
-    
         Customer::create($request->all());
      
         return redirect()->route('customer.index')

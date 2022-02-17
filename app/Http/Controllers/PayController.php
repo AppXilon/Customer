@@ -11,7 +11,7 @@ class PayController extends Controller
     {
         //
         $data = Payment::all();
-        return view('admin-layouts.payment')->with('pay',$data);
+        return view('admin-layouts.payment')->with('payment',$data);
     }
 
     public function edit(Payment $payment)
@@ -39,7 +39,7 @@ class PayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $pay)
+    public function destroy(Payment $payment)
     {
         //
     }

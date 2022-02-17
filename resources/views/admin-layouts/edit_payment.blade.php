@@ -47,10 +47,10 @@
             <div class="main-content-inner">
                 <div class="row">
                     <div class="col-lg-12 col-ml-12">
+                        <form action="{{ route('payment.update', $payment->PM_Id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
                         <div class="row">
-                            <form action="{{ route('payment.update', $payment->PM_Id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
                                 <!-- Textual inputs start -->
                             <div class="col-12 mt-5" >
                                 <div class="card">
@@ -82,8 +82,8 @@
                                 </div>
                             </div>
                             <!-- Textual inputs end -->
-                            </form>                       
                         </div>
+                    </form>                       
                     </div>
                 </div>
             </div>
