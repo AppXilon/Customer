@@ -88,7 +88,7 @@
                                                 <td>{{$customer['name']}}</td>
                                                 <td>Customer</td>
                                                 <td>
-                                                    <a class="fa fa-check fa-2x" href="{{ route('customer.edit', $customer->C_Id) }}"
+                                                    <a class="fa fa-check fa-2x" href="{{ route('customer.edit', $customer->id) }}"
                                                         style = "color:#4CAF50; padding: 3px 8px;"></a>
                                                 </td>
                                                 <td>{{$customer['reason']}}</td>

@@ -10,7 +10,7 @@ class Customer extends Model
     public $table = 'users';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id', 'name', 'phone', 'password', 'gender', 'birthDate', 'email', 'street_1', 'postcode', 'city', 'state', 'ban', 'reason'
+        'id', 'name', 'phone', 'password', 'gender', 'birthDate', 'email', 'street_1', 'postcode', 'city', 'state', 'isBanned', 'reason'
     ];
     public $timestamps = false;
 }

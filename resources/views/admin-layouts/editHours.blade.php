@@ -82,9 +82,9 @@
                                                 <label for="example-text-input"
                                                     class="col-form-label">Status:</label><br>
                                                 <label class="switch">
-                                                    <input type="hidden" value="0" name="status">
+                                                    <input type="hidden" value="0" name="Status">
                                                     <input
-                                                         value="1" type="checkbox" name="status" checked>
+                                                         value="1" type="checkbox" name="Status" checked>
                                                     <span class="slider round"></span>
                                                 </label>
                                         </div>
