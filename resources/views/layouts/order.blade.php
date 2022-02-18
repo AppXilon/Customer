@@ -46,14 +46,14 @@
                     <!-- tab start -->
                     <div class="col-lg-12 mt-5">
                         <div class="card">
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <form action="/searchTracking" method="get">
                                     <div class="input-group">
                                     <input type="search" name="search" placeholder="Search Tracking Number" style="margin-left: 15px; margin-top: 25px;" class="form-control">
                                     <span class="input-group-prepend"><button type="submit" class="btn btn-primary" style=" margin-top: 25px;"><i class="ti-search"></i></button></span>
                                 </div>
                                 </form>
-                            </div>
+                            </div> --}}
                             <div class="card-body">
                             <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
                                 <li class="nav-item">
