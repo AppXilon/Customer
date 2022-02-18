@@ -1,7 +1,7 @@
 <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="/base"><img src="{{URL::asset('admin-assets/images/APPXILON.png')}}" alt="logo"></a>
+                    <a href="/admin"><img src="{{URL::asset('admin-assets/images/APPXILON.png')}}" alt="logo"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -25,7 +25,6 @@
                                 <ul class="collapse">
                                     <li><a href="/captcho"><span>Captcha</span></a></li>
                                     <li><a href="/backup"><span>Backup</span></a></li>
-                                    <li ><a href="/cleanup"><span>Cleanup</span></a></li>
                                 </ul>
                             </li>
                             <li>

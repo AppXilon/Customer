@@ -74,8 +74,8 @@
                                     </a>
                                 </div>
                                 <div class="col col-lg-2">
-                                <a href="{{ route('shopcategory.create') }}"><input type="button" value="Add Product"
-                                    class="button1"></a>
+                                <!--<a href="{{ route('shopcategory.create') }}"><input type="button" value="Add Category"
+                                    class="button1"></a>-->
                                 </div>
                                 </div>
                                 <div class="data-tables">
@@ -86,7 +86,6 @@
                                                 <th>Name</th>
                                                 <th>Industry Category</th>
                                                 <th>Action</th>
-                                                <th>Managed By</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -96,10 +95,9 @@
                                                 <td>{{$shop['S_Name']}}</td>
                                                 <td>{{$shop['S_Category']}}</td>
                                                 <td>
-                                                    <i class="fa fa-edit fa-2x"  style = "color:#4CAF50; padding: 3px 8px;"></i></a>
-                                                    <i class="fa fa-ban fa-2x"  style = "color:#f44336; padding: 3px 8px;"></i></a>
+                                                    <a class="fa fa-ban fa-2x" href="{{ route('shop.edit', $shop->Shop_Id) }}"
+                                                    style = "color:#f44336; padding: 3px 8px;"></a>
                                                 </td>
-                                                <td>Manager</td>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -112,6 +110,7 @@
             </div>
         </div>
         <!-- main content area end -->
+        @include('admin-include.footer')
     </div>
     <!-- page container area end -->
     <!-- offset area start -->

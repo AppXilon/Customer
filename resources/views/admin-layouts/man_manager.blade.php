@@ -78,9 +78,8 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Name</th>
-                                                <th>Restaurant</th>
-                                                <th>Action</th>
                                                 <th>Approved Date:</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -88,12 +87,11 @@
                                             <tr>
                                                 <td>M{{$manager['Manager_id']}}</td>
                                                 <td>{{$manager['Name']}}</td>
-                                                <td>Restoran Taf Bistro</td>
+                                                <td>{{$manager['created_at']}}</td>
                                                 <td>
                                                     <a class="fa fa-ban fa-2x" href="{{ route('manager.edit', $manager->Manager_id) }}"
                                                         style = "color:#f44336; padding: 3px 8px;"></a>
                                                 </td>
-                                                <td>01.01.2020</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -108,11 +106,7 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-            </div>
-        </footer>
+        @include('admin-include.footer')
         <!-- footer area end-->
     </div>
     <!-- page container area end -->

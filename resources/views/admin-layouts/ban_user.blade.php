@@ -100,7 +100,7 @@
                                                 <td>{{$manager['Name']}}</td>
                                                 <td>Manager</td>
                                                 <td>
-                                                    <a class="fa fa-check fa-2x" href="{{ route('manager.edit', $customer->C_Id) }}"
+                                                    <a class="fa fa-check fa-2x" href="{{ route('manager.edit', $manager->Manager_id) }}"
                                                         style = "color:#4CAF50; padding: 3px 8px;"></a>
                                                 </td>
                                                 <td>{{$manager['Reason']}}</td>
@@ -117,6 +117,7 @@
             </div>
         </div>
         <!-- main content area end -->
+        @include('admin-include.footer')
     </div>
     <!-- page container area end -->
     <!-- offset area start -->

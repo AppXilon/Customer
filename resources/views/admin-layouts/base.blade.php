@@ -132,6 +132,7 @@
                 <!-- order list area end -->
             </div>
         </div>
+        @include('admin-include.footer')
         <!-- main content area end -->
     </div>
     <!-- page container area end -->

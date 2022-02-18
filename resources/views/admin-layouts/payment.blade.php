@@ -61,7 +61,7 @@
                         @foreach($payment as $payment)
                         <div class="col-lg-4 col-md-6 mt-5">
                             <div class="card card-bordered">
-                                <img class="card-img-top img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode($payment->Image)) }}" alt="image">
+                                <img class="card-img-top img-fluid" src="{{asset('images/'. $payment->Image)}}" alt="image">
                                 <a href="{{ route('payment.edit', $payment->PM_Id) }}" class="fa fa-edit fa-2x"  style = "color:#4CAF50;  text-align:right;"></a>
                                 <div class="card-body">
                                     <h5 class="title">{{$payment->Name}}
@@ -93,11 +93,7 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-            </div>
-        </footer>
+        @include('admin-include.footer')
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
