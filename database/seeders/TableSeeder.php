@@ -18,13 +18,43 @@ class TableSeeder extends Seeder
             [
             'T_Id' => '1',
             'Shop_Id' => '1',
-            'T_Pax' => '3',
+            'T_Pax' => '6',
             ],
             [
             'T_Id' => '2',
             'Shop_Id' => '1',
-            'T_Pax' => '5',
-            ]
+            'T_Pax' => '6',
+            ],
+            [
+            'T_Id' => '3',
+            'Shop_Id' => '1',
+            'T_Pax' => '6',
+            ],
+            [
+                'T_Id' => '4',
+                'Shop_Id' => '1',
+                'T_Pax' => '6',
+            ],
+            [
+                'T_Id' => '5',
+                'Shop_Id' => '1',
+                'T_Pax' => '6',
+            ],
+            [
+                'T_Id' => '6',
+                'Shop_Id' => '1',
+                'T_Pax' => '4',
+            ],
+            [
+                'T_Id' => '7',
+                'Shop_Id' => '1',
+                'T_Pax' => '4',
+            ],
+            [
+                'T_Id' => '8',
+                'Shop_Id' => '1',
+                'T_Pax' => '6',
+                ]
         ]);
     }
 }
