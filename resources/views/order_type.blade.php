@@ -15,18 +15,23 @@
             <h1><span>Choose Order Type</span></h1>
             @if($shop->Dine_In =='0')
             <div class="row">
+                <div class="service-btn inline-block">
+                    <button type="submit" name="otype" value="dineIn" class="btn custom-btn disabled">Dine In</button>
+                </div>
                 <form method="GET" action="/catalogue">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn disabled">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn -btn">Pickup</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="pickUp"
+                                class="btn custom-btn -btn">Pickup</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="delivery"
+                                class="btn custom-btn">Delivery</button></a>
                     </div>
                 </form>
                 <form method="GET" action="/booking">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button></a>
+                        <a href="booking"><button type="submit" name="otype" value="booking"
+                                class="btn custom-btn">Booking</button></a>
                     </div>
                 </form>
             </div>
@@ -35,32 +40,40 @@
                 <form method="GET" action="/catalogue">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn -btn">Pickup</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="dineIn"
+                                class="btn custom-btn">Dine In</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="pickUp"
+                                class="btn custom-btn -btn">Pickup</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="delivery"
+                                class="btn custom-btn">Delivery</button></a>
                     </div>
                 </form>
-                <form method="GET" action="/booking">
-                    @csrf
-                    <div class="service-btn inline-block">
-                        <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn disabled">Booking</button></a>
-                    </div>
-                </form>
+
+                <div class="service-btn inline-block">
+                    <button type="submit" name="otype" value="booking" class="btn custom-btn disabled">Booking</button>
+                </div>
+
             </div>
             @elseif($shop->Delivery =='0')
             <div class="row">
                 <form method="GET" action="/catalogue">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn -btn">Pickup</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn disabled">Delivery</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="dineIn"
+                                class="btn custom-btn">Dine In</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="pickUp"
+                                class="btn custom-btn -btn">Pickup</button></a>
                     </div>
                 </form>
+                <div class="service-btn inline-block">
+                    <button type="submit" name="otype" value="delivery"
+                        class="btn custom-btn disabled">Delivery</button>
+                </div>
                 <form method="GET" action="/booking">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button></a>
+                        <a href="booking"><button type="submit" name="otype" value="booking"
+                                class="btn custom-btn">Booking</button></a>
                     </div>
                 </form>
             </div>
@@ -69,15 +82,20 @@
                 <form method="GET" action="/catalogue">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn -btn disabled">Pickup</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="dineIn"
+                                class="btn custom-btn">Dine In</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="delivery"
+                                class="btn custom-btn">Delivery</button></a>
                     </div>
                 </form>
+                <div class="service-btn inline-block">
+                    <button type="submit" name="otype" value="pickup" class="btn custom-btn disabled">Pickup</button>
+                </div>
                 <form method="GET" action="/booking">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button></a>
+                        <a href="booking"><button type="submit" name="otype" value="booking"
+                                class="btn custom-btn">Booking</button></a>
                     </div>
                 </form>
             </div>
@@ -86,15 +104,19 @@
                 <form method="GET" action="/catalogue">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="catalogue"><button type="submit" name="otype" value="dineIn" class="btn custom-btn">Dine In</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="pickUp" class="btn custom-btn">Pickup</button></a>
-                        <a href="catalogue"><button type="submit" name="otype" value="delivery" class="btn custom-btn">Delivery</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="dineIn"
+                                class="btn custom-btn">Dine In</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="pickUp"
+                                class="btn custom-btn">Pickup</button></a>
+                        <a href="catalogue"><button type="submit" name="otype" value="delivery"
+                                class="btn custom-btn">Delivery</button></a>
                     </div>
                 </form>
                 <form method="GET" action="/booking">
                     @csrf
                     <div class="service-btn inline-block">
-                        <a href="booking"><button type="submit" name="otype" value="booking" class="btn custom-btn">Booking</button></a>
+                        <a href="booking"><button type="submit" name="otype" value="booking"
+                                class="btn custom-btn">Booking</button></a>
                     </div>
                 </form>
             </div>
