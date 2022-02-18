@@ -144,9 +144,7 @@
             </div>
         </div>
         <!-- main content area end -->
-        <!-- footer area start-->
         @include('admin-include.footer')
-        <!-- footer area end-->
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
