@@ -245,10 +245,7 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-            </div>
+        @include('admin-include.footer')
         </footer>
         <!-- footer area end-->
     </div>

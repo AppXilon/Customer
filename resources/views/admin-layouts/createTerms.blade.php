@@ -94,6 +94,7 @@
         </div>
     </div>
     <!-- main content area end -->
+    @include('admin-include.footer')
 </div>
 <script src="{{asset('admin-assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
 <!-- bootstrap 4 js -->

@@ -80,12 +80,12 @@
                                         <tbody>
                                             @foreach($shop as $shop)
                                             <tr>
-                                                <td>{{$shop['S_Id']}}</td>
+                                                <td>S{{$shop['Shop_Id']}}</td>
                                                 <td>{{$shop['S_Name']}}</td>
                                                 <td>Category</td>
                                                 <td>
-                                                    <i class="fa fa-edit fa-2x"  style = "color:#4CAF50; padding: 3px 8px;"></i>
-                                                    <i class="fa fa-ban fa-2x"  style = "color:#f44336; padding: 3px 8px;"></i>
+                                                    <a class="fa fa-check fa-2x" href="{{ route('shop.edit', $shop->Shop_Id) }}"
+                                                        style = "color:#4CAF50; padding: 3px 8px;"></a>
                                                 </td>
                                                 <td>{{$shop['S_Reason']}}</td>
                                             </tr>
@@ -102,11 +102,8 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-            </div>
-        </footer>
+        @include('admin-include.footer')
+
         <!-- footer area end-->
     </div>
     <!-- page container area end -->

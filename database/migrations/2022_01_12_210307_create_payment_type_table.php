@@ -17,7 +17,7 @@ class CreatePaymentTypeTable extends Migration
             $table->bigIncrements('PM_Id');
             $table->string('Name');
             $table->integer('Status')->default('1');
-            $table->binary('Image')->nullable();
+            $table->string('Image')->nullable();
             $table->timestamps();
         });
     }

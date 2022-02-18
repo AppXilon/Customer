@@ -10,8 +10,8 @@ class ShopAdminController extends Controller
     public function index()
     {
         //
-        $shop = Shop::where('S_Status', 0)->get();
-        return view('admin-layouts.man_rest')->with('shop',$shop);
+        $data = Shop::where('S_Status', 0)->get();
+        return view('admin-layouts.man_rest')->with('shop',$data);
     }
 
     public function indexPend()
@@ -22,8 +22,8 @@ class ShopAdminController extends Controller
     public function indexBan()
     {
         //
-        $shop = Shop::where('S_Status', 1)->get();
-        return view('admin-layouts.ban_rest')->with('shop',$shop);
+        $data = Shop::where('S_Status', 1)->get();
+        return view('admin-layouts.ban_rest')->with('shop',$data);
     }
 
     /**
@@ -77,9 +77,9 @@ class ShopAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Shop $shop)
     {
-        //
+        return view('admin-layouts.action_ban_rest', compact('shop'));
     }
 
     /**
@@ -89,9 +89,11 @@ class ShopAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shop $shop)
     {
         //
+        $shop->update($request->all());
+        return redirect()->route('shop.index');
     }
 
     /**

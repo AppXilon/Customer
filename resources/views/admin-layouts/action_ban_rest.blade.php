@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edit Captcha</title>
+    <title>Ban Customer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{ asset ('admin-assets/images/icon/favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset ('admin-assets/css/bootstrap.min.css')}}">
@@ -24,6 +24,9 @@
 </head>
 <body>
     <div class="page-container">
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
         @include("admin-include.sidebar") <!-- sidebar menu -->
         <!-- main content area start -->
         <div class="main-content">
@@ -36,7 +39,7 @@
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Home</a></li>
-                                <li><span>Edit Captcha</span></li>
+                                <li><span>Ban Partners</span></li>
                             </ul>
                         </div>
                     </div>
@@ -48,47 +51,50 @@
                 <div class="row">
                     <div class="col-lg-12 col-ml-12">
                         <div class="row">
-                            <form action="{{ route('captcha.update', $payment->Pay_Id) }}" method="POST">
+                            <form action="{{ route('shop.update', $shop->Shop_Id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <!-- Textual inputs start -->
-                            <div class="col-lg-6 mt-5" >
+                            <div class="col-12 mt-5" >
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Edit Captcha</h4>
-                                        <div class="col-lg-6 col-md-4 col-sm-6">
+                                        <h4 class="header-title">Banning Partners</h4>
+                                        <div class="col-lg-12 col-md-4 col-sm-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="col-form-label">Name: {{ $capt->Name }}</label>
+                                                <label for="example-text-input" class="col-form-label">Name: {{ $shop->S_Name }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="col-form-label">Category: {{ $shop->S_Category }}</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-sm-6">
                                             <div class="form-row">
-                                                <select class="form-control" name="Status" id="status">
-                                                    <option value="1">Enable</option>
-                                                    <option value="0">Disable</option>
+                                                <select class="form-control" name="S_Status" id="S_Status">
+                                                    <option value="1">Ban</option>
+                                                    <option value="0">Unban</option>
                                                 </select>
                                             </div>
-                                        </div><br>
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-4 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="example-text" class="col-form-label">Type:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-4 col-sm-6">
-                                                <div class="form-row">
-                                                    <select class="form-control" name="Type" id="status">
-                                                        <option value="1">Character</option>
-                                                        <option value="0">Number</option>
-                                                    </select>
-                                                </div>
-                                            </div>                                        
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12 mt-5" style="text-align: center;">
-                                        <a class="btn btn-danger mb-3"
-                                            href="/captcho">Back</a>
-                                        <button type="submit" class="btn btn-primary mb-3" name="save">Save</button>
+                                        <div class="col-lg-12 col-md-4 col-sm-6">
+                                        <div class="row">
+                                        <div class="col-lg-8 col-md-4 col-sm-6">
+                                            <div class="form-row">
+                                                <label class="col-form-label">Reason for Ban:</label>
+                                                <select class="form-control" name="S_Reason" id="S_Reason">
+                                                    <option value="Suspicious Activity">Suspicious Activity</option>
+                                                    <option value="Illegal Transaction">Illegal Transaction</option>
+                                                    <option value="Inappropriate Substances/Profanity">Inappropriate Substances/Profanity</option>
+                                                    <option value="Scamming/Swindling">Scamming/Swindling</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-6 mt-5" style="text-align: right;">
+                                            <button type="submit" class="btn btn-primary mb-3" name="save">Save</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +111,6 @@
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
-    <!-- offset area start -->
-    <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="{{asset('admin-assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
     <!-- bootstrap 4 js -->

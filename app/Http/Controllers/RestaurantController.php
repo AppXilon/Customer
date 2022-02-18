@@ -29,9 +29,9 @@ class RestaurantController extends Controller
         return view('admin-layouts.ban_rest',['shop'=>$data]);
     }
 
-    public function edit(Shop $rest)
+    public function edit(Shop $shop)
     {
-        return view('admin-layouts.action_ban', compact('rest'));
+        return view('admin-layouts.action_ban_rest', compact('shop'));
     }
 
     /**
@@ -41,10 +41,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $rest)
+    public function update(Request $request, Shop $shop)
     {
         //
-        $rest->update($request->all());
+        $shop->update($request->all());
         return redirect()->route('customer.index');
     }
 
@@ -54,7 +54,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shop $rest)
+    public function destroy(Shop $shop)
     {
         //
     }

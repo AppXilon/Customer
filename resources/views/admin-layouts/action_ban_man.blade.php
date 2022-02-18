@@ -55,7 +55,7 @@
                             <div class="col-12 mt-5" >
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Banning Customer</h4>
+                                        <h4 class="header-title">Banning Manager</h4>
                                         <div class="col-lg-12 col-md-4 col-sm-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="col-form-label">Name: {{ $manager->Name }}</label>
@@ -104,11 +104,7 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-            </div>
-        </footer>
+        @include('admin-include.footer')
         <!-- footer area end-->
     </div>
     <!-- page container area end -->

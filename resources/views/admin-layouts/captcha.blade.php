@@ -138,6 +138,7 @@
         </div>
     </div>
     <!-- page container area end -->
+    @include('admin-include.footer')
     <!-- offset area start -->
     <div class="offset-area">
         <div class="offset-close"><i class="ti-close"></i></div>

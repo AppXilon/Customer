@@ -9,10 +9,9 @@ class Shop extends Model
 {
     use HasFactory;
     public $table = 'shop';
-
+    protected $primaryKey = 'Shop_Id';
     protected $fillable = [
-        'Shop_Id', 'S_Category', 'S_Image', 'S_Table' , 'S_Banner' , 'S_Name', 'S_Description', 'Dine_In', 'Booking', 'Delivery', 'Pick_Up'
+        'Shop_Id', 'S_Category', 'S_Image', 'S_Table' , 'S_Banner' , 'S_Name', 'S_Description', 'S_Status', 'S_Reason', 'Dine_In', 'Booking', 'Delivery', 'Pick_Up'
     ];
 
-    protected $primaryKey = 'Shop_Id';
 }

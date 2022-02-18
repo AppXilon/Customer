@@ -97,6 +97,7 @@
             </div>
         </div>
         <!-- main content area end -->
+        @include('admin-include.footer')
     </div>
     <!-- page container area end -->
     <!-- offset area start -->

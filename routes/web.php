@@ -286,6 +286,8 @@ Route::resource('/manager', ManagerController::class);
 Route::resource('/payment', PayController::class);
 
 Route::get('/indexPend', [RestaurantController::class,'indexPend']);
+Route::put('/updateBooking/{id}', [OrderController::class, 'updateBooking']) ;
+
 Route::get('/indexBan', [RestaurantController::class,'indexBan']);
 
 Route::get('/backup', 'App\Http\Controllers\BackupController@index');

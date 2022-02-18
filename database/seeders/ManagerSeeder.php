@@ -16,7 +16,7 @@ class ManagerSeeder extends Seeder
     {
         DB:: table('manager')->insert ([
             [
-                'Manager_Id' => '1',
+                'Manager_id' => '1',
                 'Shop_Id' => '1',
                 'Name' => 'Abu',
                 'Email' => 'SalimKasim@gmail.com',

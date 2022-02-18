@@ -100,6 +100,7 @@
                 </div>
             </div>
         </div>
+        @include('admin-include.footer')
     </div>
     <!-- jquery latest version -->
     <script src="{{asset('admin-assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
