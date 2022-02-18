@@ -47,7 +47,7 @@ class DataController extends Controller
         Data::create($request->all());
      
         return redirect()->route('data.index')
-                        ->with('success','Question created successfully.');
+                        ->with('success','Expenses created successfully.');
     }
 
     /**
