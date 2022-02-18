@@ -68,6 +68,7 @@
     <link rel="stylesheet" href="assets/vendor/vector-map/jqvmap.css">
     <link rel="stylesheet" href="assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/63949ef267.js" crossorigin="anonymous"></script>
 
    
     

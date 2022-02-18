@@ -107,24 +107,31 @@
                                             </div>
                                         </div>
 
+                                        <div>
+                                            <h4 class="header-title">Product Similarity</h4>
+                                        </div>
+
+
                                         {{-- Add Features Attributes FORM --}}
-                                        @for ($i=0; $i <= 4; $i++) <div class="form-row">
+                                        @for ($i=1; $i <= 5; $i++) <div class="form-row">
 
                                             <div class="col-md-4 mb-3">
-                                                <label for="validationCustomUsername">Features</label>
+                                                <label for="validationCustomUsername">Features</label> <?php echo $i ?>
                                                 <input type="text" class="form-control" id="validationCustomUsername"
-                                                    placeholder="Key" aria-describedby="inputGroupPrepend"
-                                                    name="features[{{ $i }}][0]">
+                                                    aria-describedby="inputGroupPrepend" name="features[{{ $i }}][0]"
+                                                    placeholder="Enter key features. E.g: Spicy">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="validationCustomUsername"> Products Attributes</label>
+                                                <label for="validationCustomUsername">Products Attributes</label>
                                                 <input type="text" class="form-control" id="validationCustomUsername"
-                                                    placeholder="Value" aria-describedby="inputGroupPrepend"
-                                                    name="features[{{ $i }}][1]">
+                                                    aria-describedby="inputGroupPrepend" name="features[{{ $i }}][1]"
+                                                    placeholder="Enter value 1 for True, value 0 for False">
                                             </div>
 
-                                        </div>
-                                        @endfor
+
+
+                                </div>
+                                @endfor
 
 
 
