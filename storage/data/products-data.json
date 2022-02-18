@@ -3,14 +3,14 @@
         "name": "Mee Kari",
         "price": "5",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/roti%20jala%20kari.png",
-        "categories": "toddler",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
             "grill": "0",
             "healthy": "0",
             "hot": "1",
-            "Soup": "0",
+            "Soup": "1",
             "noodles": "1",
             "rice": "0",
             "chicken": "0",
@@ -55,7 +55,7 @@
         "name": "Dim Sum",
         "price": "10",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/roti%20jala%20kari.png",
-        "categories": "toddler",
+        "categories": "asian",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -81,7 +81,7 @@
         "name": "Wantan Mee",
         "price": "149",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/roti%20jala%20kari.png",
-        "categories": "men",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -107,7 +107,7 @@
         "name": "Roti Canai",
         "price": "2",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/roti%20canai.png",
-        "categories": "men",
+        "categories": "bread",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -133,7 +133,7 @@
         "name": "Nasi Lemak",
         "price": "3",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/nasi%20lemak.png",
-        "categories": "men",
+        "categories": "rice",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -159,7 +159,7 @@
         "name": "Mee Soto",
         "price": "5",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/mee%20soto.png",
-        "categories": "men",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -185,7 +185,7 @@
         "name": "Mee Bandung",
         "price": "7",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/mee%20bandung.png",
-        "categories": "women",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -211,7 +211,7 @@
         "name": "Laksa",
         "price": "6",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/laksa.png",
-        "categories": "women",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
@@ -235,9 +235,9 @@
     {
         "id": 10,
         "name": "Bihun Goreng",
-        "price": "4",
+        "price": "4.50",
         "image": "https://cdn.jsdelivr.net/gh/syazwanirahimin/AppXilon@five/public/images/img/bihun%20goreng.png",
-        "categories": "women",
+        "categories": "mee",
         "features": {
             "fry": "1",
             "spicy": "1",
