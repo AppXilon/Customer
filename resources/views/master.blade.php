@@ -7,8 +7,8 @@
     <title>AppXilon</title>
     <link rel="icon" href="asset/img/logo.png" type="image/icon type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="AppXilon - Online Dynamic Ordering System" name="keywords">
+    <meta content="AppXilon - Online Dynamic Ordering System" name="description">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
