@@ -106,7 +106,7 @@
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon">Pending</div>
                                             <h2>
-                                                <?php echo $pendingOrder?>
+                                                <?php echo 5?>
                                             </h2>
                                         </div>
                                     </div>
